@@ -1,0 +1,13 @@
+# 296/308 images available
+LICENSE_SKIPPED	Gyeongbokgung	광화문_월대.jpg	KOGL Type 1
+LICENSE_SKIPPED	Turtle ship	Turtle_boat.jpg	GPL
+LICENSE_SKIPPED	Yi Sun-sin	Bust_of_Yi_Sun-sin_01.jpg	KOGL Type 1
+NO_FREE_LEAD_IMAGE	1988 Summer Olympics
+NO_FREE_LEAD_IMAGE	Daisenryō Kofun
+NO_FREE_LEAD_IMAGE	El Castillo, Chichén Itzá
+NO_FREE_LEAD_IMAGE	Himiko
+NO_FREE_LEAD_IMAGE	Jōmon period
+NO_FREE_LEAD_IMAGE	Sejong the Great
+NO_FREE_LEAD_IMAGE	Taika Reform
+NO_FREE_LEAD_IMAGE	Xiongnu
+NO_FREE_LEAD_IMAGE	Yayoi period
