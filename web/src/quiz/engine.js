@@ -9,11 +9,18 @@ const KEYWORDS = {
   iq: ['イラク', 'メソポタミア', 'バグダード', 'バビロ'], tr: ['トルコ', 'オスマン'], eg: ['エジプト'], ml: ['マリ', 'アフリカ'],
   gr: ['ギリシ'], it: ['イタリア', 'ローマ'], fr: ['フランス', 'パリ'], gb: ['イギリス', 'イングランド'], de: ['ドイツ', 'ベルリン'],
   es: ['スペイン'], ru: ['ロシア', 'ソ連'], us: ['アメリカ'], mx: ['メキシコ', 'アステカ', 'マヤ'], pe: ['ペルー', 'インカ'],
+  vn: ['ベトナム', 'ハノイ'], th: ['タイ', 'シャム', 'アユタヤ'], kh: ['カンボジア', 'アンコール'], id: ['インドネシア', 'ジャワ'],
+  sa: ['サウジ', 'アラビア', 'メッカ'], et: ['エチオピア'], za: ['南アフリカ'], zw: ['ジンバブエ'], pt: ['ポルトガル'],
+  nl: ['オランダ'], at: ['オーストリア', 'ウィーン', 'ハプスブルク'], pl: ['ポーランド'], no: ['ノルウェー', 'ヴァイキング', '北欧'],
+  br: ['ブラジル'], ca: ['カナダ', 'ケベック'], au: ['オーストラリア'],
 };
 
 // Countries whose histories overlap closely; never offered as each other's distractor.
 const AMBIG = {
-  cn: ['mn'], mn: ['cn', 'ru'], ru: ['mn'], tr: ['gr'], gr: ['tr'], iq: ['ir'], ir: ['iq'], es: ['mx', 'pe'], mx: ['es'], pe: ['es'],
+  cn: ['mn'], mn: ['cn', 'ru'], ru: ['mn'], tr: ['gr', 'at'], gr: ['tr'], iq: ['ir', 'sa'], ir: ['iq'], es: ['mx', 'pe', 'pt'],
+  mx: ['es'], pe: ['es'], pt: ['es', 'br'], br: ['pt'], nl: ['id'], id: ['nl'], vn: ['kh', 'th'], kh: ['th', 'vn'], th: ['kh'],
+  za: ['zw', 'nl'], zw: ['za', 'gb'], at: ['de'], de: ['at'], sa: ['iq'], ca: ['fr', 'gb', 'us'], au: ['gb'], gb: ['au', 'ca'],
+  fr: ['ca'], us: ['ca'], no: ['gb'],
 };
 
 const nameOf = (c) => c.name.replace(/（.*）/, '');
@@ -29,6 +36,7 @@ function firstSentence(t) {
 
 // ---------- generators ----------
 function yearGap(y) {
+  if (y < -100000) return Math.round(-y * 0.25);
   if (y < -8000) return 3000;
   if (y < -2000) return 500;
   if (y < 0) return 120;

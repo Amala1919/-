@@ -1,6 +1,9 @@
 // Learning progress, XP, badges and settings persisted in localStorage.
 import { EVENTS, EVENT_BY_ID, COUNTRIES, ERAS } from './data/index.js';
 import { todayKey } from './util.js';
+import { MODELS } from './three/models/index.js';
+
+const MODEL_TOTAL = MODELS.length;
 
 const KEY = 'chronoatlas.v1';
 
@@ -164,7 +167,7 @@ export const store = {
     const n = Object.keys(state.models).length;
     if (n >= 1) award('model_1');
     if (n >= 10) award('model_10');
-    if (n >= 28) award('model_all');
+    if (n >= MODEL_TOTAL) award('model_all');
     this.addXP(3);
   },
   viewPerson(id) {

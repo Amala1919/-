@@ -5,12 +5,12 @@
 
 export const EVENT_IMG = {
   jp: {
-    '縄文時代のはじまり': 'Jōmon period',
-    '弥生時代・稲作が広まる': 'Yayoi period',
-    '卑弥呼が魏に使いを送る': 'Himiko',
-    '古墳時代・ヤマト政権': 'Daisenryō Kofun',
+    '縄文時代のはじまり': 'Jōmon pottery',
+    '弥生時代・稲作が広まる': 'Dōtaku',
+    '卑弥呼が魏に使いを送る': 'Yoshinogari site',
+    '古墳時代・ヤマト政権': 'Kofun',
     '聖徳太子の政治': 'Hōryū-ji',
-    '大化の改新': 'Taika Reform',
+    '大化の改新': 'Isshi Incident',
     '平城京に都をうつす': 'Tōdai-ji',
     '平安京に都をうつす': 'Heian-kyō',
     '『源氏物語』が書かれる': 'The Tale of Genji',
@@ -61,10 +61,10 @@ export const EVENT_IMG = {
     '壬辰・丁酉の倭乱': 'Turtle ship',
     '韓国併合': 'Japan–Korea Treaty of 1910',
     '朝鮮戦争': 'Korean War',
-    'ソウルオリンピック': '1988 Summer Olympics',
+    'ソウルオリンピック': 'Seoul Olympic Stadium',
   },
   mn: {
-    '匈奴の冒頓単于': 'Xiongnu',
+    '匈奴の冒頓単于': 'Modu Chanyu',
     'チンギス・ハンの即位': 'Genghis Khan',
     'ヨーロッパ遠征': 'Battle of Legnica',
     '元の成立とパクス・モンゴリカ': 'Pax Mongolica',
@@ -99,7 +99,7 @@ export const EVENT_IMG = {
     'バグダードの建設': 'Round city of Baghdad',
     '知恵の館': 'House of Wisdom',
     'モンゴルによるバグダード破壊': 'Siege of Baghdad (1258)',
-    'イラク王国の独立': 'Kingdom of Iraq',
+    'イラク王国の独立': 'Faisal I of Iraq',
   },
   tr: {
     'ヒッタイトと鉄': 'Hattusa',
@@ -126,7 +126,7 @@ export const EVENT_IMG = {
   },
   ml: {
     'ガーナ王国と金の交易': 'Ghana Empire',
-    'マンサ・ムーサのメッカ巡礼': 'Catalan Atlas',
+    'マンサ・ムーサのメッカ巡礼': 'Mansa Musa',
     'トンブクトゥとジェンネの泥のモスク': 'Great Mosque of Djenné',
     'ソンガイ帝国の滅亡': 'Tomb of Askia',
     '「アフリカの年」とマリの独立': 'Year of Africa',
@@ -134,7 +134,7 @@ export const EVENT_IMG = {
   gr: {
     'クレタ文明とミケーネ文明': 'Knossos',
     '第1回古代オリンピック': 'Olympia, Greece',
-    'アテネの民主政': 'Ostracism',
+    'アテネの民主政': 'Ostracon',
     'ペルシア戦争（マラトンの戦い）': 'Battle of Marathon',
     'パルテノン神殿の完成': 'Parthenon',
     'ソクラテスの死': 'The Death of Socrates',
@@ -285,11 +285,12 @@ export const COUNTRY_IMG = {
 export const MODEL_IMG = {
   pyramid: 'Great Pyramid of Giza', stonehenge: 'Stonehenge', ziggurat: 'Ziggurat of Ur',
   persepolis: 'Persepolis', parthenon: 'Parthenon', greatwall: 'Great Wall of China',
-  colosseum: 'Colosseum', kofun: 'Daisenryō Kofun', hagiasophia: 'Hagia Sophia', pagoda: 'Hōryū-ji',
-  mayapyramid: 'El Castillo, Chichén Itzá', ger: 'Yurt', djenne: 'Great Mosque of Djenné',
+  colosseum: 'Colosseum', kofun: 'Kofun', hagiasophia: 'Hagia Sophia', pagoda: 'Hōryū-ji',
+  mayapyramid: 'Chichen Itza', ger: 'Yurt', djenne: 'Great Mosque of Djenné',
   machupicchu: 'Machu Picchu', caravel: 'Santa María (ship)', stbasil: "Saint Basil's Cathedral",
   turtleship: 'Turtle ship', castle: 'Himeji Castle', tajmahal: 'Taj Mahal', locomotive: "Stephenson's Rocket",
   blackship: 'USS Susquehanna (1850)', eiffel: 'Eiffel Tower', flyer: 'Wright Flyer',
   genbaku: 'Hiroshima Peace Memorial', sputnik: 'Sputnik 1', shinkansen: '0 Series Shinkansen',
-  saturnv: 'Saturn V', berlinwall: 'Berlin Wall',
+  saturnv: 'Saturn V', berlinwall: 'Berlin Wall', angkorwat: 'Angkor Wat', borobudur: 'Borobudur',
+  vikingship: 'Oseberg ship',
 };

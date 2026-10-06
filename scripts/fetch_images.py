@@ -26,9 +26,9 @@ IMG_DIR = os.path.join(ROOT, 'web', 'public', 'img')
 CREDITS = os.path.join(ROOT, 'web', 'src', 'data', 'image-credits.json')
 REPORT = os.path.join(ROOT, 'scripts', 'images-report.txt')
 
-MAIN_BOX = (720, 720)
+MAIN_BOX = (640, 640)
 THUMB_BOX = (240, 240)
-FREE = re.compile(r'public domain|^pd|cc0|cc[- ]?by|gfdl|attribution|no restrictions|copyrighted free use', re.I)
+FREE = re.compile(r'public domain|^pd|cc0|cc[- ]?by|gfdl|gpl|kogl|ogl|attribution|no restrictions|copyrighted free use', re.I)
 
 S = requests.Session()
 S.headers['User-Agent'] = 'ChronoAtlasImageFetcher/1.0 (https://github.com/Amala1919/-; educational history app)'
@@ -118,7 +118,7 @@ def save(img_bytes, key):
         im = im.convert('RGB')
     main = im.copy()
     main.thumbnail(MAIN_BOX, Image.LANCZOS)
-    main.save(os.path.join(IMG_DIR, f'{key}.jpg'), 'JPEG', quality=74, optimize=True, progressive=True)
+    main.save(os.path.join(IMG_DIR, f'{key}.jpg'), 'JPEG', quality=72, optimize=True, progressive=True)
     thumb = im.copy()
     thumb.thumbnail(THUMB_BOX, Image.LANCZOS)
     thumb.save(os.path.join(IMG_DIR, f'{key}_t.jpg'), 'JPEG', quality=70, optimize=True)

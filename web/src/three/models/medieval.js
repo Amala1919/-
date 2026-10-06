@@ -700,3 +700,263 @@ export const caravel = {
     return g;
   },
 };
+
+function lotusTowerPoints(r, h) {
+  // Lotus-bud tower of Angkor: stacked tiers that swell and narrow to a point.
+  const pts = [[0, 0], [r, 0], [r, h * 0.22]];
+  const tiers = 9;
+  for (let i = 0; i < tiers; i++) {
+    const t = i / tiers;
+    const rr = r * (1.02 - Math.pow(t, 1.35) * 0.95) * (i === 0 ? 1.05 : 1);
+    const y = h * (0.22 + t * 0.7);
+    pts.push([rr * 1.06, y], [rr * 0.9, y + (h * 0.7) / tiers * 0.6]);
+  }
+  pts.push([r * 0.06, h * 0.95], [0, h]);
+  return pts;
+}
+
+export const angkorwat = {
+  id: 'angkorwat',
+  name: 'アンコール・ワット',
+  country: 'kh',
+  year: 1150,
+  view: { r: 5.2, cy: 1.4 },
+  sky: ['#f6c58f', '#f4e1c1'],
+  desc: '12世紀前半、アンコール朝のスーリヤヴァルマン2世がヒンドゥー教のヴィシュヌ神のために建てた寺院。中央にそびえる5つの塔は神々の住む須弥山を、周囲の回廊と環濠は山脈と大海を表し、寺院全体で宇宙を表現しています。後に仏教寺院として使われ、今もカンボジアの国旗に描かれる国の象徴です。',
+  facts: [
+    ['建設', '12世紀前半（約30年かけて建設）'],
+    ['規模', '環濠を含め約1.5km × 1.3km'],
+    ['中央塔の高さ', '地上約65m'],
+    ['世界遺産', '1992年「アンコール」'],
+  ],
+  hotspots: [
+    { p: [0, 3.6, 0], t: '中央祠堂', d: '須弥山を表す中央の塔。蓮のつぼみのような形をしています。' },
+    { p: [3.2, 0.6, 0], t: '第一回廊のレリーフ', d: '回廊の壁には、乳海攪拌などヒンドゥー教の神話が全長約760mにわたって彫られています。' },
+    { p: [0, 0.1, 4.6], t: '環濠と参道', d: '周囲の環濠は大海を表します。西側の参道から寺院に入ります。' },
+  ],
+  build() {
+    const g = new THREE.Group();
+    g.add(ground(15, '#8fae6a'));
+    const moat = new THREE.Mesh(new THREE.RingGeometry(4.6, 5.6, 4, 1), mat('#3f7fa6', { flat: false, roughness: 0.3, side: THREE.DoubleSide }));
+    moat.rotation.x = -Math.PI / 2;
+    moat.rotation.z = Math.PI / 4;
+    moat.position.y = 0.02;
+    g.add(moat);
+    g.add(box(0.7, 0.08, 2.4, '#b3a98f', 0, 0.04, 5.0));
+    const stone = '#a69b80';
+    // outer gallery (square ring)
+    const gal = [];
+    for (const s of [-1, 1]) {
+      gal.push({ x: 0, z: s * 3.6, sx: 7.4, sz: 0.5 });
+      gal.push({ x: s * 3.6, z: 0, sx: 0.5, sz: 7.4 });
+    }
+    g.add(instances(new THREE.BoxGeometry(1, 0.55, 1), mat(stone), gal.map((p) => ({ ...p, y: 0.275 }))));
+    g.add(instances(new THREE.BoxGeometry(1, 0.15, 1), mat('#7d735f'), gal.map((p) => ({ ...p, y: 0.62, sx: p.sx + 0.1, sz: p.sz + 0.1 }))));
+    // terraces
+    g.add(rectFrustum(5.0, 5.0, 4.6, 4.6, 0.6, '#b0a68b', 0, 0.3, 0));
+    g.add(rectFrustum(3.6, 3.6, 3.3, 3.3, 0.7, stone, 0, 0.95, 0));
+    g.add(rectFrustum(2.4, 2.4, 2.2, 2.2, 0.8, '#b0a68b', 0, 1.7, 0));
+    // gallery rims on terraces
+    for (const [w, y] of [[4.6, 0.68], [3.3, 1.38]]) {
+      const rim = [];
+      for (const s of [-1, 1]) {
+        rim.push({ x: 0, z: (s * w) / 2, sx: w, sz: 0.25 });
+        rim.push({ x: (s * w) / 2, z: 0, sx: 0.25, sz: w });
+      }
+      g.add(instances(new THREE.BoxGeometry(1, 0.3, 1), mat('#9a8f75'), rim.map((p) => ({ ...p, y }))));
+    }
+    // five lotus towers
+    g.add(lathe(lotusTowerPoints(0.42, 1.9), '#9f9479', 16, 0, 2.1, 0, { flat: true }));
+    for (const [x, z] of [[-0.95, -0.95], [0.95, -0.95], [-0.95, 0.95], [0.95, 0.95]]) {
+      g.add(lathe(lotusTowerPoints(0.3, 1.25), '#a39880', 14, x, 2.1, z, { flat: true }));
+    }
+    // west-facing stairs
+    const st = [];
+    for (let i = 0; i < 8; i++) st.push({ x: 0, y: 1.3 + i * 0.1, z: 1.95 - i * 0.07 });
+    g.add(instances(new THREE.BoxGeometry(0.5, 0.1, 0.12), mat('#b9ae93'), st));
+    const r = rng(41);
+    for (let i = 0; i < 26; i++) {
+      const a = r() * Math.PI * 2;
+      const d = 6.2 + r() * 3;
+      g.add(palm(Math.cos(a) * d, Math.sin(a) * d, 1.2 + r() * 0.6));
+    }
+    return g;
+  },
+};
+
+function bellPoints(r, h) {
+  return [[0, 0], [r * 0.95, 0], [r, h * 0.12], [r * 0.95, h * 0.35], [r * 0.78, h * 0.55], [r * 0.45, h * 0.68], [r * 0.18, h * 0.72], [r * 0.18, h * 0.85], [r * 0.08, h], [0, h]];
+}
+
+export const borobudur = {
+  id: 'borobudur',
+  name: 'ボロブドゥール',
+  country: 'id',
+  year: 825,
+  view: { r: 4.8, cy: 1.3 },
+  sky: ['#9fd0ee', '#eef4ea'],
+  desc: '8世紀後半から9世紀前半にジャワ島のシャイレーンドラ朝が築いた、世界最大級の仏教遺跡。6層の方形壇と3層の円形壇を重ねた巨大な建造物で、全体が仏教の宇宙観（曼荼羅）を表しています。円形壇には釣り鐘形の小塔（ストゥーパ）が72基並び、中にはそれぞれ仏像が納められています。',
+  facts: [
+    ['建設', '8世紀後半〜9世紀前半'],
+    ['基壇', '一辺約120m・高さ約35m'],
+    ['浮き彫り', '約1460面の物語レリーフ'],
+    ['世界遺産', '1991年'],
+  ],
+  hotspots: [
+    { p: [0, 3.2, 0], t: '中央の大ストゥーパ', d: '頂上にある最も大きなストゥーパ。悟りの境地を表しています。' },
+    { p: [1.3, 2.25, 0], t: '72基の小ストゥーパ', d: '格子窓のある釣り鐘形の小塔。中の仏像に手を伸ばして触れると願いがかなうという言い伝えがあります。' },
+    { p: [2.9, 0.8, 0], t: '方形壇の回廊', d: '回廊の壁には、釈迦の生涯や仏教の教えが浮き彫りで表されています。巡礼者は右回りに歩きながら上をめざしました。' },
+  ],
+  build() {
+    const g = new THREE.Group();
+    g.add(ground(15, '#86ab62'));
+    const stone = '#8b8676';
+    let y = 0;
+    const sizes = [6.2, 5.5, 4.9, 4.3, 3.8, 3.3];
+    sizes.forEach((w, i) => {
+      const h = i === 0 ? 0.5 : 0.36;
+      g.add(rectFrustum(w, w, w - 0.12, w - 0.12, h, i % 2 ? '#928c7b' : stone, 0, y + h / 2, 0));
+      // parapet niches
+      const n = Math.round(w * 2.2);
+      const niches = [];
+      for (let k = 0; k < n; k++) {
+        const u = -w / 2 + ((k + 0.5) * w) / n;
+        for (const s of [-1, 1]) {
+          niches.push({ x: u, y: y + h + 0.08, z: (s * (w - 0.12)) / 2 });
+          niches.push({ x: (s * (w - 0.12)) / 2, y: y + h + 0.08, z: u });
+        }
+      }
+      if (i > 0) g.add(instances(new THREE.ConeGeometry(0.07, 0.18, 4), mat('#7f7a6b'), niches));
+      y += h;
+    });
+    // stairs on four sides
+    for (let s = 0; s < 4; s++) {
+      const a = (s * Math.PI) / 2;
+      const st = [];
+      for (let i = 0; i < 16; i++) {
+        const d = 3.1 - i * 0.12;
+        st.push({ x: Math.sin(a) * d, y: i * (y / 16) + 0.05, z: Math.cos(a) * d, ry: a });
+      }
+      g.add(instances(new THREE.BoxGeometry(0.4, y / 16, 0.14), mat('#a19b89'), st));
+    }
+    // circular terraces with bell stupas
+    const rings = [[1.45, 32], [1.08, 24], [0.72, 16]];
+    const bell = new THREE.LatheGeometry(bellPoints(0.13, 0.36).map(([a, b]) => new THREE.Vector2(a, b)), 12);
+    rings.forEach(([rad, n], i) => {
+      const ry = y + i * 0.22;
+      g.add(cyl(rad + 0.2, rad + 0.25, 0.22, 36, i % 2 ? '#928c7b' : stone, 0, ry + 0.11, 0));
+      const tf = [];
+      for (let k = 0; k < n; k++) {
+        const a = (k / n) * Math.PI * 2;
+        tf.push({ x: Math.cos(a) * rad, y: ry + 0.22, z: Math.sin(a) * rad });
+      }
+      g.add(instances(bell, mat('#8f8a7a', { flat: false }), tf));
+    });
+    const top = y + 0.66;
+    g.add(lathe(bellPoints(0.45, 1.1), '#8a8575', 24, 0, top, 0));
+    const r = rng(52);
+    for (let i = 0; i < 20; i++) {
+      const a = r() * Math.PI * 2;
+      const d = 5.2 + r() * 3.5;
+      g.add(r() < 0.5 ? palm(Math.cos(a) * d, Math.sin(a) * d, 1.3 + r() * 0.5) : tree(Math.cos(a) * d, Math.sin(a) * d, 1 + r() * 0.5, '#3f7f3f'));
+    }
+    g.add(cone(5, 3.2, 8, '#5f7d57', -6, 1.5, -9));
+    g.add(cone(4, 4.2, 8, '#6d8a62', 3, 2.0, -10));
+    return g;
+  },
+};
+
+function stripedSail() {
+  return canvasTexture(128, 128, (c, w, h) => {
+    for (let i = 0; i < 8; i++) {
+      c.fillStyle = i % 2 ? '#f3e9d2' : '#b71c1c';
+      c.fillRect((i * w) / 8, 0, w / 8 + 1, h);
+    }
+  });
+}
+
+export const vikingship = {
+  id: 'vikingship',
+  name: 'ヴァイキング船',
+  country: 'no',
+  year: 820,
+  view: { r: 3.6, cy: 1.0 },
+  sky: ['#9bb8cf', '#e3ebef'],
+  desc: 'ヴァイキングが使った細長い木造船（ロングシップ）。船底が浅いため、外洋を渡るだけでなく川をさかのぼって内陸にも入ることができました。帆と櫂の両方で進み、船首と船尾は高く反り上がっています。ノルウェーのオスロには、9世紀の王族の墓から見つかったオーセベリ船などが保存されています。',
+  facts: [
+    ['時代', '8世紀末〜11世紀'],
+    ['オーセベリ船', '全長約21.5m・820年ごろ建造'],
+    ['推進', '一枚の四角い帆と、両舷の櫂'],
+    ['特徴', '鎧張り（板を少しずつ重ねて張る）の船体'],
+  ],
+  hotspots: [
+    { p: [2.9, 1.5, 0], t: '竜頭の船首', d: '高く反り上がった船首には、竜や蛇の頭の飾りが付けられることもありました。' },
+    { p: [0, 2.6, 0], t: '四角い帆', d: '羊毛で織った大きな帆。風がないときは、両舷の櫂でこいで進みました。' },
+    { p: [0.8, 0.75, 0.62], t: '盾', d: '船べりに並べられた丸い盾。航海中は船内に置き、港に入るときなどに並べたと考えられています。' },
+  ],
+  build(ctx) {
+    const g = new THREE.Group();
+    g.add(water(16, '#3d6f8a', 0));
+    const ship = new THREE.Group();
+    const hull = new THREE.Mesh(new THREE.SphereGeometry(1, 28, 10, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), mat('#7b5a3a'));
+    hull.scale.set(2.8, 0.55, 0.62);
+    hull.position.y = 0.5;
+    ship.add(hull);
+    // planking lines
+    for (let i = 1; i <= 3; i++) {
+      const plank = new THREE.Mesh(new THREE.TorusGeometry(1, 0.015, 4, 40), mat('#5d4330'));
+      plank.rotation.x = Math.PI / 2;
+      const k = Math.cos((i / 4) * (Math.PI / 2));
+      plank.scale.set(2.8 * k, 0.62 * k, 1);
+      plank.position.y = 0.5 - 0.55 * Math.sin((i / 4) * (Math.PI / 2));
+      ship.add(plank);
+    }
+    ship.add(box(5.2, 0.05, 1.05, '#8d6e4f', 0, 0.48, 0));
+    // curled prow and stern posts
+    for (const s of [-1, 1]) {
+      const post = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.06, 6, 16, Math.PI * 1.2), mat('#6d4c33'));
+      post.position.set(s * 2.55, 0.92, 0);
+      post.rotation.y = s > 0 ? 0 : Math.PI;
+      post.rotation.z = s > 0 ? -0.3 : -0.3;
+      ship.add(post);
+    }
+    const head = new THREE.Group();
+    head.add(box(0.22, 0.14, 0.1, '#5d4330', 0, 0, 0));
+    head.add(box(0.14, 0.05, 0.08, '#c62828', 0.14, -0.03, 0));
+    head.add(sphere(0.025, '#ffeb3b', 0.04, 0.05, 0.05));
+    head.position.set(2.62, 1.38, 0);
+    ship.add(head);
+    // shields
+    const colors = ['#f9a825', '#212121', '#c62828', '#f5f5f5'];
+    for (let i = 0; i < 14; i++) {
+      for (const s of [-1, 1]) {
+        const sh = new THREE.Mesh(new THREE.CircleGeometry(0.13, 16), mat(colors[(i + (s > 0 ? 0 : 1)) % colors.length], { side: THREE.DoubleSide }));
+        sh.position.set(-1.9 + i * 0.29, 0.6, s * 0.6);
+        sh.rotation.y = s > 0 ? 0 : Math.PI;
+        ship.add(sh);
+      }
+    }
+    // oars
+    const oars = [];
+    for (let i = 0; i < 12; i++) for (const s of [-1, 1]) oars.push({ x: -1.6 + i * 0.29, y: 0.3, z: s * 0.95, rx: s * 1.0 });
+    const oarMesh = instances(new THREE.BoxGeometry(0.03, 0.03, 1.0), mat('#8d6e4f'), oars);
+    ship.add(oarMesh);
+    // mast and sail
+    ship.add(cyl(0.05, 0.06, 2.6, 8, '#5d4330', 0, 1.8, 0));
+    const yard = cyl(0.03, 0.03, 1.9, 6, '#5d4330', 0, 2.75, 0);
+    yard.rotation.x = Math.PI / 2;
+    ship.add(yard);
+    const sail = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 1.5, 12, 1, true, -0.42, 0.84), mat('#ffffff', { map: stripedSail(), side: THREE.DoubleSide, flat: false }));
+    sail.position.set(-2.05, 2.0, 0);
+    sail.rotation.y = Math.PI / 2;
+    ship.add(sail);
+    g.add(ship);
+    ctx.update = (t) => {
+      ship.position.y = Math.sin(t * 1.2) * 0.05;
+      ship.rotation.z = Math.sin(t * 0.9) * 0.035;
+      ship.rotation.x = Math.sin(t * 0.7) * 0.03;
+      oarMesh.rotation.x = Math.sin(t * 1.8) * 0.15;
+    };
+    return g;
+  },
+};

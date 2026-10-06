@@ -21,17 +21,38 @@ import ru from './countries/ru.js';
 import us from './countries/us.js';
 import mx from './countries/mx.js';
 import pe from './countries/pe.js';
+import vn from './countries/vn.js';
+import th from './countries/th.js';
+import kh from './countries/kh.js';
+import idn from './countries/id.js';
+import sa from './countries/sa.js';
+import et from './countries/et.js';
+import za from './countries/za.js';
+import zw from './countries/zw.js';
+import pt from './countries/pt.js';
+import nl from './countries/nl.js';
+import at from './countries/at.js';
+import pl from './countries/pl.js';
+import no from './countries/no.js';
+import br from './countries/br.js';
+import ca from './countries/ca.js';
+import au from './countries/au.js';
 
 export { ERAS, ERA_BY_ID, eraOfYear, PEOPLE, PERSON_BY_ID };
 
-export const COUNTRIES = [jp, cn, kr, mn, inn, ir, iq, tr, eg, ml, gr, it, fr, gb, de, es, ru, us, mx, pe];
+export const COUNTRIES = [
+  jp, cn, kr, mn, inn, vn, th, kh, idn,
+  ir, iq, tr, sa, eg, et, ml, za, zw,
+  gr, it, fr, gb, de, es, pt, nl, at, pl, no, ru,
+  us, ca, mx, br, pe, au,
+];
 export const COUNTRY_BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]));
 
 export const REGIONS = [
-  { id: 'asia', name: 'アジア', countries: ['jp', 'cn', 'kr', 'mn', 'in'] },
-  { id: 'west', name: '西アジア・アフリカ', countries: ['ir', 'iq', 'tr', 'eg', 'ml'] },
-  { id: 'europe', name: 'ヨーロッパ', countries: ['gr', 'it', 'fr', 'gb', 'de', 'es', 'ru'] },
-  { id: 'america', name: 'アメリカ大陸', countries: ['us', 'mx', 'pe'] },
+  { id: 'asia', name: 'アジア', countries: ['jp', 'cn', 'kr', 'mn', 'in', 'vn', 'th', 'kh', 'id'] },
+  { id: 'west', name: '西アジア・アフリカ', countries: ['ir', 'iq', 'tr', 'sa', 'eg', 'et', 'ml', 'za', 'zw'] },
+  { id: 'europe', name: 'ヨーロッパ', countries: ['gr', 'it', 'fr', 'gb', 'de', 'es', 'pt', 'nl', 'at', 'pl', 'no', 'ru'] },
+  { id: 'america', name: 'アメリカ大陸・オセアニア', countries: ['us', 'ca', 'mx', 'br', 'pe', 'au'] },
 ];
 
 // Flatten events with stable ids and derived fields.
