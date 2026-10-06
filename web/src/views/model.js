@@ -63,6 +63,7 @@ export default function model(root, { id }) {
       const va = root.querySelector('#vactions');
       va.innerHTML = viewer.actions.map((a, k) => `<button class="btn-pill solid" data-action="${k}">${a.label}</button>`).join('');
     } catch (e) {
+      console.error('3D model failed', id, e);
       root.querySelector('#viewer').insertAdjacentHTML('beforeend', '<div class="no-gl">3D表示でエラーが発生しました</div>');
     }
   }

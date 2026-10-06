@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {
   box, cyl, cone, sphere, frustum, rectFrustum, gable, extrude, instances, ground, water, rng, mat,
-  canvasTexture, tree, lathe, onionPoints, domePoints, person,
+  canvasTexture, tree, palm, lathe, onionPoints, domePoints, person,
 } from '../kit.js';
 
 export const hagiasophia = {
@@ -720,7 +720,7 @@ export const angkorwat = {
   name: 'アンコール・ワット',
   country: 'kh',
   year: 1150,
-  view: { r: 5.2, cy: 1.4 },
+  view: { r: 6.2, cy: 1.2 },
   sky: ['#f6c58f', '#f4e1c1'],
   desc: '12世紀前半、アンコール朝のスーリヤヴァルマン2世がヒンドゥー教のヴィシュヌ神のために建てた寺院。中央にそびえる5つの塔は神々の住む須弥山を、周囲の回廊と環濠は山脈と大海を表し、寺院全体で宇宙を表現しています。後に仏教寺院として使われ、今もカンボジアの国旗に描かれる国の象徴です。',
   facts: [
@@ -793,7 +793,7 @@ export const borobudur = {
   name: 'ボロブドゥール',
   country: 'id',
   year: 825,
-  view: { r: 4.8, cy: 1.3 },
+  view: { r: 5.6, cy: 1.2 },
   sky: ['#9fd0ee', '#eef4ea'],
   desc: '8世紀後半から9世紀前半にジャワ島のシャイレーンドラ朝が築いた、世界最大級の仏教遺跡。6層の方形壇と3層の円形壇を重ねた巨大な建造物で、全体が仏教の宇宙観（曼荼羅）を表しています。円形壇には釣り鐘形の小塔（ストゥーパ）が72基並び、中にはそれぞれ仏像が納められています。',
   facts: [
