@@ -1,5 +1,6 @@
 import { ERAS, ERA_BY_ID, eraOfYear } from './eras.js';
 import { PEOPLE, PERSON_BY_ID } from './people.js';
+import { EVENT_IMG, PERSON_IMG, COUNTRY_IMG } from './wiki.js';
 import jp from './countries/jp.js';
 import cn from './countries/cn.js';
 import kr from './countries/kr.js';
@@ -42,14 +43,20 @@ for (const c of COUNTRIES) {
     e.country = c.id;
     e.era = eraOfYear(e.year).id;
     e.people = e.people || [];
+    e.img = e.img || EVENT_IMG[c.id]?.[e.title] || null;
     EVENTS.push(e);
   });
 }
 EVENTS.sort((a, b) => a.year - b.year);
 export const EVENT_BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
 
+for (const c of COUNTRIES) c.img = c.img || COUNTRY_IMG[c.id] || null;
+
 // Reverse index: person -> events
-for (const p of PEOPLE) p.events = [];
+for (const p of PEOPLE) {
+  p.events = [];
+  p.img = p.img || PERSON_IMG[p.id] || null;
+}
 for (const e of EVENTS) for (const pid of e.people) PERSON_BY_ID[pid]?.events.push(e.id);
 
 export function eventsInEra(eraId) {
