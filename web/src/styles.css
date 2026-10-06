@@ -40,7 +40,7 @@ svg { display: block; }
 #main { padding-bottom: calc(var(--tabbar) + var(--safe-b) + 16px); }
 body.no-tabbar #main { padding-bottom: 24px; }
 body.no-tabbar .tabbar { transform: translateY(110%); }
-.view { animation: viewIn 0.28s ease both; max-width: 760px; margin: 0 auto; }
+.view { animation: viewIn 0.28s ease backwards; max-width: 760px; margin: 0 auto; }
 @keyframes viewIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 .pad { padding: 14px 16px; }
@@ -438,6 +438,48 @@ body.no-tabbar .tabbar { transform: translateY(110%); }
 .set-row input[type='checkbox'] { width: 22px; height: 22px; accent-color: var(--accent); }
 .set-row select { background: var(--card2); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px; font: inherit; }
 .about { text-align: center; color: var(--muted); font-size: 11.5px; margin: 20px 0; }
+
+/* ---------- Story ---------- */
+.story-cta { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; margin: 12px 0; border-radius: 16px; background: linear-gradient(135deg, rgba(242, 179, 61, 0.3), rgba(232, 68, 90, 0.2)); border: 1px solid rgba(242, 179, 61, 0.5); }
+.story-cta > span:first-child { font-size: 30px; }
+.story-cta small { display: block; color: #f5dca8; font-size: 12px; }
+.story { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--c) 30%, var(--bg)), var(--bg) 70%); background-color: var(--bg); }
+.st-top { padding: calc(env(safe-area-inset-top, 0px) + 10px) 14px 6px; }
+.st-progress { display: flex; gap: 3px; }
+.st-progress i { flex: 1; height: 3px; border-radius: 3px; background: rgba(255, 255, 255, 0.18); transition: background 0.3s; }
+.st-progress i.on { background: var(--accent); }
+.st-head { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 14px; }
+.st-x { width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); text-align: center; }
+.st-stage { flex: 1; overflow-y: auto; padding: 6px 18px 12px; }
+.st-slide { animation: viewIn 0.35s ease both; text-align: center; max-width: 640px; margin: 0 auto; }
+.st-slide h1 { font-size: 26px; margin: 8px 0; }
+.st-slide h2 { font-size: 24px; margin: 4px 0 10px; }
+.st-slide p { font-size: 16px; line-height: 1.95; text-align: left; color: #e6ebf7; }
+.st-shape svg { margin: 10px auto 0; width: 200px; height: 200px; }
+.st-flag { font-size: 44px; margin-top: -20px; }
+.st-banner .era-banner { border-radius: 18px; margin-top: 8px; }
+.st-slide.ev { padding: 14px; border-radius: 22px; background: linear-gradient(180deg, var(--ea), transparent 55%); border: 1px solid var(--line); }
+.st-era { font-size: 12.5px; color: #dfe5f3; }
+.st-emoji { font-size: 96px; line-height: 1.2; margin: 6px 0; animation: float 4s ease-in-out infinite; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4)); }
+.st-year { font-size: 18px; font-weight: 900; color: var(--e); filter: brightness(1.4); }
+.st-detail { user-select: text; -webkit-user-select: text; }
+.st-slide .point-box { text-align: left; }
+.st-slide.outro { padding-top: 30px; }
+.st-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 16px calc(14px + var(--safe-b)); }
+.st-btn { width: 52px; height: 52px; border-radius: 50%; background: var(--card2); font-size: 28px; text-align: center; }
+.st-play { flex: 1; padding: 14px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); font-weight: 800; text-align: center; }
+.st-play.on { background: var(--accent); color: #2a1700; }
+
+/* ---------- Welcome ---------- */
+.welcome { padding: 0 18px 8px; text-align: center; }
+.welcome-emoji { font-size: 52px; animation: float 3s ease-in-out infinite; }
+.welcome h2 { font-size: 22px; margin: 4px 0; }
+.welcome > p { color: var(--muted); font-size: 14px; }
+.welcome-list { display: grid; gap: 8px; margin: 14px 0 6px; text-align: left; }
+.welcome-list div { display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; padding: 10px 12px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.welcome-list span { grid-row: span 2; font-size: 28px; align-self: center; }
+.welcome-list b { font-size: 14.5px; }
+.welcome-list small { color: var(--muted); font-size: 12.5px; line-height: 1.5; }
 
 /* ---------- Search ---------- */
 .search-input { width: 100%; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--card); color: var(--text); font: inherit; font-size: 16px; outline: none; user-select: text; -webkit-user-select: text; }

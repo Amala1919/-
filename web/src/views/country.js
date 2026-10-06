@@ -45,6 +45,7 @@ export default function country(root, { id }) {
   </div>
   <section class="pad">
     <p class="lead">${esc(c.intro)}</p>
+    <button class="story-cta" data-go="/story/country/${id}"><span>📽️</span><span><b>ストーリーで見る</b><small>${c.events.length}枚の紙芝居・自動ナレーション付き</small></span><span class="model-cta-go">›</span></button>
     <button class="btn-pill" data-act="speak">🔊 読み上げ</button>
     <dl class="facts">${c.facts.map((f) => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join('')}</dl>
     <div class="progress-line"><span>学習の進み具合</span><b>${read} / ${c.events.length}</b><div class="bar"><i style="width:${pct * 100}%;background:${c.color}"></i></div></div>

@@ -1,7 +1,7 @@
 import './styles.css';
 import { route, resolve, currentPath, onRoute, go } from './router.js';
 import { store } from './store.js';
-import { toast, confetti, hasSheet, closeSheet, closeAllSheets } from './components/ui.js';
+import { toast, confetti, hasSheet, closeSheet, closeAllSheets, openSheet } from './components/ui.js';
 import { sfx } from './audio.js';
 import { stopSpeaking } from './native.js';
 import { stopActiveStage } from './three/stage.js';
@@ -18,6 +18,7 @@ import quizPlay from './views/quizplay.js';
 import people from './views/people.js';
 import me from './views/me.js';
 import search from './views/search.js';
+import story from './views/story.js';
 
 route('/home', home);
 route('/timeline', timeline);
@@ -32,11 +33,12 @@ route('/quiz/run/:mode/:arg', quizPlay);
 route('/people', people);
 route('/me', me);
 route('/search', search);
+route('/story/:kind/:id', story);
 
 const TABS = [
   { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people'] },
-  { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare'] },
-  { id: 'countries', icon: '🗺️', label: '国', path: '/countries', match: ['/countries', '/country'] },
+  { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare', '/story/era'] },
+  { id: 'countries', icon: '🗺️', label: '国', path: '/countries', match: ['/countries', '/country', '/story/country'] },
   { id: 'museum', icon: '🏛️', label: '3D', path: '/museum', match: ['/museum', '/model'] },
   { id: 'quiz', icon: '❓', label: 'クイズ', path: '/quiz', match: ['/quiz'] },
 ];
@@ -83,7 +85,7 @@ function render() {
   cleanup = typeof ret === 'function' ? ret : null;
   const tab = TABS.find((t) => t.match.some((m) => path === m || path.startsWith(m + '/')));
   tabbar.querySelectorAll('a').forEach((a) => a.classList.toggle('on', tab && a.dataset.tab === tab.id));
-  document.body.classList.toggle('no-tabbar', path.startsWith('/quiz/run'));
+  document.body.classList.toggle('no-tabbar', path.startsWith('/quiz/run') || path.startsWith('/story'));
   window.scrollTo(0, scrollPos.get(path) || 0);
 }
 
@@ -125,4 +127,45 @@ const splash = document.getElementById('splash');
 if (splash) {
   setTimeout(() => splash.classList.add('hide'), 900);
   setTimeout(() => splash.remove(), 1600);
+}
+
+// First-run welcome
+const WELCOME_KEY = 'chronoatlas.welcomed';
+let welcomed = true;
+try {
+  welcomed = !!localStorage.getItem(WELCOME_KEY);
+} catch (e) {
+  /* storage unavailable */
+}
+if (!welcomed) {
+  setTimeout(() => {
+    openSheet(
+      (body, close) => {
+        body.innerHTML = `
+        <div class="welcome">
+          <div class="welcome-emoji">🌍⏳</div>
+          <h2>クロノアトラスへようこそ！</h2>
+          <p>国と時代、ふたつの軸で世界の歴史を旅するアプリです。</p>
+          <div class="welcome-list">
+            <div><span>🌍</span><b>時をかける地球儀</b><small>スライダーで年代を動かすと、その時代に出来事があった国が光ります。国をタップするとその国の歴史へ。</small></div>
+            <div><span>📜</span><b>時代で学ぶ・比較年表</b><small>8つの時代ごとに世界を見渡したり、国をならべて同じ時代を比べたりできます。</small></div>
+            <div><span>📽️</span><b>ストーリーモード</b><small>国や時代の歴史を紙芝居のように。自動ナレーションで聞くこともできます。</small></div>
+            <div><span>🏛️</span><b>3D博物館</b><small>ピラミッドや黒船など28の3Dモデル。指で回して、番号の点をタップすると解説が出ます。</small></div>
+            <div><span>❓</span><b>クイズ</b><small>8種類のモードで確認問題。正解するとXPがたまり、レベルアップやバッジ獲得も！</small></div>
+          </div>
+          <button class="btn-wide accent" data-start>さあ、はじめよう！</button>
+        </div>`;
+        body.querySelector('[data-start]').addEventListener('click', close);
+      },
+      {
+        onClose: () => {
+          try {
+            localStorage.setItem(WELCOME_KEY, '1');
+          } catch (e) {
+            /* ignore */
+          }
+        },
+      },
+    );
+  }, 1300);
 }

@@ -28,22 +28,44 @@ function firstSentence(t) {
 }
 
 // ---------- generators ----------
+function yearGap(y) {
+  if (y < -8000) return 3000;
+  if (y < -2000) return 500;
+  if (y < 0) return 120;
+  if (y < 1000) return 90;
+  if (y < 1700) return 45;
+  if (y < 1900) return 25;
+  return 12;
+}
+
+// Round distractors only as much as the real year is "round", so the answer never stands out.
+function roundYear(y, gap, real) {
+  const unit = [1000, 100, 50, 10, 1].find((u) => u <= gap && real % u === 0) || 1;
+  const r = Math.round(y / unit) * unit;
+  return r === 0 ? 1 : r;
+}
+
 export function genYear(e, rnd = Math.random) {
-  const minGap = Math.max(20, Math.abs(e.year) * 0.06, e.year < -1000 ? 300 : 0);
-  const pool = shuffle([...new Set(EVENTS.map((x) => x.year))], rnd);
+  const gap = yearGap(e.year);
+  const maxYear = 2024;
+  // Put the right answer at a random position and build plausible distractors around it.
+  let below = Math.floor(rnd() * 4);
+  let above = 3 - below;
+  const room = Math.floor((maxYear - e.year) / gap);
+  if (above > room) {
+    below += above - room;
+    above = room;
+  }
   const chosen = [e.year];
-  for (const y of pool) {
-    if (chosen.length >= 4) break;
-    if (chosen.every((c) => Math.abs(c - y) >= minGap) && Math.abs(y - e.year) < Math.max(1200, Math.abs(e.year) * 1.2)) chosen.push(y);
-  }
-  for (const y of pool) {
-    if (chosen.length >= 4) break;
-    if (chosen.every((c) => Math.abs(c - y) >= minGap)) chosen.push(y);
-  }
-  for (let k = 1; chosen.length < 4; k++) {
-    const y = Math.round(e.year + (k % 2 ? 1 : -1) * Math.ceil(k / 2) * minGap * 1.5);
-    if (chosen.every((c) => Math.abs(c - y) >= minGap)) chosen.push(y);
-  }
+  const add = (dir, k) => {
+    for (let tries = 0; tries < 8; tries++) {
+      const y = roundYear(e.year + dir * gap * (k + 0.6 * rnd() + 0.2 * tries), gap, e.year);
+      if (y <= maxYear && chosen.every((c) => Math.abs(c - y) >= gap * 0.7)) return chosen.push(y);
+    }
+  };
+  for (let k = 1; k <= below; k++) add(-1, k);
+  for (let k = 1; k <= above; k++) add(1, k);
+  for (let k = 1; chosen.length < 4 && k < 40; k++) add(k % 2 ? -1 : 1, 4 + k);
   chosen.sort((a, b) => a - b);
   return {
     id: 'y:' + e.id,

@@ -31,6 +31,7 @@ export default function era(root, { id }) {
   </div>
   <section class="pad">
     <p class="lead">${esc(e.overview)}</p>
+    <button class="story-cta" data-go="/story/era/${id}"><span>📽️</span><span><b>ストーリーで見る</b><small>${evs.length}枚の紙芝居・自動ナレーション付き</small></span><span class="model-cta-go">›</span></button>
     <button class="btn-pill" data-act="speak">🔊 読み上げ</button>
     <div class="chips">${e.keywords.map((k) => `<span class="kw">#${esc(k)}</span>`).join('')}</div>
     <h3 class="sub">🗺️ この時代に登場する国・地域</h3>

@@ -19,9 +19,16 @@ fi
 
 rm -rf "$OUT" && mkdir -p "$OUT/gen" "$OUT/classes"
 
+# Keep these in sync with android/app/build.gradle.kts
+PACKAGE="com.chronoatlas.app"
+VERSION_CODE="$(grep -oP 'versionCode = \K[0-9]+' "$ROOT/android/app/build.gradle.kts")"
+VERSION_NAME="$(grep -oP 'versionName = "\K[^"]+' "$ROOT/android/app/build.gradle.kts")"
+sed -e "s|<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\">|<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" package=\"$PACKAGE\" android:versionCode=\"$VERSION_CODE\" android:versionName=\"$VERSION_NAME\">\n    <uses-sdk android:minSdkVersion=\"24\" android:targetSdkVersion=\"34\" />|" \
+  "$APP/AndroidManifest.xml" > "$OUT/AndroidManifest.xml"
+
 echo "== Packaging resources"
 aapt package -f -m \
-  -M "$APP/AndroidManifest.xml" \
+  -M "$OUT/AndroidManifest.xml" \
   -S "$APP/res" \
   -A "$APP/assets" \
   -I "$ANDROID_JAR" \
