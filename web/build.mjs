@@ -22,6 +22,7 @@ const options = {
   outdir: out,
   loader: { '.json': 'json' },
   legalComments: 'none',
+  charset: 'utf8',
   logLevel: 'info',
 };
 
