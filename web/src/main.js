@@ -5,6 +5,10 @@ import { toast, confetti, hasSheet, closeSheet, closeAllSheets, openSheet } from
 import { sfx } from './audio.js';
 import { stopSpeaking } from './native.js';
 import { stopActiveStage } from './three/stage.js';
+import { openLightbox } from './images.js';
+import { MODELS } from './three/models/index.js';
+import { MODES } from './quiz/engine.js';
+import { COUNTRIES, EVENTS } from './data/index.js';
 import home from './views/home.js';
 import timeline from './views/timeline.js';
 import era from './views/era.js';
@@ -92,7 +96,16 @@ function render() {
 window.addEventListener('scroll', () => scrollPos.set(currentPath(), window.scrollY), { passive: true });
 
 // Android back button
+document.addEventListener('click', (e) => {
+  const ph = e.target.closest('[data-photo]');
+  if (ph) openLightbox(ph.dataset.photo, ph.dataset.caption || '');
+});
+
 window.__onBack = () => {
+  if (window.__lightboxClose) {
+    window.__lightboxClose();
+    return true;
+  }
   if (hasSheet()) {
     closeSheet();
     return true;
@@ -145,13 +158,13 @@ if (!welcomed) {
         <div class="welcome">
           <div class="welcome-emoji">🌍⏳</div>
           <h2>クロノアトラスへようこそ！</h2>
-          <p>国と時代、ふたつの軸で世界の歴史を旅するアプリです。</p>
+          <p>国と時代、ふたつの軸で世界の歴史を旅するアプリです。${COUNTRIES.length}の国と地域、${EVENTS.length}の出来事を、本物の写真や絵とともに学べます。</p>
           <div class="welcome-list">
             <div><span>🌍</span><b>時をかける地球儀</b><small>スライダーで年代を動かすと、その時代に出来事があった国が光ります。国をタップするとその国の歴史へ。</small></div>
             <div><span>📜</span><b>時代で学ぶ・比較年表</b><small>8つの時代ごとに世界を見渡したり、国をならべて同じ時代を比べたりできます。</small></div>
             <div><span>📽️</span><b>ストーリーモード</b><small>国や時代の歴史を紙芝居のように。自動ナレーションで聞くこともできます。</small></div>
-            <div><span>🏛️</span><b>3D博物館</b><small>ピラミッドや黒船など28の3Dモデル。指で回して、番号の点をタップすると解説が出ます。</small></div>
-            <div><span>❓</span><b>クイズ</b><small>8種類のモードで確認問題。正解するとXPがたまり、レベルアップやバッジ獲得も！</small></div>
+            <div><span>🏛️</span><b>3D博物館</b><small>ピラミッドや黒船など${MODELS.length}の3Dモデル。指で回して、番号の点をタップすると解説が出ます。</small></div>
+            <div><span>❓</span><b>クイズ</b><small>${Object.keys(MODES).length}種類のモードで確認問題（写真クイズも）。正解するとXPがたまり、レベルアップやバッジ獲得も！</small></div>
           </div>
           <button class="btn-wide accent" data-start>さあ、はじめよう！</button>
         </div>`;

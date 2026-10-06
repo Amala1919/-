@@ -1,6 +1,7 @@
 import { esc, shortYear, formatYear, alpha } from '../util.js';
 import { COUNTRY_BY_ID, ERA_BY_ID } from '../data/index.js';
 import { store } from '../store.js';
+import { image } from '../images.js';
 
 // ---------- Toasts ----------
 let toastWrap = null;
@@ -133,7 +134,10 @@ export function eventCard(e, { showCountry = true, compact = false } = {}) {
   const c = COUNTRY_BY_ID[e.country];
   const read = store.isRead(e.id);
   return `<button class="event-card ${compact ? 'compact' : ''} ${read ? 'read' : ''}" data-event="${e.id}" style="--era:${era.color};--era-a:${alpha(era.color, 0.16)}">
-    <span class="ec-emoji">${e.emoji}</span>
+    ${(() => {
+      const img = image(e.img);
+      return img ? `<span class="ec-emoji ec-photo" style="background-image:url('${img.thumb}')"><i>${e.emoji}</i></span>` : `<span class="ec-emoji">${e.emoji}</span>`;
+    })()}
     <span class="ec-main">
       <span class="ec-meta">${showCountry ? `<span class="ec-flag">${c.flag}</span>` : ''}<span class="ec-year">${shortYear(e.year)}${e.approx ? '頃' : ''}</span>${e.model ? '<span class="ec-chip">3D</span>' : ''}</span>
       <span class="ec-title">${esc(e.title)}</span>

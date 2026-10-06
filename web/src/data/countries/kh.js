@@ -102,7 +102,7 @@ export default {
       detail:
         '内戦の終結をめざす1991年のパリ和平協定を受け、国連カンボジア暫定統治機構（UNTAC）が設けられ、1993年に選挙が行われました。日本はこのとき初めて自衛隊を国連平和維持活動（PKO）に派遣し、道路や橋の修理などを行いました。1992年にはアンコール遺跡が世界遺産に登録され、日本も修復に協力しています。',
       point: 'カンボジアは、日本の自衛隊が初めてPKOに参加した国。',
-      img: 'United Nations Transitional Authority in Cambodia',
+      img: 'Royal Palace, Phnom Penh',
     },
   ],
   quiz: [

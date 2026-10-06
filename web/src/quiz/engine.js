@@ -3,6 +3,7 @@ import { EVENTS, EVENT_BY_ID, COUNTRIES, COUNTRY_BY_ID, ERAS, ERA_BY_ID, PEOPLE,
 import { formatYear, shuffle, sample, pick, esc } from '../util.js';
 import { avatarSVG } from '../components/avatar.js';
 import { worldMapSVG } from '../components/geo.js';
+import { image, creditText } from '../images.js';
 
 const KEYWORDS = {
   jp: ['日本'], cn: ['中国', '中華'], kr: ['韓国', '朝鮮'], mn: ['モンゴル'], in: ['インド'], ir: ['イラン', 'ペルシア'],
@@ -194,6 +195,28 @@ export function genOrder(pool, rnd = Math.random) {
   };
 }
 
+// Photo of an event (or 3D-model landmark): which is it?
+export function genPhoto(e, rnd = Math.random) {
+  const img = image(e.img);
+  const others = shuffle(
+    EVENTS.filter((x) => x.id !== e.id && x.img !== e.img && x.country !== e.country && Math.abs(x.year - e.year) > 30),
+    rnd,
+  ).slice(0, 3);
+  const opts = shuffle([e, ...others], rnd);
+  return {
+    id: 'f:' + e.id,
+    type: 'photo',
+    prompt: 'この写真と関係の深い出来事は？',
+    visual: `<figure class="q-photo"><img src="${img.src}" alt=""><figcaption>📷 ${esc(creditText(img))}・Wikimedia Commons</figcaption></figure>`,
+    choices: opts.map((x) => ({ label: `${COUNTRY_BY_ID[x.country].flag} ${x.title}` })),
+    answer: opts.indexOf(e),
+    explain: `${COUNTRY_BY_ID[e.country].flag} ${formatYear(e.year, e.approx)}「${e.title}」：${firstSentence(e.detail)}`,
+    eventId: e.id,
+  };
+}
+
+const photoEvents = () => EVENTS.filter((e) => image(e.img));
+
 // ---------- rebuild from id (for review) ----------
 export function fromId(id, rnd = Math.random) {
   const [t, a, b] = id.split(':');
@@ -204,6 +227,7 @@ export function fromId(id, rnd = Math.random) {
     if (t === 'p') return genPerson(PERSON_BY_ID[a], rnd);
     if (t === 'm') return genMap(COUNTRY_BY_ID[a], rnd);
     if (t === 'h') return genHand(a, Number(b), rnd);
+    if (t === 'f') return image(EVENT_BY_ID[a].img) ? genPhoto(EVENT_BY_ID[a], rnd) : null;
   } catch (e) {
     return null;
   }
@@ -220,13 +244,17 @@ function mixed(events, n, rnd, { hand = [], people = PEOPLE, map = true, order =
   const nextEvent = () => evs[k++ % evs.length];
   const handPick = shuffle(hand, rnd);
   const plan = [];
-  for (let i = 0; i < n; i++) plan.push(['hand', 'year', 'country', 'hand', 'person', 'year', 'map', 'country', 'era', 'order'][i % 10]);
+  for (let i = 0; i < n; i++) plan.push(['hand', 'year', 'country', 'photo', 'person', 'year', 'map', 'country', 'era', 'order', 'hand', 'photo'][i % 12]);
   for (const kind of shuffle(plan, rnd)) {
     if (kind === 'hand' && handPick.length) {
       const [cid, i] = handPick.pop();
       qs.push(genHand(cid, i, rnd));
     } else if (kind === 'person' && people.length) qs.push(genPerson(pick(people, rnd), rnd));
     else if (kind === 'map' && map) qs.push(genMap(pick(COUNTRIES, rnd), rnd));
+    else if (kind === 'photo' && evs.some((x) => image(x.img))) {
+      const pe = evs.filter((x) => image(x.img));
+      qs.push(genPhoto(pick(pe, rnd), rnd));
+    }
     else if (kind === 'order' && order && events.length >= 6) qs.push(genOrder(events, rnd));
     else if (kind === 'era') {
       const e = evs.find((x) => eraSafe(x)) || nextEvent();
@@ -249,6 +277,7 @@ export const MODES = {
   order: { name: '年代ならべかえ', emoji: '🔢', desc: '出来事を古い順に', color: '#a66cff' },
   person: { name: '人物あてクイズ', emoji: '🧑‍🎓', desc: '似顔絵と説明から当てよう', color: '#ef6c3a' },
   map: { name: '地図クイズ', emoji: '🌍', desc: '光っている国はどこ？', color: '#2bb673' },
+  photo: { name: '写真クイズ', emoji: '📷', desc: '本物の写真や絵から当てよう', color: '#4aa3df' },
   time: { name: 'タイムアタック', emoji: '⚡', desc: '60秒で何問とけるか', color: '#e8445a' },
   review: { name: 'にがて復習', emoji: '🔁', desc: 'まちがえた問題に再挑戦', color: '#8d6e63' },
 };
@@ -274,6 +303,8 @@ export function buildQuiz(mode, arg, wrongIds = []) {
       return sample(PEOPLE, 10, rnd).map((p) => genPerson(p, rnd));
     case 'map':
       return sample(COUNTRIES, 10, rnd).map((c) => genMap(c, rnd));
+    case 'photo':
+      return sample(photoEvents(), 10, rnd).map((e) => genPhoto(e, rnd));
     case 'review':
       return shuffle(wrongIds, rnd)
         .slice(0, 10)

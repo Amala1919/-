@@ -46,8 +46,30 @@ export function creditText(img) {
 export function photoFigure(title, { cls = '', caption = '' } = {}) {
   const img = image(title);
   if (!img) return '';
-  return `<figure class="photo ${cls}">
+  return `<figure class="photo ${cls}" data-photo="${esc(title)}" data-caption="${esc(caption)}">
     <img src="${img.src}" alt="${esc(caption || title)}" loading="lazy" decoding="async" style="aspect-ratio:${img.w}/${img.h}">
     <figcaption>${caption ? `<span class="ph-cap">${esc(caption)}</span>` : ''}<span class="ph-credit">📷 ${esc(creditText(img))}・Wikimedia Commons</span></figcaption>
   </figure>`;
+}
+
+/** Full-screen photo viewer. */
+export function openLightbox(title, caption = '') {
+  const img = image(title);
+  if (!img) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'lightbox';
+  wrap.innerHTML = `<img src="${img.src}" alt="${esc(caption || title)}">
+    <div class="lb-info">${caption ? `<b>${esc(caption)}</b>` : ''}<span>📷 ${esc(creditText(img))}</span><a href="${img.page}">Wikimedia Commons で見る ↗</a></div>
+    <button class="lb-x" aria-label="閉じる">✕</button>`;
+  const close = () => {
+    wrap.classList.remove('open');
+    setTimeout(() => wrap.remove(), 250);
+    window.__lightboxClose = null;
+  };
+  wrap.addEventListener('click', (e) => {
+    if (!e.target.closest('a')) close();
+  });
+  window.__lightboxClose = close;
+  document.body.appendChild(wrap);
+  requestAnimationFrame(() => wrap.classList.add('open'));
 }

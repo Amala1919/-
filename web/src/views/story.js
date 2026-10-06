@@ -7,6 +7,7 @@ import { go } from '../router.js';
 import { esc, formatYear, alpha } from '../util.js';
 import { speak, stopSpeaking, isSpeaking } from '../native.js';
 import { sfx } from '../audio.js';
+import { photoFigure } from '../images.js';
 
 function slidesFor(kind, id) {
   if (kind === 'country') {
@@ -17,7 +18,7 @@ function slidesFor(kind, id) {
       color: c.color,
       quiz: `/quiz/run/country/${id}`,
       slides: [
-        { type: 'intro', html: `<div class="st-shape">${countryShapeSVG(id, { size: 200 })}</div><div class="st-flag">${c.flag}</div><h1>${esc(c.name)}の歴史</h1><p>${esc(c.intro)}</p>`, say: `${c.name}の歴史。${c.intro}` },
+        { type: 'intro', html: `${photoFigure(c.img, { cls: 'st-photo' }) || ''}<div class="st-shape">${countryShapeSVG(id, { size: 200 })}</div><div class="st-flag">${c.flag}</div><h1>${esc(c.name)}の歴史</h1><p>${esc(c.intro)}</p>`, say: `${c.name}の歴史。${c.intro}` },
         ...c.events.map((e) => ({ type: 'event', e })),
       ],
     };
@@ -80,7 +81,7 @@ export default function story(root, { kind, id }) {
       store.markRead(e.id);
       html = `<div class="st-slide ev" style="--e:${era.color};--ea:${alpha(era.color, 0.35)}">
         <div class="st-era">${era.emoji} ${era.name}　${kind === 'era' ? `${c.flag} ${esc(c.name)}` : ''}</div>
-        <div class="st-emoji">${e.emoji}</div>
+        ${photoFigure(e.img, { cls: 'st-photo' }) || `<div class="st-emoji">${e.emoji}</div>`}
         <div class="st-year">${formatYear(e.year, e.approx)}</div>
         <h2>${esc(e.title)}</h2>
         <p class="st-detail">${esc(e.detail)}</p>

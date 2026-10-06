@@ -4,6 +4,7 @@ import { progressRing } from '../components/ui.js';
 import { store } from '../store.js';
 import { go } from '../router.js';
 import { esc, shortYear } from '../util.js';
+import { image } from '../images.js';
 
 const shapeCache = new Map();
 function shape(id) {
@@ -25,7 +26,8 @@ export default function countries(root) {
           const c = COUNTRY_BY_ID[id];
           const n = c.events.length;
           const read = store.readCount(id);
-          return `<button class="country-card" data-go="/country/${id}" style="--c:${c.color}">
+          const ph = image(c.img);
+          return `<button class="country-card ${ph ? 'has-photo' : ''}" data-go="/country/${id}" style="--c:${c.color}${ph ? `;--ph:url('${ph.thumb}')` : ''}">
             <div class="cc-shape">${shape(id)}</div>
             <div class="cc-body">
               <div class="cc-name"><span class="cc-flag">${c.flag}</span>${esc(c.name)}</div>

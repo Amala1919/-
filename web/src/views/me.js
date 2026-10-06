@@ -6,6 +6,7 @@ import { openEvent } from '../components/sheets.js';
 import { go } from '../router.js';
 import { esc } from '../util.js';
 import { isAndroid } from '../native.js';
+import { allCredits, imageCount } from '../images.js';
 
 export default function me(root) {
   const s = store.state;
@@ -52,14 +53,25 @@ export default function me(root) {
     <div class="settings">
       <label class="set-row"><span>🔊 効果音</span><input type="checkbox" id="snd" ${s.settings.sound ? 'checked' : ''}></label>
       <label class="set-row"><span>🗣️ 読み上げの速さ</span><select id="rate">${[0.8, 1.0, 1.2, 1.5].map((r) => `<option value="${r}" ${s.settings.ttsRate === r ? 'selected' : ''}>${r}倍</option>`).join('')}</select></label>
+      <button class="btn-wide" id="credits">📷 画像クレジット（${imageCount()}枚）</button>
       <button class="btn-wide danger" id="reset">学習データをリセット</button>
     </div>
     <p class="about">クロノアトラス v1.0 ・ ${EVENTS.length}の出来事 / ${COUNTRIES.length}の国と地域 / ${MODELS.length}の3Dモデル<br>
-    地図データ：Natural Earth（パブリックドメイン）${isAndroid() ? '' : '<br>ブラウザ版プレビュー'}</p>
+    地図データ：Natural Earth（パブリックドメイン）／写真：Wikimedia Commons${isAndroid() ? '' : '<br>ブラウザ版プレビュー'}</p>
   </section>`;
 
   root.querySelector('#snd').addEventListener('change', (e) => store.setSetting('sound', e.target.checked));
   root.querySelector('#rate').addEventListener('change', (e) => store.setSetting('ttsRate', Number(e.target.value)));
+  root.querySelector('#credits').addEventListener('click', () => {
+    openSheet((body) => {
+      const list = allCredits().sort((a, b) => a.title.localeCompare(b.title));
+      body.innerHTML = `<h2 class="sheet-title">📷 画像クレジット</h2>
+        <p class="pad-x hint">アプリ内の写真・絵画は、Wikimedia Commons で自由な利用が認められた画像（パブリックドメイン、クリエイティブ・コモンズなど）です。各画像の作者とライセンスは以下のとおりです。タップすると拡大し、元のページを開けます。</p>
+        <div class="credit-list">${list
+          .map((c) => `<button class="credit-row" data-photo="${esc(c.title)}" data-caption="${esc(c.title)}"><span class="cr-thumb" style="background-image:url('${c.thumb}')"></span><span><b>${esc(c.title)}</b><small>${esc(c.artist || '作者不明')}<br>${esc(c.license)} ・ ${esc(c.file)}</small></span></button>`)
+          .join('')}</div>`;
+    });
+  });
   root.querySelector('#reset').addEventListener('click', () => {
     openSheet((body) => {
       body.innerHTML = `<h2 class="sheet-title">学習データをリセット</h2>

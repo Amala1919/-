@@ -7,6 +7,7 @@ import { store } from '../store.js';
 import { go } from '../router.js';
 import { esc, formatYear, alpha } from '../util.js';
 import { speak, stopSpeaking } from '../native.js';
+import { image } from '../images.js';
 
 export default function country(root, { id }) {
   const c = COUNTRY_BY_ID[id];
@@ -37,7 +38,8 @@ export default function country(root, { id }) {
     .join('');
 
   root.innerHTML = `
-  <div class="country-hero" style="--c:${c.color};--ca:${alpha(c.color, 0.35)}">
+  <div class="country-hero ${image(c.img) ? 'has-photo' : ''}" style="--c:${c.color};--ca:${alpha(c.color, 0.35)}">
+    ${image(c.img) ? `<div class="ch-photo" style="background-image:url('${image(c.img).src}')" data-photo="${esc(c.img)}"></div><div class="ch-credit">📷 ${esc(image(c.img).artist || '')} / ${esc(image(c.img).license)}</div>` : ''}
     <button class="back-btn" data-back aria-label="戻る">‹</button>
     <div class="ch-shape">${countryShapeSVG(id, { size: 170 })}</div>
     <div class="ch-locator">${locatorSVG(id, 84)}</div>

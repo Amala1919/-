@@ -9,6 +9,7 @@ import { esc, formatYear, alpha } from '../util.js';
 import { speak, stopSpeaking, share, isSpeaking } from '../native.js';
 import { go } from '../router.js';
 import { sfx } from '../audio.js';
+import { photoFigure, image, openLightbox } from '../images.js';
 
 function contemporaries(e, n = 6) {
   const span = e.year < -1000 ? 400 : e.year < 0 ? 150 : e.year < 1500 ? 80 : 40;
@@ -45,6 +46,7 @@ function eventHTML(e) {
     <button class="btn-pill" data-act="share">📤 共有</button>
   </div>
   <div class="ev-body">
+    ${photoFigure(e.img, { cls: 'ev-photo' })}
     <p class="ev-detail">${esc(e.detail)}</p>
     ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div><div>${esc(e.point)}</div></div>` : ''}
     ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">🧊</span><span><b>3Dで見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
@@ -128,7 +130,7 @@ export function openPerson(id) {
   openSheet((body) => {
     body.innerHTML = `
       <div class="person-hero" style="--c:${c.color}">
-        <div class="person-avatar">${avatarSVG(p, 132)}</div>
+        ${image(p.img) ? `<div class="person-photo" data-photo="${esc(p.img)}" data-caption="${esc(p.name)}"><img src="${image(p.img).src}" alt="${esc(p.name)}"><span class="pp-avatar">${avatarSVG(p, 52)}</span></div>` : `<div class="person-avatar">${avatarSVG(p, 132)}</div>`}
         <h2>${esc(p.name)}</h2>
         <div class="person-title">${esc(p.title)}</div>
         <div class="person-life">${esc(life)}</div>
@@ -136,6 +138,7 @@ export function openPerson(id) {
       </div>
       <div class="ev-body">
         <p class="ev-detail">${esc(p.desc)}</p>
+        ${image(p.img) ? `<p class="ph-credit-line">📷 肖像：${esc(image(p.img).artist || '作者不明')} / ${esc(image(p.img).license)}・Wikimedia Commons</p>` : ''}
         ${p.quote ? `<blockquote class="quote">“${esc(p.quote)}”</blockquote>` : ''}
         <div class="ev-actions"><button class="btn-pill" data-act="speak">🔊 読み上げ</button></div>
         ${evs.length ? `<h3 class="sub">登場する出来事</h3><div class="card-list">${evs.map((e) => eventCard(e)).join('')}</div>` : ''}

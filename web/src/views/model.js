@@ -9,6 +9,7 @@ import { go } from '../router.js';
 import { esc, formatYear } from '../util.js';
 import { speak, stopSpeaking } from '../native.js';
 import { sfx } from '../audio.js';
+import { photoFigure } from '../images.js';
 
 export default function model(root, { id }) {
   const m = MODEL_BY_ID[id];
@@ -37,6 +38,7 @@ export default function model(root, { id }) {
     <h1>${esc(m.name)}</h1>
     <p class="lead">${esc(m.desc)}</p>
     <button class="btn-pill" data-act="speak">🔊 読み上げ</button>
+    ${photoFigure(m.img, { caption: '実物の写真' }) ? `<h3 class="sub">📷 実物の写真</h3>${photoFigure(m.img, { caption: m.name })}` : ''}
     <dl class="facts">${m.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
     <h3 class="sub">📍 見どころ</h3>
     <ol class="spot-list">${(m.hotspots || []).map((h, k) => `<li><button data-spot="${k}"><span class="spot-n">${k + 1}</span><span><b>${esc(h.t)}</b><small>${esc(h.d)}</small></span></button></li>`).join('')}</ol>
