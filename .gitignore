@@ -1,0 +1,8 @@
+node_modules/
+build/
+*.keystore
+!android/debug.keystore
+.DS_Store
+.gradle/
+local.properties
+*.idsig
