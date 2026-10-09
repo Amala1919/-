@@ -81,7 +81,6 @@ export default [
   { id: 'mariemedici', name: 'マリー・ド・メディシス', country: 'fr', born: 1575, died: 1642, title: 'アンリ4世の王妃', desc: 'メディチ家のトスカーナ大公の娘。夫の暗殺後、幼いルイ13世の摂政となった。画家ルーベンスに自らの生涯を描かせた。', img: "Marie de' Medici", a: { h: 'updo', f: 1, hc: '#5d4037', sk: 0, rc: '#1a237e' } },
 
   // ---- ブルボン朝 ----
-  { id: 'henry4', name: 'アンリ4世', country: 'fr', born: 1553, died: 1610, title: 'ブルボン朝の初代国王', desc: 'プロテスタントの指導者だったがカトリックに改宗して即位し、ナントの勅令で信仰の自由を認めて宗教戦争を終わらせた。のちに暗殺された。', img: 'Henry IV of France', a: { h: 'none', b: 'l', hc: '#9e9e9e', sk: 0, rc: '#212121' } },
   { id: 'louis13', name: 'ルイ13世', country: 'fr', born: 1601, died: 1643, title: 'フランス国王', desc: '8歳で即位。宰相リシュリューを重く用いて王権を強め、三十年戦争に介入した。', img: 'Louis XIII', a: { h: 'none', b: 's', hc: '#3e2723', sk: 0, rc: '#1a237e' } },
   { id: 'anneaustria', name: 'アンヌ・ドートリッシュ', country: 'fr', born: 1601, died: 1666, title: 'ルイ13世の王妃', desc: 'スペイン王女。夫の死後、幼いルイ14世の摂政となり、宰相マザランとともに国を治めた。', img: 'Anne of Austria', a: { h: 'updo', f: 1, hc: '#8d6e63', sk: 0, rc: '#212121' } },
   { id: 'richelieu', name: 'リシュリュー', country: 'fr', born: 1585, died: 1642, title: 'ルイ13世の宰相・枢機卿', desc: '貴族やプロテスタントの力を抑えて王権を強め、絶対王政の基礎を築いた。アカデミー・フランセーズを創設した。', img: 'Cardinal Richelieu', a: { h: 'cap', b: 's', hc: '#757575', sk: 0, rc: '#c62828' } },
@@ -138,7 +137,6 @@ export default [
   { id: 'haydn', name: 'ハイドン', country: 'at', born: 1732, died: 1809, title: '作曲家（交響曲の父）', desc: '貴族エステルハージ家に約30年仕え、100曲以上の交響曲を書いた。モーツァルトと親しく交わり、若きベートーヴェンを教えた。', img: 'Joseph Haydn', a: { h: 'wig', hc: '#eeeeee', sk: 0, rc: '#1565c0' } },
   { id: 'salieri', name: 'サリエリ', country: 'it', born: 1750, died: 1825, title: '作曲家・ウィーン宮廷楽長', desc: 'イタリア出身でウィーンの宮廷楽長を務めた。モーツァルトを毒殺したという噂は作り話。ベートーヴェン・シューベルト・リストら多くの弟子を育てた。', img: 'Antonio Salieri', a: { h: 'wig', hc: '#eeeeee', sk: 0, rc: '#2e7d32' } },
   { id: 'neefe', name: 'ネーフェ', country: 'de', born: 1748, died: 1798, title: '作曲家・オルガン奏者', desc: 'ボンの宮廷で少年ベートーヴェンに作曲とピアノを教え、その才能を「第二のモーツァルト」として世に紹介した。', img: 'Christian Gottlob Neefe', a: { h: 'wig', hc: '#eeeeee', sk: 0, rc: '#455a64' } },
-  { id: 'beethoven', name: 'ベートーヴェン', country: 'de', born: 1770, died: 1827, title: '作曲家（楽聖）', desc: 'ボンに生まれウィーンで活躍した。耳が聞こえなくなる苦しみを乗り越えて『運命』『第九』などを作曲した。', img: 'Ludwig van Beethoven', a: { h: 'none', hc: '#424242', sk: 0, rc: '#263238' } },
   { id: 'czerny', name: 'チェルニー', country: 'at', born: 1791, died: 1857, title: 'ピアノ教師・作曲家', desc: 'ベートーヴェンの弟子。ピアノの練習曲集で知られ、今もピアノを習う多くの人が弾いている。少年リストを教えた。', img: 'Carl Czerny', a: { h: 'none', hc: '#5d4037', sk: 0, rc: '#37474f' } },
   { id: 'schubert', name: 'シューベルト', country: 'at', born: 1797, died: 1828, title: '作曲家（歌曲の王）', desc: 'ウィーン生まれ。『魔王』『野ばら』など600曲以上の歌曲を作った。31歳で亡くなり、尊敬するベートーヴェンの近くに葬られた。', img: 'Franz Schubert', a: { h: 'none', hc: '#4e342e', sk: 0, rc: '#3e2723' } },
   { id: 'liszt', name: 'リスト', country: 'hu', born: 1811, died: 1886, title: 'ピアニスト・作曲家', desc: 'ハンガリー出身。超絶技巧のピアニストとしてヨーロッパ中を熱狂させ、『ハンガリー狂詩曲』などを作曲した。', img: 'Franz Liszt', a: { h: 'none', hc: '#9e9e9e', sk: 0, rc: '#212121' } },
