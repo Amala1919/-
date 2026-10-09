@@ -31,6 +31,14 @@
 "w": 351,
 "h": 521
 },
+"106ncub": {
+"t": "Champ de Mars",
+"f": "MG-Paris-Champ_de_Mars.jpg",
+"a": "Mattgirling",
+"l": "CC BY-SA 3.0",
+"w": 345,
+"h": 640
+},
 "1087cz4": {
 "t": "Wenceslas Square",
 "f": "Prague_Praha_2014_Holmstad_Vaclavplassen_i_nybyen_Nove_Mesto_flott.jpg",
@@ -38,6 +46,14 @@
 "l": "CC BY-SA 3.0",
 "w": 640,
 "h": 427
+},
+"109ofu7": {
+"t": "Launch escape system",
+"f": "LittleJoe.gif",
+"a": "NASA Apollo Digest",
+"l": "Public domain",
+"w": 282,
+"h": 212
 },
 "10bo9y5": {
 "t": "Tenshō-in",
@@ -54,6 +70,22 @@
 "l": "Public domain",
 "w": 640,
 "h": 436
+},
+"10iqgio": {
+"t": "Mutianyu",
+"f": "Great_Wall_of_China_July_2006.JPG",
+"a": "Velatrix",
+"l": "CC0",
+"w": 640,
+"h": 479
+},
+"10jg4v8": {
+"t": "Sydney Harbour Bridge",
+"f": "Sydney_Harbour_Bridge-16_October_2025.jpg",
+"a": "Servite et contribuere",
+"l": "CC0",
+"w": 640,
+"h": 360
 },
 "10o66cp": {
 "t": "Atahualpa",
@@ -78,6 +110,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 403
+},
+"10sg1es": {
+"t": "Court of the Lions",
+"f": "Fountain_in_Patio_de_los_Leones,_Alhambra,_16.08.14.jpg",
+"a": "Liberaler Humanist",
+"l": "CC BY-SA 3.0",
+"w": 427,
+"h": 640
 },
 "10tio7x": {
 "t": "Alaungpaya",
@@ -110,6 +150,14 @@
 "l": "CC BY 3.0",
 "w": 640,
 "h": 406
+},
+"10yj9ux": {
+"t": "Crow's nest",
+"f": "Crows_nest_on_a_tug_boat_-_Flickr_-_p_a_h.jpg",
+"a": "Paul from United Kingdom",
+"l": "CC BY 2.0",
+"w": 427,
+"h": 640
 },
 "11011yl": {
 "t": "Three Kingdoms of Korea",
@@ -199,6 +247,14 @@
 "w": 556,
 "h": 640
 },
+"11pcoqy": {
+"t": "Rano Raraku",
+"f": "Rano-Raraku-Panorama-2013.jpg",
+"a": "Bjørn Christian Tørrissen",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 250
+},
 "11vuqe4": {
 "t": "Ife Head",
 "f": "Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG",
@@ -254,6 +310,14 @@
 "l": "CC BY-SA 2.0",
 "w": 640,
 "h": 427
+},
+"128uipt": {
+"t": "Square rig",
+"f": "Square-rigged_mainmast.jpg",
+"a": "PeteVerdon at English Wikipedia",
+"l": "CC BY-SA 3.0",
+"w": 480,
+"h": 640
 },
 "12hikzb": {
 "t": "José de San Martín",
@@ -327,6 +391,14 @@
 "w": 422,
 "h": 640
 },
+"12tutbz": {
+"t": "Flying buttress",
+"f": "Lübeck_Marienkirche_Strebebögen.jpg",
+"a": "Photo: Andreas Praefcke",
+"l": "CC BY 3.0",
+"w": 640,
+"h": 481
+},
 "12vryo0": {
 "t": "Matterhorn",
 "f": "Matterhorn_from_Domhütte_-_2.jpg",
@@ -343,6 +415,14 @@
 "w": 640,
 "h": 480
 },
+"12xtfbr": {
+"t": "Trilithon",
+"f": "Stonehenge_trilithon.png",
+"a": "Timothy Darvill",
+"l": "CC BY-SA 4.0",
+"w": 480,
+"h": 640
+},
 "12yj0wt": {
 "t": "Stockholm Bloodbath",
 "f": "Blodbadstavlan.jpg",
@@ -350,6 +430,14 @@
 "l": "Public domain",
 "w": 514,
 "h": 377
+},
+"12z3i58": {
+"t": "Gebre Mesqel Lalibela",
+"f": "Gebre_Mesqel_Lalibela.png",
+"a": "unknown artist, originally made in Lalibela area, Ethiopia",
+"l": "Public domain",
+"w": 280,
+"h": 481
 },
 "12zdgp3": {
 "t": "Magellan's Cross",
@@ -391,6 +479,14 @@
 "w": 640,
 "h": 427
 },
+"136ndcs": {
+"t": "Muqarnas",
+"f": "Alhambra_(51949919755).jpg",
+"a": "Kent Wang from Barcelona, Spain",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 427
+},
 "137hkk0": {
 "t": "Lighthouse of Alexandria",
 "f": "Lighthouse_-_Thiersch.png",
@@ -414,6 +510,14 @@
 "l": "CC BY 2.0",
 "w": 640,
 "h": 450
+},
+"13blit7": {
+"t": "Great Sphinx of Giza",
+"f": "Sphinx_with_the_third_pyramid.jpg",
+"a": "Hesham Ebaid",
+"l": "CC0",
+"w": 640,
+"h": 397
 },
 "13hhr86": {
 "t": "Hagia Sophia",
@@ -591,6 +695,14 @@
 "w": 384,
 "h": 640
 },
+"15bilw": {
+"t": "Nanna (Sumerian deity)",
+"f": "Sumerian_Cylinder_Seal_of_King_Ur-Nammu.jpg",
+"a": "Steve Harris",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 349
+},
 "15di7l3": {
 "t": "Schönbrunn Palace",
 "f": "Wien_-_Schloss_Schönbrunn.JPG",
@@ -614,6 +726,14 @@
 "l": "CC BY 4.0",
 "w": 524,
 "h": 640
+},
+"15mtobh": {
+"t": "Tender (rail)",
+"f": "Sierra_Railway_3_Tender.jpg",
+"a": "Ed Bierman",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 479
 },
 "15pwleq": {
 "t": "Yuri Gagarin",
@@ -663,6 +783,14 @@
 "w": 480,
 "h": 640
 },
+"161k20t": {
+"t": "Baikonur Cosmodrome",
+"f": "Baikonur_Cosmodrome_Soyuz_launch_pad.jpg",
+"a": "Bill Ingalls",
+"l": "Public domain",
+"w": 640,
+"h": 426
+},
 "161lmp4": {
 "t": "Petra",
 "f": "Al_Deir_Petra.JPG",
@@ -686,6 +814,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 413
+},
+"165wyeg": {
+"t": "Pukao",
+"f": "Ahu_Tahai.jpg",
+"a": "Picture taken by Bjarte Sorensen .",
+"l": "CC BY-SA 3.0",
+"w": 480,
+"h": 640
 },
 "1668fuc": {
 "t": "Mustafa Kemal Atatürk",
@@ -727,6 +863,14 @@
 "w": 640,
 "h": 426
 },
+"16fv6t3": {
+"t": "Mount Vesuvius",
+"f": "Il_cratere_del_Vulcano_-_panoramio.jpg",
+"a": "pietro scerrato",
+"l": "CC BY 3.0",
+"w": 640,
+"h": 359
+},
 "16g8wrr": {
 "t": "Stephenson's Rocket",
 "f": "Stephenson's_Rocket_drawing.jpg",
@@ -750,6 +894,14 @@
 "l": "Public domain",
 "w": 515,
 "h": 640
+},
+"16ol41s": {
+"t": "Geunjeongjeon",
+"f": "Front_view_of_the_Imperial_Throne_Hall_Geunjeongjeon_at_Gyeongbokgung_Palace_with_blue_sky_in_Seoul.jpg",
+"a": "Basile Morin",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
 },
 "16sj3xj": {
 "t": "0 Series Shinkansen",
@@ -783,6 +935,22 @@
 "w": 640,
 "h": 435
 },
+"179wx8g": {
+"t": "Nefertari",
+"f": "Tomb_of_Nefertari_(52785688763).jpg",
+"a": "Martin Doudoroff",
+"l": "CC BY 2.0",
+"w": 480,
+"h": 640
+},
+"17flkfc": {
+"t": "Temple of the Feathered Serpent",
+"f": "ASb146-Teotihuacan-Templo_Del_Quetzalcoatl.jpg",
+"a": "Wojciech Kocot",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
+},
 "17hywa4": {
 "t": "Boudhanath",
 "f": "Boudhanath_stupa_,_Kathmandu,_Nepal.jpg",
@@ -798,6 +966,14 @@
 "l": "Public domain",
 "w": 529,
 "h": 640
+},
+"17m15qe": {
+"t": "Preseli Hills",
+"f": "Preseli_Hills_-_geograph.org.uk_-_1729208.jpg",
+"a": "Deborah Tilley",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 358
 },
 "17me92v": {
 "t": "Pedro de Valdivia",
@@ -831,6 +1007,14 @@
 "w": 640,
 "h": 426
 },
+"17ugqdp": {
+"t": "Songtsen Gampo",
+"f": "The_King_Songtsen_Gampo.jpg",
+"a": "Bhavna Sayana",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 539
+},
 "17vz5aj": {
 "t": "Louis XIV",
 "f": "Louis_XIV_of_France.jpg",
@@ -847,6 +1031,14 @@
 "w": 459,
 "h": 640
 },
+"17xql7q": {
+"t": "Agra Fort",
+"f": "Agra_03-2016_16_Agra_Fort.jpg",
+"a": "A.Savin",
+"l": "FAL",
+"w": 640,
+"h": 427
+},
 "1808bnh": {
 "t": "Attack on Pearl Harbor",
 "f": "Attack_on_Pearl_Harbor_Japanese_planes_view.jpg",
@@ -854,6 +1046,22 @@
 "l": "Public domain",
 "w": 640,
 "h": 454
+},
+"183hotx": {
+"t": "Sōrin",
+"f": "Tenneiji_Onomichi03s3200-Sourin.jpg",
+"a": "Tenneiji_Onomichi03s3200.jpg : 663highland derivative work: Urashimataro ( talk )",
+"l": "CC BY 2.5",
+"w": 480,
+"h": 640
+},
+"18ap70y": {
+"t": "Viking Ship Museum (Oslo)",
+"f": "Musée_des_navires_vikings_(Oslo)_(4874556533).jpg",
+"a": "dalbera from Paris, France",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 427
 },
 "18au7ab": {
 "t": "Al-Khazneh",
@@ -1007,6 +1215,14 @@
 "w": 640,
 "h": 480
 },
+"19uw1uz": {
+"t": "Spasskaya Tower",
+"f": "Вид_на_Спасскую_башню_от_Исторического_музея.jpg",
+"a": "Valeriy1960",
+"l": "CC BY-SA 4.0",
+"w": 427,
+"h": 640
+},
 "19xxojy": {
 "t": "Granma (yacht)",
 "f": "Expedicionarios-del-yate-granma.jpg",
@@ -1030,6 +1246,14 @@
 "l": "CC BY-SA 2.0",
 "w": 431,
 "h": 640
+},
+"1a287re": {
+"t": "Andén",
+"f": "Pisaq_02.JPG",
+"a": "www.janto.com.ar",
+"l": "CC BY-SA 2.5",
+"w": 640,
+"h": 480
 },
 "1a3rd10": {
 "t": "Castle of Good Hope",
@@ -1095,6 +1319,22 @@
 "w": 553,
 "h": 640
 },
+"1ac2p1e": {
+"t": "Notre-Dame de Paris",
+"f": "Notre-Dame_de_Paris,_4_October_2017.jpg",
+"a": "Ali Sabbagh",
+"l": "CC0",
+"w": 640,
+"h": 423
+},
+"1aejzcd": {
+"t": "Naqsh-e Rostam",
+"f": "Naqsh-e_Rustam_necropolis_in_Iran.jpg",
+"a": "Maasaak",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
+},
 "1aelxrh": {
 "t": "Francisco Pizarro",
 "f": "Portrait_of_Francisco_Pizarro.jpg",
@@ -1102,6 +1342,22 @@
 "l": "Public domain",
 "w": 498,
 "h": 640
+},
+"1afa81y": {
+"t": "Tilya-Kori Madrasa",
+"f": "Registan_Tillya-Kari_madrasah2014.JPG",
+"a": "Bobyrr",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
+},
+"1ag8rxv": {
+"t": "Sher-Dor Madrasa",
+"f": "The_Sher_Dor_(9330856335)-cropped.jpg",
+"a": "File:The Sher Dor (9330856335).jpg : by Flickr user Soham Banerjee derivative work: Stegop",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 343
 },
 "1agq7y5": {
 "t": "Taira no Shigemori",
@@ -1118,6 +1374,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 480
+},
+"1akolzh": {
+"t": "Crown Jewels of the United Kingdom",
+"f": "Crown_Jewels_of_the_United_Kingdom_1952-12-13.jpg",
+"a": "United Kingdom Government",
+"l": "Public domain",
+"w": 584,
+"h": 467
 },
 "1anbzie": {
 "t": "Afsluitdijk",
@@ -1255,6 +1519,22 @@
 "w": 640,
 "h": 444
 },
+"1cuno7c": {
+"t": "Soapstone",
+"f": "Soapstone_(Speckstein)_-_several_colored_samples.jpg",
+"a": "Ra'ike (see also: de:Benutzer:Ra'ike )",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 469
+},
+"1cusym5": {
+"t": "Pyramid of Menkaure",
+"f": "Cairo,_Gizeh,_Pyramid_of_Menkaure,_Egypt,_Oct_2005.jpg",
+"a": "",
+"l": "CC BY-SA 2.5",
+"w": 640,
+"h": 427
+},
 "1cvs3i5": {
 "t": "Shunzhi Emperor",
 "f": "清世祖顺治皇帝朝服像.jpg",
@@ -1318,6 +1598,14 @@
 "l": "CC0",
 "w": 640,
 "h": 480
+},
+"1ddv97w": {
+"t": "Tower of London",
+"f": "Tower_of_London_from_the_Shard_(8515883950).jpg",
+"a": "[Duncan] from Nottingham, UK",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 415
 },
 "1df7877": {
 "t": "Emiliano Zapata",
@@ -1471,6 +1759,22 @@
 "w": 544,
 "h": 640
 },
+"1evizyy": {
+"t": "Pyramidion",
+"f": "Pyramidion_of_the_Pyramid_of_Amenemhet_III_at_Dahshur.jpg",
+"a": "Unknown author Unknown author",
+"l": "Public domain",
+"w": 640,
+"h": 480
+},
+"1exz61y": {
+"t": "Kōko-en",
+"f": "Himeji_Koukoen32n4592.jpg",
+"a": "663highland",
+"l": "CC BY 2.5",
+"w": 640,
+"h": 426
+},
 "1ez5z42": {
 "t": "Eiffel Tower",
 "f": "Tour_Eiffel_Wikimedia_Commons_(cropped).jpg",
@@ -1623,6 +1927,22 @@
 "w": 478,
 "h": 640
 },
+"1fypr3o": {
+"t": "Angkor Thom",
+"f": "Angkor_Thom_(II).jpg",
+"a": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but ple…",
+"l": "CC BY 4.0",
+"w": 640,
+"h": 427
+},
+"1g1xy5s": {
+"t": "Parthenon Frieze",
+"f": "Cavalcade_west_frieze_Parthenon_BM.jpg",
+"a": "Unknown artist Unknown artist",
+"l": "Public domain",
+"w": 640,
+"h": 373
+},
 "1g3jrzb": {
 "t": "Diego Maradona",
 "f": "Argentina_celebrando_copa_(cropped).jpg",
@@ -1638,6 +1958,14 @@
 "l": "CC BY 2.0",
 "w": 427,
 "h": 640
+},
+"1g7p0kt": {
+"t": "Felt",
+"f": "Colored_felt_cloth.jpg",
+"a": "Bastet78",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
 },
 "1g7ree3": {
 "t": "Cueva de las Manos",
@@ -1687,6 +2015,22 @@
 "w": 503,
 "h": 640
 },
+"1gut8su": {
+"t": "Göbekli Tepe",
+"f": "Göbekli_Tepe,_Urfa.jpg",
+"a": "Teomancimit",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 425
+},
+"1gzqy10": {
+"t": "Dhammayangyi Temple",
+"f": "Dhammayangyi_Temple_at_Bagan,Myanmar.jpg",
+"a": "Justin Vidamo",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 358
+},
 "1h24lpd": {
 "t": "Mount Kenya",
 "f": "MtKenya.jpg",
@@ -1735,6 +2079,14 @@
 "w": 640,
 "h": 407
 },
+"1hfu59x": {
+"t": "Doric order",
+"f": "DoricParthenon.jpg",
+"a": "unknown engraver",
+"l": "Public domain",
+"w": 279,
+"h": 468
+},
 "1higi7w": {
 "t": "Jean Sibelius",
 "f": "Jean_Sibelius_circa_1898-1900_(3x4_cropped).jpg",
@@ -1758,6 +2110,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 598
+},
+"1hlv5ha": {
+"t": "Tokyo Station",
+"f": "Tokyo-STA_Marunouchi-Entrance_2023.jpg",
+"a": "MaedaAkihiko",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
 },
 "1hmt3d8": {
 "t": "Bardo National Museum (Tunis)",
@@ -1815,12 +2175,28 @@
 "w": 640,
 "h": 427
 },
+"1i4m5d8": {
+"t": "Djenné",
+"f": "Moschee_von_Djenné.jpg",
+"a": "qiv",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 427
+},
 "1i65y80": {
 "t": "Frederick III, German Emperor",
 "f": "Emperor_Friedrich_III_(3x4_cropped).png",
 "a": "Reichard & Lindener",
 "l": "Public domain",
 "w": 481,
+"h": 640
+},
+"1i6h7k5": {
+"t": "Athena Parthenos",
+"f": "NAMA_Athéna_Varvakeion.jpg",
+"a": "Unknown (After Phidias' Athena Parthenos)",
+"l": "CC BY 2.5",
+"w": 335,
 "h": 640
 },
 "1i9vbsr": {
@@ -1838,6 +2214,14 @@
 "l": "Public domain",
 "w": 481,
 "h": 640
+},
+"1ifcvmz": {
+"t": "Neuschwanstein Castle",
+"f": "Schloss_Neuschwanstein_2013.jpg",
+"a": "Thomas Wolf , www.foto-tw.de",
+"l": "CC BY-SA 3.0 de",
+"w": 640,
+"h": 478
 },
 "1ihs245": {
 "t": "Ulugh Beg Observatory",
@@ -1919,6 +2303,14 @@
 "w": 523,
 "h": 640
 },
+"1j37oe8": {
+"t": "Chacmool",
+"f": "2015-07_k1_CDMX_830.jpg",
+"a": "Ziko",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 480
+},
 "1j4jwqx": {
 "t": "Registan",
 "f": "RegistanSquare_Samarkand.jpg",
@@ -1999,6 +2391,14 @@
 "w": 640,
 "h": 427
 },
+"1jsgkde": {
+"t": "El Castillo, Chichen Itza",
+"f": "Chichen_Itza_3.jpg",
+"a": "Daniel Schwen",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 341
+},
 "1jvvm7d": {
 "t": "Battle of Nagashino",
 "f": "Battle-of-Nagashino-Map-Folding-Screen-1575.png",
@@ -2022,6 +2422,14 @@
 "l": "Public domain",
 "w": 453,
 "h": 640
+},
+"1k643rm": {
+"t": "Prambanan",
+"f": "Prambanan_Temple_Yogyakarta_Indonesia.jpg",
+"a": "Christopher Michel",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
 },
 "1kazwul": {
 "t": "Bayon",
@@ -2053,6 +2461,14 @@
 "a": "Unknown author Unknown author",
 "l": "Public domain",
 "w": 535,
+"h": 640
+},
+"1kmnzhy": {
+"t": "Inca Trail to Machu Picchu",
+"f": "Incatrail_in_Peru.jpg",
+"a": "",
+"l": "Public domain",
+"w": 443,
 "h": 640
 },
 "1kpgz0r": {
@@ -2103,6 +2519,22 @@
 "w": 540,
 "h": 640
 },
+"1l5jwpm": {
+"t": "Notre-Dame de Paris fire",
+"f": "Incendie_Notre_Dame_de_Paris.jpg",
+"a": "LeLaisserPasserA38",
+"l": "CC BY-SA 4.0",
+"w": 480,
+"h": 640
+},
+"1l60scy": {
+"t": "Timkat",
+"f": "Gondar_Fasiladas_Bath_Timket.jpg",
+"a": "Jialiang Gao www.peace-on-earth.org",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 585
+},
 "1l6g7hf": {
 "t": "Samanid Mausoleum",
 "f": "UZ_Bukhara_Samanid-mausoleum.jpg",
@@ -2143,6 +2575,22 @@
 "w": 501,
 "h": 640
 },
+"1lo43k7": {
+"t": "Atomic bombings of Hiroshima and Nagasaki",
+"f": "Atomic_bombing_of_Japan.jpg",
+"a": "George R. Caron / Charles Levy",
+"l": "Public domain",
+"w": 640,
+"h": 380
+},
+"1lpo572": {
+"t": "Gwanghwamun",
+"f": "Gwanghwamun_20240413.jpg",
+"a": "*Youngjin",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
+},
 "1lpu865": {
 "t": "Austrian State Treaty",
 "f": "Austria_Occupation_Zones_1945-55_en.svg",
@@ -2174,6 +2622,14 @@
 "l": "CC BY 3.0",
 "w": 440,
 "h": 640
+},
+"1mdu9am": {
+"t": "Generalife",
+"f": "Patio_de_la_Acequia_(Generalife)_-_DSC07863_(slightly_cropped_and_sharpened).jpg",
+"a": "Daderot",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 408
 },
 "1mitktt": {
 "t": "Changu Narayan Temple",
@@ -2471,6 +2927,14 @@
 "w": 466,
 "h": 640
 },
+"1p4137v": {
+"t": "Tsar Bell",
+"f": "Tsar_Bell_in_Kremlin.jpg",
+"a": "Presidential Press and Information Office",
+"l": "CC BY 4.0",
+"w": 434,
+"h": 640
+},
 "1p4t0nw": {
 "t": "Reformation Wall",
 "f": "ReformationsdenkmalGenf2.jpg",
@@ -2485,6 +2949,38 @@
 "a": "Léon Cogniet",
 "l": "Public domain",
 "w": 521,
+"h": 640
+},
+"1p9wozv": {
+"t": "Karahafu",
+"f": "Kara-hafu.png",
+"a": "ムカイ at Japanese Wikipedia",
+"l": "Public domain",
+"w": 640,
+"h": 494
+},
+"1palko8": {
+"t": "Ram in a Thicket",
+"f": "Raminathicket2.jpg",
+"a": "Transferred from en.wikipedia . Original uploader was Jack1956 at en.wikipedia",
+"l": "CC BY-SA 3.0",
+"w": 477,
+"h": 640
+},
+"1pcbqli": {
+"t": "Red Square",
+"f": "Kremlin_and_Red_Square.1.jpg",
+"a": "mos.ru",
+"l": "CC BY 4.0",
+"w": 640,
+"h": 425
+},
+"1pefyuj": {
+"t": "Ravens of the Tower of London",
+"f": "Jubilee_and_Munin,_Ravens,_Tower_of_London_2016-04-30.jpg",
+"a": "Colin",
+"l": "CC BY-SA 4.0",
+"w": 640,
 "h": 640
 },
 "1pjv136": {
@@ -2543,6 +3039,14 @@
 "w": 480,
 "h": 640
 },
+"1q812ud": {
+"t": "Mendut",
+"f": "Candi_Mendut_-_facade_north_(2025)_-_img_01.jpg",
+"a": "Chainwit.",
+"l": "CC BY 4.0",
+"w": 640,
+"h": 480
+},
 "1qe0pwo": {
 "t": "Wangari Maathai",
 "f": "Wangari_Maathai_in_2001.jpg",
@@ -2574,6 +3078,14 @@
 "l": "Public domain",
 "w": 383,
 "h": 640
+},
+"1qna93i": {
+"t": "Naadam",
+"f": "Naadam_Festival_2024_Opening_Ceremony.jpg",
+"a": "Chongkian",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
 },
 "1qnwrwe": {
 "t": "Along the River During the Qingming Festival",
@@ -2655,6 +3167,22 @@
 "w": 640,
 "h": 284
 },
+"1raeqjg": {
+"t": "Vehicle Assembly Building",
+"f": "VAB_and_SLS.jpg",
+"a": "Kim Shiflett",
+"l": "Public domain",
+"w": 640,
+"h": 427
+},
+"1rb987j": {
+"t": "Gorkhi-Terelj National Park",
+"f": "Gorkhi-Terelj_National_Park.jpg",
+"a": "Chongkian",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
+},
 "1rbmjei": {
 "t": "Battle of the Plains of Abraham",
 "f": "Benjamin_West_005.jpg",
@@ -2711,6 +3239,14 @@
 "w": 640,
 "h": 525
 },
+"1rq65aj": {
+"t": "Shanhai Pass",
+"f": "Old_Dragon's_Head_of_Great_Wall.jpg",
+"a": "Prince Roy",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 300
+},
 "1rriwln": {
 "t": "Sydney Opera House",
 "f": "Sydney_Australia._(21339175489).jpg",
@@ -2719,6 +3255,22 @@
 "w": 640,
 "h": 393
 },
+"1rtl4ze": {
+"t": "Lalibela",
+"f": "Lalibela,_san_giorgio,_esterno_24.jpg",
+"a": "Sailko",
+"l": "CC BY 3.0",
+"w": 640,
+"h": 555
+},
+"1rwkfwd": {
+"t": "Ludwig II of Bavaria",
+"f": "Albert,_Joseph_-_König_Ludwig_II._von_Bayern_(1845-1886)_(Zeno_Fotografie).jpg",
+"a": "Josef Albert",
+"l": "Public domain",
+"w": 463,
+"h": 640
+},
 "1rx9slo": {
 "t": "Chinua Achebe",
 "f": "Chinua_Achebe,_1966.jpg",
@@ -2726,6 +3278,14 @@
 "l": "Public domain",
 "w": 427,
 "h": 640
+},
+"1s26usg": {
+"t": "Gyeonghoeru",
+"f": "아름다운_경회루.jpg",
+"a": "Yoonj",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
 },
 "1s4zsi0": {
 "t": "Adolf Hitler",
@@ -2749,6 +3309,14 @@
 "a": "Alexandre Cabanel",
 "l": "Public domain",
 "w": 458,
+"h": 640
+},
+"1s9p10u": {
+"t": "Kukulkan",
+"f": "Kukulkan_(reconstructed).jpg",
+"a": "Lucas J. Goodwin",
+"l": "CC BY-SA 4.0",
+"w": 425,
 "h": 640
 },
 "1satl5d": {
@@ -2799,6 +3367,14 @@
 "w": 512,
 "h": 640
 },
+"1snhyji": {
+"t": "Avebury",
+"f": "Wiltshire-Avebury.jpg",
+"a": "MikPeach",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
+},
 "1snlslu": {
 "t": "Martin Luther King Jr.",
 "f": "Martin_Luther_King,_Jr._and_Lyndon_Johnson_(cropped).jpg",
@@ -2814,6 +3390,14 @@
 "l": "Public domain",
 "w": 617,
 "h": 640
+},
+"1sxrgk0": {
+"t": "Sacred Cenote",
+"f": "Cenote_Xtoloc_en_Chichén_Itzá.jpg",
+"a": "Salhedine",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
 },
 "1sy72ct": {
 "t": "1896 Summer Olympics",
@@ -2846,6 +3430,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 617
+},
+"1t5g5k6": {
+"t": "Tented roof",
+"f": "KUTNA_HORA_(js)_7.jpg",
+"a": "Jerzy Strzelecki",
+"l": "CC BY 3.0",
+"w": 640,
+"h": 441
 },
 "1t8snci": {
 "t": "Afonso I of Portugal",
@@ -2951,6 +3543,14 @@
 "w": 640,
 "h": 427
 },
+"1u2s236": {
+"t": "S-II",
+"f": "Ap6-MSFC-6758331.jpg",
+"a": "This media: Sam8 ; Original work: NASA; Subject work of original work :",
+"l": "Public domain",
+"w": 624,
+"h": 640
+},
 "1u3l5k9": {
 "t": "Augusta Raurica",
 "f": "Augusta_Raurica_-_Theater2.jpg",
@@ -3007,6 +3607,14 @@
 "w": 474,
 "h": 640
 },
+"1une15z": {
+"t": "Paddle steamer",
+"f": "SteamboatBenCampbellb.jpg",
+"a": "Unknown author Unknown author",
+"l": "Public domain",
+"w": 640,
+"h": 403
+},
 "1urs148": {
 "t": "Rock Carvings in Tanum",
 "f": "Tanumshede_2005_rock_carvings_5.jpg",
@@ -3054,6 +3662,14 @@
 "l": "CC BY-SA 2.0",
 "w": 640,
 "h": 480
+},
+"1vqpo90": {
+"t": "S-IC",
+"f": "Ap10-KSC-68C-7912.jpg",
+"a": "NASA",
+"l": "Public domain",
+"w": 504,
+"h": 640
 },
 "1vrbo2l": {
 "t": "Mesha Stele",
@@ -3175,6 +3791,14 @@
 "w": 448,
 "h": 640
 },
+"1wni4qk": {
+"t": "Aswan Dam",
+"f": "BarragemAssuão.jpg",
+"a": "NASA",
+"l": "Public domain",
+"w": 640,
+"h": 529
+},
 "1wpxkd5": {
 "t": "Aurangzeb",
 "f": "Aurangzeb-portrait.jpg",
@@ -3182,6 +3806,14 @@
 "l": "Public domain",
 "w": 309,
 "h": 375
+},
+"1wr3n8g": {
+"t": "Zimbabwe Bird",
+"f": "Zimbabwe_Bird.svg",
+"a": "Mangwanani",
+"l": "Public domain",
+"w": 477,
+"h": 640
 },
 "1wrj8pw": {
 "t": "Russian Revolution",
@@ -3302,6 +3934,14 @@
 "l": "CC BY-SA 3.0",
 "w": 640,
 "h": 480
+},
+"1xhmsd4": {
+"t": "Sultan Ahmed Mosque",
+"f": "Istanbul_(34223582516)_(cropped).jpg",
+"a": "Pedro Szekely from Los Angeles, USA",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 539
 },
 "1xju4e": {
 "t": "Louis Bonaparte",
@@ -3495,6 +4135,14 @@
 "w": 360,
 "h": 480
 },
+"20ak6z": {
+"t": "S-IVB",
+"f": "Saturn_IB_S-IVB-206.jpg",
+"a": "NASA",
+"l": "Public domain",
+"w": 486,
+"h": 640
+},
 "223cyv": {
 "t": "Emperor Go-Ichijō",
 "f": "Emperor_Go-Ichijo.jpg",
@@ -3519,6 +4167,14 @@
 "w": 640,
 "h": 474
 },
+"2c9az9": {
+"t": "Golden Lane",
+"f": "Prague_-_Zlata_ulicka.jpg",
+"a": "Maros M r a z (Maros)",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 480
+},
 "2du8et": {
 "t": "Parakramabahu I",
 "f": "Relief_of_Parakramabahu_in_Polonnaruwa.jpg",
@@ -3534,6 +4190,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 482
+},
+"2irvzv": {
+"t": "Jiayu Pass",
+"f": "Jiayu_Guan_2014.01.01_11-03-14.jpg",
+"a": "Zhangzhugang",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
 },
 "2jh7dq": {
 "t": "The Night Watch",
@@ -3598,6 +4262,14 @@
 "l": "Public domain",
 "w": 453,
 "h": 640
+},
+"3ltqyu": {
+"t": "Itsukushima Shrine",
+"f": "Itsukushima_Shrine_Torii_Gate_(13890465459).jpg",
+"a": "redlegsfan21",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 480
 },
 "3nw9wr": {
 "t": "Qianlong Emperor",
@@ -3687,6 +4359,14 @@
 "w": 640,
 "h": 430
 },
+"48io20": {
+"t": "Ahu Tongariki",
+"f": "Ahu-Tongariki-from-south-west-2013.jpg",
+"a": "Bjørn Christian Tørrissen",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 480
+},
 "4a6lbt": {
 "t": "Kenyatta International Convention Centre",
 "f": "KICC_nairobi_kenya.jpg",
@@ -3702,6 +4382,14 @@
 "l": "Public domain",
 "w": 632,
 "h": 640
+},
+"4dwd7g": {
+"t": "Onion dome",
+"f": "St_Basils_Cathedral,_Moscow_(149189056).jpg",
+"a": "yeowatzup",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 425
 },
 "4iv05h": {
 "t": "Roald Amundsen",
@@ -3733,6 +4421,14 @@
 "a": "Netherzone",
 "l": "CC BY-SA 4.0",
 "w": 480,
+"h": 640
+},
+"4pkyqz": {
+"t": "White Tower (Tower of London)",
+"f": "White_Tower_(Tower_of_London).jpg",
+"a": "APK",
+"l": "CC BY 4.0",
+"w": 533,
 "h": 640
 },
 "4s8yw7": {
@@ -3775,6 +4471,14 @@
 "w": 480,
 "h": 640
 },
+"4zb20h": {
+"t": "Standard of Ur",
+"f": "Denis_Bourez_-_British_Museum,_London_(8747049029)_(2).jpg",
+"a": "Denis Bourez from France",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 480
+},
 "4zhxth": {
 "t": "Jan Hus",
 "f": "Stimmer_Jan_Hus.jpg",
@@ -3814,6 +4518,14 @@
 "l": "Public domain",
 "w": 427,
 "h": 640
+},
+"5g2v65": {
+"t": "Wat Chaiwatthanaram",
+"f": "Wat_Chaiwatthanaram_by_drone.jpg",
+"a": "Average trinmo",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
 },
 "5i41dr": {
 "t": "Empress Dowager Cixi",
@@ -3991,6 +4703,14 @@
 "w": 640,
 "h": 480
 },
+"70j7l0": {
+"t": "Nine-Dragon Wall",
+"f": "Neun-Drachen-Mauer.jpg",
+"a": "Seebeer",
+"l": "Public domain",
+"w": 640,
+"h": 340
+},
 "73wdx6": {
 "t": "Mehmed II",
 "f": "Bellini,_Gentile_-_Sultan_Mehmet_II.jpg",
@@ -4047,6 +4767,14 @@
 "w": 513,
 "h": 640
 },
+"7ozxba": {
+"t": "Mausoleum of the First Qin Emperor",
+"f": "Tomb_of_the_First_Emperor_Qin_Shi_Huang_Di,_Xi'an,_China_-_panoramio.jpg",
+"a": "Aaron Zhu",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 344
+},
 "7qg3lp": {
 "t": "First transcontinental railroad",
 "f": "East_and_West_Shaking_hands_at_the_laying_of_last_rail_Union_Pacific_Railroad_-_Restoration.jpg",
@@ -4079,6 +4807,14 @@
 "w": 344,
 "h": 319
 },
+"80p5n": {
+"t": "Elgin Marbles",
+"f": "Elgin-marbles-jan-2024.jpg",
+"a": "Jay.M",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 345
+},
 "87yu4u": {
 "t": "John Calvin",
 "f": "John_Calvin_Museum_Catharijneconvent_RMCC_s84_cropped.png",
@@ -4094,6 +4830,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 514
+},
+"8d7i2t": {
+"t": "Gladiator",
+"f": "Gladiators_from_the_Zliten_mosaic_3.JPG",
+"a": "Unknown author Unknown author",
+"l": "Public domain",
+"w": 640,
+"h": 281
 },
 "8daaq2": {
 "t": "Henry VII of England",
@@ -4215,6 +4959,14 @@
 "w": 640,
 "h": 480
 },
+"9qj2qr": {
+"t": "Mount Merapi",
+"f": "Pendidikan_Karakter_Dan_Nasionalisme.jpg",
+"a": "Fahmi Widayat",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
+},
 "9xrohc": {
 "t": "Tunku Abdul Rahman",
 "f": "Tunku_abd_rahman_(cropped,_4to3_port,_bypass).jpg",
@@ -4263,6 +5015,14 @@
 "w": 480,
 "h": 640
 },
+"ac8qmr": {
+"t": "Villa of the Mysteries",
+"f": "Villa_of_the_Mysteries_in_Pompeii.jpg",
+"a": "ElfQrin",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
+},
 "aimxpt": {
 "t": "Rescue of the Danish Jews",
 "f": "Båd_med_jøder_på_vej_fra_Falster_til_Ystad_i_Sverige_(5709133933)_(2).jpg",
@@ -4270,6 +5030,38 @@
 "l": "CC BY-SA 2.0",
 "w": 640,
 "h": 450
+},
+"alt5xw": {
+"t": "Orville Wright",
+"f": "Orville_Wright_1905-crop.jpg",
+"a": "Orville Wright and Wilbur Wright (credited as photographers) [1] , [2]",
+"l": "Public domain",
+"w": 512,
+"h": 640
+},
+"anelsh": {
+"t": "Japanese castle",
+"f": "Himeji_Castle_The_Keep_Towers.jpg",
+"a": "by ja:User:Reggaeman",
+"l": "Public domain",
+"w": 640,
+"h": 480
+},
+"avitr7": {
+"t": "Shachihoko",
+"f": "Kinshachi_crow.jpg",
+"a": "名古屋太郎",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 640
+},
+"axuthq": {
+"t": "Berlin Wall Memorial",
+"f": "Mauer-Gedenkstätte.jpg",
+"a": "N-Lange.de",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 425
 },
 "b0nkx1": {
 "t": "Oda Nobunaga",
@@ -4359,6 +5151,14 @@
 "w": 640,
 "h": 447
 },
+"bkztyw": {
+"t": "Sarsen",
+"f": "Sarsen_in_Wiltshire.jpg",
+"a": "Herry Lawford (Wolfiewolf)",
+"l": "CC BY 2.0",
+"w": 640,
+"h": 480
+},
 "bncugq": {
 "t": "Ishtar Gate",
 "f": "Berlín,_Museo_de_Pérgamo_05.jpg",
@@ -4366,6 +5166,22 @@
 "l": "CC BY-SA 4.0",
 "w": 640,
 "h": 398
+},
+"bq6hx8": {
+"t": "Wat Phra Si Sanphet",
+"f": "Wat_Phra_Si_Sanphet_Ayutthaya_Historic_Park_Thailand_by_Don_Ramey_Logan.jpg",
+"a": "Don Ramey Logan",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
+},
+"breu4": {
+"t": "Temple of the Warriors",
+"f": "Chichen_Itza_3.jpg",
+"a": "Daniel Schwen",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 341
 },
 "bsn07s": {
 "t": "Dejima",
@@ -4439,6 +5255,14 @@
 "w": 530,
 "h": 640
 },
+"c952zo": {
+"t": "Longship",
+"f": "Viking_longship.png",
+"a": "No machine-readable author provided. Ningyou assumed (based on copyright claims).",
+"l": "Public domain",
+"w": 640,
+"h": 369
+},
 "caybck": {
 "t": "Jane Seymour",
 "f": "Hans_Holbein_the_Younger_-_Jane_Seymour,_Queen_of_England_-_Google_Art_Project.jpg",
@@ -4479,6 +5303,14 @@
 "w": 512,
 "h": 640
 },
+"chr25g": {
+"t": "Intihuatana",
+"f": "Intihuatana,_Machu_Picchu.jpg",
+"a": "Leon petrosyan",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 480
+},
 "cjnq8s": {
 "t": "Miaoying Temple",
 "f": "Miaoying_Temple_8.jpg",
@@ -4493,6 +5325,14 @@
 "a": "unknown author",
 "l": "Public domain",
 "w": 450,
+"h": 640
+},
+"cpjgwr": {
+"t": "Court of the Myrtles",
+"f": "Patio_de_los_Arrayanes_Alhambra_Spain_(cropped).jpg",
+"a": "Sebastian Appelt",
+"l": "CC BY-SA 4.0",
+"w": 609,
 "h": 640
 },
 "cqdv77": {
@@ -4543,6 +5383,14 @@
 "w": 640,
 "h": 411
 },
+"d4e5e2": {
+"t": "Inca architecture",
+"f": "Inca_wall_1_-_Coricancha_Peru.jpg",
+"a": "Pethrus",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
+},
 "d7tjt5": {
 "t": "Tokugawa Iemitsu",
 "f": "Iemitu.jpg",
@@ -4550,6 +5398,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 522
+},
+"dhk27k": {
+"t": "Liverpool and Manchester Railway",
+"f": "Opening_Liverpool_and_Manchester_Railway.jpg",
+"a": "A.B. Clayton",
+"l": "Public domain",
+"w": 640,
+"h": 517
 },
 "dish6g": {
 "t": "Ananda Temple",
@@ -4583,6 +5439,14 @@
 "w": 553,
 "h": 640
 },
+"dq0yct": {
+"t": "Carrack",
+"f": "Portuguese_Carracks_off_a_Rocky_Coast.jpg",
+"a": "Unknown author Unknown author",
+"l": "Public domain",
+"w": 640,
+"h": 332
+},
 "dqc0ei": {
 "t": "Minamoto no Yoshitomo",
 "f": "Minamoto_no_Yoshitomo.jpg",
@@ -4597,6 +5461,14 @@
 "a": "Alexander Roslin",
 "l": "Public domain",
 "w": 526,
+"h": 640
+},
+"dw3se4": {
+"t": "Wernher von Braun",
+"f": "Wernher_von_Braun_crop.jpg",
+"a": "NASA/MSFC",
+"l": "Public domain",
+"w": 512,
 "h": 640
 },
 "dwlco4": {
@@ -4655,6 +5527,14 @@
 "w": 640,
 "h": 402
 },
+"eggi78": {
+"t": "St. Vitus Cathedral",
+"f": "PragueCathedral03.jpg",
+"a": "M ath K night and Zachi Evenor",
+"l": "CC BY 2.5",
+"w": 640,
+"h": 477
+},
 "ei0iee": {
 "t": "Sidi Bou Said",
 "f": "Sidi_Chebaan.jpg",
@@ -4687,6 +5567,14 @@
 "w": 569,
 "h": 640
 },
+"ex9uyk": {
+"t": "Panokseon",
+"f": "Panokseon.jpg",
+"a": "http://www.chungdong.or.kr/middroom/syshim/%C7%D1%B1%B9%BB%E7/k-3-9.htm",
+"l": "Public domain",
+"w": 446,
+"h": 336
+},
 "ey7tt4": {
 "t": "Ayutthaya Historical Park",
 "f": "Ayutthaya_World_Heritage_sign.jpg",
@@ -4710,6 +5598,14 @@
 "l": "CC BY-SA 4.0",
 "w": 640,
 "h": 427
+},
+"f1ez7p": {
+"t": "Gardens of Versailles",
+"f": "Vue_aérienne_du_domaine_de_Versailles_le_20_août_2014_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_22.jpg",
+"a": "ToucanWings",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 425
 },
 "f1ggf5": {
 "t": "Ferdinand I, Holy Roman Emperor",
@@ -4767,6 +5663,22 @@
 "w": 480,
 "h": 640
 },
+"fjqqvv": {
+"t": "Wat Mahathat (Ayutthaya)",
+"f": "2025-02-03_Wat_Maha_That_(Ayutthaya)_วัดมหาธาตุ_อยุธยา_-_img_15.jpg",
+"a": "Chainwit.",
+"l": "CC BY 4.0",
+"w": 640,
+"h": 480
+},
+"flc8lu": {
+"t": "Badaling",
+"f": "Peking_Grosse_Mauer-20071019-RM-115708.jpg",
+"a": "Ermell",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
+},
 "fm3kq3": {
 "t": "Malayan campaign",
 "f": "Japanese_troops_final_stages_to_conquest_Singapore,_Johore_Bahru_(AWM_127900).JPG",
@@ -4782,6 +5694,22 @@
 "l": "Public domain",
 "w": 511,
 "h": 640
+},
+"fonf2w": {
+"t": "Takamatsuzuka Tomb",
+"f": "高松塚古墳.jpg",
+"a": "Tsuyoshi chiba",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 421
+},
+"fpq5ef": {
+"t": "Ad Deir",
+"f": "Al_Deir_Petra.JPG",
+"a": "Azurfrog",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 427
 },
 "fq97ox": {
 "t": "George Washington",
@@ -4839,6 +5767,14 @@
 "w": 501,
 "h": 640
 },
+"g3844h": {
+"t": "Dormition Cathedral, Moscow",
+"f": "Dormition_Cathedral,_Moscow.jpg",
+"a": "Daniel Kruczynski",
+"l": "CC BY-SA 2.0",
+"w": 427,
+"h": 640
+},
 "g44cc9": {
 "t": "Stephen I of Hungary",
 "f": "Portrayal_of_Stephen_I,_King_of_Hungary_on_the_coronation_pall.jpg",
@@ -4855,6 +5791,14 @@
 "w": 485,
 "h": 640
 },
+"g7on7e": {
+"t": "Erechtheion",
+"f": "Erechtheum_Acropolis_Athens.jpg",
+"a": "Jebulon",
+"l": "CC0",
+"w": 640,
+"h": 426
+},
 "gcpxf2": {
 "t": "Hussein of Jordan",
 "f": "King_Hussein_1963.jpg",
@@ -4862,6 +5806,14 @@
 "l": "CC BY-SA 4.0",
 "w": 426,
 "h": 607
+},
+"gdwpxl": {
+"t": "Sergei Korolev",
+"f": "Нина_и_Сергей_Королевы_(cropped).jpg",
+"a": "Unknown author Unknown author",
+"l": "CC BY 4.0",
+"w": 459,
+"h": 640
 },
 "gfnvt9": {
 "t": "Helsinki Cathedral",
@@ -4927,6 +5879,14 @@
 "w": 486,
 "h": 640
 },
+"h391xw": {
+"t": "Earth",
+"f": "Meteosat-12-fci-march-equinox-2025-noon.jpg",
+"a": "EUMETSAT",
+"l": "Attribution",
+"w": 640,
+"h": 640
+},
 "h57t9o": {
 "t": "Mona Lisa",
 "f": "Mona_Lisa.jpg",
@@ -4941,6 +5901,14 @@
 "a": "kremlin.ru",
 "l": "CC BY 4.0",
 "w": 480,
+"h": 640
+},
+"h77e2t": {
+"t": "5th Dalai Lama",
+"f": "Thangka_of_the_5th_Dalai_Lama.jpg",
+"a": "Unknown author Unknown author",
+"l": "Public domain",
+"w": 394,
 "h": 640
 },
 "h7a1qh": {
@@ -4967,6 +5935,30 @@
 "w": 620,
 "h": 640
 },
+"has3ij": {
+"t": "Pyramid of the Moon",
+"f": "Piramide_de_la_Luna_072006.jpg",
+"a": "Gorgo",
+"l": "Public domain",
+"w": 640,
+"h": 368
+},
+"hbdpr8": {
+"t": "Ikeda Terumasa",
+"f": "Terumasa_Ikeda.jpg",
+"a": "Unknown author Unknown author",
+"l": "Public domain",
+"w": 601,
+"h": 550
+},
+"hbdrcf": {
+"t": "Sudano-Sahelian architecture",
+"f": "Great_Mosque_of_Djenné_1.jpg",
+"a": "Andy Gilham",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 480
+},
 "he8rvn": {
 "t": "Harare",
 "f": "Crowne_Plaza,_Harare.png",
@@ -4974,6 +5966,14 @@
 "l": "CC BY 2.0",
 "w": 640,
 "h": 429
+},
+"hhs0bp": {
+"t": "Jinshanling",
+"f": "Jinshangling2.jpg",
+"a": "Georgio",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 432
 },
 "hidsr3": {
 "t": "Great Wall of China",
@@ -5022,6 +6022,22 @@
 "l": "Public domain",
 "w": 478,
 "h": 640
+},
+"i5di7q": {
+"t": "Apadana",
+"f": "Persepolis001.jpg",
+"a": "",
+"l": "CC BY-SA 2.5",
+"w": 640,
+"h": 480
+},
+"i6p7vk": {
+"t": "Tune ship",
+"f": "TuneShip.jpg",
+"a": "China Crisis",
+"l": "CC BY-SA 2.5",
+"w": 640,
+"h": 480
 },
 "i748n5": {
 "t": "Henry VIII",
@@ -5087,6 +6103,22 @@
 "w": 640,
 "h": 307
 },
+"ijnrfu": {
+"t": "Haniwa",
+"f": "Warrior_in_Keiko_Armor,_National_Treasure,_Kofun_period,_6th_century,_haniwa_(terracotta_tomb_figurine)_from_Iizuka-machi,_Ota-shi,_Gunma_-_Tokyo_National_Museum_-_DSC06425.JPG",
+"a": "Daderot",
+"l": "CC0",
+"w": 480,
+"h": 640
+},
+"ikjmo4": {
+"t": "Hall of Mirrors",
+"f": "Chateau_Versailles_Galerie_des_Glaces.jpg",
+"a": "Myrabella",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 425
+},
 "iu28e7": {
 "t": "2010 Haiti earthquake",
 "f": "Ruins_of_Haiti_National_Palace_-_Port_au_Prince_2012.jpg",
@@ -5094,6 +6126,14 @@
 "l": "CC BY 2.0",
 "w": 640,
 "h": 427
+},
+"ivix7i": {
+"t": "Charbagh",
+"f": "View_from_atop_the_left_minaret_-_Tomb_of_Jahangir_gardens.jpg",
+"a": "Muhammad Atique Alam",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 535
 },
 "j23uhj": {
 "t": "Minamoto no Yoritomo",
@@ -5103,6 +6143,22 @@
 "w": 514,
 "h": 640
 },
+"j2cvv1": {
+"t": "Shōsōin",
+"f": "Shoso-in.jpg",
+"a": "",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 285
+},
+"jaquwo": {
+"t": "Sagrada Família",
+"f": "SF_maig_2_cropped.jpg",
+"a": "Canaan",
+"l": "CC BY-SA 4.0",
+"w": 440,
+"h": 640
+},
 "jaw7o7": {
 "t": "Harun al-Rashid",
 "f": "Gold_dinar_of_Harun_al-Rashid,_AH_170-193.jpg",
@@ -5110,6 +6166,14 @@
 "l": "CC BY-SA 2.5",
 "w": 325,
 "h": 163
+},
+"jdlm40": {
+"t": "Djinguereber Mosque",
+"f": "Djingareiber_cour.jpg",
+"a": "KaTeznik",
+"l": "CC BY-SA 2.0 fr",
+"w": 480,
+"h": 640
 },
 "je4e8v": {
 "t": "Heian-kyō",
@@ -5167,6 +6231,14 @@
 "w": 473,
 "h": 640
 },
+"jwt3n9": {
+"t": "Hall of Supreme Harmony",
+"f": "Hall_of_Supreme_Harmony_(20241127120000).jpg",
+"a": "N509FZ",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
+},
 "k07ls": {
 "t": "Holy Crown of Hungary",
 "f": "Hungarian_Parliament_002_-_Flickr_-_granada_turnier.jpg",
@@ -5206,6 +6278,14 @@
 "l": "Public domain",
 "w": 376,
 "h": 640
+},
+"kextyn": {
+"t": "Petit Trianon",
+"f": "West_facade_of_Petit_Trianon_002.JPG",
+"a": "Moonik",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 457
 },
 "kiuc7e": {
 "t": "Congress of Vienna",
@@ -5271,6 +6351,14 @@
 "w": 640,
 "h": 640
 },
+"kup8jp": {
+"t": "Wing warping",
+"f": "WrightBrothers1899Kite.jpg",
+"a": "Orville Wright",
+"l": "Public domain",
+"w": 364,
+"h": 364
+},
 "kwz6md": {
 "t": "Louis XVI",
 "f": "Antoine-François_Callet_-_Louis_XVI,_roi_de_France_et_de_Navarre_(1754-1793),_revêtu_du_grand_costume_royal_en_1779_-_Google_Art_Project.jpg",
@@ -5335,6 +6423,14 @@
 "w": 640,
 "h": 611
 },
+"l8nfzs": {
+"t": "Pyramid of the Sun",
+"f": "2020-02-11_Teotihuacan_la_Avenida_de_los_Muertos_y_la_Pirámide_del_Sol.jpg",
+"a": "Burkhard Mücke",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
+},
 "l8zg8v": {
 "t": "Emilio Aguinaldo",
 "f": "Emilio_Aguinaldo_ca._1919_(Restored).jpg",
@@ -5350,6 +6446,14 @@
 "l": "Public domain",
 "w": 573,
 "h": 640
+},
+"ll5nlb": {
+"t": "Gate of All Nations",
+"f": "Persepolis_Gate_of_All_Nations_(cropped).jpg",
+"a": "Shahrokhphoto",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 491
 },
 "lm0rsr": {
 "t": "Fort Jesus",
@@ -5367,6 +6471,14 @@
 "w": 640,
 "h": 421
 },
+"lnl8hx": {
+"t": "Gokstad ship",
+"f": "Gokstadskipet1.jpg",
+"a": "Karamell",
+"l": "CC BY-SA 2.5",
+"w": 480,
+"h": 640
+},
 "lorqo4": {
 "t": "Partitions of Poland",
 "f": "Polish-Lithuanian_Commonwealth_in_1772.PNG",
@@ -5382,6 +6494,22 @@
 "l": "Public domain",
 "w": 640,
 "h": 312
+},
+"lwep5l": {
+"t": "R-7 Semyorka",
+"f": "R-7_(7A)_misil.svg",
+"a": "Heriberto Arribas Abato",
+"l": "CC BY-SA 3.0",
+"w": 260,
+"h": 640
+},
+"m48z2a": {
+"t": "Corcovado",
+"f": "PanoramaRio_(cropped).jpg",
+"a": "beckstei",
+"l": "CC BY 3.0",
+"w": 640,
+"h": 488
 },
 "m49dfx": {
 "t": "Ho Chi Minh",
@@ -5423,6 +6551,14 @@
 "w": 490,
 "h": 640
 },
+"m7gl4f": {
+"t": "Silbury Hill",
+"f": "Silbury_1.jpg",
+"a": "Immanuel Giel",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 410
+},
 "m9ee2x": {
 "t": "Charles Bridge",
 "f": "Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg",
@@ -5455,6 +6591,14 @@
 "w": 484,
 "h": 640
 },
+"mcih2d": {
+"t": "Runestone",
+"f": "U_240,_Lingsberg.JPG",
+"a": "Berig",
+"l": "CC BY 2.5",
+"w": 480,
+"h": 640
+},
 "mf8xm6": {
 "t": "Golden Stool",
 "f": "Golden_stool_31_January_1935.jpg",
@@ -5462,6 +6606,14 @@
 "l": "Public domain",
 "w": 474,
 "h": 458
+},
+"mk3diy": {
+"t": "Meridian Gate",
+"f": "Meridian_Gate_(Forbidden_City)_2015_December_(morning).jpg",
+"a": "Morio",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
 },
 "mkz86a": {
 "t": "Napoleon",
@@ -5581,6 +6733,14 @@
 "a": "Georg von Bothmann",
 "l": "Public domain",
 "w": 486,
+"h": 640
+},
+"nqs813": {
+"t": "Yeomen Warders",
+"f": "Badge_of_the_Yeomen_of_the_Guard.svg",
+"a": "Sodacan",
+"l": "CC BY-SA 4.0",
+"w": 595,
 "h": 640
 },
 "nrz41n": {
@@ -5703,6 +6863,14 @@
 "w": 430,
 "h": 640
 },
+"ofy46v": {
+"t": "Heel Stone",
+"f": "Stonehenge_Heel_Stone_-_panoramio_(2).jpg",
+"a": "Heikki Immonen",
+"l": "CC BY 3.0",
+"w": 491,
+"h": 640
+},
 "onxp4x": {
 "t": "Bagan",
 "f": "Bagan,_Burma.jpg",
@@ -5726,6 +6894,14 @@
 "l": "CC BY-SA 2.0",
 "w": 640,
 "h": 454
+},
+"opf7xv": {
+"t": "Antoni Gaudí",
+"f": "Antoni_Gaudi_1878.jpg",
+"a": "Pau Audouard Deglaire",
+"l": "Public domain",
+"w": 470,
+"h": 640
 },
 "oqbtcv": {
 "t": "Henri Christophe",
@@ -5773,6 +6949,14 @@
 "a": "120",
 "l": "CC BY 2.5",
 "w": 265,
+"h": 640
+},
+"p5yh4d": {
+"t": "Monument to Minin and Pozharsky",
+"f": "Moscow_05-2017_img07_Monument_to_Minin_and_Pozharsky.jpg",
+"a": "A.Savin",
+"l": "FAL",
+"w": 427,
 "h": 640
 },
 "p909an": {
@@ -5895,6 +7079,22 @@
 "w": 427,
 "h": 640
 },
+"q1zniw": {
+"t": "Checkpoint Charlie",
+"f": "Berlin_-_Checkpoint_Charlie_1963.jpg",
+"a": "Roger Wollstadt",
+"l": "CC BY-SA 2.0",
+"w": 640,
+"h": 427
+},
+"q2bwwi": {
+"t": "Pyramid of Khafre",
+"f": "Pyramid_of_Khafre_and_Sphinx,_Giza,_Greater_Cairo,_Egypt.jpg",
+"a": "M1chu",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 425
+},
 "q31zdj": {
 "t": "The Great Wave off Kanagawa",
 "f": "Tsunami_by_hokusai_19th_century.jpg",
@@ -5909,6 +7109,14 @@
 "a": "RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev.jpg : Vladimir Vyatkin …",
 "l": "CC BY-SA 3.0",
 "w": 480,
+"h": 640
+},
+"q84r1q": {
+"t": "Gustave Eiffel",
+"f": "Gustave_Eiffel_1888_Nadar2.jpg",
+"a": "Nadar",
+"l": "Public domain",
+"w": 432,
 "h": 640
 },
 "q9bnrq": {
@@ -5965,6 +7173,14 @@
 "a": "Louis-Auguste Bisson",
 "l": "Public domain",
 "w": 454,
+"h": 640
+},
+"qkhg26": {
+"t": "Huayna Picchu",
+"f": "Peru_Machu_Picchu_Sunrise.jpg",
+"a": "Allard Schmidt (The Netherlands)",
+"l": "Public domain",
+"w": 480,
 "h": 640
 },
 "qln9jc": {
@@ -6031,6 +7247,14 @@
 "w": 640,
 "h": 427
 },
+"r4tan6": {
+"t": "Lamassu",
+"f": "Iraqi_Museum.jpg",
+"a": "MohammadHuzam",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
+},
 "r5791m": {
 "t": "Tokugawa Tsunayoshi",
 "f": "Tsunyaoshi.jpg",
@@ -6095,6 +7319,14 @@
 "w": 640,
 "h": 505
 },
+"s2n85c": {
+"t": "Hiram Bingham III",
+"f": "Senator_Hiram_Bingham_of_Conn.,_(1-9-25)_LCCN2016839105_(3x4a).jpg",
+"a": "National Photo Company Collection",
+"l": "Public domain",
+"w": 480,
+"h": 640
+},
 "s3xqoa": {
 "t": "Henry Dunant",
 "f": "Henry_Dunant-young.jpg",
@@ -6102,6 +7334,14 @@
 "l": "Public domain",
 "w": 507,
 "h": 640
+},
+"s58snu": {
+"t": "East Side Gallery",
+"f": "Segment_with_Graffiti_of_the_Berlin_Wall_(3_of_4)_(cropped).jpg",
+"a": "Lklundin",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 391
 },
 "s5g4vp": {
 "t": "National September 11 Memorial & Museum",
@@ -6126,6 +7366,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 615
+},
+"si6mbk": {
+"t": "Wright Brothers National Memorial",
+"f": "On_this_hill.jpg",
+"a": "Kevin A Pierce",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 480
 },
 "sj4uw6": {
 "t": "Grand Palace",
@@ -6287,6 +7535,14 @@
 "w": 640,
 "h": 427
 },
+"tmxrcf": {
+"t": "Ishibutai Kofun",
+"f": "Ishibutai-kofun_Asuka_Nara_pref05n4592.jpg",
+"a": "663highland",
+"l": "CC BY 2.5",
+"w": 640,
+"h": 427
+},
 "tpkjwo": {
 "t": "Stadium Merdeka",
 "f": "Stadium_Merdeka_Complete.jpg",
@@ -6335,6 +7591,14 @@
 "w": 380,
 "h": 640
 },
+"tupjfx": {
+"t": "Rose window",
+"f": "Strassburg_Rose_exterior.jpg",
+"a": "User:Magadan, modified TTaylor",
+"l": "CC BY-SA 3.0",
+"w": 630,
+"h": 640
+},
 "tv1ysc": {
 "t": "Helsinki Central Library Oodi",
 "f": "Oodi_Library_(Helsinki,_Finland).jpg",
@@ -6374,6 +7638,14 @@
 "l": "Public domain",
 "w": 480,
 "h": 640
+},
+"uart68": {
+"t": "Hiroshima Peace Memorial Park",
+"f": "20181111_Hiroshima_Memorial_Cenotaph-1.jpg",
+"a": "Balon Greyjoy",
+"l": "CC0",
+"w": 640,
+"h": 427
 },
 "uevo83": {
 "t": "Maastricht Treaty",
@@ -6527,6 +7799,14 @@
 "w": 624,
 "h": 419
 },
+"vreek3": {
+"t": "Daisen Kofun",
+"f": "Mozu_Kofun_Group_Aerial_photograph_2007.jpg",
+"a": "国土地理院",
+"l": "Attribution",
+"w": 424,
+"h": 640
+},
 "vu7yiu": {
 "t": "Emperor Antoku",
 "f": "Emperor_Antoku.jpg",
@@ -6574,6 +7854,14 @@
 "l": "Public domain",
 "w": 502,
 "h": 640
+},
+"w51ieb": {
+"t": "Arch of Constantine",
+"f": "Arch_of_Constantine_(Rome)_-_South_side,_from_Via_triumphalis.jpg",
+"a": "NikonZ7II (Paris Orlando)",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 540
 },
 "wb58ak": {
 "t": "Turtle ship",
@@ -6663,6 +7951,14 @@
 "w": 640,
 "h": 420
 },
+"x81xlm": {
+"t": "Ivan the Great Bell Tower",
+"f": "Clocher_d'Ivan_le_Grand.jpg",
+"a": "Gérard Janot",
+"l": "CC BY-SA 3.0",
+"w": 480,
+"h": 640
+},
 "x8nmx6": {
 "t": "Wilhelm II",
 "f": "Kaiser_Wilhelm_II_of_Germany_-_1902_(3x4_cropped).jpg",
@@ -6685,6 +7981,14 @@
 "a": "H at English Wikipedia",
 "l": "Public domain",
 "w": 480,
+"h": 640
+},
+"xcyw1b": {
+"t": "Robert Stephenson",
+"f": "Robert_Stephenson_by_Maull_&_Polybank,_1856_(crop).jpg",
+"a": "Maull & Polybank, 55 Gracechurch Street, London This was a partnership of Henry Maull (18…",
+"l": "Public domain",
+"w": 547,
 "h": 640
 },
 "xk0ijh": {
@@ -6750,6 +8054,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 449
+},
+"y3id2p": {
+"t": "Pinta (ship)",
+"f": "LaPinta.jpg",
+"a": "Miguel Ángel \"fotógrafo\"",
+"l": "CC BY-SA 2.5",
+"w": 480,
+"h": 528
 },
 "y4vns5": {
 "t": "Kanbawzathadi Palace",
@@ -6823,6 +8135,14 @@
 "w": 640,
 "h": 524
 },
+"yilumg": {
+"t": "Gargoyle",
+"f": "Notre-Dame_Rzygacze.JPG",
+"a": "Krzysztof Mizera",
+"l": "CC BY-SA 4.0",
+"w": 474,
+"h": 640
+},
 "yjfzxk": {
 "t": "Toyotomi Hideyoshi",
 "f": "Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png",
@@ -6855,6 +8175,14 @@
 "w": 626,
 "h": 595
 },
+"yvae8n": {
+"t": "Potala Palace",
+"f": "Potala_Palace_HQ.jpg",
+"a": "Lhasa Government",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
+},
 "z5w6e9": {
 "t": "Sukarno",
 "f": "Presiden_Sukarno.jpg",
@@ -6870,6 +8198,14 @@
 "l": "Public domain",
 "w": 457,
 "h": 640
+},
+"zbqxir": {
+"t": "Tōkaidō Shinkansen",
+"f": "Series-N700S-J2.jpg",
+"a": "MaedaAkihiko",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
 },
 "zeb04r": {
 "t": "Fujiwara no Yorimichi",
@@ -6919,6 +8255,14 @@
 "w": 480,
 "h": 640
 },
+"ztrmll": {
+"t": "Exposition Universelle (1889)",
+"f": "Paris_1889_plakat.jpg",
+"a": "M.S. (monogramme), dessinateur Imprimerie A. Maulde et Cie, imprimeur Unknown author Unkn…",
+"l": "Public domain",
+"w": 481,
+"h": 640
+},
 "zuku4f": {
 "t": "Book of Kells",
 "f": "KellsFol032vChristEnthroned.jpg",
@@ -6932,6 +8276,14 @@
 "f": "AfricaMuseum_-_2023-02-09_-_03.jpg",
 "a": "Jmh2o",
 "l": "CC BY-SA 4.0",
+"w": 640,
+"h": 427
+},
+"zxi772": {
+"t": "Mušḫuššu",
+"f": "Sirrush.jpg",
+"a": "Allie_Caulfield from Germany",
+"l": "CC BY 2.0",
 "w": 640,
 "h": 427
 },
