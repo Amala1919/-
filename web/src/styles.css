@@ -556,7 +556,7 @@ body.no-tabbar .tabbar { transform: translateY(110%); }
 
 /* ---------- Families ---------- */
 .fam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 6px 16px 20px; }
-.fam-card { display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: linear-gradient(135deg, rgba(242, 160, 216, 0.12), transparent 70%), var(--card); border: 1px solid var(--line); text-align: left; }
+.fam-card { display: flex; flex-direction: column; align-items: stretch; gap: 10px; width: 100%; padding: 14px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid #d86fb5; text-align: left; }
 .fam-card:active, .fam-link:active { transform: scale(0.98); }
 .fam-card-head { display: flex; align-items: center; gap: 10px; }
 .fam-card-head small, .fam-link small { display: block; color: var(--muted); font-size: 12px; font-weight: 400; }
@@ -570,7 +570,7 @@ body.no-tabbar .tabbar { transform: translateY(110%); }
 .fam-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 12px; background: rgba(242, 160, 216, 0.12); border: 1px solid rgba(242, 160, 216, 0.35); font-size: 13px; font-weight: 700; }
 
 .ft-wrap { position: relative; margin: 8px 0 4px; }
-.ft-tools { position: absolute; right: 12px; top: 8px; z-index: 3; display: flex; gap: 6px; }
+.ft-tools { display: flex; justify-content: flex-end; gap: 6px; padding: 0 12px 6px; }
 .ft-tools button { width: 36px; height: 36px; border-radius: 50%; background: rgba(14, 20, 36, 0.85); border: 1px solid var(--line); font-size: 17px; color: #fff; }
 .ft-viewport { overflow: auto; max-height: 68vh; background: radial-gradient(800px 400px at 30% 0, rgba(242, 160, 216, 0.08), transparent), #0b1020; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); -webkit-overflow-scrolling: touch; }
 .ft-canvas { position: relative; margin: 0 auto; }

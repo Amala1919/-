@@ -14,7 +14,7 @@ export default function families(root) {
   <div class="fam-grid">
     ${FAMILIES.map((f) => `
       <button class="fam-card" data-go="/family/${f.id}">
-        <div class="fam-card-head"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${shortYear(f.start)}〜${shortYear(f.end)}・${f.members.length}人</small></span></div>
+        <div class="fam-card-head"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${f.period}・${f.members.length}人</small></span></div>
         <div class="fam-faces">${f.members.slice(0, 7).map(([pid]) => (PERSON_BY_ID[pid] ? personIcon(PERSON_BY_ID[pid], 40) : '')).join('')}</div>
         <div class="fam-flags">${f.countries.map((c) => COUNTRY_BY_ID[c]?.flag || '').join(' ')}</div>
       </button>`).join('')}

@@ -1,5 +1,6 @@
 // Cross-references between people, families, countries and events.
 import { FAMILIES } from './families.js';
+import { shortYear } from '../util.js';
 import { PEOPLE, PERSON_BY_ID, EVENTS, EVENT_BY_ID, COUNTRY_BY_ID } from './index.js';
 
 export { FAMILIES };
@@ -9,9 +10,11 @@ for (const f of FAMILIES) {
   f.kind = f.kind || 'family';
   for (const [pid] of f.members) if (!PERSON_BY_ID[pid]) console.warn('family member missing', f.id, pid);
   const ppl = f.members.map(([pid]) => PERSON_BY_ID[pid]).filter(Boolean);
-  const years = ppl.flatMap((p) => [p.born, p.died]).filter((y) => y != null);
+  const now = new Date().getFullYear();
+  const years = ppl.flatMap((p) => [p.born, p.died ?? (p.born != null ? now : null)]).filter((y) => y != null);
   f.start = Math.min(...years);
   f.end = Math.max(...years);
+  f.period = `${shortYear(f.start)}〜${f.end >= now ? '現在' : shortYear(f.end)}`;
 }
 
 const female = (p) => !!p?.a?.f;

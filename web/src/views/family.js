@@ -23,7 +23,7 @@ export default function family(root, { id }) {
   <header class="page-head compact fam-head">
     <button class="back-btn inline" data-back aria-label="戻る">‹</button>
     <h1>${f.emoji} ${esc(f.name)}</h1>
-    <p>${f.kind === 'mentor' ? '師弟の系譜' : '家系図'}・${shortYear(f.start)}〜${shortYear(f.end)}・${members.length}人</p>
+    <p>${f.kind === 'mentor' ? '師弟の系譜' : '家系図'}・${f.period}・${members.length}人</p>
   </header>
   <div class="chips pad-x">${countries.map((c) => `<button class="chip" data-go="/country/${c}">${COUNTRY_BY_ID[c].flag} ${esc(COUNTRY_BY_ID[c].name)}</button>`).join('')}</div>
   <section class="pad-x"><p class="lead">${linkify(f.desc, { exclude: [`family:${f.id}`] })}</p></section>

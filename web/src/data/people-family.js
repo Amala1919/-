@@ -4,6 +4,19 @@ const J = (h, extra = {}) => ({ h, hc: '#1b1b1b', sk: 1, ...extra });
 const E = (h, extra = {}) => ({ h, hc: '#5d4037', sk: 0, ...extra });
 
 export const FAMILY_PEOPLE = [
+  // ---- 近代の皇室 ----
+  { id: 'komei', name: '孝明天皇', country: 'jp', born: 1831, died: 1867, title: '第121代天皇', desc: '幕末の天皇。外国嫌いで攘夷を望んだが、妹の和宮を将軍家茂に嫁がせ、幕府との協調（公武合体）を進めた。', img: 'Emperor Kōmei', a: J('kanmuri', { rc: '#5d4037' }) },
+  { id: 'meiji', name: '明治天皇', country: 'jp', born: 1852, died: 1912, title: '第122代天皇', desc: '15歳で即位し、明治維新・大日本帝国憲法の発布・日清日露戦争など、日本の近代化の時代に在位した。', img: 'Emperor Meiji', a: J('none', { b: 'm', rc: '#1a237e' }) },
+  { id: 'taisho', name: '大正天皇', country: 'jp', born: 1879, died: 1926, title: '第123代天皇', desc: '明治天皇の子。在位中に第一次世界大戦や大正デモクラシーの時代を迎えた。病気がちで、晩年は皇太子が摂政を務めた。', img: 'Emperor Taishō', a: J('none', { b: 'm', rc: '#263238' }) },
+  { id: 'showa', name: '昭和天皇', country: 'jp', born: 1901, died: 1989, title: '第124代天皇', desc: '在位62年は歴代最長。太平洋戦争と敗戦、戦後の復興と高度経済成長を見届けた。生物学の研究者でもあった。', img: 'Hirohito', a: J('none', { rc: '#37474f' }) },
+  { id: 'akihito', name: '明仁（上皇）', country: 'jp', born: 1933, died: null, life: '1933年〜', title: '第125代天皇（現在は上皇）', desc: '平成の天皇。被災地や戦跡を訪れて人々に寄り添った。2019年、約200年ぶりに生前退位した。', img: 'Akihito', a: J('none', { hc: '#9e9e9e', rc: '#37474f' }) },
+  { id: 'naruhito', name: '徳仁（今上天皇）', country: 'jp', born: 1960, died: null, life: '1960年〜', title: '第126代天皇', desc: '2019年に即位し、元号は「令和」となった。イギリスのオックスフォード大学でテムズ川の水運の歴史を研究した。', img: 'Naruhito', a: J('none', { rc: '#263238' }) },
+  // ---- ナポレオン家 ----
+  { id: 'josephine', name: 'ジョゼフィーヌ', country: 'fr', born: 1763, died: 1814, title: 'ナポレオンの最初の皇后', desc: 'カリブ海のマルティニーク島生まれ。ナポレオンと結婚して皇后となったが、子が生まれず離婚した。', img: 'Joséphine de Beauharnais', a: E('updo', { f: 1, hc: '#3e2723', rc: '#f8bbd0' }) },
+  { id: 'napoleon2', name: 'ナポレオン2世', country: 'fr', born: 1811, died: 1832, title: 'ナポレオンの息子', desc: '生まれてすぐ「ローマ王」の称号を与えられた。父の失脚後は母の実家ウィーンで育ち、21歳で病死した。', img: 'Napoleon II', a: E('none', { hc: '#d7b17c', rc: '#eceff1' }) },
+  { id: 'hortense', name: 'オルタンス', country: 'fr', born: 1783, died: 1837, title: 'オランダ王妃', desc: 'ジョゼフィーヌの娘。ナポレオンの弟ルイと結婚し、のちの皇帝ナポレオン3世を産んだ。作曲家としても知られる。', img: 'Hortense de Beauharnais', a: E('updo', { f: 1, hc: '#d7b17c', rc: '#e1bee7' }) },
+  { id: 'louisbonaparte', name: 'ルイ・ボナパルト', country: 'nl', born: 1778, died: 1846, title: 'オランダ国王', desc: 'ナポレオンの弟。兄によってオランダ国王にされたが、オランダの人々の立場に立とうとして兄と対立し、退位した。', img: 'Louis Bonaparte', a: E('none', { hc: '#3e2723', rc: '#1565c0' }) },
+  { id: 'napoleon3', name: 'ナポレオン3世', country: 'fr', born: 1808, died: 1873, title: 'フランス第二帝政の皇帝', desc: 'ナポレオンの甥。選挙で大統領となり、のちに皇帝に即位。パリの大改造を行ったが、普仏戦争でプロイセンに敗れて捕虜となった。', img: 'Napoleon III', a: E('none', { b: 'm', hc: '#3e2723', rc: '#1a237e' }) },
   // ---- 藤原氏 ----
   { id: 'kamatari', name: '中臣鎌足（藤原鎌足）', country: 'jp', born: 614, died: 669, title: '藤原氏の祖', desc: '中大兄皇子とともに蘇我入鹿を倒し、大化の改新を進めた。亡くなる直前、天智天皇から「藤原」の姓を授かった。', img: 'Fujiwara no Kamatari', a: J('kanmuri', { b: 'm', rc: '#6d4c41' }) },
   { id: 'fuhito', name: '藤原不比等', country: 'jp', born: 659, died: 720, title: '奈良時代初期の政治家', desc: '鎌足の子。大宝律令の制定に関わり、娘を天皇家に嫁がせて藤原氏繁栄の基礎を築いた。', img: 'Fujiwara no Fuhito', a: J('kanmuri', { b: 'm', rc: '#4a148c' }) },
@@ -21,7 +34,7 @@ export const FAMILY_PEOPLE = [
   { id: 'yoshitoki', name: '北条義時', country: 'jp', born: 1163, died: 1224, title: '鎌倉幕府の2代執権', desc: '政子の弟。1221年の承久の乱で後鳥羽上皇の軍を破り、幕府の力を西国にも広げた。', img: 'Hōjō Yoshitoki', a: J('eboshi', { rc: '#2e7d32' }) },
   { id: 'yoriie', name: '源頼家', country: 'jp', born: 1182, died: 1204, title: '鎌倉幕府の2代将軍', desc: '頼朝と政子の長男。将軍の独断は抑えられ、有力御家人13人の合議制がしかれた。のちに伊豆の修禅寺で殺された。', img: 'Minamoto no Yoriie', a: J('eboshi', { rc: '#6a1b9a' }) },
   { id: 'sanetomo', name: '源実朝', country: 'jp', born: 1192, died: 1219, title: '鎌倉幕府の3代将軍', desc: '和歌にすぐれ『金槐和歌集』を残した。鶴岡八幡宮で甥の公暁に暗殺され、源氏の将軍は3代で絶えた。', img: 'Minamoto no Sanetomo', a: J('eboshi', { rc: '#00838f' }) },
-  { id: 'kugyo', name: '公暁', country: 'jp', born: 1200, died: 1219, title: '源頼家の子', desc: '父の仇と思いこみ、叔父の将軍実朝を暗殺した。自らもその日のうちに討たれた。', img: 'Kugyō', a: J('bald', { rc: '#424242' }) },
+  { id: 'kugyo', name: '公暁', country: 'jp', born: 1200, died: 1219, title: '源頼家の子', desc: '父の仇と思いこみ、叔父の将軍実朝を暗殺した。自らもその日のうちに討たれた。', a: J('bald', { rc: '#424242' }) },
   { id: 'yasutoki', name: '北条泰時', country: 'jp', born: 1183, died: 1242, title: '鎌倉幕府の3代執権', desc: '1232年、武士の慣習をもとにした初めての武家の法律「御成敗式目」を定めた。', img: 'Hōjō Yasutoki', a: J('eboshi', { rc: '#455a64' }) },
 
   // ---- 平氏 ----
@@ -70,7 +83,7 @@ export const FAMILY_PEOPLE = [
   { id: 'hulagu', name: 'フレグ', country: 'mn', born: 1218, died: 1265, title: 'イル・ハン国の建国者', desc: 'トルイの子。1258年にバグダードを攻め落としてアッバース朝を滅ぼし、イランにイル・ハン国を開いた。', img: 'Hulagu Khan', a: J('mongol', { b: 's', rc: '#6a1b9a' }) },
 
   // ---- ハプスブルク家 ----
-  { id: 'rudolf1', name: 'ルドルフ1世', country: 'at', born: 1218, died: 1291, title: 'ハプスブルク家初のドイツ王', desc: 'スイスの小領主から1273年にドイツ王（神聖ローマ皇帝位の候補）に選ばれ、オーストリアを手に入れて一族の基盤を築いた。', img: 'Rudolf I of Germany', a: E('crown', { b: 's', rc: '#b71c1c' }) },
+  { id: 'rudolf1', name: 'ルドルフ1世', country: 'at', born: 1218, died: 1291, title: 'ハプスブルク家初のドイツ王', desc: 'スイスの小領主から1273年にドイツ王（神聖ローマ皇帝位の候補）に選ばれ、オーストリアを手に入れて一族の基盤を築いた。', a: E('crown', { b: 's', rc: '#b71c1c' }) },
   { id: 'maximilian1', name: 'マクシミリアン1世', country: 'at', born: 1459, died: 1519, title: '神聖ローマ皇帝', desc: '自身の結婚と、子や孫の結婚によって領土を大きく広げ、ハプスブルク家の大帝国の基礎をつくった。', img: 'Maximilian I, Holy Roman Emperor', a: E('cap', { rc: '#4e342e' }) },
   { id: 'maryburgundy', name: 'マリー・ド・ブルゴーニュ', country: 'fr', born: 1457, died: 1482, title: 'ブルゴーニュ公国の女公', desc: 'マクシミリアン1世と結婚し、豊かなネーデルラントがハプスブルク家の領地となった。落馬事故で25歳で亡くなった。', img: 'Mary of Burgundy', a: E('tiara', { f: 1, rc: '#1a237e' }) },
   { id: 'ferdinand2', name: 'フェルナンド2世', country: 'es', born: 1452, died: 1516, title: 'アラゴン王', desc: 'カスティーリャのイサベル女王と結婚してスペイン統一の道を開き、グラナダを攻略した。', img: 'Ferdinand II of Aragon', a: E('crown', { rc: '#880e4f' }) },

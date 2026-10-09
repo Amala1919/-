@@ -35,7 +35,7 @@ const MODEL_ALIASES = {
 const FAMILY_ALIASES = {
   fujiwara: ['藤原氏', '摂関家'], genji: ['北条氏'], taira: ['平氏', '平家'], tokugawa: ['徳川将軍家', '御三家'],
   mughal: ['ムガル帝国'], joseon: ['朝鮮王朝'], qing: ['愛新覚羅'], habsburg: ['ハプスブルク家', 'ハプスブルク'],
-  tudor: ['テューダー朝'], romanov: ['ロマノフ朝', 'ロマノフ家'],
+  tudor: ['テューダー朝'], romanov: ['ロマノフ朝', 'ロマノフ家'], imperial: ['皇室'], bonaparte: ['ボナパルト家'],
 };
 
 // A katakana term must be a whole word (not part of a longer katakana word).
