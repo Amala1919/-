@@ -17,6 +17,8 @@ import country from './views/country.js';
 import compare from './views/compare.js';
 import landmarks from './views/landmarks.js';
 import landmark from './views/landmark.js';
+import themes from './views/themes.js';
+import theme from './views/theme.js';
 import quizMenu from './views/quiz.js';
 import quizPlay from './views/quizplay.js';
 import people from './views/people.js';
@@ -33,6 +35,8 @@ route('/era/:id', era);
 route('/countries', countries);
 route('/country/:id', country);
 route('/compare', compare);
+route('/themes', themes);
+route('/theme/:id', theme);
 route('/landmarks', landmarks);
 route('/landmark/:id', landmark);
 route('/museum', landmarks);
@@ -48,7 +52,7 @@ route('/family/:id', family);
 
 const TABS = [
   { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people', '/families', '/family'] },
-  { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare', '/story/era'] },
+  { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare', '/story/era', '/themes', '/theme'] },
   { id: 'countries', icon: '🗺️', label: '国', path: '/countries', match: ['/countries', '/country', '/story/country'] },
   { id: 'landmarks', icon: '🏛️', label: '名所', path: '/landmarks', match: ['/landmarks', '/landmark', '/museum', '/model'] },
   { id: 'quiz', icon: '❓', label: 'クイズ', path: '/quiz', match: ['/quiz'] },

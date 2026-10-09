@@ -17,7 +17,7 @@ const PERSON_ALIASES = {
   shihuangdi: ['始皇帝'], kangxi: ['康熙帝'], qianlong: ['乾隆帝'], sejong: ['世宗'], taejo: ['李成桂'],
 };
 // Names too generic to be linked on their own.
-const BLOCK = new Set(['ヴィクトリア', '武帝', 'ワシントン', 'アンナ', 'アリス', 'マリー', 'フランツ']);
+const BLOCK = new Set(['ヴィクトリア', '武帝', '太宗', '高宗', '玄宗', '世祖', 'ワシントン', 'アンナ', 'アリス', 'マリー', 'フランツ']);
 
 const COUNTRY_ALIASES = {
   kr: ['韓国', '朝鮮'], mn: ['モンゴル帝国'], th: ['シャム'], ir: ['ペルシア'], iq: ['メソポタミア', 'バビロン'],

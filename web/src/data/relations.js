@@ -1,5 +1,8 @@
 // Cross-references between people, families, countries and events.
-import { FAMILIES } from './families.js';
+import { FAMILIES as FAMILIES1 } from './families.js';
+import FAMILIES2 from './families2.js';
+
+const FAMILIES = [...FAMILIES1, ...FAMILIES2];
 import { shortYear } from '../util.js';
 import { PEOPLE, PERSON_BY_ID, EVENTS, EVENT_BY_ID, COUNTRY_BY_ID } from './index.js';
 

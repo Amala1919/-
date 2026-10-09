@@ -665,3 +665,24 @@ body.globe-full .tabbar, body.globe-full .search-fab { display: none; }
 .lm-chip small { font-size: 11px; color: var(--muted); padding: 0 8px 8px; }
 .hscroll.lm-row { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
 .model-cta-icon img { width: 54px; height: 54px; border-radius: 10px; object-fit: cover; display: block; }
+
+/* ---------- Themes ---------- */
+.th-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 6px 16px 18px; }
+@media (min-width: 560px) { .th-grid { grid-template-columns: repeat(3, 1fr); } }
+.th-card { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: var(--card); border: 1px solid var(--line); text-align: left; }
+.th-card:active { transform: scale(0.98); }
+.th-thumb { position: relative; aspect-ratio: 16 / 10; background: linear-gradient(135deg, var(--c), #1a2440); }
+.th-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
+.th-emoji { position: absolute; left: 8px; bottom: 6px; font-size: 26px; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); }
+.th-body { display: flex; flex-direction: column; gap: 2px; padding: 8px 10px 10px; border-top: 3px solid var(--c); }
+.th-body b { font-size: 14px; line-height: 1.35; }
+.th-body small { color: var(--muted); font-size: 11.5px; }
+.th-flags { font-size: 13px; letter-spacing: 1px; }
+.th-sections { list-style: none; padding: 0; margin: 18px 0 0; }
+.th-sec { display: flex; gap: 12px; position: relative; padding-bottom: 18px; }
+.th-sec::before { content: ''; position: absolute; left: 15px; top: 34px; bottom: 0; width: 2px; background: linear-gradient(var(--c), transparent); }
+.th-sec-n { flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--c); color: #111; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.th-sec-body { flex: 1; min-width: 0; }
+.th-sec-body h3 { font-size: 16.5px; margin: 4px 0 6px; }
+.th-sec-body p { font-size: 14px; line-height: 1.8; color: #dfe5f3; margin: 0 0 8px; }
+.th-link { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); font-size: 13px; font-weight: 700; margin: 4px 6px 0 0; }

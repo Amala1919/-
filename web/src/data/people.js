@@ -2,6 +2,7 @@
 //   h: 頭（帽子・髪型） f: 女性 b: ひげ(n/m/s/l) hc: 髪色 sk: 肌(0-3) rc: 服の色 g: 眼鏡
 import { FAMILY_PEOPLE } from './people-family.js';
 import { MORE_PEOPLE } from './people-more.js';
+import FAMILY_PEOPLE2 from './people-family2.js';
 
 export const PEOPLE = [
   // ---- 日本 ----
@@ -157,6 +158,6 @@ export const PEOPLE = [
   { id: 'cook', name: 'ジェームズ・クック', country: 'gb', born: 1728, died: 1779, title: 'イギリスの探検家', desc: '太平洋を3度航海し、オーストラリア東海岸やニュージーランドの地図をつくった。ハワイで亡くなった。', img: 'James Cook', a: { h: 'wig', hc: '#eeeeee', sk: 0, rc: '#1a237e' } },
 ];
 
-PEOPLE.push(...FAMILY_PEOPLE, ...MORE_PEOPLE);
+PEOPLE.push(...FAMILY_PEOPLE, ...MORE_PEOPLE, ...FAMILY_PEOPLE2);
 
 export const PERSON_BY_ID = Object.fromEntries(PEOPLE.map((p) => [p.id, p]));

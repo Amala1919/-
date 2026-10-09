@@ -1,4 +1,5 @@
 import { FAMILIES } from '../data/relations.js';
+import { THEMES } from '../data/theme-index.js';
 import { ERAS, EVENTS, COUNTRIES, PEOPLE } from '../data/index.js';
 import { LANDMARKS } from '../data/landmarks.js';
 import { mountGlobe } from '../three/globe.js';
@@ -105,6 +106,7 @@ export default function home(root) {
   <section class="menu-grid">
     <button class="menu-tile" data-go="/timeline" style="--c:#d4a54a"><span>📜</span><b>時代で学ぶ</b><small>8つの時代を旅する</small></button>
     <button class="menu-tile" data-go="/countries" style="--c:#4f7cff"><span>🗺️</span><b>国で学ぶ</b><small>${COUNTRIES.length}の国と地域</small></button>
+    <button class="menu-tile" data-go="/themes" style="--c:#e0864a"><span>🧵</span><b>テーマで学ぶ</b><small>${THEMES.length}のテーマ史</small></button>
     <button class="menu-tile" data-go="/compare" style="--c:#26a69a"><span>🧭</span><b>比較年表</b><small>国をならべて比べる</small></button>
     <button class="menu-tile" data-go="/landmarks" style="--c:#a66cff"><span>🏛️</span><b>世界の名所</b><small>${LANDMARKS.length}の名所を写真で</small></button>
     <button class="menu-tile" data-go="/people" style="--c:#ef6c3a"><span>🧑‍🎓</span><b>人物図鑑</b><small>${PEOPLE.length}人の偉人</small></button>

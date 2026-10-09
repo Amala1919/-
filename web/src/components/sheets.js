@@ -13,6 +13,7 @@ import { photoFigure, image, openLightbox } from '../images.js';
 import { linkify } from './linkify.js';
 import { familiesOf, relativesOf, contemporariesOf, coActorsOf } from '../data/relations.js';
 import { mentionedPeople } from './connections.js';
+import { themesOfEvent } from '../data/theme-index.js';
 
 function relChip(person, label) {
   return `<button class="person-chip" data-person="${person.id}">${personIcon(person, 56)}<span>${esc(person.name)}${label ? `<span class="rel-label">${esc(label)}</span>` : ''}</span></button>`;
@@ -65,6 +66,7 @@ function eventHTML(e) {
     ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div><div>${linkify(e.point, { exclude: [`country:${c.id}`] })}</div></div>` : ''}
     ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">${image(model.img) ? `<img src="${image(model.img).thumb}" alt="">` : '🏛️'}</span><span><b>名所を写真で見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
     ${ppl.length ? `<h3 class="sub">関連する人物</h3><div class="people-row">${ppl.map((p) => personChip(p, 56)).join('')}</div>` : ''}
+    ${themesOfEvent(e).length ? `<h3 class="sub">🧵 この出来事が登場するテーマ</h3><div>${themesOfEvent(e).map((t) => `<button class="th-link" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)} ›</button>`).join('')}</div>` : ''}
     ${fams.length ? `<h3 class="sub">🌳 関係する家系図</h3>${familyButtons(fams, ppl.length === 1 ? ppl[0].id : '')}` : ''}
     <h3 class="sub">🌍 同じころの世界</h3>
     <p class="hint">「${esc(e.title)}」と同じ時代に、ほかの国では…</p>

@@ -6,6 +6,7 @@ import { worldMapSVG } from '../components/geo.js';
 import { image, creditText } from '../images.js';
 import { FAMILIES, FAMILY_BY_ID } from '../data/relations.js';
 import { LANDMARKS, LANDMARK_BY_ID } from '../data/landmarks.js';
+import { THEMES, THEME_BY_ID } from '../data/theme-index.js';
 
 const KEYWORDS = {
   jp: ['日本'], cn: ['中国', '中華'], kr: ['韓国', '朝鮮'], mn: ['モンゴル'], in: ['インド'], ir: ['イラン', 'ペルシア'],
@@ -233,6 +234,21 @@ export function genMap(c, rnd = Math.random) {
   };
 }
 
+export function genThemeQ(tid, i, rnd = Math.random) {
+  const t = THEME_BY_ID[tid];
+  const h = t.quiz[i];
+  const order = shuffle([0, 1, 2, 3], rnd);
+  return {
+    id: `t:${tid}:${i}`,
+    type: 'hand',
+    prompt: h.q,
+    visual: `<div class="q-badge">${t.emoji} ${esc(t.name)}</div>`,
+    choices: order.map((k) => ({ label: h.choices[k] })),
+    answer: order.indexOf(h.answer),
+    explain: h.explain,
+  };
+}
+
 export function genHand(cid, i, rnd = Math.random) {
   const h = COUNTRY_BY_ID[cid].quiz[i];
   const order = shuffle([0, 1, 2, 3], rnd);
@@ -376,6 +392,7 @@ export function fromId(id, rnd = Math.random) {
     if (t === 'p') return genPerson(PERSON_BY_ID[a], rnd);
     if (t === 'm') return genMap(COUNTRY_BY_ID[a], rnd);
     if (t === 'h') return genHand(a, Number(b), rnd);
+    if (t === 't') return THEME_BY_ID[a] ? genThemeQ(a, Number(b), rnd) : null;
     if (t === 'g') return genFamily(FAMILY_BY_ID[a], Number(b), rnd);
     if (t === 'l') return LANDMARK_BY_ID[a] && image(LANDMARK_BY_ID[a].img) ? genLandmark(LANDMARK_BY_ID[a], rnd) : null;
     if (t === 'f') return image(EVENT_BY_ID[a].img) ? genPhoto(EVENT_BY_ID[a], rnd) : null;
@@ -430,6 +447,7 @@ export const MODES = {
   map: { name: '地図クイズ', emoji: '🌍', desc: '光っている国はどこ？', color: '#2bb673' },
   photo: { name: '写真クイズ', emoji: '📷', desc: '本物の写真や絵から当てよう', color: '#4aa3df' },
   time: { name: 'タイムアタック', emoji: '⚡', desc: '60秒で何問とけるか', color: '#e8445a' },
+  theme: { name: 'テーマ史クイズ', emoji: '🧵', desc: 'シルクロード・冷戦などテーマごとに', color: '#e0864a' },
   family: { name: '家系図クイズ', emoji: '🌳', desc: '親子・夫婦・師弟のつながり', color: '#d86fb5' },
   review: { name: 'にがて復習', emoji: '🔁', desc: 'まちがえた問題に再挑戦', color: '#8d6e63' },
 };
@@ -457,6 +475,12 @@ export function buildQuiz(mode, arg, wrongIds = []) {
       return sample(COUNTRIES, 10, rnd).map((c) => genMap(c, rnd));
     case 'photo':
       return shuffle([...sample(photoEvents(), 6, rnd).map((e) => genPhoto(e, rnd)), ...sample(photoLandmarks(), 4, rnd).map((m) => genLandmark(m, rnd))], rnd);
+    case 'theme': {
+      const ths = THEME_BY_ID[arg] ? [THEME_BY_ID[arg]] : THEMES;
+      const hand = shuffle(ths.flatMap((t) => (t.quiz || []).map((_, i) => genThemeQ(t.id, i, rnd))), rnd).slice(0, ths.length === 1 ? 3 : 4);
+      const evs = [...new Set(ths.flatMap((t) => t.allEvents))];
+      return shuffle([...hand, ...mixed(evs, 10 - hand.length, rnd, { hand: [], map: false, order: evs.length >= 6 })], rnd).slice(0, 10);
+    }
     case 'family': {
       const fams = FAMILY_BY_ID[arg] ? [FAMILY_BY_ID[arg]] : FAMILIES;
       const links = shuffle(fams.flatMap((f) => famLinks(f).map(([, i]) => [f, i])), rnd).slice(0, 10);

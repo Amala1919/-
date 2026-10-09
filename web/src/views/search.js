@@ -6,6 +6,7 @@ import { openEvent, openPerson } from '../components/sheets.js';
 import { go } from '../router.js';
 import { esc } from '../util.js';
 import { FAMILIES } from '../data/relations.js';
+import { THEMES } from '../data/theme-index.js';
 
 let lastQuery = '';
 
@@ -46,6 +47,8 @@ export default function search(root) {
     if (cts.length) blocks.push(`<h3 class="sub">国・地域</h3><div class="chips">${cts.map((c) => `<button class="chip" data-go="/country/${c.id}">${c.flag} ${esc(c.name)}</button>`).join('')}</div>`);
     if (eras.length) blocks.push(`<h3 class="sub">時代</h3><div class="chips">${eras.map((e) => `<button class="chip" data-go="/era/${e.id}">${e.emoji} ${e.name}</button>`).join('')}</div>`);
     if (mdl.length) blocks.push(`<h3 class="sub">名所</h3><div class="chips">${mdl.map((m) => `<button class="chip" data-go="/landmark/${m.id}">🏛️ ${esc(m.name)}</button>`).join('')}</div>`);
+    const ths = THEMES.filter((t) => norm(t.name + t.intro).includes(q));
+    if (ths.length) blocks.push(`<h3 class="sub">テーマ史</h3><div class="chips">${ths.map((t) => `<button class="chip" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)}</button>`).join('')}</div>`);
     if (fams.length) blocks.push(`<h3 class="sub">家系図</h3><div class="chips">${fams.map((f) => `<button class="chip" data-go="/family/${f.id}">${f.emoji} ${esc(f.name)}</button>`).join('')}</div>`);
     if (ppl.length) blocks.push(`<h3 class="sub">人物（${ppl.length}）</h3><div class="people-row hscroll">${ppl.map((p) => personChip(p, 56)).join('')}</div>`);
     if (evs.length) blocks.push(`<h3 class="sub">出来事（${evs.length}）</h3><div class="card-list">${evs.map((e) => eventCard(e)).join('')}</div>`);

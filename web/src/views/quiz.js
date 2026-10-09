@@ -1,3 +1,4 @@
+import { THEMES } from '../data/theme-index.js';
 import { FAMILIES } from '../data/relations.js';
 import { MODES } from '../quiz/engine.js';
 import { COUNTRIES, ERAS } from '../data/index.js';
@@ -53,6 +54,16 @@ export default function quizMenu(root) {
           if (!b) return;
           closeAllSheets();
           go('/quiz/run/era/' + b.dataset.e);
+        });
+      });
+    } else if (mode === 'theme') {
+      openSheet((body) => {
+        body.innerHTML = `<h2 class="sheet-title">テーマをえらぶ</h2><div class="pick-grid"><button data-th="-" style="--c:#e0864a"><span>🧵</span>すべて</button>${THEMES.map((t) => `<button data-th="${t.id}" style="--c:${t.color}"><span>${t.emoji}</span>${esc(t.name)}</button>`).join('')}</div>`;
+        body.addEventListener('click', (e) => {
+          const b = e.target.closest('[data-th]');
+          if (!b) return;
+          closeAllSheets();
+          go('/quiz/run/theme/' + b.dataset.th);
         });
       });
     } else if (mode === 'family') {

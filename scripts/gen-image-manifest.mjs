@@ -5,6 +5,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EVENTS, PEOPLE, COUNTRIES } from '../web/src/data/index.js';
 import { LANDMARKS, landmarkPhotos } from '../web/src/data/landmarks.js';
+import { FAMILIES } from '../web/src/data/relations.js';
+import { THEMES } from '../web/src/data/theme-index.js';
 
 function imgKey(title) {
   let h = 2166136261;
@@ -21,6 +23,8 @@ for (const e of EVENTS) if (e.img) titles.add(e.img);
 for (const p of PEOPLE) if (p.img) titles.add(p.img);
 for (const c of COUNTRIES) if (c.img) titles.add(c.img);
 for (const m of LANDMARKS) for (const t of landmarkPhotos(m)) titles.add(t);
+for (const f of FAMILIES) if (f.img) titles.add(f.img);
+for (const t of THEMES) if (t.img) titles.add(t.img);
 
 const list = [...titles].sort().map((title) => ({ key: imgKey(title), title }));
 const out = resolve(dirname(fileURLToPath(import.meta.url)), 'images.json');
