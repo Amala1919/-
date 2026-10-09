@@ -1,5 +1,6 @@
+import { landmarkChip } from '../components/landmarkcard.js';
 import { COUNTRY_BY_ID, ERA_BY_ID, PEOPLE, PERSON_BY_ID } from '../data/index.js';
-import { MODELS } from '../three/models/index.js';
+import { LANDMARKS } from '../data/landmarks.js';
 import { countryShapeSVG, locatorSVG } from '../components/geo.js';
 import { personChip, personIcon } from '../components/avatar.js';
 import { openEvent, openPerson } from '../components/sheets.js';
@@ -17,7 +18,7 @@ export default function country(root, { id }) {
   if (!c) return go('/countries', { replace: true });
   store.visitCountry(id);
   const people = PEOPLE.filter((p) => p.country === id || p.events.some((e) => e.startsWith(id + '-')));
-  const models = MODELS.filter((m) => m.country === id);
+  const models = LANDMARKS.filter((m) => m.country === id);
   const read = store.readCount(id);
   const pct = read / c.events.length;
   const best = store.state.quiz.byCountry[id]?.best;
@@ -37,7 +38,7 @@ export default function country(root, { id }) {
       return `${head}<button class="tl-item ${isRead ? 'read' : ''}" data-event="${e.id}" style="--c:${era.color};--ca:${alpha(era.color, 0.15)}">
         <span class="tl-dot"></span>
         <span class="tl-year">${formatYear(e.year, e.approx)}</span>
-        <span class="tl-card"><span class="tl-emoji">${e.emoji}</span><span><b>${esc(e.title)}</b><small>${esc(e.summary)}</small></span>${e.model ? '<span class="ec-chip">3D</span>' : ''}</span>
+        <span class="tl-card"><span class="tl-emoji">${e.emoji}</span><span><b>${esc(e.title)}</b><small>${esc(e.summary)}</small></span>${e.model ? '<span class="ec-chip">名所</span>' : ''}</span>
       </button>`;
     })
     .join('');
@@ -61,7 +62,7 @@ export default function country(root, { id }) {
     ${people.length ? `<h3 class="sub">🧑‍🎓 ゆかりの人物</h3><div class="people-row hscroll">${people.map((p) => personChip(p, 60)).join('')}</div>` : ''}
     ${fams.length ? `<h3 class="sub">🌳 家系図</h3><div class="card-list">${fams.map((f) => `<button class="fam-link" data-go="/family/${f.id}"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${f.members.length}人のつながり</small></span><span class="fam-faces mini">${f.members.slice(0, 4).map(([pid]) => (PERSON_BY_ID[pid] ? personIcon(PERSON_BY_ID[pid], 30) : '')).join('')}</span></button>`).join('')}</div>` : ''}
     ${links.length ? `<h3 class="sub">🔗 関係の深い国</h3><p class="hint">${esc(c.name)}の歴史の中でよく登場する国です。</p><div class="chips">${links.map((x) => `<button class="chip" data-go="/country/${x.country.id}">${x.country.flag} ${esc(x.country.name)} <small style="opacity:.6">×${x.count}</small></button>`).join('')}</div>` : ''}
-    ${models.length ? `<h3 class="sub">🏛️ 3Dで見る</h3><div class="hscroll">${models.map((m) => `<button class="model-chip" data-go="/model/${m.id}">🧊 ${esc(m.name)}</button>`).join('')}</div>` : ''}
+    ${models.length ? `<h3 class="sub">🏛️ 写真で見る名所</h3><div class="hscroll lm-row">${models.map((m) => landmarkChip(m)).join('')}</div>` : ''}
     <button class="btn-wide accent" data-go="/quiz/run/country/${id}">❓ ${esc(c.name)}のクイズに挑戦${best != null ? `（最高 ${best}点）` : ''}</button>
   </section>`;
 

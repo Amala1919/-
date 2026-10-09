@@ -1,9 +1,9 @@
 // Learning progress, XP, badges and settings persisted in localStorage.
 import { EVENTS, EVENT_BY_ID, COUNTRIES, ERAS } from './data/index.js';
 import { todayKey } from './util.js';
-import { MODELS } from './three/models/index.js';
+import { LANDMARKS } from './data/landmarks.js';
 
-const MODEL_TOTAL = MODELS.length;
+const MODEL_TOTAL = LANDMARKS.length;
 
 const KEY = 'chronoatlas.v1';
 
@@ -69,9 +69,9 @@ export const BADGES = [
   { id: 'quiz_10', emoji: '🔥', name: 'クイズ好き', desc: 'クイズに10回挑戦する' },
   { id: 'streak_10', emoji: '⚡', name: '連続正解10', desc: '10問連続で正解する' },
   { id: 'time_15', emoji: '⏱️', name: 'スピードスター', desc: 'タイムアタックで15問正解' },
-  { id: 'model_1', emoji: '🔭', name: '3D見学者', desc: '3Dモデルを1つ見る' },
-  { id: 'model_10', emoji: '🏗️', name: '建築ファン', desc: '3Dモデルを10個見る' },
-  { id: 'model_all', emoji: '🏆', name: '博物館の主', desc: 'すべての3Dモデルを見る' },
+  { id: 'model_1', emoji: '🔭', name: '名所見学者', desc: '世界の名所を1つ見る' },
+  { id: 'model_10', emoji: '🏗️', name: '建築ファン', desc: '世界の名所を10か所見る' },
+  { id: 'model_all', emoji: '🏆', name: '世界遺産マスター', desc: 'すべての名所を見る' },
   { id: 'people_20', emoji: '🧑‍🤝‍🧑', name: '人物通', desc: '20人の人物を調べる' },
   { id: 'days_3', emoji: '📅', name: '三日坊主卒業', desc: '3日連続で学習する' },
   { id: 'level_5', emoji: '⭐', name: 'レベル5', desc: 'レベル5に到達する' },

@@ -5,6 +5,7 @@ import { personIcon } from '../components/avatar.js';
 import { worldMapSVG } from '../components/geo.js';
 import { image, creditText } from '../images.js';
 import { FAMILIES, FAMILY_BY_ID } from '../data/relations.js';
+import { LANDMARKS, LANDMARK_BY_ID } from '../data/landmarks.js';
 
 const KEYWORDS = {
   jp: ['日本'], cn: ['中国', '中華'], kr: ['韓国', '朝鮮'], mn: ['モンゴル'], in: ['インド'], ir: ['イラン', 'ペルシア'],
@@ -229,7 +230,7 @@ export function genOrder(pool, rnd = Math.random) {
   };
 }
 
-// Photo of an event (or 3D-model landmark): which is it?
+// Photo of an event: which is it?
 export function genPhoto(e, rnd = Math.random) {
   const img = image(e.img);
   const others = shuffle(
@@ -250,6 +251,23 @@ export function genPhoto(e, rnd = Math.random) {
 }
 
 const photoEvents = () => EVENTS.filter((e) => image(e.img));
+
+// Photo of a landmark: which one is it?
+export function genLandmark(m, rnd = Math.random) {
+  const img = image(m.img);
+  const others = sample(LANDMARKS.filter((x) => x.id !== m.id && x.country !== m.country), 3, rnd);
+  const opts = shuffle([m, ...others], rnd);
+  return {
+    id: 'l:' + m.id,
+    type: 'photo',
+    prompt: 'この写真の名所はどれ？',
+    visual: `<figure class="q-photo"><img src="${img.src}" alt=""><figcaption>📷 ${esc(creditText(img))}・Wikimedia Commons</figcaption></figure>`,
+    choices: opts.map((x) => ({ label: `${COUNTRY_BY_ID[x.country]?.flag || ''} ${x.name}` })),
+    answer: opts.indexOf(m),
+    explain: `${m.name}（${formatYear(m.year)}）：${firstSentence(m.desc)}`,
+  };
+}
+const photoLandmarks = () => LANDMARKS.filter((m) => image(m.img));
 
 // ---------- family trees ----------
 const isF = (p) => !!p?.a?.f;
@@ -325,6 +343,7 @@ export function fromId(id, rnd = Math.random) {
     if (t === 'm') return genMap(COUNTRY_BY_ID[a], rnd);
     if (t === 'h') return genHand(a, Number(b), rnd);
     if (t === 'g') return genFamily(FAMILY_BY_ID[a], Number(b), rnd);
+    if (t === 'l') return LANDMARK_BY_ID[a] && image(LANDMARK_BY_ID[a].img) ? genLandmark(LANDMARK_BY_ID[a], rnd) : null;
     if (t === 'f') return image(EVENT_BY_ID[a].img) ? genPhoto(EVENT_BY_ID[a], rnd) : null;
   } catch (e) {
     return null;
@@ -403,7 +422,7 @@ export function buildQuiz(mode, arg, wrongIds = []) {
     case 'map':
       return sample(COUNTRIES, 10, rnd).map((c) => genMap(c, rnd));
     case 'photo':
-      return sample(photoEvents(), 10, rnd).map((e) => genPhoto(e, rnd));
+      return shuffle([...sample(photoEvents(), 6, rnd).map((e) => genPhoto(e, rnd)), ...sample(photoLandmarks(), 4, rnd).map((m) => genLandmark(m, rnd))], rnd);
     case 'family': {
       const fams = FAMILY_BY_ID[arg] ? [FAMILY_BY_ID[arg]] : FAMILIES;
       const links = shuffle(fams.flatMap((f) => famLinks(f).map(([, i]) => [f, i])), rnd).slice(0, 10);

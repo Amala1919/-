@@ -6,7 +6,7 @@ import { sfx } from './audio.js';
 import { stopSpeaking } from './native.js';
 import { stopActiveStage } from './three/stage.js';
 import { openLightbox } from './images.js';
-import { MODELS } from './three/models/index.js';
+import { LANDMARKS } from './data/landmarks.js';
 import { MODES } from './quiz/engine.js';
 import { COUNTRIES, EVENTS } from './data/index.js';
 import home from './views/home.js';
@@ -15,8 +15,8 @@ import era from './views/era.js';
 import countries from './views/countries.js';
 import country from './views/country.js';
 import compare from './views/compare.js';
-import museum from './views/museum.js';
-import model from './views/model.js';
+import landmarks from './views/landmarks.js';
+import landmark from './views/landmark.js';
 import quizMenu from './views/quiz.js';
 import quizPlay from './views/quizplay.js';
 import people from './views/people.js';
@@ -33,8 +33,10 @@ route('/era/:id', era);
 route('/countries', countries);
 route('/country/:id', country);
 route('/compare', compare);
-route('/museum', museum);
-route('/model/:id', model);
+route('/landmarks', landmarks);
+route('/landmark/:id', landmark);
+route('/museum', landmarks);
+route('/model/:id', landmark);
 route('/quiz', quizMenu);
 route('/quiz/run/:mode/:arg', quizPlay);
 route('/people', people);
@@ -48,7 +50,7 @@ const TABS = [
   { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people', '/families', '/family'] },
   { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare', '/story/era'] },
   { id: 'countries', icon: '🗺️', label: '国', path: '/countries', match: ['/countries', '/country', '/story/country'] },
-  { id: 'museum', icon: '🏛️', label: '3D', path: '/museum', match: ['/museum', '/model'] },
+  { id: 'landmarks', icon: '🏛️', label: '名所', path: '/landmarks', match: ['/landmarks', '/landmark', '/museum', '/model'] },
   { id: 'quiz', icon: '❓', label: 'クイズ', path: '/quiz', match: ['/quiz'] },
 ];
 const TAB_ROOTS = TABS.map((t) => t.path);
@@ -126,6 +128,10 @@ document.addEventListener('click', (e) => {
 });
 
 window.__onBack = () => {
+  if (window.__globeFullExit && !hasSheet()) {
+    window.__globeFullExit();
+    return true;
+  }
   if (window.__lightboxClose) {
     window.__lightboxClose();
     return true;
@@ -184,10 +190,10 @@ if (!welcomed) {
           <h2>クロノアトラスへようこそ！</h2>
           <p>国と時代、ふたつの軸で世界の歴史を旅するアプリです。${COUNTRIES.length}の国と地域、${EVENTS.length}の出来事を、本物の写真や絵とともに学べます。</p>
           <div class="welcome-list">
-            <div><span>🌍</span><b>時をかける地球儀</b><small>スライダーで年代を動かすと、その時代に出来事があった国が光ります。国をタップするとその国の歴史へ。</small></div>
+            <div><span>🌍</span><b>時をかける地球儀</b><small>スライダーで年代を動かすと、地球儀がその時代の世界地図に変わり、出来事があった国が光ります。国をタップするとその国の歴史へ。</small></div>
             <div><span>📜</span><b>時代で学ぶ・比較年表</b><small>8つの時代ごとに世界を見渡したり、国をならべて同じ時代を比べたりできます。</small></div>
             <div><span>📽️</span><b>ストーリーモード</b><small>国や時代の歴史を紙芝居のように。自動ナレーションで聞くこともできます。</small></div>
-            <div><span>🏛️</span><b>3D博物館</b><small>ピラミッドや黒船など${MODELS.length}の3Dモデル。指で回して、番号の点をタップすると解説が出ます。</small></div>
+            <div><span>🏛️</span><b>世界の名所</b><small>ピラミッドや姫路城など${LANDMARKS.length}の名所を本物の写真で。見どころの解説つき。</small></div>
             <div><span>❓</span><b>クイズ</b><small>${Object.keys(MODES).length}種類のモードで確認問題（写真クイズも）。正解するとXPがたまり、レベルアップやバッジ獲得も！</small></div>
           </div>
           <button class="btn-wide accent" data-start>さあ、はじめよう！</button>

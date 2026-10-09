@@ -1,8 +1,8 @@
-// Turns mentions of people, countries, 3D models and family trees inside text into links,
+// Turns mentions of people, countries, landmarks and family trees inside text into links,
 // so that any explanation leads straight to the related pages.
 import { PEOPLE, COUNTRIES } from '../data/index.js';
 import { FAMILIES } from '../data/relations.js';
-import { MODELS } from '../three/models/index.js';
+import { LANDMARKS } from '../data/landmarks.js';
 import { esc } from '../util.js';
 
 const PERSON_ALIASES = {
@@ -75,9 +75,9 @@ function build() {
     add(c.name.replace(/（.*）/, ''), t);
     for (const a of COUNTRY_ALIASES[c.id] || []) add(a, t);
   }
-  // 3D models
-  for (const mo of MODELS) {
-    const t = `model:${mo.id}`;
+  // Landmarks
+  for (const mo of LANDMARKS) {
+    const t = `landmark:${mo.id}`;
     add(mo.name.replace(/（.*）/, ''), t);
     for (const a of MODEL_ALIASES[mo.id] || []) add(a, t);
   }

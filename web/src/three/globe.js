@@ -4,6 +4,7 @@ import { geoEquirectangular, geoPath, geoGraticule10, geoContains } from 'd3-geo
 import { createStage, getRenderer } from './stage.js';
 import { worldFeatures } from '../components/geo.js';
 import { COUNTRIES } from '../data/index.js';
+import { drawHistorical, histIndex, histName, loadSnapshot, polityAt, snapshotFor } from './histmap.js';
 
 const DEG = Math.PI / 180;
 
@@ -21,29 +22,43 @@ function vec3ToLatLon(v) {
   return [lat, lon];
 }
 
-let textureCanvas = null;
-function globeCanvas() {
-  if (textureCanvas) return textureCanvas;
-  const W = 2048;
-  const H = 1024;
+const TEX_W = 2048;
+const TEX_H = 1024;
+let modernCanvas = null;
+
+function newCanvas() {
   const c = document.createElement('canvas');
-  c.width = W;
-  c.height = H;
-  const g = c.getContext('2d');
-  const proj = geoEquirectangular().scale(W / (2 * Math.PI)).translate([W / 2, H / 2]);
-  const path = geoPath(proj, g);
-  const ocean = g.createLinearGradient(0, 0, 0, H);
+  c.width = TEX_W;
+  c.height = TEX_H;
+  return c;
+}
+
+function texPath(g) {
+  return geoPath(geoEquirectangular().scale(TEX_W / (2 * Math.PI)).translate([TEX_W / 2, TEX_H / 2]), g);
+}
+
+function drawOcean(g, path) {
+  const ocean = g.createLinearGradient(0, 0, 0, TEX_H);
   ocean.addColorStop(0, '#163a63');
   ocean.addColorStop(0.5, '#1d4f80');
   ocean.addColorStop(1, '#163a63');
   g.fillStyle = ocean;
-  g.fillRect(0, 0, W, H);
+  g.fillRect(0, 0, TEX_W, TEX_H);
   g.strokeStyle = 'rgba(160,200,255,0.18)';
   g.lineWidth = 1;
   g.beginPath();
   path(geoGraticule10());
   g.stroke();
-  const { features, byIso } = worldFeatures();
+}
+
+// Present-day map: countries covered by the app are coloured.
+function modernMap() {
+  if (modernCanvas) return modernCanvas;
+  const c = newCanvas();
+  const g = c.getContext('2d');
+  const path = texPath(g);
+  drawOcean(g, path);
+  const { features } = worldFeatures();
   const featured = new Map();
   for (const ct of COUNTRIES) for (const iso of ct.iso) featured.set(String(iso).padStart(3, '0'), ct);
   for (const f of features) {
@@ -56,9 +71,22 @@ function globeCanvas() {
     g.lineWidth = ct ? 1.6 : 0.7;
     g.stroke();
   }
-  textureCanvas = c;
-  void byIso;
+  modernCanvas = c;
   return c;
+}
+
+// Historical map of one snapshot year: present-day land as a muted base, then the polities of that time.
+function historicalMap(c, features) {
+  const g = c.getContext('2d');
+  const path = texPath(g);
+  drawOcean(g, path);
+  g.fillStyle = '#9d9580';
+  for (const f of worldFeatures().features) {
+    g.beginPath();
+    path(f);
+    g.fill();
+  }
+  drawHistorical(g, path, features);
 }
 
 function atmosphere() {
@@ -91,13 +119,15 @@ function stars() {
  * Interactive globe. onSelect(countryId) when a country/pin is tapped.
  * Returns controller with highlight(ids, scoreMap), focus(id), destroy().
  */
-export function mountGlobe(container, { onSelect, labels = true } = {}) {
+export function mountGlobe(container, { onSelect, onPick, labels = true } = {}) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 200);
   camera.position.set(0, 0.9, 3.3);
   const renderer = getRenderer();
 
-  const tex = new THREE.CanvasTexture(globeCanvas());
+  const canvas = newCanvas();
+  canvas.getContext('2d').drawImage(modernMap(), 0, 0);
+  const tex = new THREE.CanvasTexture(canvas);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = 4;
   const earth = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 64), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9, metalness: 0 }));
@@ -152,13 +182,22 @@ export function mountGlobe(container, { onSelect, labels = true } = {}) {
     }
   }
 
+  // Historical polity names (DOM), shown in time-travel mode
+  const histLayer = document.createElement('div');
+  histLayer.className = 'globe-labels hist';
+  let histLabels = [];
+  let hist = null; // { snapshot, features }
+  let pinsOn = true;
+  let histNamesOn = true;
+  let wantYear = null;
+
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enablePan = false;
   controls.enableDamping = true;
   controls.dampingFactor = 0.07;
   controls.rotateSpeed = 0.55;
   controls.minDistance = 1.6;
-  controls.maxDistance = 5;
+  controls.maxDistance = 9;
   controls.autoRotate = true;
   controls.autoRotateSpeed = 0.5;
 
@@ -174,7 +213,9 @@ export function mountGlobe(container, { onSelect, labels = true } = {}) {
     onResize: (w, h) => {
       W = w;
       H = h;
-      camera.position.setLength(w < 420 ? 3.6 : 3.2);
+      // Keep the whole globe (with its glow) inside narrow / tall views.
+      const half = Math.atan(Math.tan((camera.fov * DEG) / 2) * Math.min(1, w / h));
+      camera.position.setLength(Math.max(w < 420 ? 3.6 : 3.2, 1.22 / Math.sin(half)));
     },
     frame: (t) => {
       if (focusAnim) {
@@ -186,12 +227,17 @@ export function mountGlobe(container, { onSelect, labels = true } = {}) {
       controls.update();
       camDir.copy(camera.position).normalize();
       for (const [id, p] of pins) {
+        p.grp.visible = pinsOn;
         const pulse = p.active ? 1 + Math.sin(t * 3 + p.pos.x * 5) * 0.15 : 1;
         p.head.scale.setScalar(p.base * pulse);
         p.ring.scale.setScalar(p.active ? 1 + ((t * 0.8 + p.pos.y) % 1) * 1.6 : 0.001);
         p.ring.material.opacity = p.active ? 0.8 * (1 - ((t * 0.8 + p.pos.y) % 1)) : 0;
         const el = labelEls.get(id);
         if (!el) continue;
+        if (!pinsOn) {
+          el.style.display = 'none';
+          continue;
+        }
         v.copy(p.pos).multiplyScalar(1.1).applyMatrix4(world.matrixWorld);
         const facing = v.clone().normalize().dot(camDir);
         v.project(camera);
@@ -203,8 +249,34 @@ export function mountGlobe(container, { onSelect, labels = true } = {}) {
           el.classList.toggle('dim', !p.active);
         }
       }
+      // Historical names: biggest first, skip ones that would overlap.
+      if (histLabels.length) {
+        const boxes = [];
+        for (const L of histLabels) {
+          v.copy(L.pos).applyMatrix4(world.matrixWorld);
+          const facing = v.clone().normalize().dot(camDir);
+          if (!histNamesOn || facing < 0.2) {
+            L.el.style.display = 'none';
+            continue;
+          }
+          v.project(camera);
+          const x = ((v.x + 1) / 2) * W;
+          const y = ((1 - v.y) / 2) * H;
+          const hw = L.w / 2;
+          const box = [x - hw, y - 9, x + hw, y + 9];
+          if (boxes.some((b) => b[0] < box[2] && box[0] < b[2] && b[1] < box[3] && box[1] < b[3])) {
+            L.el.style.display = 'none';
+            continue;
+          }
+          boxes.push(box);
+          L.el.style.display = '';
+          L.el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+          L.el.style.opacity = String(Math.min(1, (facing - 0.2) * 3));
+        }
+      }
     },
   });
+  container.appendChild(histLayer);
   container.appendChild(layer);
 
   // Tap to select (distinguish from drag)
@@ -231,13 +303,32 @@ export function mountGlobe(container, { onSelect, labels = true } = {}) {
     const local = world.worldToLocal(eh.point.clone());
     const [lat, lon] = vec3ToLatLon(local);
     const { features } = worldFeatures();
+    let country = null;
     for (const ct of COUNTRIES) {
       for (const iso of ct.iso) {
         const f = features.find((x) => x.id === String(iso).padStart(3, '0'));
-        if (f && geoContains(f, [lon, lat])) return onSelect && onSelect(ct.id);
+        if (f && geoContains(f, [lon, lat])) country = ct.id;
       }
+      if (country) break;
     }
+    if (hist && onPick) {
+      const polity = polityAt(hist.features, lon, lat);
+      return onPick({ polity: polity && { name: histName(polity.NAME), ruler: polity.SUBJECTO && polity.SUBJECTO !== polity.NAME ? histName(polity.SUBJECTO) : null }, country, snapshot: hist.snapshot, x: e.clientX - rect.left, y: e.clientY - rect.top });
+    }
+    if (country) onSelect && onSelect(country);
   };
+  function setHistLabels(list) {
+    histLayer.replaceChildren();
+    histLabels = list.map(([name, lon, lat]) => {
+      const el = document.createElement('span');
+      el.className = 'hist-label';
+      const ja = histName(name);
+      el.textContent = ja;
+      histLayer.appendChild(el);
+      return { el, pos: latLonToVec3(lat, lon, 1.005), w: ja.length * 11 + 10 };
+    });
+  }
+
   renderer.domElement.addEventListener('pointerdown', onDown);
   renderer.domElement.addEventListener('pointerup', onUp);
 
@@ -259,12 +350,42 @@ export function mountGlobe(container, { onSelect, labels = true } = {}) {
     setAutoRotate(on) {
       controls.autoRotate = on;
     },
+    /** Shows the borders of the snapshot nearest before `year` (null = present-day map). Resolves to the snapshot year. */
+    async setYear(year) {
+      wantYear = year;
+      if (year == null) {
+        if (hist) {
+          hist = null;
+          canvas.getContext('2d').drawImage(modernMap(), 0, 0);
+          tex.needsUpdate = true;
+          setHistLabels([]);
+        }
+        return null;
+      }
+      const idx = await histIndex();
+      const snap = snapshotFor(year, idx.years);
+      if (hist && hist.snapshot === snap) return snap;
+      const features = await loadSnapshot(snap);
+      if (wantYear == null || snapshotFor(wantYear, idx.years) !== snap) return snap; // superseded
+      historicalMap(canvas, features);
+      tex.needsUpdate = true;
+      hist = { snapshot: snap, features };
+      setHistLabels(idx.labels[snap] || []);
+      return snap;
+    },
+    setPins(on) {
+      pinsOn = on;
+    },
+    setHistNames(on) {
+      histNamesOn = on;
+    },
     destroy() {
       renderer.domElement.removeEventListener('pointerdown', onDown);
       renderer.domElement.removeEventListener('pointerup', onUp);
       controls.dispose();
       stage.stop();
       layer.remove();
+      histLayer.remove();
     },
   };
 }

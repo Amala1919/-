@@ -87,7 +87,7 @@ export default function story(root, { kind, id }) {
         <h2>${esc(e.title)}</h2>
         <p class="st-detail">${linkify(e.detail)}</p>
         ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div>${esc(e.point)}</div>` : ''}
-        ${e.model ? `<button class="btn-pill" data-model="${e.model}">🧊 3Dで見る</button>` : ''}
+        ${e.model ? `<button class="btn-pill" data-model="${e.model}">🏛️ 名所の写真を見る</button>` : ''}
       </div>`;
     } else {
       html = `<div class="st-slide outro"><div class="st-emoji">🎉</div><h1>おしまい！</h1><p>${slides.length - 2}の出来事をめぐりました。</p>
@@ -166,7 +166,7 @@ export default function story(root, { kind, id }) {
       render();
     } else if (t.hasAttribute('data-close')) history.back();
     else if (t.dataset.go) go(t.dataset.go, { replace: true });
-    else if (t.dataset.model) go('/model/' + t.dataset.model);
+    else if (t.dataset.model) go('/landmark/' + t.dataset.model);
   });
 
   return () => stopAuto();

@@ -1,6 +1,6 @@
 // Detail sheets for events and people.
 import { EVENTS, EVENT_BY_ID, COUNTRY_BY_ID, ERA_BY_ID, PERSON_BY_ID } from '../data/index.js';
-import { MODEL_BY_ID } from '../three/models/index.js';
+import { LANDMARK_BY_ID } from '../data/landmarks.js';
 import { openSheet, closeAllSheets, eventCard, toast } from './ui.js';
 import { avatarSVG, personChip, personIcon } from './avatar.js';
 import { worldMapSVG } from './geo.js';
@@ -38,7 +38,7 @@ function eventHTML(e) {
   const idx = c.events.indexOf(e);
   const prev = c.events[idx - 1];
   const next = c.events[idx + 1];
-  const model = e.model && MODEL_BY_ID[e.model];
+  const model = e.model && LANDMARK_BY_ID[e.model];
   const ppl = e.people.map((id) => PERSON_BY_ID[id]).filter(Boolean);
   const same = contemporaries(e);
   const fams = [...new Set(ppl.flatMap((p) => familiesOf(p.id)))];
@@ -63,7 +63,7 @@ function eventHTML(e) {
     ${photoFigure(e.img, { cls: 'ev-photo' })}
     <p class="ev-detail">${linkify(e.detail, { exclude: [`country:${c.id}`] })}</p>
     ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div><div>${linkify(e.point, { exclude: [`country:${c.id}`] })}</div></div>` : ''}
-    ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">🧊</span><span><b>3Dで見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
+    ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">${image(model.img) ? `<img src="${image(model.img).thumb}" alt="">` : '🏛️'}</span><span><b>名所を写真で見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
     ${ppl.length ? `<h3 class="sub">関連する人物</h3><div class="people-row">${ppl.map((p) => personChip(p, 56)).join('')}</div>` : ''}
     ${fams.length ? `<h3 class="sub">🌳 関係する家系図</h3>${familyButtons(fams, ppl.length === 1 ? ppl[0].id : '')}` : ''}
     <h3 class="sub">🌍 同じころの世界</h3>
@@ -120,7 +120,7 @@ export function openEvent(id) {
         openPerson(t.dataset.person);
       } else if (t.dataset.model) {
         closeAllSheets();
-        go('/model/' + t.dataset.model);
+        go('/landmark/' + t.dataset.model);
       } else if (t.dataset.country) {
         closeAllSheets();
         go('/country/' + t.dataset.country);

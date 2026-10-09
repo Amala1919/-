@@ -1,6 +1,6 @@
 import { FAMILIES } from '../data/relations.js';
 import { ERAS, EVENTS, COUNTRIES, PEOPLE } from '../data/index.js';
-import { MODELS } from '../three/models/index.js';
+import { LANDMARKS } from '../data/landmarks.js';
 import { mountGlobe } from '../three/globe.js';
 import { webglAvailable } from '../three/stage.js';
 import { eventCard, progressRing } from '../components/ui.js';
@@ -42,6 +42,22 @@ function dailyEvent() {
 
 let lastSlider = null;
 
+const PREF_KEY = 'chronoatlas.globe';
+function loadPrefs() {
+  try {
+    return { pins: true, names: true, ...JSON.parse(localStorage.getItem(PREF_KEY) || '{}') };
+  } catch (e) {
+    return { pins: true, names: true };
+  }
+}
+function savePrefs(p) {
+  try {
+    localStorage.setItem(PREF_KEY, JSON.stringify(p));
+  } catch (e) {
+    /* ignore */
+  }
+}
+
 export default function home(root) {
   const lvl = store.level();
   const xp = store.state.xp;
@@ -50,6 +66,7 @@ export default function home(root) {
   const read = store.readCount();
   const daily = dailyEvent();
   const gl = webglAvailable();
+  const prefs = loadPrefs();
 
   root.innerHTML = `
   <section class="home-hero">
@@ -64,7 +81,14 @@ export default function home(root) {
       </button>
     </div>
     <div class="globe-box" id="globe">
-      ${gl ? '<div class="globe-hint">👆 ドラッグで回転・国をタップ</div>' : worldMapSVG({ highlight: new Map(COUNTRIES.map((c) => [c.id, true])), width: 360, height: 190 })}
+      ${gl ? `<div class="globe-hint">👆 ドラッグで回転・国をタップ</div>
+      <div class="globe-map-info" id="map-info" hidden></div>
+      <div class="globe-tools">
+        <button data-gt="pins" class="${prefs.pins ? 'on' : ''}" aria-label="ピンと国名の表示">📍</button>
+        <button data-gt="names" class="${prefs.names ? 'on' : ''}" aria-label="当時の国名の表示">🏷️</button>
+        <button data-gt="full" aria-label="大きく表示">⛶</button>
+      </div>
+      <div class="globe-pop" id="globe-pop" hidden></div>` : worldMapSVG({ highlight: new Map(COUNTRIES.map((c) => [c.id, true])), width: 360, height: 190 })}
     </div>
     <div class="time-travel">
       <div class="tt-head">
@@ -82,7 +106,7 @@ export default function home(root) {
     <button class="menu-tile" data-go="/timeline" style="--c:#d4a54a"><span>📜</span><b>時代で学ぶ</b><small>8つの時代を旅する</small></button>
     <button class="menu-tile" data-go="/countries" style="--c:#4f7cff"><span>🗺️</span><b>国で学ぶ</b><small>${COUNTRIES.length}の国と地域</small></button>
     <button class="menu-tile" data-go="/compare" style="--c:#26a69a"><span>🧭</span><b>比較年表</b><small>国をならべて比べる</small></button>
-    <button class="menu-tile" data-go="/museum" style="--c:#a66cff"><span>🏛️</span><b>3D博物館</b><small>${MODELS.length}の建造物・乗り物</small></button>
+    <button class="menu-tile" data-go="/landmarks" style="--c:#a66cff"><span>🏛️</span><b>世界の名所</b><small>${LANDMARKS.length}の名所を写真で</small></button>
     <button class="menu-tile" data-go="/people" style="--c:#ef6c3a"><span>🧑‍🎓</span><b>人物図鑑</b><small>${PEOPLE.length}人の偉人</small></button>
     <button class="menu-tile" data-go="/families" style="--c:#d86fb5"><span>🌳</span><b>家系図</b><small>${FAMILIES.length}の家系・系譜</small></button>
     <button class="menu-tile" data-go="/search" style="--c:#3fa7c9"><span>🔍</span><b>さがす</b><small>人物・出来事・国</small></button>
@@ -100,7 +124,7 @@ export default function home(root) {
       ${progressRing(read / EVENTS.length, 64, '#f2b33d')}
       <div class="progress-stats">
         <div><b>${read}</b> / ${EVENTS.length} の出来事を読んだ</div>
-        <div><b>${Object.keys(store.state.models).length}</b> / ${MODELS.length} の3Dモデルを見た</div>
+        <div><b>${Object.keys(store.state.models).length}</b> / ${LANDMARKS.length} の名所を見た</div>
         <div><b>${store.state.quiz.played}</b> 回クイズに挑戦</div>
       </div>
     </div>
@@ -117,18 +141,93 @@ export default function home(root) {
 
   if (gl) {
     try {
-      globe = mountGlobe(root.querySelector('#globe'), { onSelect: (id) => go('/country/' + id) });
+      globe = mountGlobe(root.querySelector('#globe'), { onSelect: (id) => go('/country/' + id), onPick: showPop });
+      globe.setPins(prefs.pins);
+      globe.setHistNames(prefs.names);
     } catch (e) {
       root.querySelector('#globe').innerHTML = worldMapSVG({ highlight: new Map(COUNTRIES.map((c) => [c.id, true])) });
     }
   }
 
+  const mapInfo = root.querySelector('#map-info');
+  const pop = root.querySelector('#globe-pop');
+  const hero = root.querySelector('.home-hero');
+  let mapTimer = 0;
+  function setMap(year) {
+    if (!globe) return;
+    clearTimeout(mapTimer);
+    if (pop) pop.hidden = true;
+    mapTimer = setTimeout(() => {
+      globe
+        .setYear(year)
+        .then((snap) => {
+          if (!mapInfo) return;
+          mapInfo.hidden = snap == null;
+          if (snap != null) mapInfo.innerHTML = `🗺️ <b>${formatYear(snap)}ごろ</b>の世界`;
+        })
+        .catch(() => {
+          if (mapInfo) {
+            mapInfo.hidden = false;
+            mapInfo.textContent = '当時の地図を読み込めませんでした';
+          }
+        });
+    }, 120);
+  }
+
+  function showPop({ polity, country, snapshot, x, y }) {
+    if (!pop) return;
+    const ct = country && COUNTRIES.find((c) => c.id === country);
+    if (!polity && !ct) {
+      pop.hidden = true;
+      return;
+    }
+    pop.innerHTML = `
+      <button class="gp-x" data-gp="close" aria-label="閉じる">✕</button>
+      <small>${formatYear(snapshot)}ごろ</small>
+      <b>${polity ? polity.name : '（記録の少ない地域）'}</b>
+      ${polity && polity.ruler ? `<span class="gp-ruler">支配：${polity.ruler}</span>` : ''}
+      ${ct ? `<button class="gp-go" data-go="/country/${ct.id}">${ct.flag} 現在の${ct.name.replace(/（.*）/, '')}の歴史へ ›</button>` : ''}`;
+    const box = root.querySelector('#globe').getBoundingClientRect();
+    pop.style.left = `${Math.min(Math.max(8, x - 110), box.width - 228)}px`;
+    pop.style.top = `${Math.min(Math.max(8, y + 12), box.height - 130)}px`;
+    pop.hidden = false;
+  }
+
+  function setFull(on) {
+    hero.classList.toggle('full', on);
+    document.body.classList.toggle('globe-full', on);
+    window.__globeFullExit = on ? () => setFull(false) : null;
+    const b = root.querySelector('[data-gt="full"]');
+    if (b) b.textContent = on ? '✕' : '⛶';
+  }
+
+  root.querySelector('.globe-tools')?.addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-gt]');
+    if (!b) return;
+    ev.stopPropagation();
+    const k = b.dataset.gt;
+    if (k === 'full') return setFull(!hero.classList.contains('full'));
+    prefs[k] = !prefs[k];
+    savePrefs(prefs);
+    b.classList.toggle('on', prefs[k]);
+    if (k === 'pins') globe && globe.setPins(prefs.pins);
+    if (k === 'names') globe && globe.setHistNames(prefs.names);
+  });
+  pop?.addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-gp]');
+    if (b) {
+      ev.stopPropagation();
+      pop.hidden = true;
+    }
+  });
+
   const update = () => {
     if (mode === 'all') {
       ttYear.textContent = 'すべての時代';
       globe && globe.highlight(null);
+      setMap(null);
       const sample = [...EVENTS].sort((a, b) => hashStr(a.id + todayKey()) - hashStr(b.id + todayKey())).slice(0, 8);
-      ttCards.innerHTML = `<div class="tt-note">スライダーを動かすと、その時代に世界で起きていたことが地球儀に光ります</div>${sample.map((e) => eventCard(e, { compact: true })).join('')}`;
+      ttCards.innerHTML = `<div class="tt-note">スライダーを動かすと、地球儀がその時代の世界地図に変わり、出来事があった国が光ります</div>${sample.map((e) => eventCard(e, { compact: true })).join('')}`;
       return;
     }
     const v = Number(slider.value);
@@ -140,6 +239,7 @@ export default function home(root) {
     ttYear.innerHTML = `<span style="color:${era.color}">${era.emoji} ${era.name}</span> ${formatYear(year)}`;
     const ids = new Set(near.map((e) => e.country));
     globe && globe.highlight(ids);
+    setMap(year);
     ttCards.innerHTML = near.length
       ? near.map((e) => eventCard(e, { compact: true })).join('')
       : `<div class="tt-note">この前後${Math.round(w)}年に登録された出来事はありません。スライダーを少し動かしてみよう。</div>`;
@@ -168,6 +268,8 @@ export default function home(root) {
 
   return () => {
     cancelAnimationFrame(raf);
+    clearTimeout(mapTimer);
+    if (hero.classList.contains('full')) setFull(false);
     globe && globe.destroy();
   };
 }

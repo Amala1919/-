@@ -1,5 +1,6 @@
+import { landmarkChip } from '../components/landmarkcard.js';
 import { ERAS, ERA_BY_ID, eventsInEra, COUNTRY_BY_ID } from '../data/index.js';
-import { MODELS } from '../three/models/index.js';
+import { LANDMARKS } from '../data/landmarks.js';
 import { eraBannerSVG } from '../components/banner.js';
 import { worldMapSVG } from '../components/geo.js';
 import { eventCard } from '../components/ui.js';
@@ -20,7 +21,7 @@ export default function era(root, { id }) {
   const idx = ERAS.indexOf(e);
   const evs = eventsInEra(id);
   const countries = [...new Set(evs.map((x) => x.country))];
-  const models = MODELS.filter((m) => eraOfYear(m.year).id === id);
+  const models = LANDMARKS.filter((m) => eraOfYear(m.year).id === id);
   let filter = 'all';
   const evIds = new Set(evs.map((x) => x.id));
   const people = PEOPLE.filter((p) => p.events.some((x) => evIds.has(x)));
@@ -50,7 +51,7 @@ export default function era(root, { id }) {
     <div class="card-list" id="list"></div>
     ${people.length ? `<h3 class="sub">🧑‍🎓 この時代の人物（${people.length}）</h3><div class="people-row hscroll">${people.map((p) => personChip(p, 56)).join('')}</div>` : ''}
     ${fams.length ? `<h3 class="sub">🌳 この時代の家系図</h3><div class="card-list">${fams.map((f) => `<button class="fam-link" data-go="/family/${f.id}"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${f.members.length}人のつながり</small></span></button>`).join('')}</div>` : ''}
-    ${models.length ? `<h3 class="sub">🏛️ この時代の3Dモデル</h3><div class="hscroll">${models.map((m) => `<button class="model-chip" data-go="/model/${m.id}"><span>${COUNTRY_BY_ID[m.country].flag}</span>${esc(m.name)}</button>`).join('')}</div>` : ''}
+    ${models.length ? `<h3 class="sub">🏛️ この時代の名所</h3><div class="hscroll lm-row">${models.map((m) => landmarkChip(m)).join('')}</div>` : ''}
     <button class="btn-wide accent" data-go="/quiz/run/era/${id}">❓ ${e.name}のクイズに挑戦</button>
     <div class="ev-nav">
       ${idx > 0 ? `<button class="btn-ghost" data-go="/era/${ERAS[idx - 1].id}">‹ ${ERAS[idx - 1].name}</button>` : '<span></span>'}

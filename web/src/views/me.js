@@ -1,5 +1,5 @@
 import { EVENTS, COUNTRIES, ERAS, eventsInEra, EVENT_BY_ID } from '../data/index.js';
-import { MODELS } from '../three/models/index.js';
+import { LANDMARKS } from '../data/landmarks.js';
 import { store, BADGES, xpForLevel } from '../store.js';
 import { eventCard, progressRing, toast, openSheet, closeAllSheets } from '../components/ui.js';
 import { openEvent } from '../components/sheets.js';
@@ -25,7 +25,7 @@ export default function me(root) {
     <div class="xp-text">${s.xp} XP ・ 次のレベルまで ${hi - s.xp} XP</div>
     <div class="me-stats">
       <div><b>${read}</b><small>読んだ出来事</small></div>
-      <div><b>${Object.keys(s.models).length}</b><small>見た3D</small></div>
+      <div><b>${Object.keys(s.models).length}</b><small>見た名所</small></div>
       <div><b>${acc}%</b><small>クイズ正答率</small></div>
       <div><b>${s.days.streak}</b><small>連続学習日</small></div>
     </div>
@@ -56,7 +56,7 @@ export default function me(root) {
       <button class="btn-wide" id="credits">📷 画像クレジット（${imageCount()}枚）</button>
       <button class="btn-wide danger" id="reset">学習データをリセット</button>
     </div>
-    <p class="about">クロノアトラス v1.0 ・ ${EVENTS.length}の出来事 / ${COUNTRIES.length}の国と地域 / ${MODELS.length}の3Dモデル<br>
+    <p class="about">クロノアトラス v1.0 ・ ${EVENTS.length}の出来事 / ${COUNTRIES.length}の国と地域 / ${LANDMARKS.length}の名所<br>
     地図データ：Natural Earth（パブリックドメイン）／写真：Wikimedia Commons${isAndroid() ? '' : '<br>ブラウザ版プレビュー'}</p>
   </section>`;
 

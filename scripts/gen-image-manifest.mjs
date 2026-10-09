@@ -4,7 +4,7 @@ import { writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EVENTS, PEOPLE, COUNTRIES } from '../web/src/data/index.js';
-import { MODEL_IMG } from '../web/src/data/wiki.js';
+import { LANDMARKS, landmarkPhotos } from '../web/src/data/landmarks.js';
 
 function imgKey(title) {
   let h = 2166136261;
@@ -20,7 +20,7 @@ const titles = new Set();
 for (const e of EVENTS) if (e.img) titles.add(e.img);
 for (const p of PEOPLE) if (p.img) titles.add(p.img);
 for (const c of COUNTRIES) if (c.img) titles.add(c.img);
-for (const t of Object.values(MODEL_IMG)) titles.add(t);
+for (const m of LANDMARKS) for (const t of landmarkPhotos(m)) titles.add(t);
 
 const list = [...titles].sort().map((title) => ({ key: imgKey(title), title }));
 const out = resolve(dirname(fileURLToPath(import.meta.url)), 'images.json');
