@@ -115,12 +115,26 @@ export const REGIONS = [
   { id: 'america', name: 'アメリカ大陸・オセアニア', countries: ['us', 'ca', 'mx', 'gt', 'cu', 'jm', 'ht', 'pa', 'co', 've', 'ec', 'br', 'pe', 'bo', 'ar', 'cl', 'au', 'nz', 'pg', 'fj'] },
 ];
 
+// Stable event ids: country + short hash of the title (so adding events never shifts ids).
+const usedIds = new Set();
+function eventId(cid, title) {
+  let h = 2166136261;
+  for (let i = 0; i < title.length; i++) {
+    h ^= title.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  let id = `${cid}-${(h >>> 0).toString(36).slice(0, 5)}`;
+  while (usedIds.has(id)) id += 'x';
+  usedIds.add(id);
+  return id;
+}
+
 // Flatten events with stable ids and derived fields.
 export const EVENTS = [];
 for (const c of COUNTRIES) {
   c.events.sort((a, b) => a.year - b.year);
   c.events.forEach((e, i) => {
-    e.id = `${c.id}-${i}`;
+    e.id = eventId(c.id, e.title);
     e.country = c.id;
     e.era = eraOfYear(e.year).id;
     e.people = e.people || [];

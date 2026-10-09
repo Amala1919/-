@@ -2,12 +2,14 @@
 import { EVENTS, EVENT_BY_ID, COUNTRIES, ERAS } from './data/index.js';
 import { todayKey } from './util.js';
 import { LANDMARKS } from './data/landmarks.js';
+import ID_MIGRATION from './data/id-migration.js';
 
 const MODEL_TOTAL = LANDMARKS.length;
 
 const KEY = 'chronoatlas.v1';
 
 const defaults = () => ({
+  idv: 2,
   read: {},
   xp: 0,
   favorites: [],
@@ -21,12 +23,22 @@ const defaults = () => ({
   settings: { sound: true, ttsRate: 1.0 },
 });
 
+// v1 stored events as "<country>-<index>"; v2 uses stable title-based ids.
+function migrateIds(d) {
+  const m = (id) => ID_MIGRATION[id] || id;
+  if (d.read) d.read = Object.fromEntries(Object.entries(d.read).map(([k, v]) => [m(k), v]));
+  if (d.favorites) d.favorites = d.favorites.map(m);
+  if (d.wrong) d.wrong = d.wrong.map((q) => q.split(':').map((part) => part.split(',').map(m).join(',')).join(':'));
+  d.idv = 2;
+}
+
 function load() {
   try {
     const raw = localStorage.getItem(KEY);
     if (!raw) return defaults();
     const d = JSON.parse(raw);
     const base = defaults();
+    if (!d.idv) migrateIds(d);
     return { ...base, ...d, quiz: { ...base.quiz, ...(d.quiz || {}) }, settings: { ...base.settings, ...(d.settings || {}) }, days: { ...base.days, ...(d.days || {}) } };
   } catch (e) {
     return defaults();
