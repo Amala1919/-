@@ -1,9 +1,10 @@
-# 1565/1639 images available
+# 1708/1788 images available
 LICENSE_SKIPPED	Ali Abdullah Saleh	Nicole_Fontaine_and_Ali_Abdullah_Saleh,_2000_(1)_(cropped2).jpg	European Parliament
 LICENSE_SKIPPED	John Hume	John_Hume,_1994_(cropped)_2.jpg	European Parliament
 LICENSE_SKIPPED	Manmohan Singh	Official_Portrait_of_the_Prime_Minister_Dr._Manmohan_Singh_(3x4_cropped).jpg	GODL-India
 LICENSE_SKIPPED	Sitiveni Rabuka	2025_Sitiveni_Rabuka_(cropped).jpg	GODL-India
 NOT_ON_COMMONS	Africa Hall	African_Hall_Addis_Abeba.jpg
+NOT_ON_COMMONS	Bloody Sunday (1905)	Gapon_crowd_1905.jpg
 NOT_ON_COMMONS	EDSA Shrine	Ph-mm-quezon_city-edsa-ortigas_ave.-ortigas_center-edsa_shrine_(2015)_01.JPG
 NOT_ON_COMMONS	Motherland Monument	«Батьківщина-Мати_на_фоні_похмурого_неба».jpg
 NOT_ON_COMMONS	Nobel Prize	Nobel_Prize.png
@@ -28,6 +29,7 @@ NO_FREE_LEAD_IMAGE	Chongzhen Emperor
 NO_FREE_LEAD_IMAGE	Churning of the Ocean of Milk
 NO_FREE_LEAD_IMAGE	Colombian peace process
 NO_FREE_LEAD_IMAGE	Dutty Boukman
+NO_FREE_LEAD_IMAGE	Eddie Mabo
 NO_FREE_LEAD_IMAGE	Emperor Gaozong of Tang
 NO_FREE_LEAD_IMAGE	Emperor Minghuang's Journey to Shu
 NO_FREE_LEAD_IMAGE	Empress Zhangsun
@@ -37,6 +39,7 @@ NO_FREE_LEAD_IMAGE	Fiji national rugby sevens team
 NO_FREE_LEAD_IMAGE	Fujiwara no Kamatari
 NO_FREE_LEAD_IMAGE	Galdan Boshugtu Khan
 NO_FREE_LEAD_IMAGE	Globe of Science and Innovation
+NO_FREE_LEAD_IMAGE	Hegra (Mada'in Salih)
 NO_FREE_LEAD_IMAGE	Hideo Shima
 NO_FREE_LEAD_IMAGE	Himiko
 NO_FREE_LEAD_IMAGE	Hino Tomiko
@@ -48,6 +51,7 @@ NO_FREE_LEAD_IMAGE	Kinjikitile Ngwale
 NO_FREE_LEAD_IMAGE	Koumbi Saleh
 NO_FREE_LEAD_IMAGE	Kudara Kannon
 NO_FREE_LEAD_IMAGE	Lapu-Lapu Shrine
+NO_FREE_LEAD_IMAGE	Manila galleon
 NO_FREE_LEAD_IMAGE	Martyrs' Square, Beirut
 NO_FREE_LEAD_IMAGE	Modu Chanyu
 NO_FREE_LEAD_IMAGE	Motoyasu River
@@ -62,6 +66,7 @@ NO_FREE_LEAD_IMAGE	Qvevri
 NO_FREE_LEAD_IMAGE	Sejong the Great
 NO_FREE_LEAD_IMAGE	Simeon I
 NO_FREE_LEAD_IMAGE	Soga no Emishi
+NO_FREE_LEAD_IMAGE	Sundiata Keita
 NO_FREE_LEAD_IMAGE	Taejong of Joseon
 NO_FREE_LEAD_IMAGE	The Last Spike (Canada)
 NO_FREE_LEAD_IMAGE	The Rumble in the Jungle
@@ -70,6 +75,7 @@ NO_FREE_LEAD_IMAGE	Tribute Giraffe with Attendant
 NO_FREE_LEAD_IMAGE	Turkana Boy
 NO_FREE_LEAD_IMAGE	Ugarit
 NO_FREE_LEAD_IMAGE	Usman dan Fodio
+NO_FREE_LEAD_IMAGE	William Adams (sailor)
 NO_FREE_LEAD_IMAGE	Wolof people
 NO_FREE_LEAD_IMAGE	Zhou Daguan
 NO_FREE_LEAD_IMAGE	Zhu Biao
