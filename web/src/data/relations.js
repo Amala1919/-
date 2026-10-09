@@ -49,7 +49,11 @@ export function relativesOf(pid) {
           add(o, label || 'きょうだい', 'sibling');
           break;
         case 'descent':
-          add(o, self ? `子孫（${label || ''}）` : `祖先（${label || ''}）`, self ? 'descendant' : 'ancestor');
+          {
+            const inner = (label || '').replace(/^子孫|[（）]/g, '');
+            const tail = inner ? `（${inner}）` : '';
+            add(o, self ? `子孫${tail}` : `祖先${tail}`, self ? 'descendant' : 'ancestor');
+          }
           break;
         case 'adopt':
           add(o, self ? '養子' : '養父', self ? 'child' : 'parent');
