@@ -1,12 +1,37 @@
-# 561/572 images available
+# 869/905 images available
+LICENSE_SKIPPED	Augusta Raurica	Augusta_Raurica_-_Theater2.jpg	FAL
+LICENSE_SKIPPED	Charles Bridge	Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg	FAL
+LICENSE_SKIPPED	John Hume	John_Hume,_1994_(cropped)_2.jpg	European Parliament
+LICENSE_SKIPPED	National Theatre (Prague)	Prague_07-2016_View_from_Petrinska_Tower_img4.jpg	FAL
+LICENSE_SKIPPED	Old Town Square	Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg	FAL
+LICENSE_SKIPPED	Ruwanwelisaya	SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg	FAL
+LICENSE_SKIPPED	Temple of the Tooth	SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg	FAL
 NOT_ON_COMMONS	Africa Hall	African_Hall_Addis_Abeba.jpg
+NOT_ON_COMMONS	EDSA Shrine	Ph-mm-quezon_city-edsa-ortigas_ave.-ortigas_center-edsa_shrine_(2015)_01.JPG
+NOT_ON_COMMONS	Nobel Prize	Nobel_Prize.png
 NOT_ON_COMMONS	Seoul Olympic Stadium	Seoul_Olympic_Stadium.jpg
+NOT_ON_COMMONS	The Little Mermaid (statue)	Copenhagen_-_the_little_mermaid_statue_-_2013.jpg
+NO_FREE_LEAD_IMAGE	Arrival of the Hungarians
 NO_FREE_LEAD_IMAGE	At-Turaif
+NO_FREE_LEAD_IMAGE	Battle of Zama
 NO_FREE_LEAD_IMAGE	Börte
+NO_FREE_LEAD_IMAGE	Colombian peace process
+NO_FREE_LEAD_IMAGE	Dutty Boukman
+NO_FREE_LEAD_IMAGE	Fatima al-Fihri
+NO_FREE_LEAD_IMAGE	Ferenc Deák
 NO_FREE_LEAD_IMAGE	Fujiwara no Kamatari
 NO_FREE_LEAD_IMAGE	Himiko
+NO_FREE_LEAD_IMAGE	Kashyapa I of Anuradhapura
+NO_FREE_LEAD_IMAGE	Koumbi Saleh
+NO_FREE_LEAD_IMAGE	Lapulapu
 NO_FREE_LEAD_IMAGE	Modu Chanyu
 NO_FREE_LEAD_IMAGE	Munjong of Joseon
+NO_FREE_LEAD_IMAGE	Odumegwu Ojukwu
+NO_FREE_LEAD_IMAGE	Osei Kofi Tutu I
 NO_FREE_LEAD_IMAGE	Sejong the Great
 NO_FREE_LEAD_IMAGE	Taejong of Joseon
 NO_FREE_LEAD_IMAGE	The Last Spike (Canada)
+NO_FREE_LEAD_IMAGE	Things Fall Apart
+NO_FREE_LEAD_IMAGE	Tribute Giraffe with Attendant
+NO_FREE_LEAD_IMAGE	Turkana Boy
+NO_FREE_LEAD_IMAGE	Usman dan Fodio
