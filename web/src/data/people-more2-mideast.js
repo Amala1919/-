@@ -1,0 +1,35 @@
+// 追加人物（シリア・レバノン・イスラエル／パレスチナ・イエメン・ジョージア・アルメニア・アルジェリア）
+export default [
+  // ---- シリア ----
+  { id: 'zenobia', name: 'ゼノビア', country: 'sy', born: 240, died: 275, life: '240年ごろ〜275年ごろ以後', title: 'パルミラの女王', desc: '夫の死後にパルミラの実権を握り、エジプトや小アジアにまで勢力を広げた。272年にローマ皇帝アウレリアヌスに敗れ、捕らえられた。', img: 'Zenobia', a: { h: 'crown', f: 1, hc: '#1b1b1b', sk: 1, rc: '#7d3c98' } },
+  { id: 'muawiya', name: 'ムアーウィヤ', country: 'sy', born: 602, died: 680, life: '602年ごろ〜680年', title: 'ウマイヤ朝の創始者', desc: '長くシリア総督を務めたのち、661年にカリフとなってダマスカスを都とするウマイヤ朝を開いた。カリフの位を世襲とする道を開いた。', img: "Mu'awiya I", a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#ecf0f1' } },
+  { id: 'abdalmalik', name: 'アブド・アルマリク', country: 'sy', born: 646, died: 705, life: '644年ごろ〜705年', title: 'ウマイヤ朝のカリフ', desc: 'エルサレムに岩のドームを建て、アラビア語を行政の言葉とした。アラビア文字だけを刻んだイスラーム独自の金貨もつくらせた。', img: 'Abd al-Malik ibn Marwan', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#f2efe6' } },
+  { id: 'saladin', name: 'サラディン（サラーフ・アッディーン）', country: 'sy', born: 1137, died: 1193, title: 'アイユーブ朝の創始者', desc: 'クルド人の武将で、エジプトとシリアを統一してアイユーブ朝を開いた。1187年に十字軍からエルサレムを奪い返し、敵からも寛大な君主として称えられた。', img: 'Saladin', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#c9a227' } },
+  // ---- レバノン ----
+  { id: 'hiram', name: 'ヒラム1世', country: 'lb', born: null, died: -947, life: '前10世紀', title: 'ティルスの王', desc: 'フェニキアの都市ティルスを地中海交易の中心として繁栄させた。聖書では、ソロモン王の神殿づくりにレバノン杉と職人を送ったと記されている。', img: 'Hiram I', a: { h: 'crown', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#7b2d8e' } },
+  { id: 'fakhreddine', name: 'ファフル・アッディーン2世', country: 'lb', born: 1572, died: 1635, title: 'レバノン山の首長', desc: 'オスマン帝国のもとでレバノン山の首長となり、宗派をこえて勢力を広げた。イタリアのトスカーナ大公国と結んだが、オスマン帝国に処刑された。', img: 'Fakhr al-Din II', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#2e86c1' } },
+  { id: 'gibran', name: 'ハリール・ジブラーン', country: 'lb', born: 1883, died: 1931, title: '詩人・画家', desc: 'レバノン杉の森に近いブシャーリに生まれ、少年時代にアメリカへ移住した。英語で書いた散文詩集『預言者』は世界中で読み継がれている。', quote: 'あなたの子どもは、あなたの子どもではない。', img: 'Kahlil Gibran', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 1, rc: '#34495e' } },
+  // ---- イスラエル・パレスチナ ----
+  { id: 'bengurion', name: 'ダヴィド・ベン＝グリオン', country: 'il', born: 1886, died: 1973, title: 'イスラエルの初代首相', desc: 'ポーランドに生まれ、若くしてパレスチナへ移住したシオニズム運動の指導者。1948年5月14日にイスラエルの独立を宣言し、初代首相となった。', img: 'David Ben-Gurion', a: { h: 'bald', hc: '#f0f0f0', sk: 0, rc: '#7f8c8d' } },
+  { id: 'arafat', name: 'ヤーセル・アラファト', country: 'il', born: 1929, died: 2004, title: 'PLO議長・パレスチナ自治政府大統領', desc: '長くパレスチナ解放機構（PLO）を率い、パレスチナの人々の象徴となった。1993年にオスロ合意を結び、パレスチナ自治政府の初代大統領となった。', img: 'Yasser Arafat', a: { h: 'turban', b: 's', hc: '#555555', sk: 1, rc: '#556b2f' } },
+  { id: 'rabin', name: 'イツハク・ラビン', country: 'il', born: 1922, died: 1995, title: 'イスラエルの首相', desc: '軍人として1967年の第三次中東戦争を指揮し、のちに首相となった。オスロ合意でノーベル平和賞を受けたが、1995年に和平反対派のイスラエル人に暗殺された。', img: 'Yitzhak Rabin', a: { h: 'none', hc: '#b0b0b0', sk: 0, rc: '#2c3e50' } },
+  // ---- イエメン ----
+  { id: 'sheba', name: 'シバの女王', country: 'ye', born: null, died: null, life: '伝説上の人物（前10世紀ごろとされる）', title: '伝説のサバの女王', desc: '聖書やコーランに登場し、ソロモン王を訪ねたと伝えられる女王。アラブではビルキースと呼ばれ、エチオピアでは王家の祖の母とされる。', img: 'Queen of Sheba', a: { h: 'crown', f: 1, hc: '#1b1b1b', sk: 2, rc: '#b9770e' } },
+  { id: 'arwa', name: 'アルワ・アッスライヒー', country: 'ye', born: 1048, died: 1138, title: 'スライフ朝の女王', desc: '11世紀後半から約70年にわたりイエメンの政治を担った女性君主。都をジブラに移し、モスクや道路をつくって国を整えた。', img: 'Arwa al-Sulayhi', a: { h: 'turban', f: 1, hc: '#1b1b1b', sk: 2, rc: '#1f618d' } },
+  { id: 'saleh', name: 'アリー・アブドゥッラー・サーレハ', country: 'ye', born: 1947, died: 2017, title: 'イエメンの大統領', desc: '1978年に北イエメンの大統領となり、1990年の南北統一で統一イエメンの初代大統領となった。「アラブの春」で退陣し、2017年の内戦のさなかに殺害された。', img: 'Ali Abdullah Saleh', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 2, rc: '#2c3e50' } },
+  // ---- ジョージア ----
+  { id: 'nino', name: '聖ニノ', country: 'ge', born: 296, died: 338, life: '296年ごろ〜338年ごろ', title: 'ジョージアにキリスト教を伝えた聖女', desc: 'カッパドキア出身と伝えられる女性で、イベリア王国のミリアン3世王をキリスト教に導いた。ブドウのつるの十字架を持っていたとされる。', img: 'Saint Nino', a: { h: 'none', f: 1, hc: '#5d4037', sk: 0, rc: '#ecf0f1' } },
+  { id: 'tamar', name: 'タマル女王', country: 'ge', born: 1160, died: 1213, life: '1160年ごろ〜1213年', title: 'ジョージア王国の女王', desc: 'ジョージア初の女性統治者で、「王」の称号で呼ばれた。黒海からカスピ海にいたる大国を築き、文化の黄金時代をもたらした。', img: 'Tamar of Georgia', a: { h: 'crown', f: 1, hc: '#3e2723', sk: 0, rc: '#922b21' } },
+  { id: 'rustaveli', name: 'ショタ・ルスタヴェリ', country: 'ge', born: 1165, died: 1220, life: '1160年代〜1220年ごろ以後', title: 'ジョージアの国民的詩人', desc: 'タマル女王に仕えたとされる詩人。友情と愛と勇気を描いた叙事詩『豹皮の騎士』は、ジョージア文学の最高傑作とされる。', img: 'Shota Rustaveli', a: { h: 'none', b: 'm', hc: '#1b1b1b', sk: 0, rc: '#6e2c00' } },
+  // ---- アルメニア ----
+  { id: 'tigran', name: 'ティグラネス2世（大王）', country: 'am', born: -140, died: -55, life: '前140年ごろ〜前55年', title: 'アルメニア王', desc: 'カスピ海から地中海に及ぶアルメニア史上最大の帝国を築き、「王の中の王」と名乗った。のちにローマのポンペイウスに降伏した。', img: 'Tigranes the Great', a: { h: 'crown', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#922b21' } },
+  { id: 'gregoryill', name: '啓蒙者グレゴリオス', country: 'am', born: 257, died: 331, life: '257年ごろ〜331年ごろ', title: 'アルメニア教会の創始者', desc: 'ティリダテス3世王に13年間穴に閉じこめられたのち、王をキリスト教に改宗させたと伝えられる。アルメニア使徒教会の初代総主教とされる。', img: 'Gregory the Illuminator', a: { h: 'bald', b: 'l', hc: '#d0d0d0', sk: 1, rc: '#1b1b1b' } },
+  { id: 'mashtots', name: 'メスロプ・マシュトツ', country: 'am', born: 362, died: 440, title: 'アルメニア文字の考案者', desc: '修道士として布教に努め、405年ごろアルメニア文字をつくった。弟子たちとともに聖書をアルメニア語に翻訳した。', img: 'Mesrop Mashtots', a: { h: 'none', b: 'l', hc: '#7f7f7f', sk: 1, rc: '#1b1b1b' } },
+  { id: 'komitas', name: 'コミタス', country: 'am', born: 1869, died: 1935, title: '作曲家・音楽学者・司祭', desc: 'アルメニア各地の民謡を収集し、近代アルメニア音楽の基礎を築いた。1915年に逮捕・追放され、生き延びたものの心に深い傷を負った。', img: 'Komitas', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 1, rc: '#1b1b1b' } },
+  // ---- アルジェリア ----
+  { id: 'massinissa', name: 'マシニッサ', country: 'dz', born: -238, died: -148, life: '前238年ごろ〜前148年', title: 'ヌミディアの王', desc: 'ザマの戦いでローマ側に立ってハンニバルを破り、ヌミディアを統一した。50年以上王位にあり、農業と都市を発展させた。', img: 'Masinissa', a: { h: 'crown', b: 'l', hc: '#e0e0e0', sk: 2, rc: '#a04000' } },
+  { id: 'jugurtha', name: 'ユグルタ', country: 'dz', born: -160, died: -104, life: '前160年ごろ〜前104年', title: 'ヌミディアの王', desc: 'マシニッサの孫で、ローマと6年以上にわたって戦った。ローマの政治家を買収したことで知られるが、最後は捕らえられてローマで死んだ。', img: 'Jugurtha', a: { h: 'none', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#7e5109' } },
+  { id: 'augustine', name: 'アウグスティヌス', country: 'dz', born: 354, died: 430, title: 'ヒッポの司教・神学者', desc: '北アフリカのタガステに生まれ、ヒッポの司教となった。『告白』『神の国』などを著し、西洋のキリスト教思想に大きな影響を与えた。', quote: 'わたしたちの心は、あなたのうちに憩うまで安らぎを得ない。', img: 'Augustine of Hippo', a: { h: 'bald', b: 'm', hc: '#5d5d5d', sk: 2, rc: '#7d3c98' } },
+  { id: 'abdelkader', name: 'アブド・アルカーディル', country: 'dz', born: 1808, died: 1883, title: '反フランス闘争の指導者', desc: '1832年から15年間、部族をまとめてフランスの侵略に抵抗した。降伏後はダマスカスに住み、1860年の暴動では多くのキリスト教徒を救った。', img: 'Emir Abdelkader', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#f2efe6' } },
+  { id: 'camus', name: 'アルベール・カミュ', country: 'dz', born: 1913, died: 1960, title: '作家', desc: 'フランス領アルジェリアに生まれ、『異邦人』『ペスト』で世界的な作家となった。1957年にノーベル文学賞を受けたが、3年後に交通事故で亡くなった。', img: 'Albert Camus', a: { h: 'none', hc: '#1b1b1b', sk: 0, rc: '#5d6d7e' } },
+];

@@ -1,0 +1,32 @@
+// 追加の人物（アジア2：パキスタン・バングラデシュ・アフガニスタン・カザフスタン・ラオス・台湾）
+export default [
+  // ---- パキスタン ----
+  { id: 'kanishka', name: 'カニシカ王', country: 'pk', born: null, died: 150, life: '?〜150年ごろ', title: 'クシャーナ朝の王', desc: 'プルシャプラ（現在のペシャワール）を都に、中央アジアから北インドにまたがる国を治めた。仏教を保護し、その時代にガンダーラ美術が栄えた。', img: 'Kanishka', a: { h: 'crown', b: 'm', hc: '#3e2723', sk: 1, rc: '#8d6e63' } },
+  { id: 'iqbal', name: 'ムハンマド・イクバール', country: 'pk', born: 1877, died: 1938, title: '詩人・思想家', desc: 'ウルドゥー語とペルシア語で詩を書いた、南アジアを代表するイスラーム思想家。1930年にイスラーム教徒の国をつくる構想を語り、パキスタンの「精神的な父」と呼ばれる。', img: 'Muhammad Iqbal', a: { h: 'cap', b: 'm', hc: '#424242', sk: 2, rc: '#5d4037' } },
+  { id: 'jinnah', name: 'ムハンマド・アリー・ジンナー', country: 'pk', born: 1876, died: 1948, title: 'パキスタン建国の父', desc: 'イギリスで学んだ弁護士で、全インド・ムスリム連盟を率いてパキスタンの独立を実現した。初代総督となったが、独立の翌年に亡くなった。', quote: '団結、信念、規律', img: 'Muhammad Ali Jinnah', a: { h: 'cap', hc: '#bdbdbd', sk: 1, rc: '#212121' } },
+  { id: 'malala', name: 'マララ・ユスフザイ', country: 'pk', born: 1997, died: null, title: '教育活動家・ノーベル平和賞受賞者', desc: '女子が学ぶ権利を訴えたために15歳で銃撃されたが、回復して活動を続けた。2014年、17歳で史上最年少のノーベル平和賞受賞者となった。', quote: '1人の子ども、1人の教師、1冊の本、そして1本のペンが、世界を変えられるのです。', img: 'Malala Yousafzai', a: { h: 'none', f: 1, hc: '#2d2d2d', sk: 2, rc: '#c2185b' } },
+  // ---- バングラデシュ ----
+  { id: 'dharmapala', name: 'ダルマパーラ', country: 'bd', born: null, died: 810, life: '?〜810年ごろ', title: 'パーラ朝の王', desc: 'ベンガルから北インドへ勢力を広げたパーラ朝の2代目の王。仏教を厚く保護し、ソーマプラ大僧院やヴィクラマシーラ僧院を建てて学問の中心とした。', img: 'Dharmapala (emperor)', a: { h: 'crown', hc: '#1b1b1b', sk: 2, rc: '#e65100' } },
+  { id: 'tagore', name: 'ラビンドラナート・タゴール', country: 'in', born: 1861, died: 1941, title: 'ベンガルの詩人・思想家', desc: 'ベンガル語で詩や歌、小説を書き、1913年にアジア人で初めてノーベル文学賞を受けた。バングラデシュとインド、両国の国歌の作者でもある。', img: 'Rabindranath Tagore', a: { h: 'none', b: 'l', hc: '#e0e0e0', sk: 2, rc: '#6d4c41' } },
+  { id: 'rokeya', name: 'ロケヤ・サカワト・ホセイン', country: 'bd', born: 1880, died: 1932, title: '作家・女子教育の先駆者', desc: 'ベンガル北部のロングプル地方に生まれ、女性の教育と社会参加を訴えた。小説『スルタナの夢』を書き、コルカタに女子学校を開いた。', img: 'Begum Rokeya', a: { h: 'none', f: 1, hc: '#1b1b1b', sk: 2, rc: '#2e7d32' } },
+  { id: 'mujib', name: 'シェイク・ムジブル・ラフマン', country: 'bd', born: 1920, died: 1975, title: 'バングラデシュ建国の父', desc: 'アワミ連盟を率いて東パキスタンの自治を求め、独立運動の中心となった。独立後に首相・大統領を務めたが、1975年のクーデターで暗殺された。', quote: '今度の闘いは、私たちの解放のための闘い、独立のための闘いだ。', img: 'Sheikh Mujibur Rahman', a: { h: 'none', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#212121', g: 1 } },
+  { id: 'yunus', name: 'ムハンマド・ユヌス', country: 'bd', born: 1940, died: null, title: '経済学者・グラミン銀行創設者', desc: '貧しい人々に担保なしで少額のお金を貸すマイクロクレジットを広めた。2006年、グラミン銀行とともにノーベル平和賞を受けた。', img: 'Muhammad Yunus', a: { h: 'none', hc: '#eeeeee', sk: 2, rc: '#8d6e63' } },
+  // ---- アフガニスタン ----
+  { id: 'mahmud', name: 'ガズナのマフムード', country: 'af', born: 971, died: 1030, title: 'ガズナ朝の君主', desc: '北インドへ十数回遠征して富を集め、都ガズナを繁栄させた。宮廷には学者ビールーニーや詩人フェルドウスィーらが集まり、ペルシア語の文化が栄えた。', img: 'Mahmud of Ghazni', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#1565c0' } },
+  { id: 'ahmadshah', name: 'アフマド・シャー・ドゥッラーニー', country: 'af', born: 1722, died: 1772, life: '1722年ごろ〜1772年', title: 'ドゥッラーニー朝の建国者', desc: '1747年にカンダハールで王に選ばれ、インド北部からイラン東部に及ぶ大国を築いた。近代アフガニスタンの「建国の父」とされる。', img: 'Ahmad Shah Durrani', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#2e7d32' } },
+  { id: 'amanullah', name: 'アマヌッラー・ハーン', country: 'af', born: 1892, died: 1960, title: 'アフガニスタンの国王', desc: '1919年にイギリスと戦って完全な独立を勝ち取った。憲法の制定や女子教育などの近代化を急いだが、反発を受けて1929年に退位した。', img: 'Amanullah Khan', a: { h: 'cap', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#37474f' } },
+  // ---- カザフスタン ----
+  { id: 'farabi', name: 'ファーラービー', country: 'kz', born: 872, died: 950, life: '872年ごろ〜950年ごろ', title: '哲学者・音楽理論家', desc: 'シルダリヤ川流域のオトラル近くに生まれ、バグダードなどで活躍した。アリストテレスの哲学を深く研究し、「第二の師」と呼ばれた。', img: 'Al-Farabi', a: { h: 'turban', b: 'l', hc: '#424242', sk: 1, rc: '#00695c' } },
+  { id: 'yasawi', name: 'ホージャ・アフマド・ヤサウィー', country: 'kz', born: 1093, died: 1166, life: '1093年ごろ〜1166年', title: 'スーフィー（イスラーム神秘主義）の聖者', desc: 'トルコ語の詩で教えを説き、草原の遊牧民にイスラーム教を広めた。その墓の上には、のちにティムールが中央アジア最大級のドームをもつ霊廟を建てた。', img: 'Khoja Akhmet Yassawi', a: { h: 'turban', b: 'l', hc: '#f5f5f5', sk: 1, rc: '#4e342e' } },
+  { id: 'ablai', name: 'アブライ・ハン', country: 'kz', born: 1711, died: 1781, title: 'カザフ・ハン国のハン', desc: 'ジュンガルとの戦いで活躍し、カザフの人々をまとめた。北のロシアと東の清の間でたくみな外交を行い、カザフの独立を守ろうとした。', img: 'Ablai Khan', a: { h: 'mongol', b: 's', hc: '#1b1b1b', sk: 1, rc: '#1565c0' } },
+  { id: 'abai', name: 'アバイ・クナンバイウル', country: 'kz', born: 1845, died: 1904, title: '詩人・思想家', desc: 'カザフ語の近代文学を築いた「カザフ文学の父」。ロシア文学を翻訳し、『言葉の書』で人々に学ぶことや働くことの大切さを説いた。', img: 'Abai Qunanbaiuly', a: { h: 'cap', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#4e342e' } },
+  // ---- ラオス ----
+  { id: 'fangum', name: 'ファー・グム', country: 'la', born: 1316, died: 1393, life: '1316年ごろ〜1393年ごろ', title: 'ラーンサーン王国の建国者', desc: 'アンコールで育ち、クメール王の支援を受けて1353年にラーンサーン王国を開いた。上座部仏教を取り入れ、国の基礎を築いた。', img: 'Fa Ngum', a: { h: 'crown', hc: '#1b1b1b', sk: 2, rc: '#f9a825' } },
+  { id: 'setthathirath', name: 'セーターティラート王', country: 'la', born: 1534, died: 1571, title: 'ラーンサーン王国の王', desc: '1560年に都をヴィエンチャンへ移し、タート・ルアンやワット・シェントーンを建てた。ビルマ軍の侵攻にも粘り強く抵抗した。', img: 'Setthathirath', a: { h: 'crown', hc: '#1b1b1b', sk: 2, rc: '#c62828' } },
+  { id: 'souphanouvong', name: 'スファヌウォン', country: 'la', born: 1909, died: 1995, title: 'ラオス人民民主共和国の初代国家主席', desc: '王族の出身ながら左派のパテート・ラオを率い、「赤い王子」と呼ばれた。1975年に王制が廃止されると、ラオス人民民主共和国の初代国家主席となった。', img: 'Souphanouvong', a: { h: 'none', hc: '#1b1b1b', sk: 2, rc: '#33691e' } },
+  // ---- 台湾 ----
+  { id: 'koxinga', name: '鄭成功（国姓爺）', country: 'tw', born: 1624, died: 1662, title: '明の遺臣・台湾の開拓者', desc: '平戸で日本人の母から生まれた。明の復興をめざして清に抵抗を続け、1662年にオランダ人を台湾から追い出して拠点を築いた。', img: 'Koxinga', a: { h: 'helmet', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#b71c1c' } },
+  { id: 'chiangkaishek', name: '蒋介石', country: 'tw', born: 1887, died: 1975, title: '中華民国の指導者', desc: '孫文の後継者として国民党を率い、日中戦争を戦った。共産党との内戦に敗れて1949年に政府を台湾へ移し、1975年に亡くなるまで総統を務めた。', img: 'Chiang Kai-shek', a: { h: 'bald', b: 'm', hc: '#9e9e9e', sk: 1, rc: '#4e5b31' } },
+  { id: 'hattayoichi', name: '八田與一', country: 'jp', born: 1886, died: 1942, title: '土木技師', desc: '石川県出身で、台湾総督府の技師として烏山頭ダムと嘉南大圳を建設した。台湾南部の農業を大きく発展させ、今も台湾の人々に慕われている。', img: 'Yoichi Hatta', a: { h: 'none', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#455a64' } },
+  { id: 'leetenghui', name: '李登輝', country: 'tw', born: 1923, died: 2020, title: '台湾の総統', desc: '日本統治時代に生まれ、京都帝国大学で学んだ農業経済学者。1988年に総統となって民主化を進め、1996年に行われた初の総統直接選挙で当選した。', img: 'Lee Teng-hui', a: { h: 'none', hc: '#cfcfcf', sk: 1, rc: '#263238', g: 1 } },
+];
