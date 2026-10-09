@@ -38,6 +38,9 @@ const BASE = [
   {"id": "berlinwall", "name": "ベルリンの壁とブランデンブルク門", "country": "de", "year": 1989, "desc": "1961年、東ドイツは西ベルリンを囲むようにコンクリートの壁を築き、住民が西側へ逃げるのを防ぎました。壁は全長約155kmにおよび、越えようとして多くの人が命を落としました。1989年11月9日に国境が開かれると、市民が壁に上って喜び合い、壁は打ち壊されました。後ろに見えるブランデンブルク門は、分断と統一の象徴です。", "facts": [["建設", "1961年8月13日"], ["崩壊", "1989年11月9日"], ["全長", "約155km（西ベルリンを囲む）"], ["ドイツ統一", "1990年10月3日"]], "highlights": [{"t": "壁", "d": "高さ約3.6mのコンクリートの壁。西側の面には、人々が自由を求める落書きを描きました。"}, {"t": "監視塔", "d": "東側には監視塔や「死の帯」と呼ばれる無人地帯があり、逃亡者は銃撃されました。"}, {"t": "ブランデンブルク門", "d": "1791年に完成した門。壁の時代は東西の境界にあって通れませんでしたが、今は統一の象徴です。"}], "img": "Berlin Wall"},
 ];
 
+// Lead images that turned out to be emblems or diagrams rather than photos.
+const NOT_PHOTO = new Set(['Yeomen Warders', 'Felt', 'Zimbabwe Bird', 'Karahafu', 'Perry Expedition', 'Wing warping', 'Soapstone', 'Earth', 'R-7 Semyorka']);
+
 for (const m of BASE) {
   (HIGHLIGHT_IMG[m.id] || []).forEach((img, i) => {
     if (img && m.highlights[i]) m.highlights[i].img = img;
@@ -45,6 +48,10 @@ for (const m of BASE) {
   m.extra = EXTRA_IMG[m.id] || [];
 }
 for (const m of MORE) m.extra = m.extra || [];
+for (const m of [...BASE, ...MORE]) {
+  for (const h of m.highlights) if (NOT_PHOTO.has(h.img)) delete h.img;
+  m.extra = m.extra.filter((t) => !NOT_PHOTO.has(t));
+}
 
 export const LANDMARKS = [...BASE, ...MORE].sort((a, b) => a.year - b.year);
 export const LANDMARK_BY_ID = Object.fromEntries(LANDMARKS.map((m) => [m.id, m]));
