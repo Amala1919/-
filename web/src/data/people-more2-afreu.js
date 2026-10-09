@@ -1,0 +1,44 @@
+// 追加人物（リビア・スーダン・タンザニア・コンゴ民主共和国・セネガル・マダガスカル・ウクライナ・ルーマニア・ブルガリア・アイスランド）
+export default [
+  // ---- リビア ----
+  { id: 'severus', name: 'セプティミウス・セウェルス', country: 'ly', born: 145, died: 211, title: 'アフリカ出身初のローマ皇帝', desc: '北アフリカのレプティス・マグナに生まれ、193年の内乱を制して皇帝となった。故郷に壮大な建物を造らせ、遠征先のブリタニアで亡くなった。', quote: '兄弟仲良くせよ。兵士を富ませよ。ほかの者は気にかけるな', img: 'Septimius Severus', a: { h: 'laurel', b: 'l', hc: '#3e2723', sk: 2, rc: '#7d3c98' } },
+  { id: 'omarmukhtar', name: 'オマール・ムフタール', country: 'ly', born: 1858, died: 1931, life: '1858年ごろ〜1931年', title: 'リビアの抵抗運動の指導者', desc: 'イスラームの教師から、イタリアの植民地支配に対するゲリラ戦の指導者となった。約20年戦ったのち捕らえられて処刑され、「砂漠のライオン」と呼ばれる。', img: 'Omar Mukhtar', a: { h: 'turban', b: 'l', hc: '#eeeeee', sk: 2, rc: '#f2efe6', g: 1 } },
+  { id: 'gaddafi', name: 'ムアンマル・カダフィ', country: 'ly', born: 1942, died: 2011, title: 'リビアの最高指導者', desc: '1969年に27歳でクーデタを起こして王政を倒し、42年間独裁を続けた。2011年の「アラブの春」による内戦で政権が崩壊し、殺害された。', img: 'Muammar Gaddafi', a: { h: 'kepi', hc: '#1b1b1b', sk: 2, rc: '#556b2f' } },
+  // ---- スーダン ----
+  { id: 'taharqa', name: 'タハルカ', country: 'sd', born: null, died: -664, life: '?〜紀元前664年', title: 'クシュ王・エジプト第25王朝のファラオ', desc: 'ヌビアのクシュ王国の王として、エジプトとヌビアを治めた「黒いファラオ」。各地に神殿を建てたが、アッシリアの侵攻を受けてエジプトを追われた。', img: 'Taharqa', a: { h: 'pharaoh', hc: '#1b1b1b', sk: 3, rc: '#f5f5f5' } },
+  { id: 'amanirenas', name: 'アマニレナス', country: 'sd', born: null, died: -10, life: '紀元前1世紀後半', title: 'クシュ王国（メロエ）の女王', desc: '紀元前25年ごろ、ローマ領エジプトに攻め込み、アウグストゥス像の頭部を持ち帰った。ローマとの戦いののち、有利な条件で和平を結んだ。', img: 'Amanirenas', a: { h: 'crown', f: 1, hc: '#1b1b1b', sk: 3, rc: '#b9770e' } },
+  { id: 'mahdi', name: 'ムハンマド・アフマド（マフディー）', country: 'sd', born: 1844, died: 1885, title: 'マフディー国家の創始者', desc: '1881年に救世主「マフディー」を名乗り、エジプトとイギリスの支配に対して立ち上がった。1885年にハルツームを攻め落としたが、その約5か月後に病死した。', img: 'Muhammad Ahmad', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 3, rc: '#f2efe6' } },
+  { id: 'gordon', name: 'チャールズ・ゴードン', country: 'gb', born: 1833, died: 1885, title: 'イギリスの軍人', desc: '中国で太平天国の乱の鎮圧に活躍し「チャイニーズ・ゴードン」と呼ばれた。スーダンのハルツームでマフディー軍に包囲され、1885年に戦死した。', img: 'Charles George Gordon', a: { h: 'none', b: 'm', hc: '#8d6e63', sk: 0, rc: '#c0392b' } },
+  // ---- タンザニア ----
+  { id: 'maryleakey', name: 'メアリー・リーキー', country: 'gb', born: 1913, died: 1996, title: 'イギリスの考古学者・人類学者', desc: '1959年、タンザニアのオルドヴァイ渓谷で約175万年前の猿人の頭骨を発見した。1978年にはラエトリで約360万年前の足跡化石も見つけた。', img: 'Mary Leakey', a: { h: 'none', f: 1, hc: '#bdbdbd', sk: 0, rc: '#c8a165' } },
+  { id: 'livingstone', name: 'デイヴィッド・リヴィングストン', country: 'gb', born: 1813, died: 1873, title: 'イギリスの宣教師・探検家', desc: 'アフリカ内陸を探検し、ヴィクトリア滝をヨーロッパに紹介した。奴隷貿易の悲惨さを訴え続け、1871年にタンガニーカ湖畔でスタンリーと出会った。', img: 'David Livingstone', a: { h: 'kepi', b: 'm', hc: '#5d4037', sk: 0, rc: '#5d6d7e' } },
+  { id: 'kinjikitile', name: 'キンジキティレ・ングワレ', country: 'tz', born: null, died: 1905, life: '?〜1905年', title: 'マジ・マジ反乱の予言者', desc: '銃弾を水に変えるという聖水「マジ」を配り、ドイツの植民地支配に対する反乱に多くの民族を結集させた。反乱の初期に捕らえられ、処刑された。', img: 'Kinjikitile Ngwale', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 3, rc: '#8d6e63' } },
+  { id: 'nyerere', name: 'ジュリウス・ニエレレ', country: 'tz', born: 1922, died: 1999, title: 'タンザニアの初代大統領', desc: '元教師で「ムワリム（先生）」と呼ばれた。タンガニーカを独立に導き、ザンジバルとの合併でタンザニアを建国して、1985年に自ら引退した。', img: 'Julius Nyerere', a: { h: 'none', b: 's', hc: '#9e9e9e', sk: 3, rc: '#5d6d7e' } },
+  // ---- コンゴ民主共和国 ----
+  { id: 'afonso1kongo', name: 'アフォンソ1世（ンヴェンバ・ア・ンジンガ）', country: 'cd', born: 1456, died: 1542, life: '1456年ごろ〜1542年ごろ', title: 'コンゴ王国の王', desc: 'キリスト教を熱心に広め、ポルトガルとの交流を進めた。ポルトガル商人による奴隷狩りに抗議する手紙をポルトガル国王に送った。', img: 'Afonso I of Kongo', a: { h: 'crown', b: 's', hc: '#1b1b1b', sk: 3, rc: '#922b21' } },
+  { id: 'lumumba', name: 'パトリス・ルムンバ', country: 'cd', born: 1925, died: 1961, title: 'コンゴ独立時の首相', desc: '1960年の独立式典で、ベルギー国王の前で植民地支配を批判した。コンゴ動乱のなかで失脚し、1961年に殺害された。', quote: '歴史はいつの日か、その言葉を語るだろう', img: 'Patrice Lumumba', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 3, rc: '#2c3e50', g: 1 } },
+  { id: 'mobutu', name: 'モブツ・セセ・セコ', country: 'cd', born: 1930, died: 1997, title: 'ザイールの独裁者', desc: '1965年のクーデタで権力を握り、国名をザイールと改めた。冷戦下で西側の支援を受けて32年間独裁を続け、1997年に追放された。', img: 'Mobutu Sese Seko', a: { h: 'cap', hc: '#1b1b1b', sk: 3, rc: '#6e2c00', g: 1 } },
+  // ---- セネガル ----
+  { id: 'amadoubamba', name: 'アマドゥ・バンバ', country: 'sn', born: 1853, died: 1927, title: 'ムリッド教団の創始者', desc: '祈りと勤勉な労働を説くイスラーム神秘主義の教団を開き、聖地トゥーバを築いた。フランスに流刑にされても非暴力を貫き、深く尊敬されている。', img: 'Amadou Bamba', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 3, rc: '#f2efe6' } },
+  { id: 'diagne', name: 'ブレーズ・ディアーニュ', country: 'sn', born: 1872, died: 1934, title: 'セネガル出身のフランス下院議員', desc: '1914年、アフリカ出身の黒人として初めてフランスの下院議員に選ばれた。セネガルの4つの町の住民がフランス市民であることを法律で認めさせた。', img: 'Blaise Diagne', a: { h: 'none', b: 'm', hc: '#1b1b1b', sk: 3, rc: '#212f3d' } },
+  { id: 'senghor', name: 'レオポール・セダール・サンゴール', country: 'sn', born: 1906, died: 2001, title: 'セネガルの初代大統領・詩人', desc: 'アフリカ人の文化の誇りを訴える「ネグリチュード」運動を代表する詩人。20年間大統領を務め、1980年に自ら退いた。', img: 'Léopold Sédar Senghor', a: { h: 'none', hc: '#424242', sk: 3, rc: '#1f3a5f', g: 1 } },
+  // ---- マダガスカル ----
+  { id: 'andrianampoinimerina', name: 'アンドリアナンプイニメリナ', country: 'mg', born: 1745, died: 1810, life: '1745年ごろ〜1810年', title: 'メリナ王国の王', desc: '分裂していたマダガスカル中央高地の小王国を統一し、アンタナナリボを都とした。水田の開発や法の整備で、王国の基礎を築いた。', quote: '海こそがわが田んぼの境だ', img: 'Andrianampoinimerina', a: { h: 'crown', hc: '#1b1b1b', sk: 2, rc: '#f2efe6' } },
+  { id: 'ranavalona1', name: 'ラナヴァルナ1世', country: 'mg', born: 1778, died: 1861, title: 'メリナ王国の女王', desc: 'ヨーロッパの影響を警戒してキリスト教を禁止し、宣教師を追放した。33年間国を治め、マダガスカルの独立を守った。', img: 'Ranavalona I', a: { h: 'crown', f: 1, hc: '#1b1b1b', sk: 2, rc: '#c0392b' } },
+  // ---- ウクライナ ----
+  { id: 'vladimir1', name: 'ヴォロディーミル1世（ウラジーミル聖公）', country: 'ua', born: 958, died: 1015, life: '958年ごろ〜1015年', title: 'キエフ・ルーシの大公', desc: '988年ごろビザンツ帝国から正教のキリスト教を受け入れ、皇帝の妹アンナと結婚した。ウクライナ・ベラルーシ・ロシアの共通の聖人とされる。', img: 'Vladimir the Great', a: { h: 'crown', b: 'm', hc: '#8d6e63', sk: 0, rc: '#a93226' } },
+  { id: 'khmelnytsky', name: 'ボフダン・フメリニツキー', country: 'ua', born: 1595, died: 1657, life: '1595年ごろ〜1657年', title: 'コサックのヘトマン（首領）', desc: '1648年にポーランドに対する大反乱を起こし、コサックのヘトマン国家を築いた。1654年にロシアと同盟を結んだ。', img: 'Bohdan Khmelnytsky', a: { h: 'cap', b: 'm', hc: '#3e2723', sk: 0, rc: '#a04000' } },
+  { id: 'zelensky', name: 'ヴォロディミル・ゼレンスキー', country: 'ua', born: 1978, died: null, life: '1978年〜', title: 'ウクライナの大統領', desc: '俳優・コメディアンとして人気を集め、2019年の選挙で大統領に当選した。2022年のロシアの全面侵攻後も首都キーウにとどまり、国の防衛を率いた。', img: 'Volodymyr Zelenskyy', a: { h: 'none', b: 's', hc: '#3e2723', sk: 0, rc: '#556b2f' } },
+  // ---- ルーマニア ----
+  { id: 'decebalus', name: 'デケバルス', country: 'ro', born: null, died: 106, life: '?〜106年', title: 'ダキアの王', desc: 'ローマ帝国と2度にわたって戦った古代ダキアの王。トラヤヌス帝に都を落とされ、捕らえられる前に自ら命を絶った。', img: 'Decebalus', a: { h: 'cap', b: 'l', hc: '#4e342e', sk: 0, rc: '#7e5109' } },
+  { id: 'vlad3', name: 'ヴラド3世（串刺し公）', country: 'ro', born: 1431, died: 1477, life: '1431年ごろ〜1476/77年', title: 'ワラキア公', desc: 'オスマン帝国と戦い、敵を串刺しにする残酷な刑で恐れられた。「ドラキュラ」とも名乗り、吸血鬼ドラキュラのモデルとされる。', img: 'Vlad the Impaler', a: { h: 'crown', b: 'm', hc: '#1b1b1b', sk: 0, rc: '#922b21' } },
+  { id: 'ceausescu', name: 'ニコラエ・チャウシェスク', country: 'ro', born: 1918, died: 1989, title: '社会主義ルーマニアの独裁者', desc: '1965年から国を率い、秘密警察による監視と個人崇拝の独裁を行った。1989年の革命で倒され、妻とともに処刑された。', img: 'Nicolae Ceaușescu', a: { h: 'none', hc: '#9e9e9e', sk: 0, rc: '#263238' } },
+  // ---- ブルガリア ----
+  { id: 'spartacus', name: 'スパルタクス', country: 'bg', born: -111, died: -71, life: '紀元前111年ごろ〜紀元前71年', title: '剣闘士反乱の指導者', desc: 'トラキア出身の剣闘士。紀元前73年にイタリアで反乱を起こし、奴隷たちを率いてローマ軍を何度も破ったが、最後は敗れて戦死した。', img: 'Spartacus', a: { h: 'none', b: 'm', hc: '#3e2723', sk: 1, rc: '#8d6e63' } },
+  { id: 'simeon1', name: 'シメオン1世', country: 'bg', born: 864, died: 927, life: '864年ごろ〜927年', title: '第一次ブルガリア帝国の皇帝（ツァーリ）', desc: 'コンスタンティノープルで学んだのち即位し、都プレスラフでスラヴ文化の黄金時代を築いた。ビザンツ帝国と争い、「ツァーリ」を名乗った。', img: 'Simeon I', a: { h: 'crown', b: 'l', hc: '#4e342e', sk: 0, rc: '#7d3c98' } },
+  { id: 'levski', name: 'ヴァシル・レフスキ', country: 'bg', born: 1837, died: 1873, title: 'ブルガリア独立運動の英雄', desc: 'オスマン帝国からの解放をめざし、各地に秘密の革命組織をつくった。捕らえられて1873年に処刑され、「自由の使徒」と呼ばれる。', img: 'Vasil Levski', a: { h: 'none', b: 'm', hc: '#d7ccc8', sk: 0, rc: '#212f3d' } },
+  // ---- アイスランド ----
+  { id: 'ingolfur', name: 'インゴールヴル・アルナルソン', country: 'is', born: null, died: null, life: '9世紀後半', title: 'アイスランド最初の定住者', desc: '874年、ノルウェーから渡ってきてアイスランドに住みついたと伝えられるヴァイキング。湯気の立つ湾を「煙の湾」レイキャビクと名づけた。', img: 'Ingólfr Arnarson', a: { h: 'helmet', b: 'l', hc: '#d4a017', sk: 0, rc: '#5d4037' } },
+  { id: 'snorri', name: 'スノッリ・ストゥルルソン', country: 'is', born: 1179, died: 1241, title: 'アイスランドの歴史家・詩人', desc: '北欧神話を解説した『エッダ』や、ノルウェー王たちの歴史『ヘイムスクリングラ』を著した。有力者同士の争いのなかで暗殺された。', img: 'Snorri Sturluson', a: { h: 'none', b: 'l', hc: '#a1887f', sk: 0, rc: '#1e8449' } },
+  { id: 'vigdis', name: 'ヴィグディス・フィンボガドッティル', country: 'is', born: 1930, died: null, life: '1930年〜', title: 'アイスランド大統領', desc: '1980年、世界で初めて国民の選挙で選ばれた女性の大統領となり、16年間務めた。植林や言語・文化の保護にも力を注いだ。', img: 'Vigdís Finnbogadóttir', a: { h: 'none', f: 1, hc: '#e0c48a', sk: 0, rc: '#2e86c1' } },
+];

@@ -63,22 +63,56 @@ import cu from './countries/cu.js';
 import co from './countries/co.js';
 import ht from './countries/ht.js';
 import nz from './countries/nz.js';
+import pk from './countries/pk.js';
+import bd from './countries/bd.js';
+import af from './countries/af.js';
+import kz from './countries/kz.js';
+import la from './countries/la.js';
+import tw from './countries/tw.js';
+import sy from './countries/sy.js';
+import lb from './countries/lb.js';
+import il from './countries/il.js';
+import ye from './countries/ye.js';
+import ge from './countries/ge.js';
+import am from './countries/am.js';
+import dz from './countries/dz.js';
+import ly from './countries/ly.js';
+import sd from './countries/sd.js';
+import tz from './countries/tz.js';
+import cd from './countries/cd.js';
+import sn from './countries/sn.js';
+import mg from './countries/mg.js';
+import ua from './countries/ua.js';
+import ro from './countries/ro.js';
+import bg from './countries/bg.js';
+import is from './countries/is.js';
+import rs from './countries/rs.js';
+import hr from './countries/hr.js';
+import lt from './countries/lt.js';
+import ve from './countries/ve.js';
+import bo from './countries/bo.js';
+import ec from './countries/ec.js';
+import gt from './countries/gt.js';
+import jm from './countries/jm.js';
+import pa from './countries/pa.js';
+import pg from './countries/pg.js';
+import fj from './countries/fj.js';
 
 export { ERAS, ERA_BY_ID, eraOfYear, PEOPLE, PERSON_BY_ID };
 
 export const COUNTRIES = [
-  jp, cn, kr, mn, inn, vn, th, kh, idn, mys, ph, mm, lk, np, uz,
-  ir, iq, tr, sa, jo, eg, ma, tn, et, ml, gh, ng, ke, za, zw,
-  gr, it, fr, gb, ie, de, es, pt, nl, be, ch, at, cz, hu, pl, dk, no, se, fi, ru,
-  us, ca, mx, cu, ht, co, br, pe, ar, cl, au, nz,
+  jp, cn, kr, tw, mn, kz, inn, pk, bd, vn, th, la, kh, idn, mys, ph, mm, lk, np, uz, af,
+  ir, iq, sy, lb, il, jo, tr, ge, am, sa, ye, eg, ly, tn, dz, ma, sd, et, ml, sn, gh, ng, cd, ke, tz, mg, za, zw,
+  gr, it, fr, gb, ie, is, de, es, pt, nl, be, ch, at, cz, hu, pl, lt, dk, no, se, fi, ru, ua, ro, bg, rs, hr,
+  us, ca, mx, gt, cu, jm, ht, pa, co, ve, ec, br, pe, bo, ar, cl, au, nz, pg, fj,
 ];
 export const COUNTRY_BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]));
 
 export const REGIONS = [
-  { id: 'asia', name: 'アジア', countries: ['jp', 'cn', 'kr', 'mn', 'in', 'vn', 'th', 'kh', 'id', 'my', 'ph', 'mm', 'lk', 'np', 'uz'] },
-  { id: 'west', name: '西アジア・アフリカ', countries: ['ir', 'iq', 'tr', 'sa', 'jo', 'eg', 'ma', 'tn', 'et', 'ml', 'gh', 'ng', 'ke', 'za', 'zw'] },
-  { id: 'europe', name: 'ヨーロッパ', countries: ['gr', 'it', 'fr', 'gb', 'ie', 'de', 'es', 'pt', 'nl', 'be', 'ch', 'at', 'cz', 'hu', 'pl', 'dk', 'no', 'se', 'fi', 'ru'] },
-  { id: 'america', name: 'アメリカ大陸・オセアニア', countries: ['us', 'ca', 'mx', 'cu', 'ht', 'co', 'br', 'pe', 'ar', 'cl', 'au', 'nz'] },
+  { id: 'asia', name: 'アジア', countries: ['jp', 'cn', 'kr', 'tw', 'mn', 'kz', 'in', 'pk', 'bd', 'vn', 'th', 'la', 'kh', 'id', 'my', 'ph', 'mm', 'lk', 'np', 'uz', 'af'] },
+  { id: 'west', name: '西アジア・アフリカ', countries: ['ir', 'iq', 'sy', 'lb', 'il', 'jo', 'tr', 'ge', 'am', 'sa', 'ye', 'eg', 'ly', 'tn', 'dz', 'ma', 'sd', 'et', 'ml', 'sn', 'gh', 'ng', 'cd', 'ke', 'tz', 'mg', 'za', 'zw'] },
+  { id: 'europe', name: 'ヨーロッパ', countries: ['gr', 'it', 'fr', 'gb', 'ie', 'is', 'de', 'es', 'pt', 'nl', 'be', 'ch', 'at', 'cz', 'hu', 'pl', 'lt', 'dk', 'no', 'se', 'fi', 'ru', 'ua', 'ro', 'bg', 'rs', 'hr'] },
+  { id: 'america', name: 'アメリカ大陸・オセアニア', countries: ['us', 'ca', 'mx', 'gt', 'cu', 'jm', 'ht', 'pa', 'co', 've', 'ec', 'br', 'pe', 'bo', 'ar', 'cl', 'au', 'nz', 'pg', 'fj'] },
 ];
 
 // Flatten events with stable ids and derived fields.
