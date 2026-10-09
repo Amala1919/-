@@ -6,7 +6,7 @@ export default [
   { id: 'ulughbeg', name: 'ウルグ・ベク', country: 'uz', born: 1394, died: 1449, title: 'ティムール朝の君主・天文学者', desc: 'ティムールの孫。サマルカンドに天文台を建て、精密な星表をつくった。学問を愛したが、息子の反乱によって命を落とした。', img: 'Ulugh Beg', a: { h: 'turban', b: 's', hc: '#1b1b1b', sk: 1, rc: '#00838f' } },
 
   // ---- フィリピン ----
-  { id: 'lapulapu', name: 'ラプラプ', country: 'ph', born: 1491, died: null, life: '1491年ごろ〜?', title: 'マクタン島の首長', desc: '1521年、マクタン島の戦いでマゼランの軍を破った。ヨーロッパの侵略を退けたフィリピン最初の英雄とされる。', img: 'Lapulapu', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 2, rc: '#b71c1c' } },
+  { id: 'lapulapu', name: 'ラプラプ', country: 'ph', born: 1491, died: null, life: '1491年ごろ〜?', title: 'マクタン島の首長', desc: '1521年、マクタン島の戦いでマゼランの軍を破った。ヨーロッパの侵略を退けたフィリピン最初の英雄とされる。', img: 'Lapu-Lapu Shrine', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 2, rc: '#b71c1c' } },
   { id: 'rizal', name: 'ホセ・リサール', country: 'ph', born: 1861, died: 1896, title: 'フィリピンの国民的英雄', desc: '医師・作家として活躍し、小説『ノリ・メ・タンヘレ』でスペイン支配の不正を訴えた。革命への関与を疑われて処刑された。', img: 'José Rizal', a: { h: 'none', b: 'm', hc: '#1b1b1b', sk: 1, rc: '#212121' } },
   { id: 'aguinaldo', name: 'エミリオ・アギナルド', country: 'ph', born: 1869, died: 1964, title: 'フィリピン第一共和国の大統領', desc: 'フィリピン革命を指導し、1898年に独立を宣言した。その後はアメリカと戦ったが、捕らえられた。', img: 'Emilio Aguinaldo', a: { h: 'none', hc: '#1b1b1b', sk: 1, rc: '#37474f' } },
   { id: 'coryaquino', name: 'コラソン・アキノ', country: 'ph', born: 1933, died: 2009, title: 'フィリピン第11代大統領', desc: '暗殺された野党指導者ベニグノ・アキノの妻。1986年のピープルパワー革命でマルコス政権を倒し、アジア初の女性大統領となった。', img: 'Corazon Aquino', a: { h: 'none', f: 1, hc: '#2d2d2d', sk: 1, rc: '#f9a825' } },

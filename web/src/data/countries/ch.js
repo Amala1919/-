@@ -102,7 +102,7 @@ export default {
       detail:
         '1954年、ヨーロッパの国々が協力して、ジュネーヴ郊外に欧州原子核研究機構（CERN）を設立しました。地下には1周約27kmの大型ハドロン衝突型加速器（LHC）があり、2012年には「ヒッグス粒子」が発見されました。また1989年、ここで働いていたティム・バーナーズ＝リーが、現在のインターネットに欠かせないWorld Wide Web（WWW）を考案しました。',
       point: 'ウェブページのしくみは、科学者どうしが情報を共有するためにスイスで生まれた。',
-      img: 'Large Hadron Collider',
+      img: 'Globe of Science and Innovation',
     },
   ],
   quiz: [

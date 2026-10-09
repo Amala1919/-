@@ -28,7 +28,7 @@ REPORT = os.path.join(ROOT, 'scripts', 'images-report.txt')
 
 MAIN_BOX = (640, 640)
 THUMB_BOX = (240, 240)
-FREE = re.compile(r'public domain|^pd|cc0|cc[- ]?by|gfdl|gpl|kogl|ogl|attribution|no restrictions|copyrighted free use', re.I)
+FREE = re.compile(r'public domain|^pd|cc0|cc[- ]?by|gfdl|gpl|kogl|ogl|attribution|no restrictions|copyrighted free use|^fal|free art', re.I)
 
 S = requests.Session()
 S.headers['User-Agent'] = 'ChronoAtlasImageFetcher/1.0 (https://github.com/Amala1919/-; educational history app)'
