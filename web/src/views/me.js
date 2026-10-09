@@ -56,8 +56,8 @@ export default function me(root) {
       <button class="btn-wide" id="credits">📷 画像クレジット（${imageCount()}枚）</button>
       <button class="btn-wide danger" id="reset">学習データをリセット</button>
     </div>
-    <p class="about">クロノアトラス v1.0 ・ ${EVENTS.length}の出来事 / ${COUNTRIES.length}の国と地域 / ${LANDMARKS.length}の名所<br>
-    地図データ：Natural Earth（パブリックドメイン）／写真：Wikimedia Commons${isAndroid() ? '' : '<br>ブラウザ版プレビュー'}</p>
+    <p class="about">クロノアトラス v1.2 ・ ${EVENTS.length}の出来事 / ${COUNTRIES.length}の国と地域 / ${LANDMARKS.length}の名所<br>
+    地図データ：Natural Earth（パブリックドメイン）、歴史地図 historical-basemaps（A. Ourednik ほか, GPL-3.0）／写真：Wikimedia Commons${isAndroid() ? '' : '<br>ブラウザ版プレビュー'}</p>
   </section>`;
 
   root.querySelector('#snd').addEventListener('change', (e) => store.setSetting('sound', e.target.checked));
