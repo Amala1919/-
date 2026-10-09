@@ -13,6 +13,7 @@ import { linkify } from '../components/linkify.js';
 import { personChip } from '../components/avatar.js';
 import { openEvent, openPerson } from '../components/sheets.js';
 import { FAMILIES } from '../data/relations.js';
+import { THEMES } from '../data/theme-index.js';
 import { PEOPLE } from '../data/index.js';
 
 export default function era(root, { id }) {
@@ -25,6 +26,7 @@ export default function era(root, { id }) {
   let filter = 'all';
   const evIds = new Set(evs.map((x) => x.id));
   const people = PEOPLE.filter((p) => p.events.some((x) => evIds.has(x)));
+  const ths = THEMES.filter((t) => t.allEvents.filter((x) => x.era === id).length >= 3);
   const fams = FAMILIES.filter((f) => f.start < e.end && f.end > e.start && eraOfYear(Math.round((f.start + f.end) / 2)).id === id);
 
   root.innerHTML = `
@@ -50,6 +52,7 @@ export default function era(root, { id }) {
     </div>
     <div class="card-list" id="list"></div>
     ${people.length ? `<h3 class="sub">🧑‍🎓 この時代の人物（${people.length}）</h3><div class="people-row hscroll">${people.map((p) => personChip(p, 56)).join('')}</div>` : ''}
+    ${ths.length ? `<h3 class="sub">🧵 この時代のテーマ史</h3><div>${ths.map((t) => `<button class="th-link" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)} ›</button>`).join('')}</div>` : ''}
     ${fams.length ? `<h3 class="sub">🌳 この時代の家系図</h3><div class="card-list">${fams.map((f) => `<button class="fam-link" data-go="/family/${f.id}"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${f.members.length}人のつながり</small></span></button>`).join('')}</div>` : ''}
     ${models.length ? `<h3 class="sub">🏛️ この時代の名所</h3><div class="hscroll lm-row">${models.map((m) => landmarkChip(m)).join('')}</div>` : ''}
     <button class="btn-wide accent" data-go="/quiz/run/era/${id}">❓ ${e.name}のクイズに挑戦</button>

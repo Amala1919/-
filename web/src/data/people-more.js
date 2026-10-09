@@ -9,5 +9,6 @@ import afreu2 from './people-more2-afreu.js';
 import amer2 from './people-more2-amer.js';
 import jp3 from './people-more3-jp.js';
 import asia3 from './people-more3-asia3.js';
+import amer3 from './people-more3-amer3.js';
 
-export const MORE_PEOPLE = [...asia, ...africa, ...europe, ...america, ...asia2, ...mideast2, ...afreu2, ...amer2, ...jp3, ...asia3];
+export const MORE_PEOPLE = [...asia, ...africa, ...europe, ...america, ...asia2, ...mideast2, ...afreu2, ...amer2, ...jp3, ...asia3, ...amer3];

@@ -11,6 +11,7 @@ import { speak, stopSpeaking } from '../native.js';
 import { image } from '../images.js';
 import { linkify } from '../components/linkify.js';
 import { familiesOfCountry } from '../data/relations.js';
+import { THEMES } from '../data/theme-index.js';
 import { connectedCountries } from '../components/connections.js';
 
 export default function country(root, { id }) {
@@ -23,6 +24,7 @@ export default function country(root, { id }) {
   const pct = read / c.events.length;
   const best = store.state.quiz.byCountry[id]?.best;
   const fams = familiesOfCountry(id);
+  const ths = THEMES.filter((t) => t.allEvents.some((e) => e.country === id));
   const links = connectedCountries(id, 8).filter((x) => x.count > 0);
 
   let lastEra = null;
@@ -60,6 +62,7 @@ export default function country(root, { id }) {
     <h3 class="sub">📜 ${esc(c.name)}の歴史年表</h3>
     <div class="tl">${timeline}</div>
     ${people.length ? `<h3 class="sub">🧑‍🎓 ゆかりの人物</h3><div class="people-row hscroll">${people.map((p) => personChip(p, 60)).join('')}</div>` : ''}
+    ${ths.length ? `<h3 class="sub">🧵 ${esc(c.name.replace(/（.*）/, ''))}が登場するテーマ史</h3><div>${ths.map((t) => `<button class="th-link" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)} ›</button>`).join('')}</div>` : ''}
     ${fams.length ? `<h3 class="sub">🌳 家系図</h3><div class="card-list">${fams.map((f) => `<button class="fam-link" data-go="/family/${f.id}"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${f.members.length}人のつながり</small></span><span class="fam-faces mini">${f.members.slice(0, 4).map(([pid]) => (PERSON_BY_ID[pid] ? personIcon(PERSON_BY_ID[pid], 30) : '')).join('')}</span></button>`).join('')}</div>` : ''}
     ${links.length ? `<h3 class="sub">🔗 関係の深い国</h3><p class="hint">${esc(c.name)}の歴史の中でよく登場する国です。</p><div class="chips">${links.map((x) => `<button class="chip" data-go="/country/${x.country.id}">${x.country.flag} ${esc(x.country.name)} <small style="opacity:.6">×${x.count}</small></button>`).join('')}</div>` : ''}
     ${models.length ? `<h3 class="sub">🏛️ 写真で見る名所</h3><div class="hscroll lm-row">${models.map((m) => landmarkChip(m)).join('')}</div>` : ''}
