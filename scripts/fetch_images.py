@@ -26,7 +26,7 @@ IMG_DIR = os.path.join(ROOT, 'web', 'public', 'img')
 CREDITS = os.path.join(ROOT, 'web', 'src', 'data', 'image-credits.json')
 REPORT = os.path.join(ROOT, 'scripts', 'images-report.txt')
 
-MAIN_BOX = (640, 640)
+MAIN_BOX = (560, 560)
 THUMB_BOX = (240, 240)
 FREE = re.compile(r'public domain|^pd|cc0|cc[- ]?by|gfdl|gpl|kogl|ogl|attribution|no restrictions|copyrighted free use|^fal|free art', re.I)
 
@@ -118,7 +118,7 @@ def save(img_bytes, key):
         im = im.convert('RGB')
     main = im.copy()
     main.thumbnail(MAIN_BOX, Image.LANCZOS)
-    main.save(os.path.join(IMG_DIR, f'{key}.jpg'), 'JPEG', quality=72, optimize=True, progressive=True)
+    main.save(os.path.join(IMG_DIR, f'{key}.jpg'), 'JPEG', quality=62, optimize=True, progressive=True)
     thumb = im.copy()
     thumb.thumbnail(THUMB_BOX, Image.LANCZOS)
     thumb.save(os.path.join(IMG_DIR, f'{key}_t.jpg'), 'JPEG', quality=70, optimize=True)

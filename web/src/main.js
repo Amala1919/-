@@ -197,6 +197,7 @@ if (!welcomed) {
             <div><span>🌍</span><b>時をかける地球儀</b><small>スライダーで年代を動かすと、地球儀がその時代の世界地図に変わり、出来事があった国が光ります。国をタップするとその国の歴史へ。</small></div>
             <div><span>📜</span><b>時代で学ぶ・比較年表</b><small>8つの時代ごとに世界を見渡したり、国をならべて同じ時代を比べたりできます。</small></div>
             <div><span>📽️</span><b>ストーリーモード</b><small>国や時代の歴史を紙芝居のように。自動ナレーションで聞くこともできます。</small></div>
+            <div><span>🧵</span><b>テーマ史・家系図</b><small>シルクロードや冷戦など国をこえたテーマ、王家や将軍家の家系図から、人物・国・出来事へつぎつぎ飛べます。</small></div>
             <div><span>🏛️</span><b>世界の名所</b><small>ピラミッドや姫路城など${LANDMARKS.length}の名所を本物の写真で。見どころの解説つき。</small></div>
             <div><span>❓</span><b>クイズ</b><small>${Object.keys(MODES).length}種類のモードで確認問題（写真クイズも）。正解するとXPがたまり、レベルアップやバッジ獲得も！</small></div>
           </div>

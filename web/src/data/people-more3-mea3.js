@@ -34,7 +34,7 @@ export default [
 
   // ---- マリ ----
   { id: 'ml_sundiata', name: 'スンジャタ・ケイタ', country: 'ml', born: 1217, died: 1255, life: '1217年ごろ〜1255年ごろ', title: 'マリ帝国の建国者', desc: '「マリの獅子」と呼ばれる英雄。キリナの戦いでソソ王国を破ってマリ帝国を建てた。その生涯は語り部グリオによって語り継がれている。', img: 'Sundiata Keita', a: { h: 'crown', b: 's', hc: '#1b1b1b', sk: 3, rc: '#ef6c00' } },
-  { id: 'ml_askia', name: 'アスキア・ムハンマド', country: 'ml', born: 1443, died: 1538, life: '1443年ごろ〜1538年', title: 'ソンガイ帝国の王', desc: '1493年に王位につき、ソンガイ帝国の最盛期を築いた。メッカに巡礼し、イスラームにもとづく行政を整えた。', img: 'Askia Mohammad I', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 3, rc: '#1565c0' } },
+  { id: 'ml_askia', name: 'アスキア・ムハンマド', country: 'ml', born: 1443, died: 1538, life: '1443年ごろ〜1538年', title: 'ソンガイ帝国の王', desc: '1493年に王位につき、ソンガイ帝国の最盛期を築いた。メッカに巡礼し、イスラームにもとづく行政を整えた。', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 3, rc: '#1565c0' } },
 
   // ---- 南アフリカ ----
   { id: 'za_pretorius', name: 'アンドリース・プレトリウス', country: 'za', born: 1798, died: 1853, title: 'フォールトレッカーの指導者', desc: 'グレート・トレックに加わり、1838年のブラッド・リバーの戦いでズールー王国の軍を破った。首都プレトリアの名は彼にちなむ。', img: 'Andries Pretorius', a: { h: 'none', b: 'l', hc: '#5d4037', sk: 0, rc: '#3e2723' } },
