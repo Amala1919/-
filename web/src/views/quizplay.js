@@ -1,3 +1,4 @@
+import { FAMILY_BY_ID } from '../data/relations.js';
 import { buildQuiz, MODES } from '../quiz/engine.js';
 import { COUNTRY_BY_ID, ERA_BY_ID } from '../data/index.js';
 import { store } from '../store.js';
@@ -27,7 +28,7 @@ export default function quizPlay(root, { mode, arg }) {
   const results = [];
 
   const title =
-    mode === 'country' ? `${COUNTRY_BY_ID[arg].flag} ${COUNTRY_BY_ID[arg].name}` : mode === 'era' ? `${ERA_BY_ID[arg].emoji} ${ERA_BY_ID[arg].name}` : `${m.emoji} ${m.name}`;
+    mode === 'country' ? `${COUNTRY_BY_ID[arg].flag} ${COUNTRY_BY_ID[arg].name}` : mode === 'era' ? `${ERA_BY_ID[arg].emoji} ${ERA_BY_ID[arg].name}` : mode === 'family' && FAMILY_BY_ID[arg] ? `${FAMILY_BY_ID[arg].emoji} ${FAMILY_BY_ID[arg].name}` : `${m.emoji} ${m.name}`;
 
   root.innerHTML = `
   <div class="quiz" style="--c:${m.color}">

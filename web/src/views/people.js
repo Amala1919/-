@@ -1,9 +1,8 @@
 import { PEOPLE, REGIONS, COUNTRY_BY_ID } from '../data/index.js';
-import { avatarSVG } from '../components/avatar.js';
+import { personIcon } from '../components/avatar.js';
 import { openPerson } from '../components/sheets.js';
 import { store } from '../store.js';
 import { esc, shortYear } from '../util.js';
-import { image } from '../images.js';
 
 export default function people(root) {
   let region = 'all';
@@ -25,7 +24,7 @@ export default function people(root) {
     grid.innerHTML = list
       .map(
         (p) => `<button class="person-card ${store.state.people[p.id] ? 'seen' : ''}" data-person="${p.id}">
-        ${image(p.img) ? `<span class="pc-photo" style="background-image:url('${image(p.img).thumb}')"></span>` : avatarSVG(p, 76)}
+        ${personIcon(p, 76)}
         <b>${esc(p.name)}</b>
         <small>${COUNTRY_BY_ID[p.country].flag} ${p.born != null ? shortYear(p.born) : '?'}〜${shortYear(p.died)}</small>
       </button>`,

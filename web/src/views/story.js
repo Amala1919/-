@@ -1,4 +1,5 @@
 // ストーリーモード: 国や時代の歴史を紙芝居のように1枚ずつ（自動ナレーション付き）で見る。
+import { linkify } from '../components/linkify.js';
 import { COUNTRY_BY_ID, ERA_BY_ID, eventsInEra } from '../data/index.js';
 import { countryShapeSVG } from '../components/geo.js';
 import { eraBannerSVG } from '../components/banner.js';
@@ -84,7 +85,7 @@ export default function story(root, { kind, id }) {
         ${photoFigure(e.img, { cls: 'st-photo' }) || `<div class="st-emoji">${e.emoji}</div>`}
         <div class="st-year">${formatYear(e.year, e.approx)}</div>
         <h2>${esc(e.title)}</h2>
-        <p class="st-detail">${esc(e.detail)}</p>
+        <p class="st-detail">${linkify(e.detail)}</p>
         ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div>${esc(e.point)}</div>` : ''}
         ${e.model ? `<button class="btn-pill" data-model="${e.model}">🧊 3Dで見る</button>` : ''}
       </div>`;

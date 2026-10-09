@@ -1,3 +1,4 @@
+import { FAMILIES } from '../data/relations.js';
 import { ERAS, EVENTS, COUNTRIES, PEOPLE } from '../data/index.js';
 import { MODELS } from '../three/models/index.js';
 import { mountGlobe } from '../three/globe.js';
@@ -83,6 +84,8 @@ export default function home(root) {
     <button class="menu-tile" data-go="/compare" style="--c:#26a69a"><span>🧭</span><b>比較年表</b><small>国をならべて比べる</small></button>
     <button class="menu-tile" data-go="/museum" style="--c:#a66cff"><span>🏛️</span><b>3D博物館</b><small>${MODELS.length}の建造物・乗り物</small></button>
     <button class="menu-tile" data-go="/people" style="--c:#ef6c3a"><span>🧑‍🎓</span><b>人物図鑑</b><small>${PEOPLE.length}人の偉人</small></button>
+    <button class="menu-tile" data-go="/families" style="--c:#d86fb5"><span>🌳</span><b>家系図</b><small>${FAMILIES.length}の家系・系譜</small></button>
+    <button class="menu-tile" data-go="/search" style="--c:#3fa7c9"><span>🔍</span><b>さがす</b><small>人物・出来事・国</small></button>
     <button class="menu-tile" data-go="/quiz" style="--c:#e8445a"><span>❓</span><b>クイズ</b><small>確認問題に挑戦</small></button>
   </section>
 

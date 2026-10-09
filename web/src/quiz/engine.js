@@ -1,9 +1,10 @@
 // Quiz generation. Every question: { id, type, prompt, visual?, choices:[{label, sub?}], answer, explain, eventId? }
 import { EVENTS, EVENT_BY_ID, COUNTRIES, COUNTRY_BY_ID, ERAS, ERA_BY_ID, PEOPLE, PERSON_BY_ID, eventsInEra } from '../data/index.js';
 import { formatYear, shuffle, sample, pick, esc } from '../util.js';
-import { avatarSVG } from '../components/avatar.js';
+import { personIcon } from '../components/avatar.js';
 import { worldMapSVG } from '../components/geo.js';
 import { image, creditText } from '../images.js';
+import { FAMILIES, FAMILY_BY_ID } from '../data/relations.js';
 
 const KEYWORDS = {
   jp: ['日本'], cn: ['中国', '中華'], kr: ['韓国', '朝鮮'], mn: ['モンゴル'], in: ['インド'], ir: ['イラン', 'ペルシア'],
@@ -141,7 +142,7 @@ export function genPerson(p, rnd = Math.random) {
     id: 'p:' + p.id,
     type: 'person',
     prompt: 'この人物はだれ？',
-    visual: `<div class="q-avatar">${avatarSVG(p, 96)}</div><div class="q-hint"><b>${esc(maskName(p.title, p))}</b><br>${esc(maskName(p.desc, p))}</div>`,
+    visual: `<div class="q-avatar">${personIcon(p, 110)}</div><div class="q-hint"><b>${esc(maskName(p.title, p))}</b><br>${esc(maskName(p.desc, p))}</div>`,
     choices: opts.map((x) => ({ label: x.name })),
     answer: opts.indexOf(p),
     explain: `${p.name}（${p.life || formatYear(p.born) + '〜' + formatYear(p.died)}）：${p.desc}`,
@@ -217,6 +218,69 @@ export function genPhoto(e, rnd = Math.random) {
 
 const photoEvents = () => EVENTS.filter((e) => image(e.img));
 
+// ---------- family trees ----------
+const isF = (p) => !!p?.a?.f;
+const FAM_TYPES = ['parent', 'spouse', 'adopt', 'teacher'];
+const famLinks = (f) => f.links.map((l, i) => [l, i]).filter(([l]) => FAM_TYPES.includes(l[2]) && PERSON_BY_ID[l[0]] && PERSON_BY_ID[l[1]]);
+
+// Ask about one link of a family tree: "Who is X's mother?", "Who was X's teacher?" …
+export function genFamily(f, li, rnd = Math.random) {
+  const [a, b, t] = f.links[li];
+  const A = PERSON_BY_ID[a];
+  const B = PERSON_BY_ID[b];
+  const ofType = (type, pid, side) => f.links.filter((l) => l[2] === type && l[side] === pid).map((l) => l[1 - side]);
+  let subject;
+  let answer;
+  let prompt;
+  let exclude;
+  const flip = (t === 'parent' || t === 'spouse') && rnd() < 0.4;
+  if (t === 'parent' && !flip) {
+    subject = B;
+    answer = A;
+    prompt = `${B.name}の${isF(A) ? '母' : '父'}はだれ？`;
+    exclude = ofType('parent', b, 1);
+  } else if (t === 'parent') {
+    subject = A;
+    answer = B;
+    prompt = `${A.name}の${isF(B) ? '娘' : '息子'}はだれ？`;
+    exclude = ofType('parent', a, 0);
+  } else if (t === 'spouse') {
+    [subject, answer] = flip ? [B, A] : [A, B];
+    prompt = `${subject.name}の${isF(answer) ? '妻' : '夫'}になったのはだれ？`;
+    exclude = [...ofType('spouse', subject.id, 0), ...ofType('spouse', subject.id, 1)];
+  } else if (t === 'adopt') {
+    subject = B;
+    answer = A;
+    prompt = `${B.name}を養子（あとつぎ）にしたのはだれ？`;
+    exclude = [a];
+  } else {
+    subject = B;
+    answer = A;
+    prompt = `${B.name}の先生（師）はだれ？`;
+    exclude = ofType('teacher', b, 1);
+  }
+  const bad = new Set([subject.id, answer.id, ...exclude]);
+  const pool = f.members.map(([m]) => PERSON_BY_ID[m]).filter((x) => x && !bad.has(x.id));
+  const same = (x) => isF(x) === isF(answer) && !bad.has(x.id);
+  let others = sample(pool.filter(same), 3, rnd);
+  const fill = (list) => {
+    if (others.length < 3) others = [...others, ...sample(list.filter((x) => same(x) && !others.includes(x)), 3 - others.length, rnd)];
+  };
+  fill(PEOPLE.filter((x) => x.country === answer.country));
+  fill(PEOPLE);
+  const opts = shuffle([answer, ...others], rnd);
+  return {
+    id: `g:${f.id}:${li}`,
+    type: 'family',
+    prompt,
+    visual: `<div class="q-avatar">${personIcon(subject, 100)}</div><div class="q-badge">${f.emoji} ${esc(f.name)}</div>`,
+    choices: opts.map((x) => ({ label: x.name })),
+    answer: opts.indexOf(answer),
+    explain: `${answer.name}：${firstSentence(answer.desc)}`,
+    personId: answer.id,
+  };
+}
+
 // ---------- rebuild from id (for review) ----------
 export function fromId(id, rnd = Math.random) {
   const [t, a, b] = id.split(':');
@@ -227,6 +291,7 @@ export function fromId(id, rnd = Math.random) {
     if (t === 'p') return genPerson(PERSON_BY_ID[a], rnd);
     if (t === 'm') return genMap(COUNTRY_BY_ID[a], rnd);
     if (t === 'h') return genHand(a, Number(b), rnd);
+    if (t === 'g') return genFamily(FAMILY_BY_ID[a], Number(b), rnd);
     if (t === 'f') return image(EVENT_BY_ID[a].img) ? genPhoto(EVENT_BY_ID[a], rnd) : null;
   } catch (e) {
     return null;
@@ -279,6 +344,7 @@ export const MODES = {
   map: { name: '地図クイズ', emoji: '🌍', desc: '光っている国はどこ？', color: '#2bb673' },
   photo: { name: '写真クイズ', emoji: '📷', desc: '本物の写真や絵から当てよう', color: '#4aa3df' },
   time: { name: 'タイムアタック', emoji: '⚡', desc: '60秒で何問とけるか', color: '#e8445a' },
+  family: { name: '家系図クイズ', emoji: '🌳', desc: '親子・夫婦・師弟のつながり', color: '#d86fb5' },
   review: { name: 'にがて復習', emoji: '🔁', desc: 'まちがえた問題に再挑戦', color: '#8d6e63' },
 };
 
@@ -305,6 +371,16 @@ export function buildQuiz(mode, arg, wrongIds = []) {
       return sample(COUNTRIES, 10, rnd).map((c) => genMap(c, rnd));
     case 'photo':
       return sample(photoEvents(), 10, rnd).map((e) => genPhoto(e, rnd));
+    case 'family': {
+      const fams = FAMILY_BY_ID[arg] ? [FAMILY_BY_ID[arg]] : FAMILIES;
+      const links = shuffle(fams.flatMap((f) => famLinks(f).map(([, i]) => [f, i])), rnd).slice(0, 10);
+      const qs = links.map(([f, i]) => genFamily(f, i, rnd));
+      if (qs.length < 10) {
+        const ppl = [...new Set(fams.flatMap((f) => f.members.map(([m]) => PERSON_BY_ID[m]).filter(Boolean)))];
+        qs.push(...sample(ppl, 10 - qs.length, rnd).map((p) => genPerson(p, rnd)));
+      }
+      return shuffle(qs, rnd);
+    }
     case 'review':
       return shuffle(wrongIds, rnd)
         .slice(0, 10)

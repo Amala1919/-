@@ -1,5 +1,7 @@
 // Procedural SVG portraits for the people encyclopedia.
 import { COUNTRY_BY_ID } from '../data/index.js';
+import { image } from '../images.js';
+import { esc } from '../util.js';
 
 const SKIN = ['#f6d7bf', '#eac39a', '#c98e5e', '#8d5a3b'];
 
@@ -142,4 +144,16 @@ export function avatarSVG(p, size = 64) {
   ${hat(a)}
   ${space ? '<circle cx="50" cy="47" r="30" fill="rgba(180,220,255,.25)" stroke="#eceff1" stroke-width="5"/><path d="M30,30 Q38,22 48,20" stroke="#fff" stroke-width="2.5" fill="none" opacity=".7"/>' : ''}
   </g></svg>`;
+}
+
+/** Real portrait (Wikimedia Commons) when available, otherwise the drawn avatar. */
+export function personIcon(p, size = 64) {
+  const img = image(p.img);
+  if (!img) return avatarSVG(p, size);
+  return `<span class="pi" style="width:${size}px;height:${size}px"><img src="${img.thumb}" alt="" loading="lazy" decoding="async"></span>`;
+}
+
+/** Round icon + name button used in rows of people. */
+export function personChip(p, size = 56) {
+  return `<button class="person-chip" data-person="${p.id}">${personIcon(p, size)}<span>${esc(p.name)}</span></button>`;
 }

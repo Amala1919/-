@@ -23,6 +23,9 @@ import people from './views/people.js';
 import me from './views/me.js';
 import search from './views/search.js';
 import story from './views/story.js';
+import families from './views/families.js';
+import family from './views/family.js';
+import { openPerson, openEvent } from './components/sheets.js';
 
 route('/home', home);
 route('/timeline', timeline);
@@ -38,9 +41,11 @@ route('/people', people);
 route('/me', me);
 route('/search', search);
 route('/story/:kind/:id', story);
+route('/families', families);
+route('/family/:id', family);
 
 const TABS = [
-  { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people'] },
+  { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people', '/families', '/family'] },
   { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare', '/story/era'] },
   { id: 'countries', icon: '🗺️', label: '国', path: '/countries', match: ['/countries', '/country', '/story/country'] },
   { id: 'museum', icon: '🏛️', label: '3D', path: '/museum', match: ['/museum', '/model'] },
@@ -96,6 +101,25 @@ function render() {
 window.addEventListener('scroll', () => scrollPos.set(currentPath(), window.scrollY), { passive: true });
 
 // Android back button
+// Cross-links inside texts (people, countries, models, family trees …)
+document.addEventListener(
+  'click',
+  (e) => {
+    const a = e.target.closest('a.lnk[data-l]');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    sfx.tap();
+    const [kind, id] = a.dataset.l.split(':');
+    if (kind === 'person') return openPerson(id);
+    if (kind === 'event') return openEvent(id);
+    const path = `/${kind}/${id}`;
+    if (currentPath() === path) return closeAllSheets();
+    go(path);
+  },
+  true,
+);
+
 document.addEventListener('click', (e) => {
   const ph = e.target.closest('[data-photo]');
   if (ph) openLightbox(ph.dataset.photo, ph.dataset.caption || '');

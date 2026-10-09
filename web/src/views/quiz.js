@@ -1,3 +1,4 @@
+import { FAMILIES } from '../data/relations.js';
 import { MODES } from '../quiz/engine.js';
 import { COUNTRIES, ERAS } from '../data/index.js';
 import { store } from '../store.js';
@@ -52,6 +53,16 @@ export default function quizMenu(root) {
           if (!b) return;
           closeAllSheets();
           go('/quiz/run/era/' + b.dataset.e);
+        });
+      });
+    } else if (mode === 'family') {
+      openSheet((body) => {
+        body.innerHTML = `<h2 class="sheet-title">家系図をえらぶ</h2><div class="pick-grid"><button data-fam="-" style="--c:#d86fb5"><span>🌳</span>すべて</button>${FAMILIES.map((f) => `<button data-fam="${f.id}" style="--c:#d86fb5"><span>${f.emoji}</span>${esc(f.name.replace(/（.*）/, ''))}</button>`).join('')}</div>`;
+        body.addEventListener('click', (e) => {
+          const b = e.target.closest('[data-fam]');
+          if (!b) return;
+          closeAllSheets();
+          go('/quiz/run/family/' + b.dataset.fam);
         });
       });
     } else go('/quiz/run/' + mode + '/-');

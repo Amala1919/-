@@ -1,5 +1,8 @@
 // 人物図鑑。a = アバター（SVG似顔絵）の設定
 //   h: 頭（帽子・髪型） f: 女性 b: ひげ(n/m/s/l) hc: 髪色 sk: 肌(0-3) rc: 服の色 g: 眼鏡
+import { FAMILY_PEOPLE } from './people-family.js';
+import { MORE_PEOPLE } from './people-more.js';
+
 export const PEOPLE = [
   // ---- 日本 ----
   { id: 'himiko', name: '卑弥呼', country: 'jp', born: null, died: 248, life: '?〜248年ごろ', title: '邪馬台国の女王', desc: 'まじないの力で人々をまとめ、約30のクニを従えた女王。魏に使いを送り「親魏倭王」の称号を受けた。', a: { h: 'hime', f: 1, hc: '#1b1b1b', sk: 1, rc: '#f2efe6' } },
@@ -153,5 +156,7 @@ export const PEOPLE = [
   { id: 'champlain', name: 'シャンプラン', country: 'ca', born: 1574, died: 1635, life: '1574年ごろ〜1635年', title: 'フランスの探検家', desc: '1608年にケベックを建設し、「ヌーヴェル・フランスの父」と呼ばれる。', img: 'Samuel de Champlain', a: { h: 'cap', b: 's', hc: '#5d4037', sk: 0, rc: '#1565c0' } },
   { id: 'cook', name: 'ジェームズ・クック', country: 'gb', born: 1728, died: 1779, title: 'イギリスの探検家', desc: '太平洋を3度航海し、オーストラリア東海岸やニュージーランドの地図をつくった。ハワイで亡くなった。', img: 'James Cook', a: { h: 'wig', hc: '#eeeeee', sk: 0, rc: '#1a237e' } },
 ];
+
+PEOPLE.push(...FAMILY_PEOPLE, ...MORE_PEOPLE);
 
 export const PERSON_BY_ID = Object.fromEntries(PEOPLE.map((p) => [p.id, p]));

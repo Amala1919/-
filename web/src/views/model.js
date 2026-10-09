@@ -1,3 +1,4 @@
+import { linkify } from '../components/linkify.js';
 import { MODEL_BY_ID, MODELS } from '../three/models/index.js';
 import { mountViewer } from '../three/viewer.js';
 import { webglAvailable } from '../three/stage.js';
@@ -36,7 +37,7 @@ export default function model(root, { id }) {
   <section class="pad model-info">
     <div class="mi-meta"><button class="chip chip-flag" data-country="${c.id}">${c.flag} ${esc(c.name)}</button><span class="chip" style="background:${era.color}55">${era.emoji} ${era.name}</span><span class="chip">${formatYear(m.year)}</span></div>
     <h1>${esc(m.name)}</h1>
-    <p class="lead">${esc(m.desc)}</p>
+    <p class="lead">${linkify(m.desc, { exclude: [`model:${m.id}`] })}</p>
     <button class="btn-pill" data-act="speak">🔊 読み上げ</button>
     ${photoFigure(m.img, { caption: '実物の写真' }) ? `<h3 class="sub">📷 実物の写真</h3>${photoFigure(m.img, { caption: m.name })}` : ''}
     <dl class="facts">${m.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>

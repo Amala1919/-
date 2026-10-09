@@ -2,14 +2,27 @@
 import { EVENTS, EVENT_BY_ID, COUNTRY_BY_ID, ERA_BY_ID, PERSON_BY_ID } from '../data/index.js';
 import { MODEL_BY_ID } from '../three/models/index.js';
 import { openSheet, closeAllSheets, eventCard, toast } from './ui.js';
-import { avatarSVG } from './avatar.js';
+import { avatarSVG, personChip, personIcon } from './avatar.js';
 import { worldMapSVG } from './geo.js';
 import { store } from '../store.js';
-import { esc, formatYear, alpha } from '../util.js';
+import { esc, formatYear, alpha, shortYear } from '../util.js';
 import { speak, stopSpeaking, share, isSpeaking } from '../native.js';
 import { go } from '../router.js';
 import { sfx } from '../audio.js';
 import { photoFigure, image, openLightbox } from '../images.js';
+import { linkify } from './linkify.js';
+import { familiesOf, relativesOf, contemporariesOf, coActorsOf } from '../data/relations.js';
+import { mentionedPeople } from './connections.js';
+
+function relChip(person, label) {
+  return `<button class="person-chip" data-person="${person.id}">${personIcon(person, 56)}<span>${esc(person.name)}${label ? `<span class="rel-label">${esc(label)}</span>` : ''}</span></button>`;
+}
+
+function familyButtons(fams, focus) {
+  return fams.length
+    ? `<div class="fam-btns">${fams.map((f) => `<button class="fam-btn" data-go="/family/${f.id}${focus ? `?focus=${focus}` : ''}">${f.emoji} ${esc(f.name)}の${f.kind === 'mentor' ? '系譜' : '家系図'} ›</button>`).join('')}</div>`
+    : '';
+}
 
 function contemporaries(e, n = 6) {
   const span = e.year < -1000 ? 400 : e.year < 0 ? 150 : e.year < 1500 ? 80 : 40;
@@ -28,6 +41,7 @@ function eventHTML(e) {
   const model = e.model && MODEL_BY_ID[e.model];
   const ppl = e.people.map((id) => PERSON_BY_ID[id]).filter(Boolean);
   const same = contemporaries(e);
+  const fams = [...new Set(ppl.flatMap((p) => familiesOf(p.id)))];
   const fav = store.isFavorite(e.id);
   return `
   <div class="ev-hero" style="--era:${era.color};--era-a:${alpha(era.color, 0.35)}">
@@ -47,10 +61,11 @@ function eventHTML(e) {
   </div>
   <div class="ev-body">
     ${photoFigure(e.img, { cls: 'ev-photo' })}
-    <p class="ev-detail">${esc(e.detail)}</p>
-    ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div><div>${esc(e.point)}</div></div>` : ''}
+    <p class="ev-detail">${linkify(e.detail, { exclude: [`country:${c.id}`] })}</p>
+    ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div><div>${linkify(e.point, { exclude: [`country:${c.id}`] })}</div></div>` : ''}
     ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">🧊</span><span><b>3Dで見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
-    ${ppl.length ? `<h3 class="sub">関連する人物</h3><div class="people-row">${ppl.map((p) => `<button class="person-chip" data-person="${p.id}">${avatarSVG(p, 56)}<span>${esc(p.name)}</span></button>`).join('')}</div>` : ''}
+    ${ppl.length ? `<h3 class="sub">関連する人物</h3><div class="people-row">${ppl.map((p) => personChip(p, 56)).join('')}</div>` : ''}
+    ${fams.length ? `<h3 class="sub">🌳 関係する家系図</h3>${familyButtons(fams, ppl.length === 1 ? ppl[0].id : '')}` : ''}
     <h3 class="sub">🌍 同じころの世界</h3>
     <p class="hint">「${esc(e.title)}」と同じ時代に、ほかの国では…</p>
     <div class="map-wrap">${worldMapSVG({ highlight: new Map([[e.country, true], ...same.map((s) => [s.country, alpha(COUNTRY_BY_ID[s.country].color, 0.65)])]), markers: [{ lat: c.lat, lon: c.lon, color: '#fff' }], width: 360, height: 180 })}</div>
@@ -112,6 +127,9 @@ export function openEvent(id) {
       } else if (t.dataset.era) {
         closeAllSheets();
         go('/era/' + t.dataset.era);
+      } else if (t.dataset.go) {
+        closeAllSheets();
+        go(t.dataset.go);
       }
     };
     body.addEventListener('click', onClick);
@@ -127,6 +145,13 @@ export function openPerson(id) {
   const c = COUNTRY_BY_ID[p.country];
   const life = p.life || `${formatYear(p.born)}〜${formatYear(p.died)}`;
   const evs = p.events.map((x) => EVENT_BY_ID[x]);
+  const fams = familiesOf(p.id);
+  const rels = relativesOf(p.id);
+  const relIds = new Set(rels.map((r) => r.person.id));
+  const co = coActorsOf(p.id).filter((q) => !relIds.has(q.id));
+  const coIds = new Set(co.map((q) => q.id));
+  const ment = mentionedPeople(p).filter((q) => !relIds.has(q.id) && !coIds.has(q.id));
+  const contemp = contemporariesOf(p, 8);
   openSheet((body) => {
     body.innerHTML = `
       <div class="person-hero" style="--c:${c.color}">
@@ -137,20 +162,29 @@ export function openPerson(id) {
         <button class="chip chip-flag" data-country="${c.id}">${c.flag} ${esc(c.name)}</button>
       </div>
       <div class="ev-body">
-        <p class="ev-detail">${esc(p.desc)}</p>
+        <p class="ev-detail">${linkify(p.desc, { exclude: [`person:${p.id}`] })}</p>
         ${image(p.img) ? `<p class="ph-credit-line">📷 肖像：${esc(image(p.img).artist || '作者不明')} / ${esc(image(p.img).license)}・Wikimedia Commons</p>` : ''}
         ${p.quote ? `<blockquote class="quote">“${esc(p.quote)}”</blockquote>` : ''}
         <div class="ev-actions"><button class="btn-pill" data-act="speak">🔊 読み上げ</button></div>
+        ${fams.length ? `<h3 class="sub">🌳 家系図で見る</h3>${familyButtons(fams, p.id)}` : ''}
+        ${rels.length ? `<h3 class="sub">👪 家族・つながりのある人</h3><div class="people-row">${rels.map((r) => relChip(r.person, r.label)).join('')}</div>` : ''}
         ${evs.length ? `<h3 class="sub">登場する出来事</h3><div class="card-list">${evs.map((e) => eventCard(e)).join('')}</div>` : ''}
+        ${co.length || ment.length ? `<h3 class="sub">🤝 一緒に登場する人物</h3><div class="people-row">${[...co, ...ment].slice(0, 10).map((q) => relChip(q, COUNTRY_BY_ID[q.country]?.flag || '')).join('')}</div>` : ''}
+        ${contemp.length ? `<h3 class="sub">🌍 同じ時代を生きた世界の人物</h3><div class="people-row hscroll">${contemp.map((q) => relChip(q, `${COUNTRY_BY_ID[q.country]?.flag || ''} ${shortYear(q.born)}〜${shortYear(q.died)}`)).join('')}</div>` : ''}
+        <button class="btn-wide" data-country="${c.id}">${c.flag} ${esc(c.name)}の歴史を見る</button>
       </div>`;
     body.addEventListener('click', (evt) => {
       const t = evt.target.closest('button');
       if (!t) return;
       if (t.dataset.act === 'speak') speak(`${p.name}。${p.title}。${p.desc}`, store.settings().ttsRate);
       else if (t.dataset.event) openEvent(t.dataset.event);
+      else if (t.dataset.person) openPerson(t.dataset.person);
       else if (t.dataset.country) {
         closeAllSheets();
         go('/country/' + t.dataset.country);
+      } else if (t.dataset.go) {
+        closeAllSheets();
+        go(t.dataset.go);
       }
     });
     return () => stopSpeaking();

@@ -1,13 +1,16 @@
-import { COUNTRY_BY_ID, ERA_BY_ID, PEOPLE } from '../data/index.js';
+import { COUNTRY_BY_ID, ERA_BY_ID, PEOPLE, PERSON_BY_ID } from '../data/index.js';
 import { MODELS } from '../three/models/index.js';
 import { countryShapeSVG, locatorSVG } from '../components/geo.js';
-import { avatarSVG } from '../components/avatar.js';
+import { personChip, personIcon } from '../components/avatar.js';
 import { openEvent, openPerson } from '../components/sheets.js';
 import { store } from '../store.js';
 import { go } from '../router.js';
 import { esc, formatYear, alpha } from '../util.js';
 import { speak, stopSpeaking } from '../native.js';
 import { image } from '../images.js';
+import { linkify } from '../components/linkify.js';
+import { familiesOfCountry } from '../data/relations.js';
+import { connectedCountries } from '../components/connections.js';
 
 export default function country(root, { id }) {
   const c = COUNTRY_BY_ID[id];
@@ -18,6 +21,8 @@ export default function country(root, { id }) {
   const read = store.readCount(id);
   const pct = read / c.events.length;
   const best = store.state.quiz.byCountry[id]?.best;
+  const fams = familiesOfCountry(id);
+  const links = connectedCountries(id, 8).filter((x) => x.count > 0);
 
   let lastEra = null;
   const timeline = c.events
@@ -46,14 +51,16 @@ export default function country(root, { id }) {
     <div class="ch-title"><span class="ch-flag">${c.flag}</span><div><h1>${esc(c.name)}</h1><div class="ch-en">${esc(c.en)} ・ ${esc(c.region)}</div></div></div>
   </div>
   <section class="pad">
-    <p class="lead">${esc(c.intro)}</p>
+    <p class="lead">${linkify(c.intro, { exclude: [`country:${id}`] })}</p>
     <button class="story-cta" data-go="/story/country/${id}"><span>📽️</span><span><b>ストーリーで見る</b><small>${c.events.length}枚の紙芝居・自動ナレーション付き</small></span><span class="model-cta-go">›</span></button>
     <button class="btn-pill" data-act="speak">🔊 読み上げ</button>
     <dl class="facts">${c.facts.map((f) => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join('')}</dl>
     <div class="progress-line"><span>学習の進み具合</span><b>${read} / ${c.events.length}</b><div class="bar"><i style="width:${pct * 100}%;background:${c.color}"></i></div></div>
     <h3 class="sub">📜 ${esc(c.name)}の歴史年表</h3>
     <div class="tl">${timeline}</div>
-    ${people.length ? `<h3 class="sub">🧑‍🎓 ゆかりの人物</h3><div class="people-row hscroll">${people.map((p) => `<button class="person-chip" data-person="${p.id}">${avatarSVG(p, 60)}<span>${esc(p.name)}</span></button>`).join('')}</div>` : ''}
+    ${people.length ? `<h3 class="sub">🧑‍🎓 ゆかりの人物</h3><div class="people-row hscroll">${people.map((p) => personChip(p, 60)).join('')}</div>` : ''}
+    ${fams.length ? `<h3 class="sub">🌳 家系図</h3><div class="card-list">${fams.map((f) => `<button class="fam-link" data-go="/family/${f.id}"><span class="fam-emoji">${f.emoji}</span><span><b>${esc(f.name)}</b><small>${f.members.length}人のつながり</small></span><span class="fam-faces mini">${f.members.slice(0, 4).map(([pid]) => (PERSON_BY_ID[pid] ? personIcon(PERSON_BY_ID[pid], 30) : '')).join('')}</span></button>`).join('')}</div>` : ''}
+    ${links.length ? `<h3 class="sub">🔗 関係の深い国</h3><p class="hint">${esc(c.name)}の歴史の中でよく登場する国です。</p><div class="chips">${links.map((x) => `<button class="chip" data-go="/country/${x.country.id}">${x.country.flag} ${esc(x.country.name)} <small style="opacity:.6">×${x.count}</small></button>`).join('')}</div>` : ''}
     ${models.length ? `<h3 class="sub">🏛️ 3Dで見る</h3><div class="hscroll">${models.map((m) => `<button class="model-chip" data-go="/model/${m.id}">🧊 ${esc(m.name)}</button>`).join('')}</div>` : ''}
     <button class="btn-wide accent" data-go="/quiz/run/country/${id}">❓ ${esc(c.name)}のクイズに挑戦${best != null ? `（最高 ${best}点）` : ''}</button>
   </section>`;
