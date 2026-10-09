@@ -111,14 +111,6 @@
 "w": 640,
 "h": 406
 },
-"10xucj8": {
-"t": "Sogdians",
-"f": "Map_of_Sogdia.png",
-"a": "DEMIS Mapserver, पाटलिपुत्र",
-"l": "CC BY-SA 3.0",
-"w": 640,
-"h": 318
-},
 "11011yl": {
 "t": "Three Kingdoms of Korea",
 "f": "5th_century_Korea.png",
@@ -230,6 +222,14 @@
 "l": "Public domain",
 "w": 482,
 "h": 640
+},
+"1202z33": {
+"t": "El Capitolio",
+"f": "El_Capitolio_Havana_Cuba.jpg",
+"a": "Nigel Pacquette",
+"l": "CC BY-SA 3.0",
+"w": 640,
+"h": 427
 },
 "1206vid": {
 "t": "Tolui",
@@ -542,14 +542,6 @@
 "l": "Public domain",
 "w": 640,
 "h": 451
-},
-"14jawfs": {
-"t": "Old Havana",
-"f": "Havana_Map_-_Habana_Vieja.png",
-"a": "Dэя-Бøяg",
-"l": "CC BY-SA 3.0",
-"w": 640,
-"h": 356
 },
 "14nxcqt": {
 "t": "Geirangerfjord",
@@ -911,14 +903,6 @@
 "w": 640,
 "h": 562
 },
-"18qza36": {
-"t": "Aretas IV Philopatris",
-"f": "Bronze_coin_of_Aretas_IV_from_3_BC.jpg",
-"a": "Classical Numismatic Group (CNG), Inc., www.cngcoins.com",
-"l": "CC BY-SA 3.0",
-"w": 640,
-"h": 321
-},
 "18sbonf": {
 "t": "Trundholm sun chariot",
 "f": "Solvognen_DO-6865_2000.jpg",
@@ -1046,14 +1030,6 @@
 "l": "CC BY-SA 2.0",
 "w": 431,
 "h": 640
-},
-"1a13iu": {
-"t": "Petronas Towers",
-"f": "Petronas_Towers_Logo.svg",
-"a": "Unknown author Unknown author",
-"l": "Public domain",
-"w": 640,
-"h": 365
 },
 "1a3rd10": {
 "t": "Castle of Good Hope",
@@ -1199,13 +1175,13 @@
 "w": 640,
 "h": 303
 },
-"1bmz4km": {
-"t": "Nok culture",
-"f": "Verbreitung_Nok-Kultur-en.png",
-"a": "NordNordWest",
-"l": "CC BY-SA 3.0",
-"w": 640,
-"h": 522
+"1bm10tb": {
+"t": "Bawbawgyi Pagoda",
+"f": "20160810_Bawbawgyi_Pogoda_Sri_Ksetra_Pyay_Myanmar_9252.jpg",
+"a": "Jakub Hałun",
+"l": "CC BY-SA 4.0",
+"w": 554,
+"h": 640
 },
 "1bpmq2u": {
 "t": "1923 Great Kantō earthquake",
@@ -1238,14 +1214,6 @@
 "l": "Public domain",
 "w": 419,
 "h": 640
-},
-"1c7t2da": {
-"t": "Corregidor",
-"f": "Map_of_Corregidor_1941.jpg",
-"a": "",
-"l": "Public domain",
-"w": 640,
-"h": 385
 },
 "1cemrcl": {
 "t": "Augustus",
@@ -1607,14 +1575,6 @@
 "w": 480,
 "h": 640
 },
-"1fjq3me": {
-"t": "Pyu city-states",
-"f": "Pyu_city-states_physical_map.svg",
-"a": "Kanguole",
-"l": "CC BY-SA 4.0",
-"w": 320,
-"h": 640
-},
 "1fkj157": {
 "t": "Guangxu Emperor",
 "f": "光绪帝.jpg",
@@ -1638,6 +1598,14 @@
 "l": "CC BY-SA 3.0",
 "w": 640,
 "h": 440
+},
+"1fxcf7k": {
+"t": "National Theatre (Prague)",
+"f": "Prague_07-2016_View_from_Petrinska_Tower_img4.jpg",
+"a": "A.Savin",
+"l": "FAL",
+"w": 640,
+"h": 400
 },
 "1fxt66v": {
 "t": "Dangun",
@@ -2287,13 +2255,13 @@
 "w": 512,
 "h": 640
 },
-"1n0bl0l": {
-"t": "Nokia 3310",
-"f": "Nokia_3310_logo.svg",
-"a": "Nokia",
-"l": "Public domain",
+"1n6x6yq": {
+"t": "Old Town Square",
+"f": "Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg",
+"a": "A.Savin",
+"l": "FAL",
 "w": 640,
-"h": 280
+"h": 400
 },
 "1n974c": {
 "t": "José Martí",
@@ -2366,6 +2334,14 @@
 "l": "CC BY 3.0",
 "w": 471,
 "h": 640
+},
+"1o2pm30": {
+"t": "Ruwanwelisaya",
+"f": "SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg",
+"a": "A.Savin",
+"l": "FAL",
+"w": 640,
+"h": 320
 },
 "1o4zlze": {
 "t": "Banaue Rice Terraces",
@@ -2526,6 +2502,14 @@
 "l": "CC BY-SA 4.0",
 "w": 509,
 "h": 640
+},
+"1ptkx3": {
+"t": "Temple of the Tooth",
+"f": "SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg",
+"a": "A.Savin",
+"l": "FAL",
+"w": 640,
+"h": 320
 },
 "1pttygw": {
 "t": "Black Star Square",
@@ -2967,6 +2951,14 @@
 "w": 640,
 "h": 427
 },
+"1u3l5k9": {
+"t": "Augusta Raurica",
+"f": "Augusta_Raurica_-_Theater2.jpg",
+"a": "Wladyslaw Sojka",
+"l": "FAL",
+"w": 640,
+"h": 265
+},
 "1u8g55z": {
 "t": "Apollo 11",
 "f": "A_Man_on_the_Moon,_AS11-40-5903_(cropped).jpg",
@@ -3078,14 +3070,6 @@
 "l": "CC BY-SA 3.0",
 "w": 640,
 "h": 480
-},
-"1vsb5vz": {
-"t": "Large Hadron Collider",
-"f": "LHC.svg",
-"a": "Arpad Horvath",
-"l": "CC BY-SA 2.5",
-"w": 640,
-"h": 451
 },
 "1vskl3g": {
 "t": "Canadian Confederation",
@@ -3525,14 +3509,6 @@
 "a": "Abdel Hassouni",
 "l": "CC BY-SA 4.0",
 "w": 605,
-"h": 640
-},
-"25pyv7": {
-"t": "Panama Canal",
-"f": "Panama_Canal_Map_EN.svg",
-"a": "Thoroe",
-"l": "CC BY-SA 2.0",
-"w": 619,
 "h": 640
 },
 "2amc8t": {
@@ -5255,14 +5231,6 @@
 "w": 640,
 "h": 394
 },
-"kogxsy": {
-"t": "Yaa Asantewaa",
-"f": "Ejisu_Roundabout.jpg",
-"a": "Noahalorwu",
-"l": "CC BY-SA 4.0",
-"w": 640,
-"h": 360
-},
 "kol231": {
 "t": "Philip I of Castile",
 "f": "Maître_de_la_légende_de_Sainte_Marie-Madeleine_-_Philippe_le_Beau,_INV_2085_;_C_324_(cropped).jpg",
@@ -5318,14 +5286,6 @@
 "l": "Public domain",
 "w": 490,
 "h": 640
-},
-"kz1hfa": {
-"t": "Yusuf ibn Tashfin",
-"f": "Yusuf_Ben_Tasfin_dinar_22562.jpg",
-"a": "Numismática Pliego",
-"l": "CC BY-SA 3.0",
-"w": 640,
-"h": 320
 },
 "kzpkoy": {
 "t": "Menin Gate",
@@ -5462,6 +5422,14 @@
 "l": "Public domain",
 "w": 490,
 "h": 640
+},
+"m9ee2x": {
+"t": "Charles Bridge",
+"f": "Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg",
+"a": "A.Savin",
+"l": "FAL",
+"w": 640,
+"h": 427
 },
 "m9ivle": {
 "t": "Amphitheatre of El Jem",
@@ -5783,6 +5751,14 @@
 "w": 517,
 "h": 640
 },
+"p25jsg": {
+"t": "Bataan Death March",
+"f": "Photograph_of_American_Prisoners_Using_Improvised_Litters_to_Carry_Comrades,_05-1942_-_NARA_-_535564.jpg",
+"a": "Unknown author Unknown author or not provided",
+"l": "Public domain",
+"w": 640,
+"h": 469
+},
 "p34tl9": {
 "t": "Tokugawa Ieyoshi",
 "f": "Tokugawa_Ieyoshi.JPG",
@@ -6062,6 +6038,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 580
+},
+"r94fov": {
+"t": "Kuala Lumpur City Centre",
+"f": "Sky_Deck_at_Kuala_Lumpur_Tower_(Menara_KL),_Malaysia_on_28_July_2020_at_172828.jpg",
+"a": "Frostpolar",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 475
 },
 "rb67i9": {
 "t": "World War I",
@@ -6351,6 +6335,14 @@
 "w": 380,
 "h": 640
 },
+"tv1ysc": {
+"t": "Helsinki Central Library Oodi",
+"f": "Oodi_Library_(Helsinki,_Finland).jpg",
+"a": "Cope Baronet",
+"l": "CC BY-SA 4.0",
+"w": 640,
+"h": 360
+},
 "tz8m44": {
 "t": "Tomáš Garrigue Masaryk",
 "f": "Tomáš_Garrigue_Masaryk_1925.PNG",
@@ -6630,6 +6622,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 420
+},
+"wmstjz": {
+"t": "Panama Canal locks",
+"f": "Panama_Canal_Map_EN.png",
+"a": "Thoroe",
+"l": "CC BY-SA 2.0",
+"w": 620,
+"h": 640
 },
 "wohoo3": {
 "t": "Warsaw Pact invasion of Czechoslovakia",
