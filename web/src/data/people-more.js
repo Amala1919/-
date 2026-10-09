@@ -11,5 +11,6 @@ import jp3 from './people-more3-jp.js';
 import asia3 from './people-more3-asia3.js';
 import amer3 from './people-more3-amer3.js';
 import eur3 from './people-more3-eur3.js';
+import mea3 from './people-more3-mea3.js';
 
-export const MORE_PEOPLE = [...asia, ...africa, ...europe, ...america, ...asia2, ...mideast2, ...afreu2, ...amer2, ...jp3, ...asia3, ...amer3, ...eur3];
+export const MORE_PEOPLE = [...asia, ...africa, ...europe, ...america, ...asia2, ...mideast2, ...afreu2, ...amer2, ...jp3, ...asia3, ...amer3, ...eur3, ...mea3];
