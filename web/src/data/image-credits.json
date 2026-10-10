@@ -1567,14 +1567,6 @@
 "w": 640,
 "h": 425
 },
-"17tvvvf": {
-"t": "Sambor Prei Kuk",
-"f": "Sambor_Prei_Kuk-Map1.png",
-"a": "Saxula",
-"l": "CC BY 3.0",
-"w": 640,
-"h": 438
-},
 "17u9u74": {
 "t": "Quito",
 "f": "FACHADA_ASAMBLEA_NACIONAL._QUITO,_20_DE_FEBRERO_2020._01.jpg",
@@ -1694,14 +1686,6 @@
 "l": "CC BY-SA 3.0",
 "w": 640,
 "h": 427
-},
-"18biy96": {
-"t": "Joseon missions to Japan",
-"f": "Chosenheireishi_yodojyo_chakuraizu.jpg",
-"a": "渡辺善右衛門守業",
-"l": "Public domain",
-"w": 624,
-"h": 640
 },
 "18fhz3j": {
 "t": "Carl Gustaf Emil Mannerheim",
@@ -2950,6 +2934,14 @@
 "l": "Public domain",
 "w": 600,
 "h": 341
+},
+"1ejqh1t": {
+"t": "Black Death",
+"f": "1346-1353_spread_of_the_Black_Death_in_Europe_map.svg",
+"a": "Flappiefh",
+"l": "CC BY-SA 4.0",
+"w": 560,
+"h": 489
 },
 "1ekegw5": {
 "t": "Ecuadorian sucre",
@@ -5559,14 +5551,6 @@
 "w": 640,
 "h": 555
 },
-"1rtm2sy": {
-"t": "Frankfurt Parliament",
-"f": "Imperial_Coat_of_arms_of_Germany_(1848).svg",
-"a": "TRAJAN 117 This W3C-unspecified vector image was created with Inkscape .",
-"l": "CC BY-SA 3.0",
-"w": 512,
-"h": 640
-},
 "1rwkfwd": {
 "t": "Ludwig II of Bavaria",
 "f": "Albert,_Joseph_-_König_Ludwig_II._von_Bayern_(1845-1886)_(Zeno_Fotografie).jpg",
@@ -7134,14 +7118,6 @@
 "l": "CC BY-SA 4.0",
 "w": 480,
 "h": 640
-},
-"275eom": {
-"t": "Askia Mohammad I",
-"f": "Map_of_the_Songhay_Empire.png",
-"a": "HetmanTheResearcher",
-"l": "CC BY-SA 4.0",
-"w": 640,
-"h": 451
 },
 "2amc8t": {
 "t": "Proclamation of the German Empire",
@@ -9087,6 +9063,14 @@
 "w": 640,
 "h": 522
 },
+"d8qeey": {
+"t": "Dhow",
+"f": "Dhow_znz.jpg",
+"a": "Muhammad Mahdi Karim",
+"l": "GFDL 1.2",
+"w": 560,
+"h": 373
+},
 "dgu8rp": {
 "t": "Marib Dam",
 "f": "Jemen1988-022_hg.jpg",
@@ -9390,6 +9374,14 @@
 "l": "Public domain",
 "w": 640,
 "h": 624
+},
+"ev3xlo": {
+"t": "Shinkansen",
+"f": "Shinkansen_map_202405_en.png",
+"a": "Texent",
+"l": "CC BY-SA 4.0",
+"w": 542,
+"h": 560
 },
 "ev4g95": {
 "t": "Cultivation System",
@@ -13063,14 +13055,6 @@
 "w": 640,
 "h": 421
 },
-"wunlfv": {
-"t": "Hadrian's Wall",
-"f": "Hadrians_Wall_map.svg",
-"a": "Hadrians_Wall_map.png : Created by NormanEinstein, September 20, 2005 derivative work: Ta…",
-"l": "CC BY-SA 3.0",
-"w": 515,
-"h": 640
-},
 "wx7x72": {
 "t": "Gwanggaeto the Great",
 "f": "Gwanggaeto_Stele_5.jpg",
@@ -13150,14 +13134,6 @@
 "l": "CC BY-SA 2.5",
 "w": 640,
 "h": 480
-},
-"x7q14m": {
-"t": "High Court of Australia",
-"f": "Coat_of_arms_of_the_Commonwealth_of_Australia.svg",
-"a": "Sodacan",
-"l": "Public domain",
-"w": 640,
-"h": 496
 },
 "x81xlm": {
 "t": "Ivan the Great Bell Tower",
