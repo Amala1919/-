@@ -1,5 +1,6 @@
 import { FAMILIES } from '../data/relations.js';
 import { THEMES } from '../data/theme-index.js';
+import { GLOSSARY } from '../data/glossary-index.js';
 import { ERAS, EVENTS, COUNTRIES, PEOPLE } from '../data/index.js';
 import { LANDMARKS } from '../data/landmarks.js';
 import { mountGlobe } from '../three/globe.js';
@@ -111,7 +112,7 @@ export default function home(root) {
     <button class="menu-tile" data-go="/landmarks" style="--c:#a66cff"><span>🏛️</span><b>世界の名所</b><small>${LANDMARKS.length}の名所を写真で</small></button>
     <button class="menu-tile" data-go="/people" style="--c:#ef6c3a"><span>🧑‍🎓</span><b>人物図鑑</b><small>${PEOPLE.length}人の偉人</small></button>
     <button class="menu-tile" data-go="/families" style="--c:#d86fb5"><span>🌳</span><b>家系図</b><small>${FAMILIES.length}の家系・系譜</small></button>
-    <button class="menu-tile" data-go="/search" style="--c:#3fa7c9"><span>🔍</span><b>さがす</b><small>人物・出来事・国</small></button>
+    <button class="menu-tile" data-go="/glossary" style="--c:#9b7bff"><span>📖</span><b>用語集</b><small>${GLOSSARY.length}の歴史用語</small></button>
     <button class="menu-tile" data-go="/quiz" style="--c:#e8445a"><span>❓</span><b>クイズ</b><small>確認問題に挑戦</small></button>
   </section>
 

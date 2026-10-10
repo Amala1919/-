@@ -7,6 +7,8 @@ import { go } from '../router.js';
 import { esc } from '../util.js';
 import { FAMILIES } from '../data/relations.js';
 import { THEMES } from '../data/theme-index.js';
+import { GLOSSARY } from '../data/glossary-index.js';
+import { openTerm } from '../components/sheets.js';
 
 let lastQuery = '';
 
@@ -48,6 +50,8 @@ export default function search(root) {
     if (eras.length) blocks.push(`<h3 class="sub">時代</h3><div class="chips">${eras.map((e) => `<button class="chip" data-go="/era/${e.id}">${e.emoji} ${e.name}</button>`).join('')}</div>`);
     if (mdl.length) blocks.push(`<h3 class="sub">名所</h3><div class="chips">${mdl.map((m) => `<button class="chip" data-go="/landmark/${m.id}">🏛️ ${esc(m.name)}</button>`).join('')}</div>`);
     const ths = THEMES.filter((t) => norm(t.name + t.intro).includes(q));
+    const gls = GLOSSARY.filter((t) => norm(t.term + (t.yomi || '') + (t.aliases || []).join('')).includes(q));
+    if (gls.length) blocks.push(`<h3 class="sub">用語</h3><div class="chips">${gls.map((t) => `<button class="chip" data-term="${t.id}">📖 ${esc(t.term)}</button>`).join('')}</div>`);
     if (ths.length) blocks.push(`<h3 class="sub">テーマ史</h3><div class="chips">${ths.map((t) => `<button class="chip" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)}</button>`).join('')}</div>`);
     if (fams.length) blocks.push(`<h3 class="sub">家系図</h3><div class="chips">${fams.map((f) => `<button class="chip" data-go="/family/${f.id}">${f.emoji} ${esc(f.name)}</button>`).join('')}</div>`);
     if (ppl.length) blocks.push(`<h3 class="sub">人物（${ppl.length}）</h3><div class="people-row hscroll">${ppl.map((p) => personChip(p, 56)).join('')}</div>`);
@@ -66,6 +70,7 @@ export default function search(root) {
       run();
     } else if (t.dataset.event) openEvent(t.dataset.event);
     else if (t.dataset.person) openPerson(t.dataset.person);
+    else if (t.dataset.term) openTerm(t.dataset.term);
     else if (t.dataset.go) go(t.dataset.go);
     else if (t.hasAttribute('data-back')) history.back();
   });

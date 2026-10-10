@@ -2,6 +2,7 @@
 // so that any explanation leads straight to the related pages.
 import { PEOPLE, COUNTRIES } from '../data/index.js';
 import { FAMILIES } from '../data/relations.js';
+import { GLOSSARY } from '../data/glossary-index.js';
 import { LANDMARKS } from '../data/landmarks.js';
 import { esc } from '../util.js';
 
@@ -85,6 +86,11 @@ function build() {
   for (const f of FAMILIES) {
     const t = `family:${f.id}`;
     for (const a of FAMILY_ALIASES[f.id] || []) add(a, t);
+  }
+  // Glossary terms (lowest priority: names of people/places win)
+  for (const g of GLOSSARY) {
+    const t = `term:${g.id}`;
+    for (const a of [g.term, ...(g.aliases || [])]) add(a, t);
   }
   const sorted = [...terms.keys()].sort((a, b) => b.length - a.length);
   const re = new RegExp(sorted.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g');

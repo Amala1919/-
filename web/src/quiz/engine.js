@@ -7,6 +7,7 @@ import { image, creditText } from '../images.js';
 import { FAMILIES, FAMILY_BY_ID } from '../data/relations.js';
 import { LANDMARKS, LANDMARK_BY_ID } from '../data/landmarks.js';
 import { THEMES, THEME_BY_ID } from '../data/theme-index.js';
+import { GLOSSARY, TERM_BY_ID } from '../data/glossary-index.js';
 
 const KEYWORDS = {
   jp: ['日本'], cn: ['中国', '中華'], kr: ['韓国', '朝鮮'], mn: ['モンゴル'], in: ['インド'], ir: ['イラン', 'ペルシア'],
@@ -234,6 +235,23 @@ export function genMap(c, rnd = Math.random) {
   };
 }
 
+// Glossary: "which term matches this explanation?"
+export function genTerm(t, rnd = Math.random) {
+  const same = GLOSSARY.filter((x) => x.id !== t.id && x.cat === t.cat);
+  const others = sample(same.length >= 3 ? same : GLOSSARY.filter((x) => x.id !== t.id), 3, rnd);
+  const opts = shuffle([t, ...others], rnd);
+  const hide = (s) => [t.term, ...(t.aliases || [])].reduce((acc, w) => acc.split(w).join('＿＿'), s);
+  return {
+    id: 'w:' + t.id,
+    type: 'term',
+    prompt: 'この説明にあてはまる用語は？',
+    visual: `<div class="q-badge">📖 ${esc(t.cat)}</div><div class="q-hint"><b>${esc(hide(t.short))}</b><br>${esc(hide(t.desc.split('。').slice(0, 2).join('。')))}。</div>`,
+    choices: opts.map((x) => ({ label: x.term })),
+    answer: opts.indexOf(t),
+    explain: `${t.term}：${t.desc}`,
+  };
+}
+
 export function genThemeQ(tid, i, rnd = Math.random) {
   const t = THEME_BY_ID[tid];
   const h = t.quiz[i];
@@ -392,6 +410,7 @@ export function fromId(id, rnd = Math.random) {
     if (t === 'p') return genPerson(PERSON_BY_ID[a], rnd);
     if (t === 'm') return genMap(COUNTRY_BY_ID[a], rnd);
     if (t === 'h') return genHand(a, Number(b), rnd);
+    if (t === 'w') return TERM_BY_ID[a] ? genTerm(TERM_BY_ID[a], rnd) : null;
     if (t === 't') return THEME_BY_ID[a] ? genThemeQ(a, Number(b), rnd) : null;
     if (t === 'g') return genFamily(FAMILY_BY_ID[a], Number(b), rnd);
     if (t === 'l') return LANDMARK_BY_ID[a] && image(LANDMARK_BY_ID[a].img) ? genLandmark(LANDMARK_BY_ID[a], rnd) : null;
@@ -447,6 +466,7 @@ export const MODES = {
   map: { name: '地図クイズ', emoji: '🌍', desc: '光っている国はどこ？', color: '#2bb673' },
   photo: { name: '写真クイズ', emoji: '📷', desc: '本物の写真や絵から当てよう', color: '#4aa3df' },
   time: { name: 'タイムアタック', emoji: '⚡', desc: '60秒で何問とけるか', color: '#e8445a' },
+  term: { name: '用語クイズ', emoji: '📖', desc: '説明から歴史用語を当てよう', color: '#9b7bff' },
   theme: { name: 'テーマ史クイズ', emoji: '🧵', desc: 'シルクロード・冷戦などテーマごとに', color: '#e0864a' },
   family: { name: '家系図クイズ', emoji: '🌳', desc: '親子・夫婦・師弟のつながり', color: '#d86fb5' },
   review: { name: 'にがて復習', emoji: '🔁', desc: 'まちがえた問題に再挑戦', color: '#8d6e63' },
@@ -475,6 +495,8 @@ export function buildQuiz(mode, arg, wrongIds = []) {
       return sample(COUNTRIES, 10, rnd).map((c) => genMap(c, rnd));
     case 'photo':
       return shuffle([...sample(photoEvents(), 6, rnd).map((e) => genPhoto(e, rnd)), ...sample(photoLandmarks(), 4, rnd).map((m) => genLandmark(m, rnd))], rnd);
+    case 'term':
+      return sample(GLOSSARY, 10, rnd).map((t) => genTerm(t, rnd));
     case 'theme': {
       const ths = THEME_BY_ID[arg] ? [THEME_BY_ID[arg]] : THEMES;
       const hand = shuffle(ths.flatMap((t) => (t.quiz || []).map((_, i) => genThemeQ(t.id, i, rnd))), rnd).slice(0, ths.length === 1 ? 3 : 4);

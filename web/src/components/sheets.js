@@ -14,6 +14,56 @@ import { linkify } from './linkify.js';
 import { familiesOf, relativesOf, contemporariesOf, coActorsOf } from '../data/relations.js';
 import { mentionedPeople } from './connections.js';
 import { themesOfEvent } from '../data/theme-index.js';
+import '../data/deep-index.js';
+import { TERM_BY_ID, termsOfEvent } from '../data/glossary-index.js';
+
+function deepHTML(e, c) {
+  const d = e.deep;
+  if (!d) return '';
+  const ex = { exclude: [`country:${c.id}`] };
+  return `<details class="deep" ${d.goro ? '' : ''}>
+    <summary><span>📚 もっと詳しく</span><small>背景・流れ・その後の影響${d.trivia ? '・豆知識' : ''}</small></summary>
+    ${d.sections.map((s) => `<div class="deep-sec"><h4>${esc(s.h)}</h4><p>${linkify(s.t, ex)}</p></div>`).join('')}
+    ${d.trivia ? `<div class="deep-trivia"><b>💡 豆知識</b><p>${linkify(d.trivia, ex)}</p></div>` : ''}
+  </details>`;
+}
+
+function termChips(list) {
+  return list.length ? `<div class="term-chips">${list.map((t) => `<button class="term-chip" data-term="${t.id}">📖 ${esc(t.term)}</button>`).join('')}</div>` : '';
+}
+
+/** Glossary term sheet. */
+export function openTerm(id) {
+  const t = TERM_BY_ID[id];
+  if (!t) return;
+  sfx.page();
+  openSheet((body) => {
+    const rel = t.related.map((r) => TERM_BY_ID[r]).filter(Boolean);
+    body.innerHTML = `
+      <div class="term-hero">
+        <span class="term-cat">${esc(t.cat)}</span>
+        <h2>${esc(t.term)}</h2>
+        ${t.yomi ? `<div class="term-yomi">${esc(t.yomi)}</div>` : ''}
+        <p class="term-short">${esc(t.short)}</p>
+      </div>
+      <div class="ev-body">
+        <p class="ev-detail">${linkify(t.desc, { exclude: [`term:${t.id}`] })}</p>
+        ${t.evs.length ? `<h3 class="sub">📖 関係する出来事</h3><div class="card-list">${t.evs.map((e) => eventCard(e)).join('')}</div>` : ''}
+        ${rel.length ? `<h3 class="sub">🔗 関連する用語</h3>${termChips(rel)}` : ''}
+        <button class="btn-wide" data-go="/glossary">📖 用語集をひらく</button>
+      </div>`;
+    body.addEventListener('click', (evt) => {
+      const b = evt.target.closest('button');
+      if (!b) return;
+      if (b.dataset.event) openEvent(b.dataset.event);
+      else if (b.dataset.term) openTerm(b.dataset.term);
+      else if (b.dataset.go) {
+        closeAllSheets();
+        go(b.dataset.go);
+      }
+    });
+  });
+}
 
 function relChip(person, label) {
   return `<button class="person-chip" data-person="${person.id}">${personIcon(person, 56)}<span>${esc(person.name)}${label ? `<span class="rel-label">${esc(label)}</span>` : ''}</span></button>`;
@@ -64,6 +114,9 @@ function eventHTML(e) {
     ${photoFigure(e.img, { cls: 'ev-photo' })}
     <p class="ev-detail">${linkify(e.detail, { exclude: [`country:${c.id}`] })}</p>
     ${e.point ? `<div class="point-box"><div class="point-label">💡 ここがポイント</div><div>${linkify(e.point, { exclude: [`country:${c.id}`] })}</div></div>` : ''}
+    ${e.deep?.goro ? `<div class="goro-box"><span>🎵 年号の覚え方</span><b>${esc(e.deep.goro)}</b></div>` : ''}
+    ${deepHTML(e, c)}
+    ${termChips(termsOfEvent(e))}
     ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">${image(model.img) ? `<img src="${image(model.img).thumb}" alt="">` : '🏛️'}</span><span><b>名所を写真で見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
     ${ppl.length ? `<h3 class="sub">関連する人物</h3><div class="people-row">${ppl.map((p) => personChip(p, 56)).join('')}</div>` : ''}
     ${themesOfEvent(e).length ? `<h3 class="sub">🧵 この出来事が登場するテーマ</h3><div>${themesOfEvent(e).map((t) => `<button class="th-link" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)} ›</button>`).join('')}</div>` : ''}
@@ -129,6 +182,8 @@ export function openEvent(id) {
       } else if (t.dataset.era) {
         closeAllSheets();
         go('/era/' + t.dataset.era);
+      } else if (t.dataset.term) {
+        openTerm(t.dataset.term);
       } else if (t.dataset.go) {
         closeAllSheets();
         go(t.dataset.go);

@@ -27,7 +27,8 @@ import search from './views/search.js';
 import story from './views/story.js';
 import families from './views/families.js';
 import family from './views/family.js';
-import { openPerson, openEvent } from './components/sheets.js';
+import { openPerson, openEvent, openTerm } from './components/sheets.js';
+import glossary from './views/glossary.js';
 
 route('/home', home);
 route('/timeline', timeline);
@@ -36,6 +37,7 @@ route('/countries', countries);
 route('/country/:id', country);
 route('/compare', compare);
 route('/themes', themes);
+route('/glossary', glossary);
 route('/theme/:id', theme);
 route('/landmarks', landmarks);
 route('/landmark/:id', landmark);
@@ -51,7 +53,7 @@ route('/families', families);
 route('/family/:id', family);
 
 const TABS = [
-  { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people', '/families', '/family'] },
+  { id: 'home', icon: '🌍', label: 'ホーム', path: '/home', match: ['/home', '/me', '/search', '/people', '/families', '/family', '/glossary'] },
   { id: 'timeline', icon: '📜', label: '年表', path: '/timeline', match: ['/timeline', '/era', '/compare', '/story/era', '/themes', '/theme'] },
   { id: 'countries', icon: '🗺️', label: '国', path: '/countries', match: ['/countries', '/country', '/story/country'] },
   { id: 'landmarks', icon: '🏛️', label: '名所', path: '/landmarks', match: ['/landmarks', '/landmark', '/museum', '/model'] },
@@ -119,6 +121,7 @@ document.addEventListener(
     const [kind, id] = a.dataset.l.split(':');
     if (kind === 'person') return openPerson(id);
     if (kind === 'event') return openEvent(id);
+    if (kind === 'term') return openTerm(id);
     const path = `/${kind}/${id}`;
     if (currentPath() === path) return closeAllSheets();
     go(path);

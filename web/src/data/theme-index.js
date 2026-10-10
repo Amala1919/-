@@ -1,7 +1,9 @@
 // Thematic history units ("テーマ史") with their events resolved from [country, title].
-import THEMES from './themes.js';
+import THEMES1 from './themes.js';
+import THEMES2 from './themes2.js';
 import { COUNTRY_BY_ID, PERSON_BY_ID } from './index.js';
 
+const THEMES = [...THEMES1, ...THEMES2];
 for (const t of THEMES) {
   for (const s of t.sections) {
     s.evs = s.events
