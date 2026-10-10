@@ -1,4 +1,4 @@
-# 1705/1786 images available
+# 1705/1785 images available
 LICENSE_SKIPPED	Ali Abdullah Saleh	Nicole_Fontaine_and_Ali_Abdullah_Saleh,_2000_(1)_(cropped2).jpg	European Parliament
 LICENSE_SKIPPED	John Hume	John_Hume,_1994_(cropped)_2.jpg	European Parliament
 LICENSE_SKIPPED	Manmohan Singh	Official_Portrait_of_the_Prime_Minister_Dr._Manmohan_Singh_(3x4_cropped).jpg	GODL-India
@@ -56,7 +56,6 @@ NO_FREE_LEAD_IMAGE	Martyrs' Square, Beirut
 NO_FREE_LEAD_IMAGE	Modu Chanyu
 NO_FREE_LEAD_IMAGE	Motoyasu River
 NO_FREE_LEAD_IMAGE	Munjong of Joseon
-NO_FREE_LEAD_IMAGE	Nanban trade
 NO_FREE_LEAD_IMAGE	Nio
 NO_FREE_LEAD_IMAGE	Nok terracotta sculpture
 NO_FREE_LEAD_IMAGE	Odumegwu Ojukwu
