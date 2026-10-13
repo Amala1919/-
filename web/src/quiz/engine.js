@@ -72,6 +72,39 @@ const KEYWORDS = {
   pa: ['パナマ', 'バルボア', 'ポルトベロ', 'シティオ・コンテ', 'モーガン', '運河'],
   pg: ['パプアニューギニア', 'ニューギニア', 'クック湿地', 'ココダ', '800の言語', 'ファースト・コンタクト'],
   fj: ['フィジー', 'ラピタ', 'タスマン', 'カコバウ', 'ギルミティヤ', 'インドからの年季契約', '7人制ラグビー'],
+  uy: ['ウルグアイ', 'モンテビデオ', 'コロニア・デル・サクラメント', 'アルティガス', '東方人', 'ソリス', 'バッジェ', 'ムヒカ'],
+  py: ['パラグアイ', 'アスンシオン', 'レドゥクシオン', 'フランシア', '三国同盟戦争', 'チャコ戦争', 'ラ・コルメナ', 'イタイプ'],
+  do: ['ドミニカ', 'サントドミンゴ', '王政復古戦争', 'トルヒーヨ'],
+  cr: ['コスタリカ', 'ディキス', '石の球', '軍隊の廃止', 'エコツーリズム', '国立劇場'],
+  ni: ['ニカラグア', 'アカワリンカ', 'グラナダとレオン', 'ウォーカー', 'サンディーノ', 'ソモサ', 'サンディニスタ', 'チャモロ'],
+  hn: ['ホンジュラス', 'コパン', '18ウサギ', '神聖文字の階段', 'レンピラ', 'モラサン', 'バナナ共和国', 'サッカー戦争'],
+  tl: ['東ティモール', 'ティモール', 'ジェリマライ', '白檀', 'ディリ', 'サンタクルス事件'],
+  ao: ['アンゴラ', 'ンジンガ', 'ンドンゴ', 'ルアンダ', 'ンバンザ・コンゴ', 'ベンゲラ', 'ディオゴ・カン'],
+  mz: ['モザンビーク', 'ソファラ', '弥助', 'ガザ王国', 'FRELIMO'],
+  ug: ['ウガンダ', 'ブガンダ', 'ビゴ・ビャ・ムゲニ', 'ナイル川の源流', 'アミン'],
+  rw: ['ルワンダ', 'ルワブギリ', 'ウレウェ'],
+  cm: ['カメルーン', 'シュム・ラカ', 'サオ文明', 'エビの川', 'バムン', 'ンジョヤ', 'ドゥアラ'],
+  bj: ['ベナン', 'ダホメ', 'アボメー', 'ウィダー', 'アゴジエ', 'ヴードゥン', 'アラダ'],
+  bw: ['ボツワナ', 'ツォディロ', 'トウツウェ', 'セチェレ', '3人の首長'],
+  na: ['ナミビア', 'アポロ11洞窟', 'トゥウェイフルフォンテーン', 'ケープクロス', '南西アフリカ', 'ヘレロ'],
+  ci: ['コートジボワール', 'ジュラ商人', 'コング帝国', 'アブラ・ポク', 'バウレ', '象牙の奇跡', 'ヤムスクロ'],
+  ee: ['エストニア', 'タリン', '歌う革命', 'e-エストニア'],
+  lv: ['ラトビア', 'リガ', 'クールラント'],
+  sk: ['スロバキア', '大モラヴィア', 'キュリロス', '戴冠の都', 'シュトゥール', 'ドゥプチェク', 'ビロード離婚'],
+  si: ['スロベニア', 'リュブリャナ', 'カランタニア', 'トルバル', 'イリリア州', 'イゾンツォ', '十日間戦争'],
+  ba: ['ボスニア', 'ステチャク', 'スタリ・モスト', 'スレブレニツァ'],
+  al: ['アルバニア', 'イリュリア', 'テウタ', 'スカンデルベグ', 'プリズレン', 'ホッジャ', 'ねずみ講'],
+  by: ['ベラルーシ', 'ポロツク', 'スカリナ', 'ベレジナ', 'ハティニ', 'ベロヴェーシ'],
+  cy: ['キプロス', 'ヒロキティア', 'アフロディーテ', 'リュジニャン', '島の分断'],
+  mt: ['マルタ', 'ジュガンティーヤ', 'パウロの難破', 'マルタ語', '聖ヨハネ騎士団', 'ジョージ・クロス'],
+  ae: ['アラブ首長国連邦', 'UAE', 'ドバイ', 'アブダビ', 'ウンム・アン・ナール', 'ジュルファール', 'イブン・マージド', '休戦海岸', 'ブルジュ・ハリファ'],
+  om: ['オマーン', 'マガン', '乳香', 'イバード派', 'ニズワ', 'ブーサイード', 'カブース', 'マスカット'],
+  kw: ['クウェート', 'ファイラカ', 'イカロス', 'サバーハ', 'ブルガン'],
+  az: ['アゼルバイジャン', 'ゴブスタン', '拝火教', 'ニザーミー', 'シルヴァンシャー', 'バクー', 'ノーベル兄弟', 'カラバフ'],
+  bt: ['ブータン', 'キチュ・ラカン', 'タクツァン', 'グル・リンポチェ', 'シャブドゥン', 'ワンチュク', '西岡京治', '国民総幸福', 'GNH'],
+  kg: ['キルギス', 'イシク・クル', 'スイヤブ', 'バラサグン', 'カラハン', 'マナス', 'コーカンド', 'アイトマートフ'],
+  tj: ['タジキスタン', 'サラズム', '最果てのアレクサンドリア', 'パンジケント', 'ルーダキー', 'パミール', 'ログン'],
+  bn: ['ブルネイ', '渤泥', 'ボルキア', 'セリア'],
   jo: ['ヨルダン', 'ペトラ', 'ナバテア', 'ジェラシュ', 'カラク', 'アラブ反乱', 'メシャ'],
   ma: ['モロッコ', 'マラケシュ', 'フェズ', 'カラウィーイーン', 'ムラービト', 'ムワッヒド', 'クトゥビーヤ', 'イブン・バットゥータ', 'マウレタニア', '三王の戦い'],
   tn: ['チュニジア', 'カルタゴ', 'ケルアン', 'チュニス', 'ジャスミン革命', 'イブン・ハルドゥーン'],
@@ -89,7 +122,7 @@ const AMBIG = {
 };
 
 // AMBIG_EXTRA
-for (const pr of 'uz-ir uz-in uz-mn mm-th np-in lk-in my-id se-no dk-no se-dk se-fi hu-at cz-at cz-de be-nl be-fr ie-gb ch-at ch-de ch-fr hu-tr hu-mn fi-ru ar-cl cu-ht co-pe ar-gb nz-au nz-tr cu-us cu-es ht-fr cl-pe tn-it gh-ml ma-ml ma-es ma-tn ke-pt ke-cn jo-tr jo-sa jo-iq pk-in pk-bd bd-in af-pk af-ir af-uz kz-uz kz-mn kz-ru la-th la-vn la-kh tw-cn tw-jp sy-lb sy-il sy-jo sy-iq sy-tr lb-il lb-tn il-jo il-eg ye-sa ye-et ge-am ge-ru am-ru am-tr am-ir dz-tn dz-ma dz-fr sd-eg tz-ke cd-be ua-ru ua-pl ua-ro ro-hu bg-tr bg-gr is-no is-dk ly-it ly-tn sn-ml bg-rs rs-hr lt-pl lt-ru hr-hu hr-at hr-it rs-tr rs-at ve-co ec-co ec-pe ec-pa bo-pe bo-cl bo-cu gt-mx jm-gb pa-co pa-us pa-jm pg-au pg-jp fj-in fj-nz jm-cu jm-ht ve-es'.split(' ')) {
+for (const pr of 'uz-ir uz-in uz-mn mm-th np-in lk-in my-id se-no dk-no se-dk se-fi hu-at cz-at cz-de be-nl be-fr ie-gb ch-at ch-de ch-fr hu-tr hu-mn fi-ru ar-cl cu-ht co-pe ar-gb nz-au nz-tr cu-us cu-es ht-fr cl-pe tn-it gh-ml ma-ml ma-es ma-tn ke-pt ke-cn jo-tr jo-sa jo-iq pk-in pk-bd bd-in af-pk af-ir af-uz kz-uz kz-mn kz-ru la-th la-vn la-kh tw-cn tw-jp sy-lb sy-il sy-jo sy-iq sy-tr lb-il lb-tn il-jo il-eg ye-sa ye-et ge-am ge-ru am-ru am-tr am-ir dz-tn dz-ma dz-fr sd-eg tz-ke cd-be ua-ru ua-pl ua-ro ro-hu bg-tr bg-gr is-no is-dk ly-it ly-tn sn-ml bg-rs rs-hr lt-pl lt-ru hr-hu hr-at hr-it rs-tr rs-at ve-co ec-co ec-pe ec-pa bo-pe bo-cl bo-cu gt-mx jm-gb pa-co pa-us pa-jm pg-au pg-jp fj-in fj-nz jm-cu jm-ht ve-es cr-ni hn-ni hn-cr hn-gt hn-mx do-ht uy-ar uy-br py-br py-ar py-uy py-bo tl-id tl-pt ao-cd ao-mz ao-na mz-zw mz-tz ug-ke ug-tz rw-cd cm-ng bj-ng bw-za bw-zw na-za ci-gh ci-ml ee-lv lv-lt ee-lt ee-ru lv-ru ee-se lv-se ee-fi lv-pl by-lt by-pl by-ru by-ua sk-cz sk-hu si-hr si-rs ba-rs ba-hr si-ba si-at ba-at al-rs cy-gr cy-tr mt-it ae-om ae-sa ae-kw om-ye om-tz kw-iq kw-sa az-am az-ge az-ir bt-np bt-in kg-kz kg-uz kg-tj tj-uz tj-af tj-ir bn-my bn-id bn-ph mz-jp'.split(' ')) {
   const [a, b] = pr.split('-');
   (AMBIG[a] = AMBIG[a] || []).push(b);
   (AMBIG[b] = AMBIG[b] || []).push(a);
@@ -466,6 +499,7 @@ export const MODES = {
   map: { name: '地図クイズ', emoji: '🌍', desc: '光っている国はどこ？', color: '#2bb673' },
   photo: { name: '写真クイズ', emoji: '📷', desc: '本物の写真や絵から当てよう', color: '#4aa3df' },
   time: { name: 'タイムアタック', emoji: '⚡', desc: '60秒で何問とけるか', color: '#e8445a' },
+  histmap: { name: '歴史地図クイズ', emoji: '🗺️', desc: '昔の世界地図で、光る地域の支配者は？', color: '#3fa7c9' },
   term: { name: '用語クイズ', emoji: '📖', desc: '説明から歴史用語を当てよう', color: '#9b7bff' },
   theme: { name: 'テーマ史クイズ', emoji: '🧵', desc: 'シルクロード・冷戦などテーマごとに', color: '#e0864a' },
   family: { name: '家系図クイズ', emoji: '🌳', desc: '親子・夫婦・師弟のつながり', color: '#d86fb5' },

@@ -15,6 +15,7 @@ import { familiesOf, relativesOf, contemporariesOf, coActorsOf } from '../data/r
 import { mentionedPeople } from './connections.js';
 import { themesOfEvent } from '../data/theme-index.js';
 import '../data/deep-index.js';
+import BIOS from '../data/bios.js';
 import { TERM_BY_ID, termsOfEvent } from '../data/glossary-index.js';
 
 function deepHTML(e, c) {
@@ -25,6 +26,20 @@ function deepHTML(e, c) {
     <summary><span>📚 もっと詳しく</span><small>背景・流れ・その後の影響${d.trivia ? '・豆知識' : ''}</small></summary>
     ${d.sections.map((s) => `<div class="deep-sec"><h4>${esc(s.h)}</h4><p>${linkify(s.t, ex)}</p></div>`).join('')}
     ${d.trivia ? `<div class="deep-trivia"><b>💡 豆知識</b><p>${linkify(d.trivia, ex)}</p></div>` : ''}
+  </details>`;
+}
+
+function bioHTML(p) {
+  const b = BIOS[p.id];
+  if (!b) return '';
+  const ex = { exclude: [`person:${p.id}`] };
+  return `<details class="deep bio">
+    <summary><span>📜 人物伝</span><small>年譜・業績・エピソード・後世への影響</small></summary>
+    ${b.life?.length ? `<ol class="bio-life">${b.life.map(([y, t]) => `<li><b>${esc(y)}</b><span>${linkify(t, ex)}</span></li>`).join('')}</ol>` : ''}
+    ${b.achievements ? `<div class="deep-sec"><h4>業績</h4><p>${linkify(b.achievements, ex)}</p></div>` : ''}
+    ${b.episode ? `<div class="deep-trivia"><b>💬 エピソード</b><p>${linkify(b.episode, ex)}</p></div>` : ''}
+    ${b.legacy ? `<div class="deep-sec"><h4>後世への影響</h4><p>${linkify(b.legacy, ex)}</p></div>` : ''}
+    ${b.words && !p.quote ? `<blockquote class="quote">“${esc(b.words)}”</blockquote>` : ''}
   </details>`;
 }
 
@@ -222,6 +237,7 @@ export function openPerson(id) {
         <p class="ev-detail">${linkify(p.desc, { exclude: [`person:${p.id}`] })}</p>
         ${image(p.img) ? `<p class="ph-credit-line">📷 肖像：${esc(image(p.img).artist || '作者不明')} / ${esc(image(p.img).license)}・Wikimedia Commons</p>` : ''}
         ${p.quote ? `<blockquote class="quote">“${esc(p.quote)}”</blockquote>` : ''}
+        ${bioHTML(p)}
         <div class="ev-actions"><button class="btn-pill" data-act="speak">🔊 読み上げ</button></div>
         ${fams.length ? `<h3 class="sub">🌳 家系図で見る</h3>${familyButtons(fams, p.id)}` : ''}
         ${rels.length ? `<h3 class="sub">👪 家族・つながりのある人</h3><div class="people-row">${rels.map((r) => relChip(r.person, r.label)).join('')}</div>` : ''}

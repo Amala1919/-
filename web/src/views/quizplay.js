@@ -1,6 +1,7 @@
 import { THEME_BY_ID } from '../data/theme-index.js';
 import { FAMILY_BY_ID } from '../data/relations.js';
 import { buildQuiz, MODES } from '../quiz/engine.js';
+import { buildHistQuiz } from '../quiz/histquiz.js';
 import { COUNTRY_BY_ID, ERA_BY_ID } from '../data/index.js';
 import { store } from '../store.js';
 import { go } from '../router.js';
@@ -12,9 +13,26 @@ import { esc } from '../util.js';
 
 const TIME_LIMIT = 60;
 
-export default function quizPlay(root, { mode, arg }) {
+export default function quizPlay(root, params) {
+  const { mode, arg } = params;
+  if (mode === 'histmap' && !params.preloaded) {
+    root.innerHTML = '<div class="quiz-loading"><div class="ta-big">🗺️</div><p>当時の世界地図を読みこんでいます…</p></div>';
+    let alive = true;
+    let inner = null;
+    buildHistQuiz(10)
+      .then((qs) => {
+        if (alive && root.isConnected) inner = quizPlay(root, { ...params, preloaded: qs });
+      })
+      .catch(() => {
+        if (alive) root.innerHTML = '<div class="quiz-loading"><p>地図を読みこめませんでした。</p></div>';
+      });
+    return () => {
+      alive = false;
+      if (typeof inner === 'function') inner();
+    };
+  }
   const m = MODES[mode] || MODES.quick;
-  const questions = buildQuiz(mode, arg, store.state.wrong);
+  const questions = params.preloaded || buildQuiz(mode, arg, store.state.wrong);
   if (!questions.length) return go('/quiz', { replace: true });
   const isTime = mode === 'time';
   let i = 0;
@@ -99,7 +117,7 @@ export default function quizPlay(root, { mode, arg }) {
       streak = 0;
       sfx.wrong();
       vibrate(80);
-      if (q.type !== 'order') store.addWrong(q.id);
+      if (q.type !== 'order' && q.type !== 'histmap') store.addWrong(q.id);
     }
     updateTop();
     if (isTime) {

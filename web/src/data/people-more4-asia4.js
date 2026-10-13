@@ -1,0 +1,35 @@
+// 追加の人物（アジア4：UAE・オマーン・クウェート・アゼルバイジャン・ブータン・キルギス・タジキスタン・ブルネイ）
+export default [
+  // ---- アラブ首長国連邦 ----
+  { id: 'ae_ibnmajid', name: 'アフマド・イブン・マージド', country: 'ae', born: 1432, died: 1500, life: '1430年ごろ〜1500年ごろ', title: 'アラブの航海者', desc: 'ジュルファール出身とされる航海士で、インド洋の航路や星、季節風についての航海書を数多く書いた。「海のライオン」とたたえられ、UAEでは海の英雄として親しまれている。', img: 'Ahmad ibn Majid', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 2, rc: '#f2efe6' } },
+  { id: 'ae_zayed', name: 'ザーイド・ビン・スルターン・アール・ナヒヤーン', country: 'ae', born: 1918, died: 2004, life: '1918年ごろ〜2004年', title: 'UAE初代大統領', desc: 'アブダビの首長として石油収入を国づくりに生かし、1971年にアラブ首長国連邦を結成して初代大統領を約33年間務めた。砂漠の緑化にも力を入れ、「建国の父」として敬愛されている。', img: 'Zayed bin Sultan Al Nahyan', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#ffffff' } },
+  { id: 'ae_rashid', name: 'ラーシド・ビン・サイード・アール・マクトゥーム', country: 'ae', born: 1912, died: 1990, title: 'ドバイ首長・UAE副大統領', desc: 'ドバイ・クリークの浚渫や港・空港の建設を進め、ドバイを中東の貿易の拠点に育てた。UAE建国に加わり、副大統領と首相を務めた。', img: 'Rashid bin Saeed Al Maktoum', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#f5f5f5' } },
+  // ---- オマーン ----
+  { id: 'om_ahmadbinsaid', name: 'アフマド・ビン・サイード', country: 'om', born: null, died: 1783, life: '?〜1783年', title: 'ブーサイード朝の創始者', desc: 'ソハールの知事としてペルシア軍の侵入を退け、1744年ごろイマームに選ばれた。彼が開いたブーサイード朝は、現在もオマーンを治めている。', img: 'Ahmad bin Said al-Busaidi', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 2, rc: '#5d4037' } },
+  { id: 'om_saidsultan', name: 'サイイド・サイード（サイード・ビン・スルターン）', country: 'om', born: 1791, died: 1856, title: 'オマーンとザンジバルのスルタン', desc: '海軍と商船団を育て、東アフリカ沿岸からペルシア湾に及ぶ海洋帝国を築いた。1840年に都をザンジバルに移し、クローブ栽培と交易で富を得た。', img: 'Said bin Sultan', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 2, rc: '#1565c0' } },
+  { id: 'om_qaboos', name: 'カブース・ビン・サイード', country: 'om', born: 1940, died: 2020, title: 'オマーン国王（スルタン）', desc: '1970年に即位し、石油収入で学校・病院・道路を整えてオマーンを近代国家に変えた。中立外交を貫き、中東の対立の仲介役を務めた。', img: 'Qaboos bin Said', a: { h: 'turban', b: 'm', hc: '#9e9e9e', sk: 2, rc: '#6d4c41' } },
+  // ---- クウェート ----
+  { id: 'kw_sabah1', name: 'サバーハ1世', country: 'kw', born: null, died: 1762, life: '?〜1762年', title: 'クウェートの初代首長', desc: '移住してきたウトゥーブ族の人々に指導者として選ばれ、クウェートの港町を治めた。その子孫のサバーハ家が、現在までクウェートの首長を務めている。', img: 'Sabah I bin Jaber', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 2, rc: '#8d6e63' } },
+  { id: 'kw_mubarak', name: 'ムバーラク・アッサバーハ（大ムバーラク）', country: 'kw', born: 1837, died: 1915, title: 'クウェート首長', desc: '1896年に首長となり、1899年にイギリスと協定を結んでオスマン帝国の影響から離れた。近代クウェートの基礎を築き、「大ムバーラク」と呼ばれる。', img: 'Mubarak Al-Sabah', a: { h: 'turban', b: 'l', hc: '#e0e0e0', sk: 2, rc: '#3e2723' } },
+  { id: 'kw_abdullah3', name: 'アブドゥッラー・サーリム・アッサバーハ', country: 'kw', born: 1895, died: 1965, title: 'クウェート首長', desc: '石油収入を教育・医療・住宅に注ぎ、福祉国家の基礎を築いた。1961年に独立を達成し、翌年に憲法を定めて国民議会を開いた。', img: 'Abdullah Al-Salim Al-Sabah', a: { h: 'turban', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#ffffff' } },
+  // ---- アゼルバイジャン ----
+  { id: 'az_nizami', name: 'ニザーミー・ギャンジャヴィー', country: 'az', born: 1141, died: 1209, life: '1141年ごろ〜1209年ごろ', title: 'ペルシア語の詩人', desc: 'ギャンジャで生まれ育ち、『ライラとマジュヌーン』など5つの物語詩からなる『五部作』を残した。ペルシア文学を代表する詩人の一人で、アゼルバイジャンの国民的な誇りとされる。', img: 'Nizami Ganjavi', a: { h: 'turban', b: 'l', hc: '#3e2723', sk: 1, rc: '#2e7d32' } },
+  { id: 'az_taghiyev', name: 'ゼイナルアビディン・タギエフ', country: 'az', born: 1823, died: 1924, life: '1823年ごろ〜1924年', title: 'バクーの石油王・慈善家', desc: '貧しい家に生まれ、石油で巨万の富を築いた。ムスリム女子のための学校や劇場、水道を建設し、教育と文化の発展に尽くした。', img: 'Zeynalabdin Taghiyev', a: { h: 'cap', b: 'm', hc: '#bdbdbd', sk: 1, rc: '#263238' } },
+  { id: 'az_rasulzade', name: 'マンマド・アミン・ラスールザーデ', country: 'az', born: 1884, died: 1955, title: 'アゼルバイジャン民主共和国の建国者', desc: '1918年に独立を宣言した国民評議会の議長を務めた。ソ連による占領後は国外に亡命し、トルコのアンカラで亡くなった。', img: 'Mammad Amin Rasulzade', a: { h: 'none', b: 's', hc: '#1b1b1b', sk: 1, rc: '#37474f' } },
+  // ---- ブータン ----
+  { id: 'bt_zhabdrung', name: 'シャブドゥン・ンガワン・ナムゲル', country: 'bt', born: 1594, died: 1651, title: 'ブータンの統一者', desc: 'チベットのドゥク派の高僧で、1616年にブータンに移り、チベット軍を退けて国を初めて統一した。各地にゾンを築き、政治と宗教の制度を整えた。', img: 'Ngawang Namgyal', a: { h: 'bald', b: 'l', hc: '#1b1b1b', sk: 2, rc: '#b71c1c' } },
+  { id: 'bt_jigmesingye', name: 'ジグミ・シンゲ・ワンチュク', country: 'bt', born: 1955, died: null, title: 'ブータン第4代国王', desc: '1972年に16歳で即位し、「国民総幸福（GNH）」を国づくりの柱とした。自ら王権を制限して民主化を進め、2006年に退位した。', img: 'Jigme Singye Wangchuck', a: { h: 'none', hc: '#1b1b1b', sk: 2, rc: '#e6a23c' } },
+  { id: 'bt_nishioka', name: '西岡京治', country: 'jp', born: 1933, died: 1992, title: '農業指導者', desc: '1964年に海外技術協力事業団の専門家としてブータンに渡り、野菜栽培や稲作の改良に28年間取り組んだ。1980年に国王から最高の称号「ダショー」を贈られた。', img: 'Keiji Nishioka', a: { h: 'none', hc: '#1b1b1b', sk: 1, rc: '#795548' } },
+  // ---- キルギス ----
+  { id: 'kg_balasaguni', name: 'ユースフ・ハース・ハージブ（バラサグニ）', country: 'kg', born: 1019, died: 1077, life: '1019年ごろ〜1077年ごろ', title: 'カラハン朝の詩人', desc: 'バラサグンに生まれ、1069年にトルコ語の教訓詩『クタドゥグ・ビリグ（幸福の知恵）』を完成させた。理想の君主や国のあり方を説いたこの作品は、トルコ語文学の古典とされる。', img: 'Yusuf Balasaguni', a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#00695c' } },
+  { id: 'kg_kurmanjan', name: 'クルマンジャン・ダトカ', country: 'kg', born: 1811, died: 1907, title: 'アライの女王', desc: 'アライ地方のキルギス人を率いた女性首長で、コーカンド・ハン国から「ダトカ（将軍）」の称号を受けた。ロシア帝国の進出に対しては、人々の命を守るため従う道を選んだ。', img: 'Kurmanjan Datka', a: { h: 'turban', f: 1, hc: '#e0e0e0', sk: 1, rc: '#c62828' } },
+  { id: 'kg_aitmatov', name: 'チンギス・アイトマートフ', country: 'kg', born: 1928, died: 2008, title: 'キルギスの作家', desc: '『ジャミーリャ』『一日は百年よりも長く』などの小説で、キルギスの人々の暮らしやソ連社会の問題を描いた。作品は世界中で翻訳され、ソ連を代表する作家の一人となった。', img: 'Chinghiz Aitmatov', a: { h: 'none', hc: '#9e9e9e', sk: 1, rc: '#455a64' } },
+  // ---- タジキスタン ----
+  { id: 'tj_ismail', name: 'イスマーイール・サーマーニー', country: 'tj', born: 849, died: 907, title: 'サーマーン朝の君主', desc: '892年ごろからブハラを拠点に中央アジアを治め、サーマーン朝を発展させた。タジキスタンでは国家の祖とされ、通貨「ソモニ」の名の由来となっている。', img: "Isma'il ibn Ahmad", a: { h: 'turban', b: 'l', hc: '#1b1b1b', sk: 1, rc: '#1a237e' } },
+  { id: 'tj_rudaki', name: 'ルーダキー', country: 'tj', born: 858, died: 941, life: '858年ごろ〜941年ごろ', title: 'ペルシア語の詩人', desc: 'パンジケント近くの村に生まれ、サーマーン朝のブハラの宮廷で活躍した。ペルシア語で多くの詩を作り、「ペルシア詩の父」と呼ばれる。', img: 'Rudaki', a: { h: 'turban', b: 'l', hc: '#9e9e9e', sk: 1, rc: '#6a1b9a' } },
+  { id: 'tj_akino', name: '秋野豊', country: 'jp', born: 1950, died: 1998, title: '政治学者・国連政務官', desc: '筑波大学で旧ソ連地域の政治を研究し、1998年に国連タジキスタン監視団の政務官として和平の実現に尽くした。同年7月、任務中に武装集団に襲われて亡くなった。', img: 'Yutaka Akino', a: { h: 'none', hc: '#1b1b1b', sk: 1, rc: '#1565c0' } },
+  // ---- ブルネイ ----
+  { id: 'bn_bolkiah', name: 'スルタン・ボルキア', country: 'bn', born: null, died: 1524, life: '?〜1524年ごろ', title: 'ブルネイ第5代スルタン', desc: '1485年ごろから約40年間在位し、ボルネオ島の沿岸からフィリピンにまで勢力を広げた。ブルネイの黄金時代を築き、「ナコダ・ラガム（歌う船長）」とも呼ばれた。', img: 'Bolkiah', a: { h: 'crown', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#f9a825' } },
+  { id: 'bn_omarali', name: 'オマール・アリ・サイフディン3世', country: 'bn', born: 1914, died: 1986, title: 'ブルネイ第28代スルタン', desc: '1950年に即位し、1959年に初めての憲法を定めた。マレーシアへの参加を見送って独立への道筋をつけ、「近代ブルネイの設計者」と呼ばれる。', img: 'Omar Ali Saifuddien III', a: { h: 'cap', b: 'm', hc: '#1b1b1b', sk: 2, rc: '#f9a825' } },
+  { id: 'bn_hassanal', name: 'ハサナル・ボルキア', country: 'bn', born: 1946, died: null, title: 'ブルネイ国王（第29代スルタン）', desc: '1967年に即位し、1984年にブルネイの完全独立を実現した。首相も兼ね、世界で最も長く在位している君主の一人である。', img: 'Hassanal Bolkiah', a: { h: 'cap', b: 's', hc: '#1b1b1b', sk: 2, rc: '#f9a825' } },
+];
