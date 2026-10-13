@@ -15,8 +15,12 @@ import { familiesOf, relativesOf, contemporariesOf, coActorsOf } from '../data/r
 import { mentionedPeople } from './connections.js';
 import { themesOfEvent } from '../data/theme-index.js';
 import '../data/deep-index.js';
-import BIOS from '../data/bios.js';
+import BIOS1 from '../data/bios.js';
+import BIOS2 from '../data/bios2.js';
+
+const BIOS = { ...BIOS1, ...BIOS2 };
 import { TERM_BY_ID, termsOfEvent } from '../data/glossary-index.js';
+import { prefsOfPerson, prefsOfEvent } from '../data/pref-index.js';
 
 function deepHTML(e, c) {
   const d = e.deep;
@@ -132,6 +136,7 @@ function eventHTML(e) {
     ${e.deep?.goro ? `<div class="goro-box"><span>🎵 年号の覚え方</span><b>${esc(e.deep.goro)}</b></div>` : ''}
     ${deepHTML(e, c)}
     ${termChips(termsOfEvent(e))}
+    ${prefsOfEvent(e).length ? `<div>${prefsOfEvent(e).map((p) => `<button class="th-link" data-go="/pref/${p.id}">🗾 ${esc(p.name)}の歴史 ›</button>`).join('')}</div>` : ''}
     ${model ? `<button class="model-cta" data-model="${model.id}"><span class="model-cta-icon">${image(model.img) ? `<img src="${image(model.img).thumb}" alt="">` : '🏛️'}</span><span><b>名所を写真で見る</b><br><small>${esc(model.name)}</small></span><span class="model-cta-go">›</span></button>` : ''}
     ${ppl.length ? `<h3 class="sub">関連する人物</h3><div class="people-row">${ppl.map((p) => personChip(p, 56)).join('')}</div>` : ''}
     ${themesOfEvent(e).length ? `<h3 class="sub">🧵 この出来事が登場するテーマ</h3><div>${themesOfEvent(e).map((t) => `<button class="th-link" data-go="/theme/${t.id}">${t.emoji} ${esc(t.name)} ›</button>`).join('')}</div>` : ''}
@@ -238,6 +243,7 @@ export function openPerson(id) {
         ${image(p.img) ? `<p class="ph-credit-line">📷 肖像：${esc(image(p.img).artist || '作者不明')} / ${esc(image(p.img).license)}・Wikimedia Commons</p>` : ''}
         ${p.quote ? `<blockquote class="quote">“${esc(p.quote)}”</blockquote>` : ''}
         ${bioHTML(p)}
+        ${prefsOfPerson(p.id).length ? `<div>${prefsOfPerson(p.id).map((x) => `<button class="th-link" data-go="/pref/${x.id}">🗾 ゆかりの地：${esc(x.name)} ›</button>`).join('')}</div>` : ''}
         <div class="ev-actions"><button class="btn-pill" data-act="speak">🔊 読み上げ</button></div>
         ${fams.length ? `<h3 class="sub">🌳 家系図で見る</h3>${familyButtons(fams, p.id)}` : ''}
         ${rels.length ? `<h3 class="sub">👪 家族・つながりのある人</h3><div class="people-row">${rels.map((r) => relChip(r.person, r.label)).join('')}</div>` : ''}

@@ -3,10 +3,11 @@ import JP from './deep-jp.js';
 import WORLD from './deep-world.js';
 import ASIA2 from './deep-asia2.js';
 import WEST2 from './deep-west2.js';
+import MIX3 from './deep-mix3.js';
 import { COUNTRY_BY_ID } from './index.js';
 
 let count = 0;
-for (const d of [...JP, ...WORLD, ...ASIA2, ...WEST2]) {
+for (const d of [...JP, ...WORLD, ...ASIA2, ...WEST2, ...MIX3]) {
   const [cid, title] = d.ref;
   const e = COUNTRY_BY_ID[cid]?.events.find((x) => x.title === title);
   if (!e) continue;

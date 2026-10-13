@@ -725,3 +725,27 @@ body.globe-full .tabbar, body.globe-full .search-fab { display: none; }
 .bio-life li { position: relative; display: flex; flex-direction: column; padding: 4px 0 8px; font-size: 13.5px; line-height: 1.6; }
 .bio-life li::before { content: ''; position: absolute; left: -20px; top: 10px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
 .bio-life b { color: var(--accent); font-size: 12.5px; }
+
+/* ---------- Prefectures ---------- */
+.jp-map-wrap { padding: 0 16px; max-width: 520px; margin: 0 auto; }
+.jp-map-wrap.small { padding: 0; max-width: 340px; }
+.jp-map { display: block; }
+.jp-dot { cursor: pointer; }
+.jp-dot-label { fill: #fff; font-size: 12px; font-weight: 800; paint-order: stroke; stroke: #0e1424; stroke-width: 4px; }
+.reg-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; }
+.pref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+@media (min-width: 560px) { .pref-grid { grid-template-columns: repeat(3, 1fr); } }
+.pref-card { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--c); text-align: left; }
+.pref-card b { font-size: 14.5px; }
+.pref-card small { color: var(--muted); font-size: 11.5px; line-height: 1.4; }
+.pref-title { font-size: 26px; margin: 8px 0 2px; }
+.pref-catch { color: #ffd27a; font-weight: 700; margin-bottom: 6px; }
+.pref-spots { display: flex; flex-direction: column; gap: 10px; }
+.pref-spot { display: flex; gap: 12px; padding: 10px 12px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--c); }
+.ps-year { flex: 0 0 64px; font-weight: 800; color: var(--c); font-size: 13px; padding-top: 2px; }
+.ps-body { flex: 1; min-width: 0; }
+.ps-body b { font-size: 15px; }
+.ps-body p { margin: 4px 0; font-size: 13.5px; line-height: 1.75; color: #dfe5f3; }
+.jp-cta { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; margin: 10px 0; border-radius: 16px; background: linear-gradient(135deg, rgba(255, 138, 101, 0.3), rgba(240, 98, 146, 0.2)); border: 1px solid rgba(255, 138, 101, 0.5); text-align: left; }
+.jp-cta span:first-child { font-size: 30px; }
+.jp-cta small { display: block; color: #ffd7c9; }

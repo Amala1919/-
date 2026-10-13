@@ -130,22 +130,52 @@ import cr from './countries/cr.js';
 import ni from './countries/ni.js';
 import hn from './countries/hn.js';
 import tl from './countries/tl.js';
+import so from './countries/so.js';
+import zm from './countries/zm.js';
+import mw from './countries/mw.js';
+import mr from './countries/mr.js';
+import ne from './countries/ne.js';
+import td from './countries/td.js';
+import gn from './countries/gn.js';
+import sl from './countries/sl.js';
+import lr from './countries/lr.js';
+import er from './countries/er.js';
+import dj from './countries/dj.js';
+import ga from './countries/ga.js';
+import cg from './countries/cg.js';
+import mk from './countries/mk.js';
+import me from './countries/me.js';
+import md from './countries/md.js';
+import lu from './countries/lu.js';
+import tm from './countries/tm.js';
+import qa from './countries/qa.js';
+import sg from './countries/sg.js';
+import sv from './countries/sv.js';
+import bz from './countries/bz.js';
+import bs from './countries/bs.js';
+import tt from './countries/tt.js';
+import gy from './countries/gy.js';
+import sr from './countries/sr.js';
+import ws from './countries/ws.js';
+import to from './countries/to.js';
+import vu from './countries/vu.js';
+import sb from './countries/sb.js';
 
 export { ERAS, ERA_BY_ID, eraOfYear, PEOPLE, PERSON_BY_ID };
 
 export const COUNTRIES = [
-  jp, cn, kr, tw, mn, kz, kg, tj, inn, pk, bd, np, bt, lk, mm, vn, th, la, kh, mys, bn, idn, ph, tl, uz, af,
-  ir, iq, sy, lb, il, jo, tr, cy, ge, am, az, sa, kw, ae, om, ye, eg, ly, tn, dz, ma, sd, et, ml, sn, ci, gh, bj, ng, cm, cd, ug, rw, ke, tz, ao, mz, mg, na, bw, za, zw,
-  gr, it, mt, fr, gb, ie, is, de, es, pt, nl, be, ch, at, cz, sk, hu, pl, lt, lv, ee, dk, no, se, fi, ru, by, ua, ro, bg, rs, hr, si, ba, al,
-  us, ca, mx, gt, hn, ni, cr, pa, cu, jm, ht, dom, co, ve, ec, br, pe, bo, py, uy, ar, cl, au, nz, pg, fj,
+  jp, cn, kr, tw, mn, kz, kg, tj, inn, pk, bd, np, bt, lk, mm, vn, th, la, kh, mys, sg, bn, idn, ph, tl, uz, tm, af,
+  ir, iq, sy, lb, il, jo, tr, cy, ge, am, az, sa, kw, ae, om, qa, ye, eg, ly, tn, dz, ma, mr, sd, er, dj, so, et, ml, ne, td, sn, gn, sl, lr, ci, gh, bj, ng, cm, ga, cg, cd, ug, rw, ke, tz, mw, zm, ao, mz, mg, na, bw, za, zw,
+  gr, it, mt, fr, gb, ie, is, de, es, pt, nl, be, lu, ch, at, cz, sk, hu, pl, lt, lv, ee, dk, no, se, fi, ru, by, ua, md, ro, bg, rs, hr, si, ba, me, al, mk,
+  us, ca, mx, gt, bz, sv, hn, ni, cr, pa, bs, cu, jm, ht, dom, tt, co, ve, gy, sr, ec, br, pe, bo, py, uy, ar, cl, au, nz, pg, sb, vu, fj, ws, to,
 ];
 export const COUNTRY_BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]));
 
 export const REGIONS = [
-  { id: 'asia', name: 'アジア', countries: ['jp', 'cn', 'kr', 'tw', 'mn', 'kz', 'in', 'pk', 'bd', 'vn', 'th', 'la', 'kh', 'id', 'my', 'ph', 'mm', 'lk', 'np', 'uz', 'af', 'kg', 'tj', 'bt', 'bn', 'tl'] },
-  { id: 'west', name: '西アジア・アフリカ', countries: ['ir', 'iq', 'sy', 'lb', 'il', 'jo', 'tr', 'ge', 'am', 'sa', 'ye', 'eg', 'ly', 'tn', 'dz', 'ma', 'sd', 'et', 'ml', 'sn', 'gh', 'ng', 'cd', 'ke', 'tz', 'mg', 'za', 'zw', 'cy', 'az', 'kw', 'ae', 'om', 'ci', 'bj', 'cm', 'ug', 'rw', 'ao', 'mz', 'na', 'bw'] },
-  { id: 'europe', name: 'ヨーロッパ', countries: ['gr', 'it', 'fr', 'gb', 'ie', 'is', 'de', 'es', 'pt', 'nl', 'be', 'ch', 'at', 'cz', 'hu', 'pl', 'lt', 'dk', 'no', 'se', 'fi', 'ru', 'ua', 'ro', 'bg', 'rs', 'hr', 'mt', 'sk', 'lv', 'ee', 'by', 'si', 'ba', 'al'] },
-  { id: 'america', name: 'アメリカ大陸・オセアニア', countries: ['us', 'ca', 'mx', 'gt', 'cu', 'jm', 'ht', 'pa', 'co', 've', 'ec', 'br', 'pe', 'bo', 'ar', 'cl', 'au', 'nz', 'pg', 'fj', 'hn', 'ni', 'cr', 'do', 'py', 'uy'] },
+  { id: 'asia', name: 'アジア', countries: ['jp', 'cn', 'kr', 'tw', 'mn', 'kz', 'in', 'pk', 'bd', 'vn', 'th', 'la', 'kh', 'id', 'my', 'ph', 'mm', 'lk', 'np', 'uz', 'af', 'kg', 'tj', 'bt', 'bn', 'tl', 'tm', 'sg'] },
+  { id: 'west', name: '西アジア・アフリカ', countries: ['ir', 'iq', 'sy', 'lb', 'il', 'jo', 'tr', 'ge', 'am', 'sa', 'ye', 'eg', 'ly', 'tn', 'dz', 'ma', 'sd', 'et', 'ml', 'sn', 'gh', 'ng', 'cd', 'ke', 'tz', 'mg', 'za', 'zw', 'cy', 'az', 'kw', 'ae', 'om', 'ci', 'bj', 'cm', 'ug', 'rw', 'ao', 'mz', 'na', 'bw', 'qa', 'so', 'zm', 'mw', 'mr', 'ne', 'td', 'gn', 'sl', 'lr', 'er', 'dj', 'ga', 'cg'] },
+  { id: 'europe', name: 'ヨーロッパ', countries: ['gr', 'it', 'fr', 'gb', 'ie', 'is', 'de', 'es', 'pt', 'nl', 'be', 'ch', 'at', 'cz', 'hu', 'pl', 'lt', 'dk', 'no', 'se', 'fi', 'ru', 'ua', 'ro', 'bg', 'rs', 'hr', 'mt', 'sk', 'lv', 'ee', 'by', 'si', 'ba', 'al', 'mk', 'me', 'md', 'lu'] },
+  { id: 'america', name: 'アメリカ大陸・オセアニア', countries: ['us', 'ca', 'mx', 'gt', 'cu', 'jm', 'ht', 'pa', 'co', 've', 'ec', 'br', 'pe', 'bo', 'ar', 'cl', 'au', 'nz', 'pg', 'fj', 'hn', 'ni', 'cr', 'do', 'py', 'uy', 'sv', 'bz', 'bs', 'tt', 'gy', 'sr', 'ws', 'to', 'vu', 'sb'] },
 ];
 
 // Stable event ids: country + short hash of the title (so adding events never shifts ids).

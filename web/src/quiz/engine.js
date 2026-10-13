@@ -2,7 +2,7 @@
 import { EVENTS, EVENT_BY_ID, COUNTRIES, COUNTRY_BY_ID, ERAS, ERA_BY_ID, PEOPLE, PERSON_BY_ID, eventsInEra } from '../data/index.js';
 import { formatYear, shuffle, sample, pick, esc } from '../util.js';
 import { personIcon } from '../components/avatar.js';
-import { worldMapSVG } from '../components/geo.js';
+import { worldMapSVG, worldFeaturesLite } from '../components/geo.js';
 import { image, creditText } from '../images.js';
 import { FAMILIES, FAMILY_BY_ID } from '../data/relations.js';
 import { LANDMARKS, LANDMARK_BY_ID } from '../data/landmarks.js';
@@ -105,6 +105,36 @@ const KEYWORDS = {
   kg: ['キルギス', 'イシク・クル', 'スイヤブ', 'バラサグン', 'カラハン', 'マナス', 'コーカンド', 'アイトマートフ'],
   tj: ['タジキスタン', 'サラズム', '最果てのアレクサンドリア', 'パンジケント', 'ルーダキー', 'パミール', 'ログン'],
   bn: ['ブルネイ', '渤泥', 'ボルキア', 'セリア'],
+  so: ['ソマリア', 'モガディシュ', 'ダルヴィーシュ', 'ラース・ゲール'],
+  zm: ['ザンビア', 'カブウェ', 'インゴンベ', 'カッパーベルト', 'タンザン鉄道'],
+  mw: ['マラウイ', 'マラヴィ', 'ウラハ', 'ニヤサランド', 'チレンブエ'],
+  mr: ['モーリタニア', 'ダール・ティシット', 'クンビ・サレー', 'シンゲッティ', 'ムラービト', '砂漠の列車'],
+  ne: ['ニジェール', 'テネレ', 'ゴベロ', 'アガデス', 'カオセン', 'デンディ'],
+  td: ['チャド', 'トゥーマイ', 'カネム', 'クセリ', 'フォール・ラミ'],
+  gn: ['ギニア', 'フータ・ジャロン', 'サモリ', '「ノン」'],
+  sl: ['シエラレオネ', 'サピ', 'バンス島', 'フリータウン', 'アミスタッド', '小屋税'],
+  lr: ['リベリア', '胡椒海岸', 'アメリカ植民協会', 'ファイアストン', 'タブマン'],
+  er: ['エリトリア', 'ブイア', 'アドゥリス', 'アスマラ'],
+  dj: ['ジブチ', 'オボック', '自衛隊の拠点'],
+  ga: ['ガボン', 'オクロ', 'ロペ', 'リーブルヴィル', 'ランバレネ', 'ボンゴ'],
+  cg: ['コンゴ共和国', 'ロアンゴ', 'ブラザヴィル', 'コンゴ・オセアン', 'コンゴ人民共和国'],
+  mk: ['北マケドニア', 'オフリド', 'スコピエ', 'イリンデン', 'プレスパ', 'マザー・テレサ', 'ヘラクレア'],
+  me: ['モンテネグロ', 'コトル', 'ニェゴシュ', 'ドゥクリャ', 'リゾン'],
+  md: ['モルドバ', 'ベッサラビア', 'ドニエストル', 'ククテニ', 'シュテファン大公'],
+  lu: ['ルクセンブルク', 'シェンゲン', 'ジークフリート'],
+  tm: ['トルクメニスタン', 'ゴヌル', 'ニサ', 'メルフ', 'ギョク・テペ', '地獄の門'],
+  qa: ['カタール', 'ズバラ', 'サーニー', 'ドゥハーン', 'LNG'],
+  sg: ['シンガポール', 'テマセク', 'ラッフルズ', '海峡植民地'],
+  sv: ['エルサルバドル', 'ジョヤ・デ・セレン', 'クスカトラン', 'ロメロ', 'チャプルテペク'],
+  bz: ['ベリーズ', 'カラコル', 'ベイメン', 'セント・ジョージズ・キー', '英領ホンジュラス', 'ハッティ'],
+  bs: ['バハマ', 'ルカヤン', 'ロイヤリスト', '海賊の共和国'],
+  tt: ['トリニダード', 'バンワリ', 'スティールパン', 'エリック・ウィリアムズ'],
+  gy: ['ガイアナ', 'ギアナ', 'ベルバイス', 'カイエトゥール'],
+  sr: ['スリナム', 'ブレダ条約', 'デ・コム'],
+  ws: ['サモア', 'マウ運動', '太平洋の島で最初の独立', '日付変更線'],
+  to: ['トンガ', 'トゥイ・トンガ', 'トゥポウ', 'サローテ', 'フレンドリー諸島'],
+  vu: ['バヌアツ', 'テオウマ', 'キロス', 'ニューヘブリディーズ', '英仏共同統治'],
+  sb: ['ソロモン', 'ガダルカナル', 'メンダーニャ'],
   jo: ['ヨルダン', 'ペトラ', 'ナバテア', 'ジェラシュ', 'カラク', 'アラブ反乱', 'メシャ'],
   ma: ['モロッコ', 'マラケシュ', 'フェズ', 'カラウィーイーン', 'ムラービト', 'ムワッヒド', 'クトゥビーヤ', 'イブン・バットゥータ', 'マウレタニア', '三王の戦い'],
   tn: ['チュニジア', 'カルタゴ', 'ケルアン', 'チュニス', 'ジャスミン革命', 'イブン・ハルドゥーン'],
@@ -122,7 +152,7 @@ const AMBIG = {
 };
 
 // AMBIG_EXTRA
-for (const pr of 'uz-ir uz-in uz-mn mm-th np-in lk-in my-id se-no dk-no se-dk se-fi hu-at cz-at cz-de be-nl be-fr ie-gb ch-at ch-de ch-fr hu-tr hu-mn fi-ru ar-cl cu-ht co-pe ar-gb nz-au nz-tr cu-us cu-es ht-fr cl-pe tn-it gh-ml ma-ml ma-es ma-tn ke-pt ke-cn jo-tr jo-sa jo-iq pk-in pk-bd bd-in af-pk af-ir af-uz kz-uz kz-mn kz-ru la-th la-vn la-kh tw-cn tw-jp sy-lb sy-il sy-jo sy-iq sy-tr lb-il lb-tn il-jo il-eg ye-sa ye-et ge-am ge-ru am-ru am-tr am-ir dz-tn dz-ma dz-fr sd-eg tz-ke cd-be ua-ru ua-pl ua-ro ro-hu bg-tr bg-gr is-no is-dk ly-it ly-tn sn-ml bg-rs rs-hr lt-pl lt-ru hr-hu hr-at hr-it rs-tr rs-at ve-co ec-co ec-pe ec-pa bo-pe bo-cl bo-cu gt-mx jm-gb pa-co pa-us pa-jm pg-au pg-jp fj-in fj-nz jm-cu jm-ht ve-es cr-ni hn-ni hn-cr hn-gt hn-mx do-ht uy-ar uy-br py-br py-ar py-uy py-bo tl-id tl-pt ao-cd ao-mz ao-na mz-zw mz-tz ug-ke ug-tz rw-cd cm-ng bj-ng bw-za bw-zw na-za ci-gh ci-ml ee-lv lv-lt ee-lt ee-ru lv-ru ee-se lv-se ee-fi lv-pl by-lt by-pl by-ru by-ua sk-cz sk-hu si-hr si-rs ba-rs ba-hr si-ba si-at ba-at al-rs cy-gr cy-tr mt-it ae-om ae-sa ae-kw om-ye om-tz kw-iq kw-sa az-am az-ge az-ir bt-np bt-in kg-kz kg-uz kg-tj tj-uz tj-af tj-ir bn-my bn-id bn-ph mz-jp'.split(' ')) {
+for (const pr of 'uz-ir uz-in uz-mn mm-th np-in lk-in my-id se-no dk-no se-dk se-fi hu-at cz-at cz-de be-nl be-fr ie-gb ch-at ch-de ch-fr hu-tr hu-mn fi-ru ar-cl cu-ht co-pe ar-gb nz-au nz-tr cu-us cu-es ht-fr cl-pe tn-it gh-ml ma-ml ma-es ma-tn ke-pt ke-cn jo-tr jo-sa jo-iq pk-in pk-bd bd-in af-pk af-ir af-uz kz-uz kz-mn kz-ru la-th la-vn la-kh tw-cn tw-jp sy-lb sy-il sy-jo sy-iq sy-tr lb-il lb-tn il-jo il-eg ye-sa ye-et ge-am ge-ru am-ru am-tr am-ir dz-tn dz-ma dz-fr sd-eg tz-ke cd-be ua-ru ua-pl ua-ro ro-hu bg-tr bg-gr is-no is-dk ly-it ly-tn sn-ml bg-rs rs-hr lt-pl lt-ru hr-hu hr-at hr-it rs-tr rs-at ve-co ec-co ec-pe ec-pa bo-pe bo-cl bo-cu gt-mx jm-gb pa-co pa-us pa-jm pg-au pg-jp fj-in fj-nz jm-cu jm-ht ve-es cr-ni hn-ni hn-cr hn-gt hn-mx do-ht uy-ar uy-br py-br py-ar py-uy py-bo tl-id tl-pt ao-cd ao-mz ao-na mz-zw mz-tz ug-ke ug-tz rw-cd cm-ng bj-ng bw-za bw-zw na-za ci-gh ci-ml ee-lv lv-lt ee-lt ee-ru lv-ru ee-se lv-se ee-fi lv-pl by-lt by-pl by-ru by-ua sk-cz sk-hu si-hr si-rs ba-rs ba-hr si-ba si-at ba-at al-rs cy-gr cy-tr mt-it ae-om ae-sa ae-kw om-ye om-tz kw-iq kw-sa az-am az-ge az-ir bt-np bt-in kg-kz kg-uz kg-tj tj-uz tj-af tj-ir bn-my bn-id bn-ph mz-jp so-dj so-et dj-et er-et zm-zw zm-mw zm-tz mr-ml mr-ma mr-sn ne-ml ne-ng td-ng td-ne td-cm td-cg gn-ml gn-sl gn-lr sl-lr lr-us cg-cd cg-ga mk-gr mk-bg mk-al me-rs me-al md-ro md-ua lu-be lu-nl tm-ir tm-uz qa-ae qa-kw sg-my sv-hn sv-gt bz-gt bz-mx bs-cu bs-do tt-gy tt-jm gy-sr gy-ve sr-nl ws-to ws-nz to-fj vu-sb vu-fj sb-pg sb-jp sg-jp'.split(' ')) {
   const [a, b] = pr.split('-');
   (AMBIG[a] = AMBIG[a] || []).push(b);
   (AMBIG[b] = AMBIG[b] || []).push(a);
@@ -252,6 +282,11 @@ export function genPerson(p, rnd = Math.random) {
     personId: p.id,
   };
 }
+
+// Countries large enough to appear on the small world map.
+let mapPool = null;
+const mapCountries = () =>
+  (mapPool = mapPool || COUNTRIES.filter((c) => c.iso.some((i) => worldFeaturesLite().byIso.has(String(i).padStart(3, '0')))));
 
 export function genMap(c, rnd = Math.random) {
   const others = COUNTRIES.filter((x) => x.id !== c.id);
@@ -470,7 +505,7 @@ function mixed(events, n, rnd, { hand = [], people = PEOPLE, map = true, order =
       const [cid, i] = handPick.pop();
       qs.push(genHand(cid, i, rnd));
     } else if (kind === 'person' && people.length) qs.push(genPerson(pick(people, rnd), rnd));
-    else if (kind === 'map' && map) qs.push(genMap(pick(COUNTRIES, rnd), rnd));
+    else if (kind === 'map' && map) qs.push(genMap(pick(mapCountries(), rnd), rnd));
     else if (kind === 'photo' && evs.some((x) => image(x.img))) {
       const pe = evs.filter((x) => image(x.img));
       qs.push(genPhoto(pick(pe, rnd), rnd));
@@ -526,7 +561,7 @@ export function buildQuiz(mode, arg, wrongIds = []) {
     case 'person':
       return sample(PEOPLE, 10, rnd).map((p) => genPerson(p, rnd));
     case 'map':
-      return sample(COUNTRIES, 10, rnd).map((c) => genMap(c, rnd));
+      return sample(mapCountries(), 10, rnd).map((c) => genMap(c, rnd));
     case 'photo':
       return shuffle([...sample(photoEvents(), 6, rnd).map((e) => genPhoto(e, rnd)), ...sample(photoLandmarks(), 4, rnd).map((m) => genLandmark(m, rnd))], rnd);
     case 'term':

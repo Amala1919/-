@@ -16,5 +16,7 @@ import asia4 from './people-more4-asia4.js';
 import eur4 from './people-more4-eur4.js';
 import afr4 from './people-more4-afr4.js';
 import amer4 from './people-more4-amer4.js';
+import afr5 from './people-more5-afr5.js';
+import misc5 from './people-more5-misc5.js';
 
-export const MORE_PEOPLE = [...asia, ...africa, ...europe, ...america, ...asia2, ...mideast2, ...afreu2, ...amer2, ...jp3, ...asia3, ...amer3, ...eur3, ...mea3, ...asia4, ...eur4, ...afr4, ...amer4];
+export const MORE_PEOPLE = [...asia, ...africa, ...europe, ...america, ...asia2, ...mideast2, ...afreu2, ...amer2, ...jp3, ...asia3, ...amer3, ...eur3, ...mea3, ...asia4, ...eur4, ...afr4, ...amer4, ...afr5, ...misc5];

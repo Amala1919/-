@@ -55,6 +55,7 @@ export default function country(root, { id }) {
   </div>
   <section class="pad">
     <p class="lead">${linkify(c.intro, { exclude: [`country:${id}`] })}</p>
+    ${id === 'jp' ? `<button class="jp-cta" data-go="/japan"><span>🗾</span><span><b>都道府県から見る日本史</b><small>47都道府県それぞれの歴史の舞台・ゆかりの人物</small></span><span class="model-cta-go">›</span></button>` : ''}
     <button class="story-cta" data-go="/story/country/${id}"><span>📽️</span><span><b>ストーリーで見る</b><small>${c.events.length}枚の紙芝居・自動ナレーション付き</small></span><span class="model-cta-go">›</span></button>
     <button class="btn-pill" data-act="speak">🔊 読み上げ</button>
     <dl class="facts">${c.facts.map((f) => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join('')}</dl>
