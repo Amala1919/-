@@ -12,3 +12,4 @@ android/build/
 android/local.properties
 .idea/
 *.iml
+dist/*.apk
