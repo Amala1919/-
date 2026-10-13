@@ -9,6 +9,8 @@ jobs:
   # Same command-line build used to produce dist/ChronoAtlas.apk
   cli:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,6 +27,18 @@ jobs:
         with:
           name: ChronoAtlas-apk
           path: dist/ChronoAtlas.apk
+      # Always-up-to-date download link: .../releases/latest/download/ChronoAtlas.apk
+      - name: Publish APK as a GitHub Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-latest
+          name: クロノアトラス 最新版 APK
+          make_latest: true
+          files: dist/ChronoAtlas.apk
+          body: |
+            Android 用 APK（最新のコミットから自動でビルドされます）。
+            スマホで ChronoAtlas.apk をダウンロードして開くとインストールできます。
 
   # Standard Android Studio / Gradle build
   gradle:

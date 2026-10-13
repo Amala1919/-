@@ -7,7 +7,7 @@
 
 ## インストール（Android）
 
-1. このリポジトリの [`dist/ChronoAtlas.apk`](dist/ChronoAtlas.apk) をスマホでダウンロード
+1. スマホで **[最新版 APK をダウンロード](https://github.com/Amala1919/-/releases/latest/download/ChronoAtlas.apk)**（GitHub Actions が自動でビルドして Releases に置きます。リポジトリ内の [`dist/ChronoAtlas.apk`](dist/ChronoAtlas.apk) も同じものです）
 2. 開いてインストール（初回は「提供元不明のアプリ」のインストール許可を求められます）
 3. ホーム画面の「クロノアトラス」をタップ
 
