@@ -1,4 +1,4 @@
-# 2240/2387 images available
+# 2209/2356 images available
 LICENSE_SKIPPED	Ali Abdullah Saleh	Nicole_Fontaine_and_Ali_Abdullah_Saleh,_2000_(1)_(cropped2).jpg	European Parliament
 LICENSE_SKIPPED	Ismaïl Omar Guelleh	Ismail_Omar_Guelleh_2018.jpg	GODL-India
 LICENSE_SKIPPED	Jigme Singye Wangchuck	Jigme_Singye_Wangchuck_on_November_12,_2025_(cropped).jpg	GODL-India
