@@ -27,18 +27,39 @@ jobs:
         with:
           name: ChronoAtlas-apk
           path: dist/ChronoAtlas.apk
-      # Always-up-to-date download link: .../releases/latest/download/ChronoAtlas.apk
-      - name: Publish APK as a GitHub Release
+      # One release per app version (never overwritten, so a download in progress can't break).
+      # Stable link to the newest one: .../releases/latest/download/ChronoAtlas.apk
+      - name: Read app version
         if: github.event_name == 'push'
+        id: ver
+        run: echo "name=$(grep -oP 'versionName = "\K[^"]+' android/app/build.gradle.kts)" >> "$GITHUB_OUTPUT"
+      - name: Check whether this version is already released
+        if: github.event_name == 'push'
+        id: exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "v${{ steps.ver.outputs.name }}" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "yes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "yes=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish APK as a GitHub Release
+        if: github.event_name == 'push' && steps.exists.outputs.yes == 'false'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: apk-latest
-          name: クロノアトラス 最新版 APK
+          tag_name: v${{ steps.ver.outputs.name }}
+          name: クロノアトラス ${{ steps.ver.outputs.name }}
           make_latest: true
           files: dist/ChronoAtlas.apk
           body: |
-            Android 用 APK（最新のコミットから自動でビルドされます）。
-            スマホで ChronoAtlas.apk をダウンロードして開くとインストールできます。
+            Android 用 APK です。スマホで ChronoAtlas.apk をダウンロードして開くとインストールできます。
+            高画質の写真はインターネット接続時に読み込みます（オフラインでは小さい写真を表示）。
+      - name: Remove the old auto-updated release
+        if: github.event_name == 'push' && steps.exists.outputs.yes == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete apk-latest --repo "${{ github.repository }}" --yes --cleanup-tag || true
 
   # Standard Android Studio / Gradle build
   gradle:

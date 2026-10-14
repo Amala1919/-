@@ -7,12 +7,12 @@
 
 ## インストール（Android）
 
-1. スマホで **[最新版 APK をダウンロード](https://github.com/Amala1919/-/releases/latest/download/ChronoAtlas.apk)**（GitHub Actions がコミットのたびに自動でビルドして [Releases](https://github.com/Amala1919/-/releases/tag/apk-latest) に置きます）
+1. スマホで **[最新版 APK をダウンロード](https://github.com/Amala1919/-/releases/latest/download/ChronoAtlas.apk)**（約 22MB。バージョンごとに GitHub Actions が自動でビルドして [Releases](https://github.com/Amala1919/-/releases) に置きます）
 2. 開いてインストール（初回は「提供元不明のアプリ」のインストール許可を求められます）
 3. ホーム画面の「クロノアトラス」をタップ
 
 - 対応: Android 7.0 以上（3D 表示には WebGL 対応端末が必要。ほぼすべての端末が対応）
-- インターネット接続は不要です（写真を含むすべてのデータをアプリ内に収録。APK は約 95MB）
+- 基本的にインターネット接続なしで使えます（文章・地図・小さい写真はすべてアプリ内に収録）。高画質の写真はインターネット接続時に読み込み、オフラインでは小さい写真を表示します。
 
 ## 主な機能
 

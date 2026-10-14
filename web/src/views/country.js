@@ -47,7 +47,7 @@ export default function country(root, { id }) {
 
   root.innerHTML = `
   <div class="country-hero ${image(c.img) ? 'has-photo' : ''}" style="--c:${c.color};--ca:${alpha(c.color, 0.35)}">
-    ${image(c.img) ? `<div class="ch-photo" style="background-image:url('${image(c.img).src}')" data-photo="${esc(c.img)}"></div><div class="ch-credit">📷 ${esc(image(c.img).artist || '')} / ${esc(image(c.img).license)}</div>` : ''}
+    ${image(c.img) ? `<div class="ch-photo" style="background-image:url('${image(c.img).src}'), url('${image(c.img).thumb}')" data-photo="${esc(c.img)}"></div><div class="ch-credit">📷 ${esc(image(c.img).artist || '')} / ${esc(image(c.img).license)}</div>` : ''}
     <button class="back-btn" data-back aria-label="戻る">‹</button>
     <div class="ch-shape">${countryShapeSVG(id, { size: 170 })}</div>
     <div class="ch-locator">${locatorSVG(id, 84)}</div>

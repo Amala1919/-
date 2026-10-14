@@ -10,7 +10,9 @@ const serve = process.argv.includes('--serve');
 
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
-cpSync(resolve(here, 'public'), out, { recursive: true });
+// Full-size photos stay in the repository (loaded online); only the small versions go into the app.
+const bundled = (src) => !/[\\/]img[\\/][0-9a-z]+\.jpg$/.test(src);
+cpSync(resolve(here, 'public'), out, { recursive: true, filter: bundled });
 
 const options = {
   entryPoints: { app: resolve(here, 'src/main.js') },

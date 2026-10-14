@@ -5,7 +5,7 @@ import { toast, confetti, hasSheet, closeSheet, closeAllSheets, openSheet } from
 import { sfx } from './audio.js';
 import { stopSpeaking } from './native.js';
 import { stopActiveStage } from './three/stage.js';
-import { openLightbox } from './images.js';
+import { openLightbox, installImageFallback } from './images.js';
 import { LANDMARKS } from './data/landmarks.js';
 import { MODES } from './quiz/engine.js';
 import { COUNTRIES, EVENTS } from './data/index.js';
@@ -64,6 +64,8 @@ const TABS = [
   { id: 'quiz', icon: '❓', label: 'クイズ', path: '/quiz', match: ['/quiz'] },
 ];
 const TAB_ROOTS = TABS.map((t) => t.path);
+
+installImageFallback();
 
 const app = document.getElementById('app');
 app.innerHTML = `<main id="main"></main>
