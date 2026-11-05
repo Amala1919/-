@@ -166,6 +166,9 @@ export function mountGlobe(container, { onSelect, onPick, labels = true } = {}) 
     pins.set(ct.id, { grp, head, ring, base: 1, pos, active: true, ct });
   }
 
+  // Label priority: countries with events in the selected time first.
+  let pinOrder = [...pins.entries()];
+
   // DOM labels
   const layer = document.createElement('div');
   layer.className = 'globe-labels';
@@ -228,7 +231,9 @@ export function mountGlobe(container, { onSelect, onPick, labels = true } = {}) 
       }
       controls.update();
       camDir.copy(camera.position).normalize();
-      for (const [id, p] of pins) {
+      const pinBoxes = [];
+      const pinNames = new Set();
+      for (const [id, p] of pinOrder) {
         p.grp.visible = pinsOn;
         const pulse = p.active ? 1 + Math.sin(t * 3 + p.pos.x * 5) * 0.15 : 1;
         p.head.scale.setScalar(p.base * pulse);
@@ -246,18 +251,28 @@ export function mountGlobe(container, { onSelect, onPick, labels = true } = {}) 
         const vis = facing > 0.25;
         el.style.display = vis ? '' : 'none';
         if (vis) {
-          el.style.transform = `translate(${((v.x + 1) / 2) * W}px, ${((1 - v.y) / 2) * H}px) translate(-50%, -130%)`;
+          const lx = ((v.x + 1) / 2) * W;
+          const ly = ((1 - v.y) / 2) * H;
+          const hw = (el.textContent.length * 11 + 22) / 2;
+          const box = [lx - hw, ly - 30, lx + hw, ly - 6];
+          if (pinBoxes.some((b) => b[0] < box[2] && box[0] < b[2] && b[1] < box[3] && box[1] < b[3])) {
+            el.style.display = 'none';
+            continue;
+          }
+          pinBoxes.push(box);
+          pinNames.add(el.textContent.trim());
+          el.style.transform = `translate(${lx}px, ${ly}px) translate(-50%, -130%)`;
           el.style.opacity = String(Math.min(1, (facing - 0.25) * 3) * (p.active ? 1 : 0.35));
           el.classList.toggle('dim', !p.active);
         }
       }
       // Historical names: biggest first, skip ones that would overlap.
       if (histLabels.length) {
-        const boxes = [];
+        const boxes = pinBoxes;
         for (const L of histLabels) {
           v.copy(L.pos).applyMatrix4(world.matrixWorld);
           const facing = v.clone().normalize().dot(camDir);
-          if (!histNamesOn || facing < 0.2) {
+          if (!histNamesOn || facing < 0.2 || pinNames.has(L.el.textContent)) {
             L.el.style.display = 'none';
             continue;
           }
@@ -341,6 +356,7 @@ export function mountGlobe(container, { onSelect, onPick, labels = true } = {}) 
         p.base = p.active ? 1.25 : 0.6;
         p.head.material.color.set(p.active ? p.ct.color : '#8a93a6');
       }
+      pinOrder = [...pins.entries()].sort((a, b) => b[1].active - a[1].active);
     },
     focus(id) {
       const p = pins.get(id);
