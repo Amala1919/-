@@ -95,13 +95,23 @@ def file_infos(files):
             'action': 'query', 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size|mime',
             'iiurlwidth': 960, 'redirects': 1, 'titles': '|'.join('File:' + f for f in batch),
         }).get('query', {})
-        alias = {n['to']: n['from'] for n in data.get('normalized', [])}
+        # Map every requested spelling (normalized / redirected) back to the page it resolved to.
+        back = {}
+        for n in data.get('normalized', []) + data.get('redirects', []):
+            back.setdefault(n['to'], []).append(n['from'])
         for p in data.get('pages', []):
             if p.get('missing') or not p.get('imageinfo'):
                 continue
-            name = alias.get(p['title'], p['title'])
-            out[name.removeprefix('File:').replace(' ', '_')] = p['imageinfo'][0]
-            out[name.removeprefix('File:')] = p['imageinfo'][0]
+            names, stack = set(), [p['title']]
+            while stack:
+                t = stack.pop()
+                if t in names:
+                    continue
+                names.add(t)
+                stack.extend(back.get(t, []))
+            for name in names:
+                out[name.removeprefix('File:').replace(' ', '_')] = p['imageinfo'][0]
+                out[name.removeprefix('File:')] = p['imageinfo'][0]
         time.sleep(0.5)
     return out
 
