@@ -1,6 +1,7 @@
 import { ERAS, ERA_BY_ID, eraOfYear } from './eras.js';
 import { PEOPLE, PERSON_BY_ID } from './people.js';
 import { EVENT_IMG, PERSON_IMG, COUNTRY_IMG } from './wiki.js';
+import JP2_LINKS from './people-jp2-links.js';
 import jp from './countries/jp.js';
 import cn from './countries/cn.js';
 import kr from './countries/kr.js';
@@ -209,6 +210,12 @@ EVENTS.sort((a, b) => a.year - b.year);
 export const EVENT_BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
 
 for (const c of COUNTRIES) c.img = c.img || COUNTRY_IMG[c.id] || null;
+
+// Extra person ↔ event links kept in a separate file (people added later).
+for (const [title, ids] of JP2_LINKS.events) {
+  const e = COUNTRY_BY_ID.jp.events.find((x) => x.title === title);
+  if (e) for (const id of ids) if (!e.people.includes(id)) e.people.push(id);
+}
 
 // Reverse index: person -> events
 for (const p of PEOPLE) {

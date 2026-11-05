@@ -5,6 +5,8 @@ import { createStage, getRenderer } from './stage.js';
 import { worldFeatures } from '../components/geo.js';
 import { COUNTRIES } from '../data/index.js';
 import { drawHistorical, histIndex, histName, loadSnapshot, polityAt, snapshotFor } from './histmap.js';
+import { flagAt, nameAt } from '../data/periods.js';
+import { esc } from '../util.js';
 
 const DEG = Math.PI / 180;
 
@@ -375,6 +377,19 @@ export function mountGlobe(container, { onSelect, onPick, labels = true } = {}) 
     },
     setPins(on) {
       pinsOn = on;
+    },
+    /** Pin labels show the name and flag of that time (null = present day). */
+    setLabelYear(year) {
+      for (const ct of COUNTRIES) {
+        const el = labelEls.get(ct.id);
+        if (!el) continue;
+        if (year == null) {
+          el.innerHTML = `<span>${ct.flag}</span>${esc(ct.name.replace(/（.*）/, ''))}`;
+        } else {
+          const f = flagAt(ct.id, year);
+          el.innerHTML = `${f ? `<span>${f}</span>` : ''}${esc(nameAt(ct.id, year))}`;
+        }
+      }
     },
     setHistNames(on) {
       histNamesOn = on;

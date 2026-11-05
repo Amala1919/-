@@ -17,9 +17,11 @@ import { themesOfEvent } from '../data/theme-index.js';
 import '../data/deep-index.js';
 import BIOS1 from '../data/bios.js';
 import BIOS2 from '../data/bios2.js';
+import BIOS3 from '../data/bios-jp2.js';
 
-const BIOS = { ...BIOS1, ...BIOS2 };
+const BIOS = { ...BIOS1, ...BIOS2, ...BIOS3 };
 import { TERM_BY_ID, termsOfEvent } from '../data/glossary-index.js';
+import { badgeAt, nameAt } from '../data/periods.js';
 import { prefsOfPerson, prefsOfEvent } from '../data/pref-index.js';
 
 function deepHTML(e, c) {
@@ -117,7 +119,7 @@ function eventHTML(e) {
   <div class="ev-hero" style="--era:${era.color};--era-a:${alpha(era.color, 0.35)}">
     <div class="ev-hero-emoji">${e.emoji}</div>
     <div class="ev-hero-meta">
-      <button class="chip chip-flag" data-country="${c.id}">${c.flag} ${esc(c.name)}</button>
+      <button class="chip chip-flag" data-country="${c.id}">${badgeAt(c.id, e.year)}${nameAt(c.id, e.year) !== c.name.replace(/（.*）/, '') ? `<small class="now-name">（現在の${esc(c.name.replace(/（.*）/, ''))}）</small>` : ''}</button>
       <button class="chip" data-era="${era.id}" style="background:${alpha(era.color, 0.3)}">${era.emoji} ${era.name}</button>
     </div>
     <div class="ev-year">${formatYear(e.year, e.approx)}</div>

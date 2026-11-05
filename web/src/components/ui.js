@@ -1,3 +1,4 @@
+import { flagAt, nameAt } from '../data/periods.js';
 import { esc, shortYear, formatYear, alpha } from '../util.js';
 import { COUNTRY_BY_ID, ERA_BY_ID } from '../data/index.js';
 import { store } from '../store.js';
@@ -129,6 +130,12 @@ export function flag(countryId) {
   return COUNTRY_BY_ID[countryId]?.flag || '🏳️';
 }
 
+// Flag of the time when there was one, otherwise the name of the land at that time.
+function eraTag(cid, year) {
+  const f = flagAt(cid, year);
+  return f ? `<span class="ec-flag" title="${esc(nameAt(cid, year))}">${f}</span>` : `<span class="ec-polity">${esc(nameAt(cid, year))}</span>`;
+}
+
 export function eventCard(e, { showCountry = true, compact = false } = {}) {
   const era = ERA_BY_ID[e.era];
   const c = COUNTRY_BY_ID[e.country];
@@ -139,7 +146,7 @@ export function eventCard(e, { showCountry = true, compact = false } = {}) {
       return img ? `<span class="ec-emoji ec-photo" style="background-image:url('${img.thumb}')"><i>${e.emoji}</i></span>` : `<span class="ec-emoji">${e.emoji}</span>`;
     })()}
     <span class="ec-main">
-      <span class="ec-meta">${showCountry ? `<span class="ec-flag">${c.flag}</span>` : ''}<span class="ec-year">${shortYear(e.year)}${e.approx ? '頃' : ''}</span>${e.model ? '<span class="ec-chip">名所</span>' : ''}</span>
+      <span class="ec-meta">${showCountry ? eraTag(c.id, e.year) : ''}<span class="ec-year">${shortYear(e.year)}${e.approx ? '頃' : ''}</span>${e.model ? '<span class="ec-chip">名所</span>' : ''}</span>
       <span class="ec-title">${esc(e.title)}</span>
       ${compact ? '' : `<span class="ec-sum">${esc(e.summary)}</span>`}
     </span>

@@ -143,7 +143,9 @@ def main():
             if k not in credits or not os.path.exists(os.path.join(IMG_DIR, f'{k}.jpg'))}
     print(f'{len(wanted)} titles, {len(todo)} to fetch')
     report = []
-    leads = lead_images(list(todo.values()))
+    # Titles written as 'File:Name.ext' (e.g. historical flags) name a Commons file directly.
+    leads = lead_images([t for t in todo.values() if not t.startswith('File:')])
+    leads.update({t: t[5:] for t in todo.values() if t.startswith('File:')})
     infos = file_infos(list(leads.values()))
     for key, title in sorted(todo.items(), key=lambda kv: kv[1]):
         fname = leads.get(title)

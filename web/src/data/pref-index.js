@@ -1,9 +1,12 @@
 // 都道府県から見る日本史
 import PREFS from './prefectures.js';
 import { COUNTRY_BY_ID, PERSON_BY_ID } from './index.js';
+import JP2_LINKS from './people-jp2-links.js';
 
 export const PREF_REGIONS = ['北海道', '東北', '関東', '中部', '近畿', '中国', '四国', '九州・沖縄'];
+const extra = Object.fromEntries(JP2_LINKS.prefectures || []);
 for (const p of PREFS) {
+  p.famous = [...(p.famous || []), ...(extra[p.id] || [])];
   for (const s of p.spots) {
     s.ev = s.event ? COUNTRY_BY_ID[s.event[0]]?.events.find((e) => e.title === s.event[1]) || null : null;
     s.people = (s.people || []).filter((id) => PERSON_BY_ID[id]);

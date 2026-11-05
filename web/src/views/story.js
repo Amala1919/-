@@ -1,4 +1,5 @@
 // ストーリーモード: 国や時代の歴史を紙芝居のように1枚ずつ（自動ナレーション付き）で見る。
+import { badgeAt } from '../data/periods.js';
 import { linkify } from '../components/linkify.js';
 import { COUNTRY_BY_ID, ERA_BY_ID, eventsInEra } from '../data/index.js';
 import { countryShapeSVG } from '../components/geo.js';
@@ -81,7 +82,7 @@ export default function story(root, { kind, id }) {
       const c = COUNTRY_BY_ID[e.country];
       store.markRead(e.id);
       html = `<div class="st-slide ev" style="--e:${era.color};--ea:${alpha(era.color, 0.35)}">
-        <div class="st-era">${era.emoji} ${era.name}　${kind === 'era' ? `${c.flag} ${esc(c.name)}` : ''}</div>
+        <div class="st-era">${era.emoji} ${era.name}　${kind === 'era' ? badgeAt(c.id, e.year) : ''}</div>
         ${photoFigure(e.img, { cls: 'st-photo' }) || `<div class="st-emoji">${e.emoji}</div>`}
         <div class="st-year">${formatYear(e.year, e.approx)}</div>
         <h2>${esc(e.title)}</h2>

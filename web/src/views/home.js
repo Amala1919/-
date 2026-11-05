@@ -161,6 +161,7 @@ export default function home(root) {
     clearTimeout(mapTimer);
     if (pop) pop.hidden = true;
     mapTimer = setTimeout(() => {
+      globe.setLabelYear(year);
       globe
         .setYear(year)
         .then((snap) => {
