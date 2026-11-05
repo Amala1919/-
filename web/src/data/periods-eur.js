@@ -26,7 +26,7 @@ export default {
     { from: -27, to: 476, name: 'ローマ帝国' },
     { from: 476, to: 962, name: 'ゲルマン系諸王国' },
     { from: 962, to: 1861, name: 'イタリア諸国' },
-    { from: 1861, to: 1946, name: 'イタリア王国', flagFile: 'File:Flag of the Kingdom of Italy (1861–1946).svg' },
+    { from: 1861, to: 1946, name: 'イタリア王国', flagFile: 'File:Flag of Italy (1861–1946).svg' },
     { from: 1946, to: 9999, name: 'イタリア', flag: '🇮🇹' },
   ],
   mt: [

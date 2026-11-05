@@ -155,7 +155,7 @@ export default {
   br: [
     { from: S, to: 1500, name: '先住民の大地' },
     { from: 1500, to: 1822, name: 'ポルトガル領ブラジル' },
-    { from: 1822, to: 1889, name: 'ブラジル帝国', flagFile: 'File:Flag of the Empire of Brazil (1870–1889).svg' },
+    { from: 1822, to: 1889, name: 'ブラジル帝国', flagFile: 'File:Flag of Empire of Brazil (1870-1889).svg' },
     { from: 1889, to: E, name: 'ブラジル', flag: '🇧🇷' },
   ],
   pe: [
