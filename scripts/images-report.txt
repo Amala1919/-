@@ -1,4 +1,4 @@
-# 2298/2450 images available
+# 2303/2450 images available
 LICENSE_SKIPPED	Ali Abdullah Saleh	Nicole_Fontaine_and_Ali_Abdullah_Saleh,_2000_(1)_(cropped2).jpg	European Parliament
 LICENSE_SKIPPED	Ismaïl Omar Guelleh	Ismail_Omar_Guelleh_2018.jpg	GODL-India
 LICENSE_SKIPPED	Jigme Singye Wangchuck	Jigme_Singye_Wangchuck_on_November_12,_2025_(cropped).jpg	GODL-India
@@ -12,11 +12,6 @@ NOT_ON_COMMONS	Apia	WS-apia-regierg.jpg
 NOT_ON_COMMONS	Basilica of Our Lady of Peace of Yamoussoukro	Notre_dame_de_la_paix_yamoussoukro_by_felix_krohn.jpg
 NOT_ON_COMMONS	Bloody Sunday (1905)	Gapon_crowd_1905.jpg
 NOT_ON_COMMONS	EDSA Shrine	Ph-mm-quezon_city-edsa-ortigas_ave.-ortigas_center-edsa_shrine_(2015)_01.JPG
-NOT_ON_COMMONS	File:Flag of the Empire of Brazil (1870–1889).svg	Flag of the Empire of Brazil (1870–1889).svg
-NOT_ON_COMMONS	File:Flag of the Kingdom of Italy (1861–1946).svg	Flag of the Kingdom of Italy (1861–1946).svg
-NOT_ON_COMMONS	File:Flag of the Korean Empire.svg	Flag of the Korean Empire.svg
-NOT_ON_COMMONS	File:Flag of the Qing dynasty (1889–1912).svg	Flag of the Qing dynasty (1889–1912).svg
-NOT_ON_COMMONS	File:Flag of the Republic of China (1912–1928).svg	Flag of the Republic of China (1912–1928).svg
 NOT_ON_COMMONS	Flame Towers	Flame_towers_baku.jpg
 NOT_ON_COMMONS	Gëlle Fra	Gëlle_Fra_whole_1.jpg
 NOT_ON_COMMONS	Kuwait Towers	Kuwait_Towers_RB.jpg
